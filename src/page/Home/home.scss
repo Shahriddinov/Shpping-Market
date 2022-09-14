@@ -1,0 +1,45 @@
+.home{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  .homeLogo{
+    position: relative;
+    top:73px;
+    object-position: 0 10px;
+    object-fit: cover;
+  }
+  .homeTitle{
+    position: absolute;
+    top: 45%;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 150%;
+    padding:0  5%;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  .buttons{
+
+    display: flex;
+    position: absolute;
+    top: 65%;
+    .homeButton{
+      //position: absolute;
+      //top: 65%;
+      border: 2px solid #FFFFFF;
+      border-radius: 10px;
+      width: 370px;
+      height: 80px;
+      background-color: initial;
+      font-weight: 700;
+      font-size: 35px;
+      line-height: 150%;
+      color: #fff;
+      margin: 0 10px;
+    }
+  }
+
+}

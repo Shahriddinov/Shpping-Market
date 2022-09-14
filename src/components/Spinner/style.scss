@@ -1,0 +1,86 @@
+.spinner-wrap {
+	width: 100%;
+	display: flex;
+	align-items: center;
+
+	&.full {
+		justify-content: center;
+		height: 100vh;
+		width: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 10;
+		background-color: rgba(255, 255, 255, 0.7);
+	}
+
+	&.absolute {
+		position: absolute;
+		left: 0;
+		top: 0;
+		justify-content: center;
+		height: 100%;
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+
+	&.center {
+		justify-content: center;
+	}
+
+	&.end {
+		justify-content: flex-end;
+	}
+
+	&.start {
+		justify-content: flex-start;
+	}
+
+	&.md {
+		.spinner {
+			width: 35px;
+			height: 35px;
+		}
+	}
+}
+
+.spinner {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border: 3px solid rgba(#ff675d, 0.2);
+	border-radius: 50%;
+	border-top-color: var(--orange);
+	animation: spin 1s ease-in-out infinite;
+	-webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes spin {
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+.profile-bar__banner {
+	position: relative;
+	.edit-icon {
+		border: 1px solid #ececec;
+		width: 35px;
+		height: 35px;
+		content: "";
+		background-color: #ffffff;
+		border-radius: 100px;
+		// background-image: url("../../assets/images/icons/edit.svg");
+		background-position: center;
+		background-repeat: no-repeat;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		z-index: 2;
+	}
+}

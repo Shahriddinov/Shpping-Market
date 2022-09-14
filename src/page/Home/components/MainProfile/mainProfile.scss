@@ -1,0 +1,123 @@
+@import "./src/assets/ui";
+
+.mainProfile {
+  color: black;
+  margin-top: 65px;
+
+  .container {
+    .item {
+      font-weight: 700;
+      font-size: 35px;
+      line-height: 41px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.02em;
+    }
+
+    .profileImg {
+      width: 786px!important;
+
+    }
+
+    .profileButton {
+      display: flex;
+      align-items: center;
+      padding: 8px 20px;
+      margin-top: 8px;
+      margin-left: 24px;
+      background: #FFFFFF;
+      border: 0.5px solid #2B63C0;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      &:focus{
+        border: 0;
+      }
+      .icon {
+        color: $colorBlue
+      }
+      .profileTitle{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 150%;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.02em;
+        color: $colorBlue;
+      }
+    }
+
+
+    .infoText{
+      padding: 15px 20px;
+      font-weight: 500;
+      border: 0.5px solid $colorBlue;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      margin-top: 20px;
+      margin-left: 20px;
+      font-size: 15px;
+      line-height: 150%;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.02em;
+      color: #000000;
+    }
+    .infoTexts{
+      padding: 15px 20px;
+      font-weight: 500;
+      background-color:  $colorBlue;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      margin-top: 20px;
+      margin-left: 20px;
+      font-size: 15px;
+      line-height: 150%;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.02em;
+      color: white;
+    }
+    .profileImgs{
+      margin-top: -20%;
+      margin-left: 13%;
+    }
+    .profileButtons{
+      margin-top: -15%;
+      width: 300px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px;
+      background: #FFFFFF;
+      border: 0.5px solid #2B63C0;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      color: $colorBlue;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 150%;
+      letter-spacing: 0.02em;
+      margin-left: 24px;
+    }
+    .profileList{
+      margin-top: 24px;
+      width: 360px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 34px 15px;
+      background: #FFFFFF;
+      border: 0.5px solid #2B63C0;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      color: $colorBlack;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 150%;
+      letter-spacing: 0.02em;
+      margin-left: 24px;
+    }
+  }
+}

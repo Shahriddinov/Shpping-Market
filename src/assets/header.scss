@@ -1,0 +1,52 @@
+@import "ui";
+.navbar{
+  background: linear-gradient(to top, transparent 0%, #ffff 10%);
+  color: $colorMain;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+
+  .container{
+
+
+    .left{
+      display: flex;
+      align-items: center;
+
+      .logo{
+        width: 66px;
+        height: 66px;
+        object-fit: cover;
+      }
+      .logoText{
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 150%;
+        letter-spacing: 0.02em;
+        width: 323px;
+        margin-left: 20px;
+        color:$colorBlack;
+      }
+    }
+    .right{
+      display: flex;
+      align-items: center;
+      margin: 0;
+      .flagButton{
+        display: flex;
+        align-items: center;
+        border: none;
+        background: inherit;
+        color: $colorBlue;
+        .iconFlag{
+          width: 20px;
+          height: 20px;
+          object-fit: fill;
+          margin: 0 10px;
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.footer{
+  height: 285px;
+  background-color: #292A2F;
+  margin-top: 50px;
+  .container{
+    display: flex;
+
+    .col-md-6{
+      margin-top: 53px;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      .footerLogos{
+        display: flex;
+        align-items: center;
+        .footerTitle{
+          font-weight: 700;
+          font-size: 17px;
+          margin-left: 20px;
+          line-height: 150%;
+          letter-spacing: 0.02em;
+          width: 352px;
+        }
+      }
+      .hr{
+        width: 75%;
+        margin-top: 40px;
+        margin-bottom: 15px;
+      }
+      .footerYear{
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 150%;
+        letter-spacing: 0.02em;
+        color: #878787;
+      }
+
+
+
+      .footerConnect{
+        width: 38%;
+        .connectTitle{
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 23px;
+          letter-spacing: 0.01em;
+          color: #FFA41D;
+        }
+        .connectText{
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+          color: white;
+          margin-top: 10px;
+          cursor: pointer;
+        }
+      }
+      .footerInfo{
+        width: 35%;
+        .infoTitle{
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 23px;
+          letter-spacing: 0.01em;
+          color: #FFA41D;
+          padding-left: 10px;
+        }
+        .infoText{
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+          color: white;
+          margin-top: 10px;
+          padding-left: 10px;
+          cursor: pointer;
+        }
+
+      }
+      .footerApp{
+        img{
+          margin-top: -15px;
+        }
+      }
+    }
+  }
+}
