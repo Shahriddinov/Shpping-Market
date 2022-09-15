@@ -6,7 +6,7 @@ import MainProfile from "./components/MainProfile/mainProfile";
 import Layout from "../../components/Layout/Layout";
 import {Link} from "react-router-dom";
 
-const Home = () => {
+const Home = ({noneRegister, setNoneRegister}) => {
     const {t} = useTranslation();
 
 
@@ -22,7 +22,9 @@ const Home = () => {
                         <Link to="/register">
                         <button className="homeButton">{t("loginIn")}</button>
                         </Link>
+                        <Link to="/userInfo">
                             <button type="submit" className="homeButton">{t("welcome")}</button>
+                        </Link>
                     </div>
                 </div>
                 <MainProfile/>

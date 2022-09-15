@@ -23,6 +23,7 @@
   "gallery" : "Galeriya",
   "portfolio" : "Portfel",
   "login" : "Kirish",
-  "setting" : "Sozlamalar"
-
+  "setting" : "Sozlamalar",
+  "comeSystem": "Kirish",
+  "using": "foydalanish shartlari"
 }

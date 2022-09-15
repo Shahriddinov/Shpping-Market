@@ -1,14 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import LoginImg from "../../assets/images/loginImg.svg";
 import Logo from "../../assets/images/logo.svg";
 import "./loginUp.scss"
 import Google from "../../assets/images/google.svg";
 import EmailIcon from "@mui/icons-material/Email";
 import {Link} from "react-router-dom";
+import {useNavigate} from "react-router";
 
 
 const LoginUp = () => {
-    return (
+    const navigate = useNavigate();
+    const onClick = () => {
+        setTimeout(() => {
+            navigate("/");
+        }, 2000);
+    };
+        return (
         <div className="loginUp">
             <div className="left">
                 <div className="lgBlur"></div>
@@ -22,8 +29,40 @@ const LoginUp = () => {
                         <div className="form-group">
                             <label className="label">Имя *</label>
                             <input type="name" placeholder="Aliboy" className="InputName"/>
-                            
                         </div>
+                        <div className="d-flex">
+                            <div className="form-group">
+                                <label className="label m-lg-2">Фамилия *</label>
+                                <input type="username" placeholder="Aliyev" className="InputInfo"/>
+                            </div>
+                            <div className="form-group">
+                                <label className="label  m-lg-2">Отчество *</label>
+                                <input type="username" placeholder="Aliyev" className="InputInfo"/>
+                            </div>
+
+                        </div>
+                        <div className="form-group">
+                            <label className="label mt-1">Логин *</label>
+                            <input type="name" placeholder="login" className="InputName"/>
+                        </div>
+                        <div className="form-group">
+                            <label className="label mt-1">Пароль *</label>
+                            <input type="text" placeholder="Parol" className="InputName"/>
+                        </div>
+                        <div className="form-group">
+                            <label className="label mt-1">Повторный пароль *</label>
+                            <input type="text" placeholder="Again parol" className="InputName"/>
+                        </div>
+                        <div className="d-flex align-items-center" style={{marginLeft: "-26%", marginTop: "15px", cursor:"pointer"}}>
+                            <label className="switch">
+                                <input type="checkbox"/>
+                                    <span className="slider"></span>
+                            </label>
+                            <div className="radioText" >
+                                Я согласен с политикой конфедициальности
+                            </div>
+                        </div>
+                        <button type="submit" onClick={onClick}  className="save">Сохранить</button>
                     </div>
                 </div>
             </div>

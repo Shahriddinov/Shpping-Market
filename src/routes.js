@@ -7,12 +7,14 @@ import Layout from "./components/Layout/Layout";
 const Home = lazy(() => import("./page/Home/Home"));
 const LoginIn = lazy(()=> import("./page/Login"));
 const LoginUp = lazy(()=> import("./page/Login/LoginUp"))
+const userInfo = lazy(()=>import("./page/comeSystem/comeSystem"))
 const NotFound = lazy(() => import("./page/404"));
 
 
 const routes = [
     {path: "/register", element: LoginIn},
     {path: "/login", element: LoginUp},
+    {path: "/userInfo", element: userInfo},
     {path: "", element: Home},
 ]
 const RoutesContainer = () => (

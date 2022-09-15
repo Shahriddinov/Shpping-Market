@@ -1,0 +1,125 @@
+@import "./src/assets/ui";
+
+#components-layout-demo-side .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+.ant-menu-root.ant-menu-inline{
+  background:  #0C2556!important;
+}
+.ant-layout-sider-children{
+  background:  #0C2556!important;
+
+}
+.ant-menu-dark .ant-menu-inline.ant-menu-sub{
+  background:  #0C2556!important;
+
+}
+.ant-menu.ant-menu-dark .ant-menu-item-active{
+  background: #243B67!important;
+}
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .name{
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+      margin-left: -2rem;
+
+    }
+    .jobTitle{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+  .right{
+    display: flex;
+    align-items: center;
+    margin: 0 5px ;
+    .flagButton{
+      display: flex;
+      align-items: center;
+      border: none;
+      background: inherit;
+      color: $colorBlue;
+      .iconFlag{
+        width: 20px;
+        height: 20px;
+        object-fit: fill;
+        margin: 0 10px;
+      }
+    }
+    .icon{
+      margin-left: 10px;
+      cursor: pointer;
+      color: $colorBlue;
+    }
+  }
+}
+
+.layoutLogo{
+  width: 38px;
+  height: 38px;
+}
+.layoutText{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 7px;
+  margin-left: 6px;
+  //line-height: 150%;
+  color: #fff;
+}
+.info{
+  margin: 16px 0 !important;
+  display: flex!important;
+  justify-content: space-between;
+  align-items: center;
+  .left{
+    display: flex;
+    align-items: center;
+    .icon{
+      width: 18px;
+    }
+    //width: 100px;
+    .pro{
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 38px;
+      display: flex;
+      margin-left: 5px;
+      align-items: center;
+      letter-spacing: 0.02em;
+
+    }
+
+  }
+  .right{
+    //width: 100px;
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    .icon{
+      color: $colorBlue;
+      margin-right: 10px;
+    }
+
+
+  }
+}
