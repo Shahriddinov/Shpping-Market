@@ -83,7 +83,7 @@ const ComeSystem = () => {
                         }}
                     >
                         <div className="container">
-                            <div className="left">
+                            <div className="lefts">
                                 <div className="name">ФИО</div>
                                 <div className="jobTitle">должность</div>
                             </div>
@@ -121,7 +121,10 @@ const ComeSystem = () => {
                             className="site-layout-background"
                             style={{
                                 padding: 24,
-                                height: "100vh"
+                                height: "60vh",
+                                border: "0.5px solid rgba(0, 0, 0, 0.04)",
+                                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)",
+                                borderRadius: "12px",
                             }}
                         >
                             Bill is a cat.

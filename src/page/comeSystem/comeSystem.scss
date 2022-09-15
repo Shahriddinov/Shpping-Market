@@ -23,50 +23,55 @@
 .ant-menu.ant-menu-dark .ant-menu-item-active{
   background: #243B67!important;
 }
-.container{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  .left{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .name{
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 18px;
-      margin-left: -2rem;
-
-    }
-    .jobTitle{
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 18px;
-    }
-  }
-  .right{
+.ant-layout-sider-trigger{
+  display: none;
+}
+.site-layout{
+  .container{
     display: flex;
     align-items: center;
-    margin: 0 5px ;
-    .flagButton{
+    justify-content: space-between;
+
+    .lefts{
       display: flex;
+      flex-direction: column;
       align-items: center;
-      border: none;
-      background: inherit;
-      color: $colorBlue;
-      .iconFlag{
-        width: 20px;
-        height: 20px;
-        object-fit: fill;
-        margin: 0 10px;
+
+      .name{
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        margin-left: -2rem;
+
+      }
+      .jobTitle{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
       }
     }
-    .icon{
-      margin-left: 10px;
-      cursor: pointer;
-      color: $colorBlue;
+    .right{
+      display: flex;
+      align-items: center;
+      margin: 0 5px ;
+      .flagButton{
+        display: flex;
+        align-items: center;
+        border: none;
+        background: inherit;
+        color: $colorBlue;
+        .iconFlag{
+          width: 20px;
+          height: 20px;
+          object-fit: fill;
+          margin: 0 10px;
+        }
+      }
+      .icon{
+        margin-left: 10px;
+        cursor: pointer;
+        color: $colorBlue;
+      }
     }
   }
 }
