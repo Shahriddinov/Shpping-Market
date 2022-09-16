@@ -1,10 +1,10 @@
-import CustomStepper from "../Stepper/CustomStepper";
 import "./Page1.scss";
+import Slayder from "../Slayder/slayder";
 
 function Page1() {
   return(
     <div className="Page1">
-      <CustomStepper/>
+    <Slayder/>
     </div>
   )
 }

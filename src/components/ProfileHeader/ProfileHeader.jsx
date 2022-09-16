@@ -5,6 +5,8 @@ import { Layout } from "antd";
 import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./ProfileHeader.scss";
+import UzFlag from "../../assets/images/Uz.png";
+import React from "react";
 
 const { Header } = Layout;
 
@@ -13,19 +15,20 @@ function ProfileHeader({ handleChangeLng }) {
     <Layout>
       <Header>
         <div className="profile__container">
-          <div className="left">
+          <div className="leftes">
             <div className="name">ФИО</div>
             <div className="jobTitle">должность</div>
           </div>
           <div className="right">
-            <button
-              className="flagButton"
-              onClick={() => handleChangeLng("ru")}
-            >
-              <img className="iconFlag" src={RuFlag} alt="" />
+            <button className="flagButton" onClick={() => handleChangeLng("uz")}>
+              <img className="iconFlag" src={UzFlag} alt=""/>
+              Uz
+            </button>
+            <button className="flagButton" onClick={() => handleChangeLng("ru")}>
+              <img className="iconFlag" src={RuFlag} alt=""/>
               Ру
             </button>
-            <NotificationsNoneIcon className="icon" />
+            <NotificationsNoneIcon className="icon"/>
             <Link className="question" to="/">
               <img src={QuestionMark} width="20" height="20" />
             </Link>

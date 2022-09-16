@@ -8,7 +8,7 @@ function ProfileNavbar() {
   return (
     <nav className="profile__navbar">
       <div className="profile__container">
-        <div className="profile__navbar-left">
+        <div className="profile__navbar-lef">
           <Link to="/">
             <ArrowBackIosIcon className="arrow-back" />
           </Link>
