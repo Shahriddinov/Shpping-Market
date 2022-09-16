@@ -1,0 +1,66 @@
+@import "./src/assets/ui";
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .name {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    margin-left: -2rem;
+  }
+  .jobTitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  column-gap: 34px;
+  .flagButton {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: inherit;
+    color: $colorBlue;
+    .iconFlag {
+      width: 20px;
+      height: 20px;
+      object-fit: fill;
+      margin: 0 10px;
+    }
+  }
+  .icon {
+    cursor: pointer;
+    color: $colorBlue;
+  }
+}
+
+.flagButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: inherit;
+  color: $colorBlue;
+  .iconFlag {
+    width: 20px;
+    height: 20px;
+    object-fit: fill;
+    margin: 0 10px;
+  }
+}
+
+.question {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  padding: 10px;
+  background: #0fbe7b;
+  box-shadow: 0px 4px 10px rgba(15, 190, 123, 0.4);
+  border-radius: 41px;
+}

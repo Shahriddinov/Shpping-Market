@@ -1,3 +1,5 @@
+@import "./src/assets/ui";
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -8,31 +10,26 @@
   width: 1px;
 }
 
-.profile__sider {
-  width: 256px !important;
-  max-width: 256px !important;
-  min-width: 256px !important;
+.Profile {
+  display: flex;
+}
 
-  & .ant-layout-sider-children {
-    height: 100vh;
+.profile__page {
+  max-width: 100%;
+  min-width: calc(100% - 256px);
+  width: calc(100% - 256px);
+  .ant-layout-header {
+    height: inherit;
+    padding: 0;
+    background: inherit;
+    background: #ffffff;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.08);
   }
 }
 
-.profile-icon__wrapper {
-  padding: 17px;
-  background-color: #ffffff;
-  border-radius: 50%;
-}
-
-.profile__title {
-  margin-left: 10px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 150%;
+.profile__container {
   display: flex;
   align-items: center;
-  letter-spacing: 0.02em;
-  color: #ffffff;
+  justify-content: space-between;
+  padding: 0 24px 0 32px;
 }
