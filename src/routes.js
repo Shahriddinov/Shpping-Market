@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {Spinner} from "./components";
 import ScrollTop from "./hoc/ScrollTop";
 import Layout from "./components/Layout/Layout";
+import Profile from "./page/Profile/Profile";
 
 const Home = lazy(() => import("./page/Home/Home"));
 const LoginIn = lazy(()=> import("./page/Login"));
@@ -16,6 +17,7 @@ const routes = [
     {path: "/login", element: LoginUp},
     {path: "/userInfo", element: userInfo},
     {path: "", element: Home},
+    {path: "/profile", element: Profile},
 ]
 const RoutesContainer = () => (
     <Router>
