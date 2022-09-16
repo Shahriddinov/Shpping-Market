@@ -34,7 +34,6 @@ const Header = () => {
                 </button>
                 </div>
             </div>
-
         </div>
     );
 };

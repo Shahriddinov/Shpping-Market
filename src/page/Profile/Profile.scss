@@ -1,0 +1,38 @@
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.profile__sider {
+  width: 256px !important;
+  max-width: 256px !important;
+  min-width: 256px !important;
+
+  & .ant-layout-sider-children {
+    height: 100vh;
+  }
+}
+
+.profile-icon__wrapper {
+  padding: 17px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.profile__title {
+  margin-left: 10px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
