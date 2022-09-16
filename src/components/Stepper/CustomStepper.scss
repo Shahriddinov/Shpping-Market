@@ -1,0 +1,25 @@
+.Stepper {
+  padding: 24px 44px;
+}
+
+.Step {
+  margin: 0;
+  padding: 0;
+}
+
+.Step-Label {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  & span {
+    margin: 0;
+    padding: 0;
+
+    &:last-child {
+      position: absolute;
+    }
+  }
+}
