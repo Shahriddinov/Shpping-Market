@@ -6,7 +6,7 @@ import MainProfile from "./components/MainProfile/mainProfile";
 import Layout from "../../components/Layout/Layout";
 import {Link} from "react-router-dom";
 
-const Home = ({noneRegister, setNoneRegister}) => {
+const Home = () => {
     const {t} = useTranslation();
 
 
