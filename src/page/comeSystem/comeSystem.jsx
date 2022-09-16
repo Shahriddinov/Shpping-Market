@@ -22,6 +22,8 @@ import InfoIcon from '@mui/icons-material/Info';
 import ArticleIcon from '@mui/icons-material/Article';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import {Link} from "react-router-dom";
+
 const {Header, Content, Footer, Sider} = Layout;
 
 function getItem(label, key, icon, children) {
@@ -73,7 +75,8 @@ const ComeSystem = () => {
                         <span className="layoutText">JISMONIY TARBIYA VA SPORT BO`YICHA MUTAXASSIZLARNI QATTA TAYYORLASH VA MALAKASINI OSHIRISH INSTITUTI</span>
                     </div>
                     <div className="logo"/>
-                    <Menu theme="dark" style={{marginTop:"36%"}} defaultSelectedKeys={['1']} mode="inline" items={items}/>
+                    <Menu theme="dark" style={{marginTop: "36%"}} defaultSelectedKeys={['1']} mode="inline"
+                          items={items}/>
                 </Sider>
                 <Layout className="site-layout">
                     <Header
@@ -96,7 +99,7 @@ const ComeSystem = () => {
                                     <img className="iconFlag" src={RuFlag} alt=""/>
                                     Ру
                                 </button>
-                                <NotificationsNoneIcon className="icon" />
+                                <NotificationsNoneIcon className="icon"/>
                             </div>
                         </div>
                     </Header>
@@ -108,13 +111,13 @@ const ComeSystem = () => {
                         <div className="info">
                             <div className="left">
                                 <ArrowBackIosNewIcon className="icon"/>
-                            <div className="pro">{t("comeSystem")}</div>
+                                <div className="pro">{t("comeSystem")}</div>
                             </div>
-                            <div className="right">
+                            <div className="rights">
                                 <SpeedIcon className="icon"/>
-                            <Breadcrumb.Item style={{color:"#2B63C0"}}>{t("gallery")}</Breadcrumb.Item>
-                            <Breadcrumb.Item style={{opacity:"0.5"}}> {t("login")}</Breadcrumb.Item>
-                            {/*<Breadcrumb.Item style={{opacity:"0.5"}}> Профиль</Breadcrumb.Item>*/}
+                                <Breadcrumb.Item style={{color: "#2B63C0"}}>{t("gallery")}</Breadcrumb.Item>
+                                <Breadcrumb.Item style={{opacity: "0.5"}}> {t("login")}</Breadcrumb.Item>
+                                {/*<Breadcrumb.Item style={{opacity:"0.5"}}> Профиль</Breadcrumb.Item>*/}
                             </div>
                         </div>
                         <div
@@ -147,7 +150,7 @@ const ComeSystem = () => {
                                         <input type="checkbox"/>
                                         <span className="slider"></span>
                                     </label>
-                                    <div className="radioText" >
+                                    <div className="radioText">
                                         Я согласен с политикой конфедициальности
                                     </div>
                                 </div>
@@ -161,16 +164,19 @@ const ComeSystem = () => {
                                 <HighlightOffIcon className="comeIcon"/>
                                 Назад
                             </button>
-                            <button className="comeButton">
-                            <CheckCircleIcon className="comeIcon"/>
-                                Войти
-                            </button>
+                            <Link to="/profile">
+                                <button className="comeButtons">
+                                    <CheckCircleIcon className="comeIcon"/>
+                                    Войти
+                                </button>
+                            </Link>
                         </div>
                     </Content>
                 </Layout>
             </Layout>
         </>
-    );
+    )
+        ;
 };
 
 export default ComeSystem;
