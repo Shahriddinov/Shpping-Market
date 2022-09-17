@@ -9,7 +9,7 @@ import "./slayder.scss"
 import {Link} from "react-router-dom";
 
 
-const steps = ['', '', '', ''];
+const steps = ['Личные данные', 'Сведение о работе', 'Сведение об образование', 'Периодичности повышения квалификации'];
 
 const Slayder = () => {
 
@@ -69,6 +69,7 @@ const Slayder = () => {
                                 if (isStepOptional(index)) {
                                     labelProps.optional = (
                                         <Typography  variant="caption"></Typography>
+
                                     );
                                 }
                                 if (isStepSkipped(index)) {
@@ -81,8 +82,6 @@ const Slayder = () => {
                                             {/*<span>{index+1}</span>*/}
                                             {/*<StepLabel className=""></StepLabel>*/}
                                             <StepLabel {...labelProps}>{label}</StepLabel>
-                                            <span className="mt-2">muord</span>
-
                                         </div>
                                     </Step>
                                 );
