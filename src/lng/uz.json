@@ -25,5 +25,13 @@
   "login" : "Kirish",
   "setting" : "Sozlamalar",
   "comeSystem": "Kirish",
-  "using": "foydalanish shartlari"
+  "using": "foydalanish shartlari",
+
+  "aboutEducation": "Ta'lim haqida ma'lumot",
+  "region": "Viloyat",
+  "institution": "Oliy ta'lim muassasasi",
+  "speciality": "Mutaxassislik",
+  "dateReceived": "Qabul qilish sanasi",
+  "expirationDate": "Tugash sanasi",
+  "experience": "Tajriba"
 }
