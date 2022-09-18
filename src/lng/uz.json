@@ -2,7 +2,7 @@
   "home": "uyga xush kelibsiz",
   "homeTitle": "Pedagogning elektron partfolio tizimiga xush kelibsiz",
   "welcome" : "Kirish",
-  "loginIn" : "Ro'yxat o'tish",
+  "loginIn" : "Ro'yxatdan o'tish",
   "portfolioText": " O`qituvchining professional faoliyatida egallagan turli masalalarni hal eta olish\n                            malakalarini ko`rsatuvchi shuningdek o`qituvchining professionallik darajasini baholashga\n                            qaratilgan materiallar to`plamidir.\n                            Turli faoliyat yo`nalishlari bo`yicha biror vaqt oralig",
   "portfolioT": "Turli faoliyat yo`nalishlari bo`yicha biror vaqt oralig`ida erishilgan kasbiy yutuqlar aks\n                            ettirilgan va baho beriladigan individual papkadir.",
   "chair": "Bo'limlar",
@@ -25,13 +25,5 @@
   "login" : "Kirish",
   "setting" : "Sozlamalar",
   "comeSystem": "Kirish",
-  "using": "foydalanish shartlari",
-
-  "aboutEducation": "Ta'lim haqida ma'lumot",
-  "region": "Viloyat",
-  "institution": "Oliy ta'lim muassasasi",
-  "speciality": "Mutaxassislik",
-  "dateReceived": "Qabul qilish sanasi",
-  "expirationDate": "Tugash sanasi",
-  "experience": "Tajriba"
+  "using": "foydalanish shartlari"
 }
