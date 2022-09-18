@@ -1,4 +1,4 @@
-@import "./src/assets/ui";
+@import "../../assets/ui";
 
 
 .w-40 {
@@ -20,6 +20,7 @@ max-width: 100%;
       background: inherit;
       background: white;
       box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.08);
+
     }
 
     .formBox {
@@ -49,21 +50,6 @@ max-width: 100%;
         align-items: center;
         flex-wrap: wrap;
 
-        .selections_1 {
-          margin-left: 24px;
-
-
-
-          label {
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 24px;
-            color: #333333;
-            margin-bottom: 8px;
-
-          }
           select{
             width: 520px;
             height: 48px;
@@ -74,6 +60,15 @@ max-width: 100%;
             background: #FFFFFF;
           }
         }
+      label {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #333333;
+        margin-bottom: 8px;
+      }
 
         .selections_2 {
           margin-right: 24px;
@@ -102,39 +97,12 @@ max-width: 100%;
           margin-top: 24px;
           margin-left: 24px;
 
-          label {
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 24px;
-            color: #333333;
-            margin-bottom: 8px;
-          }
-          select{
-            width: 520px;
-            height: 48px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 0.5px solid rgba(173, 173, 173, 0.8);
-            border-radius: 8px;
-            background: #FFFFFF;
-          }
+
         }
 
-        .selections_4 {
+        .selections-right {
           margin-top: 24px;
           margin-right: 24px;
-
-          label {
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 24px;
-            color: #333333;
-            margin-bottom: 8px;
-          }
           input{
             width: 520px;
             height: 48px;
@@ -152,14 +120,32 @@ max-width: 100%;
 
   }
 
-}
+
 button {
   margin-top: 24px;
   width: 191px;
   height: 48px;
   border-radius: 8px;
+  margin-left: 16px;
 
 }
-
-
+.label1 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+  margin-bottom: 8px;
+}
+.formdata{
+  width: 520px;
+  height: 48px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 0.5px solid rgba(173, 173, 173, 0.8);
+  border-radius: 8px;
+  background: #FFFFFF;
+  margin-bottom: 24px;
+}
 

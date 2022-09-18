@@ -25,5 +25,8 @@
   "login" : "Kirish",
   "setting" : "Sozlamalar",
   "comeSystem": "Kirish",
-  "using": "foydalanish shartlari"
+  "using": "foydalanish shartlari",
+  "date": "Malaka tugash sanasi ",
+  "region": "Shahar",
+  "education": "Qabul qilgan oliy ta'lim muassasasi"
 }
