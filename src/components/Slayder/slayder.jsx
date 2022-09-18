@@ -58,75 +58,75 @@ const Slayder = () => {
 
 
     return (
-        <div className="slayder">
-            <div className="container">
-                <div className="col-md-10 offset-1 mt-3">
-                    <Box sx={{width: '100%'}}>
-                        <Stepper activeStep={activeStep}>
-                            {steps.map((label, index) => {
-                                const stepProps = {};
-                                const labelProps = {};
-                                if (isStepOptional(index)) {
-                                    labelProps.optional = (
-                                        <Typography  variant="caption"></Typography>
+      <div className="slayder">
+        <div className="container">
+          <div className="col-md-10 offset-1 mt-3">
+            <Box sx={{ width: "100%" }}>
+              <Stepper activeStep={activeStep}>
+                {steps.map((label, index) => {
+                  const stepProps = {};
+                  const labelProps = {};
+                  if (isStepOptional(index)) {
+                    labelProps.optional = (
+                      <Typography variant="caption"></Typography>
+                    );
+                  }
+                  if (isStepSkipped(index)) {
+                    stepProps.completed = false;
+                  }
+                  return (
+                    <Step key={label} {...stepProps}>
+                      <div className="text-center">
+                        {/*<span>{index+1}</span>*/}
+                        {/*<StepLabel className=""></StepLabel>*/}
+                        <StepLabel {...labelProps}>{label}</StepLabel>
+                      </div>
+                    </Step>
+                  );
+                })}
+              </Stepper>
+              {activeStep === steps.length ? (
+                <React.Fragment>
+                  {/*<Typography sx={{ mt: 2, mb: 1 }}>*/}
+                  {/*    All steps completed - you&apos;re finished*/}
+                  {/*</Typography>*/}
+                  <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+                    <Box sx={{ flex: "1 1 auto" }} />
+                    <Button onClick={handleReset}>Сброс настроек</Button>
+                  </Box>
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {/*<Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>*/}
+                  <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+                    <Button
+                    className="prev__btn"
+                      color="inherit"
+                      disabled={activeStep === 0}
+                      onClick={handleBack}
+                      sx={{ mr: 1 }}
+                    >
+                      Назад
+                    </Button>
+                    <Box sx={{ flex: "1 1 auto" }} />
+                    {/*{isStepOptional(activeStep) && (*/}
+                    {/*    <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>*/}
+                    {/*        Skip*/}
+                    {/*    </Button>*/}
+                    {/*)}*/}
 
-                                    );
-                                }
-                                if (isStepSkipped(index)) {
-                                    stepProps.completed = false;
-                                }
-                                return (
-                                    <Step key={label} {...stepProps}>
-
-                                        <div className="text-center">
-                                            {/*<span>{index+1}</span>*/}
-                                            {/*<StepLabel className=""></StepLabel>*/}
-                                            <StepLabel {...labelProps}>{label}</StepLabel>
-                                        </div>
-                                    </Step>
-                                );
-                            })}
-                        </Stepper>
-                        {activeStep === steps.length ? (
-                            <React.Fragment>
-                                {/*<Typography sx={{ mt: 2, mb: 1 }}>*/}
-                                {/*    All steps completed - you&apos;re finished*/}
-                                {/*</Typography>*/}
-                                <Box sx={{display: 'flex', flexDirection: 'row', pt: 2}}>
-                                    <Box sx={{flex: '1 1 auto'}}/>
-                                    <Button onClick={handleReset}>Сброс настроек</Button>
-                                </Box>
-                            </React.Fragment>
-                        ) : (
-                            <React.Fragment>
-                                {/*<Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>*/}
-                                <Box sx={{display: 'flex', flexDirection: 'row', pt: 2}}>
-                                    <Button
-                                        color="inherit"
-                                        disabled={activeStep === 0}
-                                        onClick={handleBack}
-                                        sx={{mr: 1}}
-                                    >
-                                        Назад
-                                    </Button>
-                                    <Box sx={{flex: '1 1 auto'}}/>
-                                    {/*{isStepOptional(activeStep) && (*/}
-                                    {/*    <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>*/}
-                                    {/*        Skip*/}
-                                    {/*    </Button>*/}
-                                    {/*)}*/}
-
-                                    <Button onClick={handleNext}>
-                                        {activeStep === steps.length - 1 ? 'Заканчивать' : 'Следующий'}
-                                    </Button>
-                                </Box>
-                            </React.Fragment>
-                        )}
-                    </Box>
-                </div>
-            </div>
-
+                    <Button onClick={handleNext} className="next__btn">
+                      {activeStep === steps.length - 1
+                        ? "Заканчивать"
+                        : "Продолжить"}
+                    </Button>
+                  </Box>
+                </React.Fragment>
+              )}
+            </Box>
+          </div>
         </div>
+      </div>
     );
 };
 

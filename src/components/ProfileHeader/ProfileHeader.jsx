@@ -15,11 +15,11 @@ function ProfileHeader({ handleChangeLng }) {
     <Layout>
       <Header>
         <div className="profile__container">
-          <div className="leftes">
+          <div className="profile__left">
             <div className="name">ФИО</div>
             <div className="jobTitle">должность</div>
           </div>
-          <div className="right">
+          <div className="profile__right">
             <button className="flagButton" onClick={() => handleChangeLng("uz")}>
               <img className="iconFlag" src={UzFlag} alt=""/>
               Uz
