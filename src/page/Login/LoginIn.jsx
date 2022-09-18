@@ -3,6 +3,7 @@ import LoginImg from "../../assets/images/loginImg.svg"
 import Logo from "../../assets/images/logo.svg"
 import EmailIcon from '@mui/icons-material/Email';
 import Google from "../../assets/images/google.svg"
+import Button from '@mui/material/Button';
 import "./style.scss"
 import {Link} from "react-router-dom";
 const LoginIn = () => {
@@ -35,11 +36,8 @@ const LoginIn = () => {
                            <EmailIcon className="ImgGoogle"/>
                            Войти через Email
                        </button>
-                       <Link to="/login">
-                       <button className="sends">
-                           Продолжить
-                       </button>
-                       </Link>
+                       <Button href="/login" variant="outlined" className="sends"> Продолжить</Button>
+
                    </div>
                </div>
            </div>

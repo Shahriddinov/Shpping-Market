@@ -23,7 +23,16 @@ import ArticleIcon from '@mui/icons-material/Article';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import {Link} from "react-router-dom";
-
+import Notification from "../../components/Notification/notification";
+import Next from "../../components/NextButton/next";
+import Switch from '@mui/material/Switch';
+import Button from "@mui/material/Button";
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import Stack from "@mui/material/Stack";
+import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
+import Box from '@mui/material/Box';
+import Badge from '@mui/material/Badge';
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
 const {Header, Content, Footer, Sider} = Layout;
 
 function getItem(label, key, icon, children) {
@@ -99,7 +108,7 @@ const ComeSystem = () => {
                                     <img className="iconFlag" src={RuFlag} alt=""/>
                                     Ру
                                 </button>
-                                <NotificationsNoneIcon className="icon"/>
+                                   <Notification/>
                             </div>
                         </div>
                     </Header>
@@ -110,7 +119,7 @@ const ComeSystem = () => {
                     >
                         <div className="info">
                             <div className="left">
-                                <ArrowBackIosNewIcon className="icon"/>
+                                <ArrowBackIosNewIcon  className="icon"/>
                                 <div className="pro">{t("comeSystem")}</div>
                             </div>
                             <div className="rights">
@@ -146,10 +155,8 @@ const ComeSystem = () => {
                             </div>
                             <div className="d-flex p-3 align-items-center justify-content-between">
                                 <div className="d-flex align-items-center">
-                                    <label className="switch">
-                                        <input type="checkbox"/>
-                                        <span className="slider"></span>
-                                    </label>
+                                    <Switch {...label} />
+
                                     <div className="radioText">
                                         Я согласен с политикой конфедициальности
                                     </div>
@@ -159,17 +166,13 @@ const ComeSystem = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="buttons">
-                            <button className="comeButton">
-                                <HighlightOffIcon className="comeIcon"/>
-                                Назад
-                            </button>
-                            <Link to="/profile">
-                                <button className="comeButtons">
-                                    <CheckCircleIcon className="comeIcon"/>
-                                    Войти
-                                </button>
-                            </Link>
+                        <div className="NextPrev">
+                            <Stack spacing={2} direction="row">
+                                <Button className="button" href="./" variant="contained"> <span className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+                            </Stack>
+                            <Stack spacing={2} direction="row">
+                                <Button className="button" href="/profile" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>
+                            </Stack>
                         </div>
                     </Content>
                 </Layout>

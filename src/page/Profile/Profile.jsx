@@ -10,6 +10,11 @@ import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
 import Page1 from "../../components/Page1/Page1";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
+import React from "react";
 
 function Profile() {
   const { t, i18n } = useTranslation();
@@ -44,7 +49,16 @@ function Profile() {
         <ProfileHeader handleChangeLng={handleChangeLng}/>
         <ProfileNavbar/>
         <Page1/>
+        <div className="NextPrev">
+          <Stack spacing={2} direction="row">
+            <Button className="button" href="./" variant="contained"> <span className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+          </Stack>
+          <Stack spacing={2} direction="row">
+            <Button className="button" href="/education" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>
+          </Stack>
+        </div>
       </section>
+
     </section>
   );
 }
