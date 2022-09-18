@@ -7,10 +7,11 @@ import Profile from "./page/Profile/Profile";
 
 const Home = lazy(() => import("./page/Home/Home"));
 const LoginIn = lazy(()=> import("./page/Login"));
-const LoginUp = lazy(()=> import("./page/Login/LoginUp"))
-const userInfo = lazy(()=>import("./page/comeSystem/comeSystem"))
+const LoginUp = lazy(()=> import("./page/Login/LoginUp"));
+const userInfo = lazy(()=>import("./page/comeSystem/comeSystem"));
 const NotFound = lazy(() => import("./page/404"));
-const Education = lazy(()=>import("./page/Education/eduction"))
+const Education = lazy(()=>import("./page/Education/eduction"));
+const Work=lazy(()=>import("./page/Work/work"));
 
 
 const routes = [
@@ -19,7 +20,8 @@ const routes = [
     {path: "/userInfo", element: userInfo},
     {path: "", element: Home},
     {path: "/profile", element: Profile},
-    {path: "/education", element: Education}
+    {path: "/education", element: Education},
+    {path:"/work", element:Work}
 ]
 const RoutesContainer = () => (
     <Router>
