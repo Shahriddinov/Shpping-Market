@@ -5,7 +5,6 @@ function Page1() {
   return(
     <div className="Page1">
     <Slayder/>
-
     </div>
   )
 }
