@@ -11,7 +11,10 @@ import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
 import Page1 from "../../components/Page1/Page1";
 import Slayder from "../../components/Slayder/slayder";
+import Next from "../../components/NextButton/next";
+import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
 
 function Work() {
@@ -108,12 +111,15 @@ function Work() {
                 </div>
 
                 <div className="next-page">
+
                     <div className="back-btn">
-                        <button>Назад</button>
+                        <Stack spacing={2} direction="row">
+                            <Button className="button" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+                        </Stack>
                     </div>
                     <div className="next-btn">
-                        <button>Продолжить</button>
-
+                        {/*<button>Продолжить</button>*/}
+                        <Next/>
                     </div>
                 </div>
             </section>
