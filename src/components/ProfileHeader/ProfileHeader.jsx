@@ -7,6 +7,7 @@ import "antd/dist/antd.css";
 import "./ProfileHeader.scss";
 import UzFlag from "../../assets/images/Uz.png";
 import React from "react";
+import Notification from "../Notification/notification";
 
 const { Header } = Layout;
 
@@ -28,7 +29,7 @@ function ProfileHeader({ handleChangeLng }) {
               <img className="iconFlag" src={RuFlag} alt=""/>
               Ру
             </button>
-            <NotificationsNoneIcon className="icon"/>
+            <Notification/>
             <Link className="question" to="/">
               <img src={QuestionMark} width="20" height="20" />
             </Link>

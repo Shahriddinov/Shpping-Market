@@ -5,7 +5,7 @@ import "./home.scss"
 import MainProfile from "./components/MainProfile/mainProfile";
 import Layout from "../../components/Layout/Layout";
 import {Link} from "react-router-dom";
-
+import Button from '@mui/material/Button';
 const Home = () => {
     const {t} = useTranslation();
 
@@ -19,12 +19,13 @@ const Home = () => {
                         {t("homeTitle")}
                     </div>
                     <div className="buttons">
-                        <Link to="/register">
-                        <button className="homeButton">{t("loginIn")}</button>
-                        </Link>
-                        <Link to="/userInfo">
-                            <button type="submit" className="homeButton">{t("welcome")}</button>
-                        </Link>
+
+                        <Button href="/register" variant="outlined" className="homeButton">
+                            {t("loginIn")}
+                        </Button>
+                        <Button href="/userInfo" variant="outlined" className="homeButton">
+                            {t("welcome")}
+                        </Button>
                     </div>
                 </div>
                 <MainProfile/>

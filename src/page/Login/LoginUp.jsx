@@ -6,6 +6,10 @@ import Google from "../../assets/images/google.svg";
 import EmailIcon from "@mui/icons-material/Email";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router";
+import Button from "@mui/material/Button";
+import Switch from '@mui/material/Switch';
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
+
 
 
 const LoginUp = () => {
@@ -54,15 +58,12 @@ const LoginUp = () => {
                             <input type="text" placeholder="Again parol" className="InputName"/>
                         </div>
                         <div className="d-flex align-items-center" style={{marginLeft: "-26%", marginTop: "15px", cursor:"pointer"}}>
-                            <label className="switch">
-                                <input type="checkbox"/>
-                                    <span className="slider"></span>
-                            </label>
+                            <Switch {...label} />
                             <div className="radioText" >
                                 Я согласен с политикой конфедициальности
                             </div>
                         </div>
-                        <button type="submit" onClick={onClick}  className="save">Сохранить</button>
+                        <Button onClick={onClick} variant="outlined" className="save">Сохранить</Button>
                     </div>
                 </div>
             </div>
