@@ -13,6 +13,7 @@ const { Header } = Layout;
 
 function ProfileHeader({ handleChangeLng }) {
   return (
+
     <Layout>
       <Header>
         <div className="profile__container">
