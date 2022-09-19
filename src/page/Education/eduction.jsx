@@ -19,7 +19,7 @@ import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutli
 
 const Eduction = () => {
 
-    const { t, i18n } = useTranslation();
+    const { t, i18n} = useTranslation();
 
     function getItem(label, key, icon, children) {
         return {
@@ -88,14 +88,14 @@ const Eduction = () => {
                         </div>
                     </div>
                 </div>
-                <div className="NextPrev">
-                    <Stack spacing={2} direction="row">
-                        <Button className="button" href="/profile" variant="contained"> <span className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
-                    </Stack>
-                    <Stack spacing={2} direction="row">
-                        <Button className="button" href="/education" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>
-                    </Stack>
-                </div>
+                {/*<div className="NextPrev">*/}
+                {/*    <Stack spacing={2} direction="row">*/}
+                {/*        <Button className="button" href="/profile" variant="contained"> <span className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>*/}
+                {/*    </Stack>*/}
+                {/*    <Stack spacing={2} direction="row">*/}
+                {/*        <Button className="button" href="/education" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>*/}
+                {/*    </Stack>*/}
+                {/*</div>*/}
             </div>
         </section>
     );

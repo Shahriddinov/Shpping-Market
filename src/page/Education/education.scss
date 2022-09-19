@@ -60,24 +60,5 @@
       }
     }
   }
-  .NextPrev{
-    margin: 24px 30px 30px auto;
-    display: flex;
-    width: 398px;
-    justify-content: space-between;
-    .button{
-      width:191px;
-      height:48px;
-      font-size: 16px;
-      line-height: 24px;
-      border-radius: 10px;
-      //box-shadow: 0 5px rgba(0, 0, 0, 0.25);
-    }
 
-    .icones{
-      margin-right: 15.67px;
-      display: flex;
-      align-items: center;
-    }
-  }
 }

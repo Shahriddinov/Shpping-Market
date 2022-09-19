@@ -7,6 +7,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import "./slayder.scss"
 import {Link} from "react-router-dom";
+import Stack from "@mui/material/Stack";
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 
 
 const steps = ['Личные данные', 'Сведение о работе', 'Сведение об образование', 'Периодичности повышения квалификации'];
@@ -75,11 +78,9 @@ const Slayder = () => {
                     stepProps.completed = false;
                   }
                   return (
-                    <Step key={label} {...stepProps}>
+                    <Step key={label} className="slider" {...stepProps}>
                       <div className="text-center">
-                        {/*<span>{index+1}</span>*/}
-                        {/*<StepLabel className=""></StepLabel>*/}
-                        <StepLabel {...labelProps}>{label}</StepLabel>
+                        <StepLabel  {...labelProps}>{label}</StepLabel>
                       </div>
                     </Step>
                   );
@@ -98,28 +99,17 @@ const Slayder = () => {
               ) : (
                 <React.Fragment>
                   {/*<Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>*/}
-                  <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-                    <Button
-                    className="prev__btn"
-                      color="inherit"
-                      disabled={activeStep === 0}
-                      onClick={handleBack}
-                      sx={{ mr: 1 }}
-                    >
-                      Назад
-                    </Button>
-                    <Box sx={{ flex: "1 1 auto" }} />
-                    {/*{isStepOptional(activeStep) && (*/}
-                    {/*    <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>*/}
-                    {/*        Skip*/}
-                    {/*    </Button>*/}
-                    {/*)}*/}
-
-                    <Button onClick={handleNext} className="next__btn">
-                      {activeStep === steps.length - 1
-                        ? "Заканчивать"
-                        : "Продолжить"}
-                    </Button>
+                  <Box >
+                      <div className="NextPrev">
+                          <Stack spacing={2} direction="row">
+                              <Button disabled={activeStep === 0}
+                                      onClick={handleBack}
+                                      sx={{ mr: 1 }} className="button" href="./" variant="contained"> <span className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+                          </Stack>
+                          <Stack spacing={2} direction="row">
+                              <Button onClick={handleNext} className="button" href="/education" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>
+                          </Stack>
+                      </div>
                   </Box>
                 </React.Fragment>
               )}
