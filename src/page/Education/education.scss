@@ -27,8 +27,8 @@
   .formData{
     width: 475px;
     height: 48px;
-    border: 0.5px rgba(173, 173, 173, 0.8) solid;
-    border-radius: 8px;
+    //border: 0.5px rgba(173, 173, 173, 0.8) solid;
+    //border-radius: 8px;
     gap: 10px;
     font-size: 16px;
     line-height: 24px;
@@ -60,5 +60,27 @@
       }
     }
   }
+  .NextPrev {
+    margin: 24px 30px 30px auto;
+    display: flex;
+    width: 398px;
+    justify-content: right;
 
+    //margin: 44% 0 0 70% ;
+    .button {
+      width: 191px;
+      height: 48px;
+      font-size: 16px;
+      line-height: 24px;
+      border-radius: 10px;
+      margin-right: 20px;
+      //box-shadow: 0 5px rgba(0, 0, 0, 0.25);
+    }
+
+    .icones {
+      margin-right: 15.67px;
+      display: flex;
+      align-items: center;
+    }
+  }
 }

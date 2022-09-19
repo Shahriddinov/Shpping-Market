@@ -1,151 +1,72 @@
-@import "../../assets/ui";
+@import "./src/assets/ui";
 
-
-.w-40 {
-  width: 35%;
-}
-
-
-.qualification {
+.qualification{
   display: flex;
-max-width: 100%;
-  .qualification-right {
-    max-width: 100%;
-    min-width: calc(100% - 256px);
-    width: calc(100% - 256px);
-
-    .ant-layout-header {
-      height: inherit;
-      padding: 0;
-      background: inherit;
-      background: white;
-      box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.08);
-
+  .forms{
+    width: calc(100% - 60px);
+    margin: 0 30px;
+    background: #ffffff;
+    border: 0.5px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 24px;
+    .title{
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 33px;
+      padding: 20px;
     }
+    .form-control{
+      border: none;
+      display: flex;
+      justify-content: space-between;
 
-    .formBox {
-      width:100%;
-      height: 60vh;
-      margin-left: 30px;
-      background: white;
-      border: 0.9px solid rgba(0, 0, 0, 0.04);
-      border-radius: 12px;
-      border-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-      h1 {
-        Width: 590px;
-        Height: 33px;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 28px;
-        line-height: 33px;
-        letter-spacing: 0.02em;
-        margin-left: 24px;
-        color: #303030;
-      }
-      .selections {
-        width: 100%;
+      .form{
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-
-          select{
-            width: 520px;
-            height: 48px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 0.5px solid rgba(173, 173, 173, 0.8);
-            border-radius: 8px;
-            background: #FFFFFF;
-          }
+        width: 100%;
+        &:nth-child(2){
+          margin-left: 50px;
         }
-      label {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-        color: #333333;
-        margin-bottom: 8px;
+        flex-direction: column;
+        .qualificationLabel{
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 24px;
+          margin-bottom: 10px;
+
+        }
+        .qualificationInput{
+          width: 100%;
+          padding: 0 10px;
+          height: 45px;
+          background: #FFFFFF;
+          border: 0.5px solid rgba(173, 173, 173, 0.8);
+          border-radius: 8px;
+        }
       }
 
-        .selections_2 {
-          margin-right: 24px;
-
-          label {
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 24px;
-            color: #333333;
-            margin-bottom: 8px;
-          }
-          select{
-            width: 520px;
-            height: 48px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 0.5px solid rgba(173, 173, 173, 0.8);
-            border-radius: 8px;
-            background: #FFFFFF;
-          }
-        }
-
-        .selections_3 {
-          margin-top: 24px;
-          margin-left: 24px;
-
-
-        }
-
-        .selections-right {
-          margin-top: 24px;
-          margin-right: 24px;
-          input{
-            width: 520px;
-            height: 48px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 0.5px solid rgba(173, 173, 173, 0.8);
-            border-radius: 8px;
-            background: #FFFFFF;
-          }
-        }
-
-      }
     }
-
-
   }
+  .next-page{
+    display: flex;
+    justify-content: end;
+    margin:24px 0;
+    button{
+      padding: 12px 30px;
+      width: 190px;
+      color: white;
+      border: 0;
 
 
-button {
-  margin-top: 24px;
-  width: 191px;
-  height: 48px;
-  border-radius: 8px;
-  margin-left: 16px;
+    }
+    .back-btn{
 
+
+    }
+    .next-btn{
+      margin-left: 16px;
+      margin-right: 30px;
+
+    }
+  }
 }
-.label1 {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  color: #333333;
-  margin-bottom: 8px;
-}
-.formdata{
-  width: 520px;
-  height: 48px;
-  padding: 10px;
-  box-sizing: border-box;
-  border: 0.5px solid rgba(173, 173, 173, 0.8);
-  border-radius: 8px;
-  background: #FFFFFF;
-  margin-bottom: 24px;
-}
-

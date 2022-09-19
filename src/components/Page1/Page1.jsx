@@ -1,12 +1,175 @@
-import "./Page1.scss";
+import Switch from "@mui/material/Switch";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import Slayder from "../Slayder/slayder";
+import "./Page1.scss";
+import { Option } from "antd/lib/mentions";
+// import { Select } from "antd";
+import {useTranslation} from "react-i18next";
+import TextField from "@mui/material/TextField";
+import React from "react";
 
 function Page1() {
-  return(
-    <div className="Page1">
-    <Slayder/>
-    </div>
-  )
+  const {t} = useTranslation();
+  const [nation, setNation] = React.useState('');
+
+  const handleNation = (event) => {
+    setNation(event.target.value);
+  };
+  return (
+      <div className="Page1">
+        <Slayder />
+        <form action="post" className="page1__form">
+          <div className="page1__form-left w-100">
+            <label className="fio__label page1__label" htmlFor="fio">
+              {t("userName")} *
+
+
+            <Box
+                component="form"
+                sx={{
+                  '& > :not(style)': { width: '100%' },
+                }}
+                noValidate
+                autoComplete="off"
+            >
+              <TextField
+                  className="fio__input page1__input"
+                  id="outlined-basic"
+                  label={t("userName")}
+                  variant="outlined"
+              />
+            </Box>
+            </label>
+            <FormGroup className="page1__gender">
+              <FormControlLabel control={<Switch />} label={t("women")} />
+              <FormControlLabel control={<Switch />} label={t("man")} />
+            </FormGroup>
+            <label
+                className="identity-card__label page1__label " style={{marginTop:"10%"}}
+                htmlFor="identity-card"
+            >
+              {t("passportNumber")} *
+              <Box
+                  component="form"
+                  sx={{
+                    '& > :not(style)': { width: '100%' },
+                  }}
+                  noValidate
+                  autoComplete="off"
+              >
+                <TextField
+                    className="identity-card__input page1__input"
+                    id="outlined-basic"
+                    label={t("passportNumber")}
+                    variant="outlined"
+                />
+              </Box>
+            </label>
+            <label className="email__label page1__label" htmlFor="email">
+              {t("Email")} *
+
+              <Box
+                  component="form"
+                  sx={{
+                    '& > :not(style)': { width: '100%' },
+                  }}
+                  noValidate
+                  autoComplete="off"
+              >
+                <TextField
+                    className="email__input page1__input"
+
+                    id="outlined-basic"
+                    label={t("Email")}
+                    variant="outlined"
+                />
+              </Box>
+
+            </label>
+          </div>
+          <div className="page1__form-right">
+            <div className="page1__nationality-wrapper">
+              <span className="page1__nationality-title">{t("nation")} *</span>
+              <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">{t("nation")}</InputLabel>
+                  <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={nation}
+                      label={t("nation")}
+                      onChange={handleNation}
+                  >
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+
+            </div>
+            <label className="date__label page1__label" htmlFor="date">
+              {t("happy")} *
+              <input
+                  className="date__input page1__input"
+                  style={{height:"55px"}}
+                  id="date"
+                  type="date"
+                  placeholder="Дата Рождения"
+              />
+            </label>
+            <label className="number__label page1__label" htmlFor="number">
+              {t("personal")} *
+              <Box
+                  component="form"
+                  sx={{
+                    '& > :not(style)': { width: '100%' },
+                  }}
+                  noValidate
+                  autoComplete="off"
+              >
+                <TextField
+                    className="number__input page1__input"
+                    type="text"
+                    id="outlined-basic"
+                    label={t("personal")}
+                    variant="outlined"
+                />
+              </Box>
+            </label>
+            <label
+                className="phone-number__label page1__label"
+                htmlFor="phone-number"
+            >
+              {t("phoneNumber")} *
+              <Box
+                  component="form"
+                  sx={{
+                    '& > :not(style)': { width: '100%' },
+                  }}
+                  noValidate
+                  autoComplete="off"
+              >
+                <TextField
+                    className="phone-number__input page1__input"
+                    type="number"
+                    id="outlined-basic"
+                    label={t("phoneNumber")}
+                    variant="outlined"
+                />
+              </Box>
+            </label>
+          </div>
+        </form>
+
+      </div>
+  );
 }
 
 export default Page1;

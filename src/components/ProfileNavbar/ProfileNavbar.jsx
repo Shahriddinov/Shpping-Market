@@ -20,13 +20,13 @@ function ProfileNavbar() {
           <SpeedIcon className="icon" />
           <ul className="profile__navbar-list">
             <li className="profile__navbar-list--item">
-              <Link style={{color: "#2B63C0"}} to="/">Главная /</Link>
+              <Link style={{color: "#2B63C0"}} to="/">{t("gallery")} /</Link>
             </li>
             <li className="profile__navbar-list--item">
-              <Link to="#">Логин /</Link>
+              <Link to="#">{t("login")} /</Link>
             </li>
             <li className="profile__navbar-list--item">
-              <Link to="#">Профиль</Link>
+              <Link to="#">{t("profile")}</Link>
             </li>
           </ul>
         </div>

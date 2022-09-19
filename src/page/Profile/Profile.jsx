@@ -43,20 +43,20 @@ function Profile() {
 
   return (
     <section id="Profile" className="Profile">
-      {/*<h1 className="visually-hidden">Profile Page</h1>*/}
+      <h1 className="visually-hidden">Profile Page</h1>
       <ProfileSidebar items={items} />
       <section className="profile__page">
         <ProfileHeader handleChangeLng={handleChangeLng}/>
         <ProfileNavbar/>
         <Page1/>
-        {/*<div className="NextPrev">*/}
-        {/*  <Stack spacing={2} direction="row">*/}
-        {/*    <Button className="button" href="./" variant="contained"> <span className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>*/}
-        {/*  </Stack>*/}
-        {/*  <Stack spacing={2} direction="row">*/}
-        {/*    <Button className="button" href="/education" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>*/}
-        {/*  </Stack>*/}
-        {/*</div>*/}
+        <div className="NextPrev">
+          <Stack spacing={2} direction="row">
+            <Button className="button" href="/userInfo" variant="contained"> <span className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+          </Stack>
+          <Stack spacing={2} direction="row">
+            <Button className="button" href="/education" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>
+          </Stack>
+        </div>
       </section>
 
     </section>

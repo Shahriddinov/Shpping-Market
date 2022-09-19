@@ -100,16 +100,16 @@ const Slayder = () => {
                 <React.Fragment>
                   {/*<Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>*/}
                   <Box >
-                      <div className="NextPrev">
-                          <Stack spacing={2} direction="row">
-                              <Button disabled={activeStep === 0}
-                                      onClick={handleBack}
-                                      sx={{ mr: 1 }} className="button" href="./" variant="contained"> <span className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
-                          </Stack>
-                          <Stack spacing={2} direction="row">
-                              <Button onClick={handleNext} className="button" href="/education" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>
-                          </Stack>
-                      </div>
+                      {/*<div className="NextPrev">*/}
+                      {/*    <Stack spacing={2} direction="row">*/}
+                      {/*        <Button disabled={activeStep === 0}*/}
+                      {/*                onClick={handleBack}*/}
+                      {/*                sx={{ mr: 1 }} className="button" href="./" variant="contained"> <span className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>*/}
+                      {/*    </Stack>*/}
+                      {/*    <Stack spacing={2} direction="row">*/}
+                      {/*        <Button onClick={handleNext} className="button" href="/education" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>*/}
+                      {/*    </Stack>*/}
+                      {/*</div>*/}
                   </Box>
                 </React.Fragment>
               )}

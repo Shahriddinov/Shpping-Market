@@ -20,18 +20,18 @@ import SpeedIcon from '@mui/icons-material/Speed';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import InfoIcon from '@mui/icons-material/Info';
 import ArticleIcon from '@mui/icons-material/Article';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import {Link} from "react-router-dom";
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import Notification from "../../components/Notification/notification";
-import Next from "../../components/NextButton/next";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
 import Button from "@mui/material/Button";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import Stack from "@mui/material/Stack";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
-import Box from '@mui/material/Box';
-import Badge from '@mui/material/Badge';
+import InputLabel from "@mui/material/InputLabel";
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 const {Header, Content, Footer, Sider} = Layout;
 
@@ -47,20 +47,31 @@ function getItem(label, key, icon, children) {
 const items = [
     getItem(' Пользовательское соглашение', '1', <ArticleIcon/>),
     getItem('Помощь', '2', <HelpOutlineIcon/>),
-    // getItem('User', 'sub1', <UserOutlined/>, [
-    //     getItem('Tom', '3'),
-    //     getItem('Bill', '4'),
-    //     getItem('Alex', '5'),
-    // ]),
+
     getItem('О проекте', 'sub2', <InfoIcon/>,
-        // [getItem('Team 1', '6'), getItem('Team 2', '8')]
+
     ),
-    // getItem('Files', '9', <FileOutlined/>),
 ];
 
 
 const ComeSystem = () => {
+    const [regions, setRegions] = React.useState('');
+    const [textError, setTextError] =React.useState(false);
+    const [text, setText] =React.useState('');
 
+
+
+    const handleOnChange = (e)=>{
+      e.preventDefault()
+
+      if (text === ''){
+          setTextError(true)
+      }
+    };
+
+    const handleRegions = (event) => {
+        setRegions(event.target.value);
+    };
     const [collapsed, setCollapsed] = useState(false);
 
     const {t, i18n} = useTranslation();
@@ -142,16 +153,60 @@ const ComeSystem = () => {
 
                             <div className="form-control">
                                 <label className="cityLabel">Филиалы *</label>
-                                <select className="city">
-                                    <option value="Toshkent">Toshkent</option>
-                                    <option value="Samarqand">Samarqand</option>
-                                    <option value="Farg'ona">Farg'ona</option>
-                                    <option value="Nukus">Nukus</option>
-                                </select>
+                                    <FormControl sx={{ minWidth: 120 }} className="city" size="small">
+                                        <InputLabel id="demo-select-small">{t("region")}</InputLabel>
+                                        <Select
+                                            labelId="demo-select-small"
+                                            id="demo-select-small"
+                                            value={regions}
+                                            required
+                                            label={t("region")}
+                                            onAbort={handleRegions}
+                                        >
+                                            <MenuItem value="">
+                                                <em>None</em>
+                                            </MenuItem>
+                                            <MenuItem value={10}>Toshkent</MenuItem>
+                                            <MenuItem value={20}>Samarqand</MenuItem>
+                                            <MenuItem value={30}>Farg'ona</MenuItem>
+                                        </Select>
+                                    </FormControl>
+
                                 <label className="cityLabel">Логин *</label>
-                                <input type="text" placeholder="Login" className="city"/>
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& > :not(style)': { width: '25ch' },
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <TextField
+                                        id="outlined-basic"
+                                        label="Login"
+                                        variant="outlined"
+                                        className="city"
+                                        error={textError}
+                                        onAbort={handleOnChange}
+                                    />
+
+                                </Box>
                                 <label className="cityLabel">Пароль *</label>
-                                <input type="number" placeholder="Parol" className="city"/>
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& > :not(style)': { width: '25ch' },
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <TextField
+                                        id="outlined-basic"
+                                        label="Пароль"
+                                        variant="outlined"
+                                        className="city" />
+
+                                </Box>
                             </div>
                             <div className="d-flex p-3 align-items-center justify-content-between">
                                 <div className="d-flex align-items-center">

@@ -3,7 +3,7 @@
 
 .Page1 {
   width: calc(100% - 60px);
-  height: 65vh;
+  height: 75vh;
   margin: 0 30px;
   background: #ffffff;
   border: 0.5px solid rgba(0, 0, 0, 0.04);
@@ -23,7 +23,7 @@
   padding: 24px 28px 128px 24px;
   display: flex;
   flex-wrap: nowrap;
-  column-gap: 32px;
+  column-gap: 34px;
 }
 
 .page1__label {
@@ -34,7 +34,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
+  row-gap: 3px;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -62,14 +62,14 @@
 
 .page1__gender {
   margin-top: 50px;
-  margin-bottom: 56px;
+  margin-bottom: 30px;
   display: flex !important;
   flex-direction: row !important;
-  column-gap: 32px;
+  column-gap: 38px;
 }
 
 .email__label {
-  margin-top: 24px;
+  margin-top: 34px;
 }
 
 .page1__form-right {
@@ -84,13 +84,14 @@
   min-width: 520px;
   width: 520px;
   height: 50px;
-  background: #ffffff !important;
-  border: 0.5px solid rgba(173, 173, 173, 0.8) !important;
-  border-radius: 8px !important;
-
-  &-wrapper {
-
+  .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+    height: 50px;
   }
+  //background: #ffffff !important;
+  //border: 0.5px solid rgba(173, 173, 173, 0.8) !important;
+  //border-radius: 8px !important;
+
+
 
   & .ant-select-selection-item {
     margin: 0;

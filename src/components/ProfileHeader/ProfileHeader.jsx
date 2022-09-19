@@ -8,10 +8,12 @@ import "./ProfileHeader.scss";
 import UzFlag from "../../assets/images/Uz.png";
 import React from "react";
 import Notification from "../Notification/notification";
+import {useTranslation} from "react-i18next";
 
 const { Header } = Layout;
 
 function ProfileHeader({ handleChangeLng }) {
+  const {t} = useTranslation();
   return (
 
     <Layout>
