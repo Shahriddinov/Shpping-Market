@@ -5,7 +5,7 @@ import SdCardIcon from "@mui/icons-material/SdCard";
 import LoginIcon from "@mui/icons-material/Login";
 import SettingsIcon from "@mui/icons-material/Settings";
 import {useTranslation} from "react-i18next";
-import "./portfolio.scss";
+import "./style.scss";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
@@ -24,7 +24,7 @@ import Footer from "../../components/Layout/Footer/Footer";
 
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
-const Portfolio = () => {
+const PortfolioInfo = () => {
 
     const {t, i18n} = useTranslation();
 
@@ -51,13 +51,8 @@ const Portfolio = () => {
     };
 
     return (
-        <>
-            <section id="portfolio" className="portfolio">
-                <ProfileSidebar items={items}/>
+            <>
                 <div className="basePart">
-                    <ProfileHeader handleChangeLng={handleChangeLng}/>
-                    <ProfileNavbar/>
-
                     <div class="portfolio_collaps">
                         <div className="colapse_left">
 
@@ -67,7 +62,7 @@ const Portfolio = () => {
                                     aria-controls="panel2a-content"
                                     id="panel2a-header"
                                 >
-                                    <Typography><h2>{t("PersonalData")}</h2></Typography>
+                                    <Typography><h2>Личные данные</h2></Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <Typography>
@@ -76,7 +71,7 @@ const Portfolio = () => {
 
                                             </div>
                                             <div className="user_name">
-                                                <h3>{t("FullName")} *</h3>
+                                                <h3>ФИО *</h3>
                                                 <div className="name_input">
                                                     Ботиров Асадбек Олимович
                                                 </div>
@@ -84,23 +79,23 @@ const Portfolio = () => {
                                         </div>
                                         <div className="switch">
                                             <Switch {...label} defaultChecked />
-                                            <h3>{t("sex")}</h3>
+                                            <h3>Мужчина</h3>
                                         </div>
                                         <div className="about_user">
                                             <div className="info_user">
-                                                {t("portfolio")}
+                                                Портфолио
                                             </div>
                                             <div className="info_number_user">
                                                 39
                                             </div>
                                             <div className="info_user">
-                                                {t("testScores")}
+                                                Тестовые баллы
                                             </div>
                                             <div className="info_number_user">
                                                 39
                                             </div>
                                             <div className="info_user">
-                                                {t("totalScore")}
+                                                Общий балл
                                             </div>
                                             <div className="info_number_user">
                                                 80.5
@@ -117,18 +112,18 @@ const Portfolio = () => {
                                     aria-controls="panel2a-content"
                                     id="panel2a-header"
                                 >
-                                    <Typography><h2>{t("ContactInfo")}</h2></Typography>
+                                    <Typography><h2>Данные для связи</h2></Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <Typography>
                                         <div className="phone_number">
-                                            <p style={{marginBottom:8}}>{t("PhoneNumber")}</p>
+                                            <p style={{marginBottom:8}}>Телефон номер</p>
                                             <div className="number">
                                                 +998 90 721 88 36
                                             </div>
                                         </div>
                                         <div className="web_site">
-                                            <p style={{marginBottom:8}}>{t("WebSite")}</p>
+                                            <p style={{marginBottom:8}}>Веб сайт</p>
                                             <div className="site">
                                                 www.test.uz
                                             </div>
@@ -140,7 +135,7 @@ const Portfolio = () => {
                                             </div>
                                         </div>
                                         <div className="location">
-                                            <p style={{marginBottom:8}}>{t("PlaceOfResidence")}</p>
+                                            <p style={{marginBottom:8}}>Место проживания</p>
                                             <div className="mesto">
                                                 test02@gmail.com
                                             </div>
@@ -149,47 +144,10 @@ const Portfolio = () => {
                                 </AccordionDetails>
                             </Accordion>
                         </div>
-
-                    </div>
-                    <div className="add_portfolio">
-                        <h3>{t("AddPortfolio")}</h3>
-
-                        <div className="file_add">
-                            <div className="add_left">
-                                <label htmlFor="file">
-                                    <DownloadIcon fontSize="medium"/>
-                                    <p>{t("uploadPDF")}</p>
-                                </label>
-                                <input className='d-none' id="file" type="file"/>
-                            </div>
-                            <div className="add_right">
-                                <h3>{t("nameCertificate")}</h3>
-                                <input className='form-control' placeholder={t("title")} type="text"/>
-                                <h3>{t("WhatDidYouGet")}</h3>
-                                <textarea className='form-control' placeholder={t("text")} name="" id=""></textarea>
-                            </div>
-                        </div>
-
-
-                        <div className="next-page">
-
-                            <div className="back-btn">
-                                <Stack spacing={2} direction="row">
-                                    <Button className="button" href="/qualification" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
-                                </Stack>
-                            </div>
-                            <div className="next-btn">
-                                <Stack spacing={2} direction="row">
-                                    <Button className="button" href="/certificates" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><SaveAsIcon fontSize="small"/></span> Сохранить</Button>
-                                </Stack>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </section>
-            <Footer/>
-        </>
+            </>
     );
 };
 
-export default Portfolio;
+export default PortfolioInfo;

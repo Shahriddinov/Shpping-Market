@@ -54,5 +54,22 @@
   "speciality": "Специальность ",
   "dateReceived" : "Дата поступление ",
   "expirationDate": "Дата оканчание ",
-  "experience": "Стаж "
+  "experience": "Стаж ",
+
+  "PersonalData": "Личные данные",
+  "FullName": "ФИО",
+  "sex": "Мужчина",
+  "portfolio": "Портфолио",
+  "testScores": "Тестовые баллы",
+  "totalScore": "Общий балл",
+  "ContactInfo": "Данные для связи",
+  "PhoneNumber": "Телефон номер",
+  "WebSite": "Веб сайт",
+  "PlaceOfResidence": "Место проживания",
+  "AddPortfolio": "Добавить портфолио",
+  "nameCertificate": "Название сертификата",
+  "WhatDidYouGet": "За что получил?",
+  "title": "Название",
+  "text": "Текст",
+  "uploadPDF": "Загрузить PDF"
 }

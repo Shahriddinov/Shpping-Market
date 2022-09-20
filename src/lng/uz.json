@@ -56,5 +56,22 @@
   "speciality" : "Mutaxassislik ",
   "dateReceived" : "Qabul qilingan sana",
   "expirationDate": "Tugash sanasi",
-  "experience": "Tajriba"
+  "experience": "Tajriba",
+
+  "PersonalData": "Shaxsiy ma'lumotlar",
+  "FullName": "FIO",
+  "sex": "Jinsi",
+  "portfolio": "Portfolio",
+  "testScores": "Test ballari",
+  "totalScore": "Umumiy ballar",
+  "ContactInfo": "Bog'lanish uchun ma'lumot",
+  "PhoneNumber": "Telefon raqami",
+  "WebSite": "Veb sayt",
+  "PlaceOfResidence": "Yashash joyi",
+  "AddPortfolio": "Portfolio qo'shish",
+  "nameCertificate": "Sertikat nomi",
+  "WhatDidYouGet":"Nima oldingiz?",
+  "title": "Nomi",
+  "text": "Tekst",
+  "uploadPDF": "PDF yuklash"
 }
