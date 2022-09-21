@@ -13,7 +13,9 @@ const userInfo = lazy(()=>import("./page/comeSystem/comeSystem"));
 const NotFound = lazy(() => import("./page/404"));
 const Education = lazy(()=>import("./page/Education/eduction"));
 const Qualification = lazy(()=>import("./page/Qualification/qualification"));
-const Work = lazy(()=>import("./page/Work/work"))
+const Work = lazy(()=>import("./page/Work/work"));
+const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
+const Certificates = lazy(() => import("./page/Certificates/certificates"));
 
 
 const routes = [
@@ -24,7 +26,9 @@ const routes = [
     {path: "/profile", element: Profile},
     {path: "/education", element: Education},
     {path: "/qualification", element:Qualification},
-    {path: "/work", element: Work}
+    {path: "/work", element: Work},
+    {path: "/portfolio", element:Portfolio},
+    {path: "/certificates", element:Certificates}
 ];
 const RoutesContainer = () => (
     <Router>
