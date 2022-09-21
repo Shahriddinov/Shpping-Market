@@ -6,21 +6,12 @@ import LoginIcon from "@mui/icons-material/Login";
 import SettingsIcon from "@mui/icons-material/Settings";
 import {useTranslation} from "react-i18next";
 import "./style.scss";
-import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
-import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
-import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import DownloadIcon from '@mui/icons-material/Download';
-import SaveAsIcon from '@mui/icons-material/SaveAs';
 import Switch from '@mui/material/Switch';
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import CancelOutlinedIcon from "@mui/material/SvgIcon/SvgIcon";
-import Footer from "../../components/Layout/Footer/Footer";
 
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
@@ -62,7 +53,7 @@ const PortfolioInfo = () => {
                                     aria-controls="panel2a-content"
                                     id="panel2a-header"
                                 >
-                                    <Typography><h2>Личные данные</h2></Typography>
+                                    <Typography><h2>{t("PersonalData")}</h2></Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <Typography>
@@ -71,7 +62,7 @@ const PortfolioInfo = () => {
 
                                             </div>
                                             <div className="user_name">
-                                                <h3>ФИО *</h3>
+                                                <h3>{t("FullName")} *</h3>
                                                 <div className="name_input">
                                                     Ботиров Асадбек Олимович
                                                 </div>
@@ -79,23 +70,23 @@ const PortfolioInfo = () => {
                                         </div>
                                         <div className="switch">
                                             <Switch {...label} defaultChecked />
-                                            <h3>Мужчина</h3>
+                                            <h3>{t("sex")}</h3>
                                         </div>
                                         <div className="about_user">
                                             <div className="info_user">
-                                                Портфолио
+                                                {t("portfolio")}
                                             </div>
                                             <div className="info_number_user">
                                                 39
                                             </div>
                                             <div className="info_user">
-                                                Тестовые баллы
+                                                {t("testScores")}
                                             </div>
                                             <div className="info_number_user">
                                                 39
                                             </div>
                                             <div className="info_user">
-                                                Общий балл
+                                                {t("totalScore")}
                                             </div>
                                             <div className="info_number_user">
                                                 80.5
@@ -112,18 +103,18 @@ const PortfolioInfo = () => {
                                     aria-controls="panel2a-content"
                                     id="panel2a-header"
                                 >
-                                    <Typography><h2>Данные для связи</h2></Typography>
+                                    <Typography><h2>{t("ContactInfo")}</h2></Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <Typography>
                                         <div className="phone_number">
-                                            <p style={{marginBottom:8}}>Телефон номер</p>
+                                            <p style={{marginBottom:8}}>{t("PhoneNumber")}</p>
                                             <div className="number">
                                                 +998 90 721 88 36
                                             </div>
                                         </div>
                                         <div className="web_site">
-                                            <p style={{marginBottom:8}}>Веб сайт</p>
+                                            <p style={{marginBottom:8}}>{t("WebSite")}</p>
                                             <div className="site">
                                                 www.test.uz
                                             </div>
@@ -135,7 +126,7 @@ const PortfolioInfo = () => {
                                             </div>
                                         </div>
                                         <div className="location">
-                                            <p style={{marginBottom:8}}>Место проживания</p>
+                                            <p style={{marginBottom:8}}>{t("PlaceOfResidence")}</p>
                                             <div className="mesto">
                                                 test02@gmail.com
                                             </div>

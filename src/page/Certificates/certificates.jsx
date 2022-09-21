@@ -13,16 +13,6 @@ import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
 import Footer from "../../components/Layout/Footer/Footer";
 import BasicModal from "../../components/DeleteModal/deleteModal";
-import DownloadIcon from '@mui/icons-material/Download';
-import CancelOutlinedIcon from "@mui/material/SvgIcon/SvgIcon";
-import SaveAsIcon from '@mui/icons-material/SaveAs';
-import Accordion from "@mui/material/Accordion/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import ExpandMoreIcon from "@mui/material/SvgIcon/SvgIcon";
-import Typography from "@mui/material/Typography";
-import AccordionDetails from "@mui/material/AccordionDetails/AccordionDetails";
-import Switch from "@mui/material/Switch/Switch";
-import Stack from "@mui/material/Stack";
 import PortfolioInfo from "../../components/PortfolioInfo/portfolioInfo";
 
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
@@ -60,12 +50,12 @@ const Certificates = () => {
             <ProfileSidebar items={items}/>
             <div className="basePart">
                 <ProfileHeader handleChangeLng={handleChangeLng}/>
-                <ProfileNavbar/>
+                <ProfileNavbar title={"portfolio"}/>
                 <PortfolioInfo/>
-                <h1>Файлы для тестовых вопросов</h1>
+                <h1>{t("fileQuestion")}</h1>
                 <div className="pdf-part">
                     <div className="pdf">
-                        <h3>Обучение физической культуре и спорту:</h3>
+                        <h3>{t("teachingCulture")}</h3>
                         <div className="pdf-item">
                             <div className="pdf-own">
                                 <img src="./image 26.png" alt=""/>
@@ -88,7 +78,7 @@ const Certificates = () => {
                                 <div className="deleteIcon"><BasicModal/></div>
                             </div>
                         </div>
-                        <h3>Обучение физической культуре и спорту:</h3>
+                        <h3>{t("teachingCulture")}</h3>
                         <div className="pdf-item">
                             <div className="pdf-own">
                                 <img src="./image 26.png" alt=""/>
@@ -113,7 +103,7 @@ const Certificates = () => {
                         </div>
                     </div>
                 </div>
-                <h1>Профиссиональная деятельность</h1>
+                <h1>{t("ProfActivity")}</h1>
                 <div className="about-certificate">
                     <div className="Orzibek"></div>
                     <div className="card border-0">

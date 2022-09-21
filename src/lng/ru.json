@@ -71,5 +71,8 @@
   "WhatDidYouGet": "За что получил?",
   "title": "Название",
   "text": "Текст",
-  "uploadPDF": "Загрузить PDF"
+  "uploadPDF": "Загрузить PDF",
+  "teachingCulture": "Обучение физической культуре и спорту:",
+  "fileQuestion": "Файлы для тестовых вопросов",
+  "ProfActivity": "Профиссиональная деятельность"
 }
