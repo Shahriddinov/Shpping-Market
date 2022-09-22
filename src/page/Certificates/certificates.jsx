@@ -15,11 +15,9 @@ import Footer from "../../components/Layout/Footer/Footer";
 import BasicModal from "../../components/DeleteModal/deleteModal";
 import PortfolioInfo from "../../components/PortfolioInfo/portfolioInfo";
 
-const label = { inputProps: { 'aria-label': 'Switch demo' } };
+const label = {inputProps: {'aria-label': 'Switch demo'}};
 
 const Certificates = () => {
-
-
     const {t, i18n} = useTranslation();
 
     function getItem(label, key, icon, children) {
@@ -46,96 +44,97 @@ const Certificates = () => {
 
     return (
         <>
-        <section id="certificates" className="certificates">
-            <ProfileSidebar items={items}/>
-            <div className="basePart">
-                <ProfileHeader handleChangeLng={handleChangeLng}/>
-                <ProfileNavbar title={"portfolio"}/>
-                <PortfolioInfo/>
-                <h1>{t("fileQuestion")}</h1>
-                <div className="pdf-part">
-                    <div className="pdf">
-                        <h3>{t("teachingCulture")}</h3>
-                        <div className="pdf-item">
-                            <div className="pdf-own">
-                                <img src="./image 26.png" alt=""/>
-                                <div className="deleteIcon"><BasicModal/></div>
+            <section id="certificates" className="certificates">
+                <ProfileSidebar items={items}/>
+                <div className="basePart">
+                    <ProfileHeader handleChangeLng={handleChangeLng}/>
+                    <ProfileNavbar title={"portfolio"}/>
+                    <PortfolioInfo/>
+                    <h1>{t("fileQuestion")}</h1>
+                    <div className="pdf-part">
+                        <div className="pdf">
+                            <h3>{t("teachingCulture")}</h3>
+                            <div className="pdf-item">
+                                <div className="pdf-own">
+                                    <img src="./image 26.png" alt=""/>
+                                    <div className="deleteIcon"><BasicModal/></div>
+                                </div>
+                                <div className="pdf-own">
+                                    <img src="./image 26.png" alt=""/>
+                                    <div className="deleteIcon"><BasicModal/></div>
+                                </div>
+                                <div className="pdf-own">
+                                    <img src="./image 26.png" alt=""/>
+                                    <div className="deleteIcon"><BasicModal/></div>
+                                </div>
+                                <div className="pdf-own">
+                                    <img src="./image 26.png" alt=""/>
+                                    <div className="deleteIcon"><BasicModal/></div>
+                                </div>
+                                <div className="pdf-own">
+                                    <img src="./image 26.png" alt=""/>
+                                    <div className="deleteIcon"><BasicModal/></div>
+                                </div>
                             </div>
-                            <div className="pdf-own">
-                                <img src="./image 26.png" alt=""/>
-                                <div className="deleteIcon"><BasicModal/></div>
-                            </div>
-                            <div className="pdf-own">
-                                <img src="./image 26.png" alt=""/>
-                                <div className="deleteIcon"><BasicModal/></div>
-                            </div>
-                            <div className="pdf-own">
-                                <img src="./image 26.png" alt=""/>
-                                <div className="deleteIcon"><BasicModal/></div>
-                            </div>
-                            <div className="pdf-own">
-                                <img src="./image 26.png" alt=""/>
-                                <div className="deleteIcon"><BasicModal/></div>
+                            <h3>{t("teachingCulture")}</h3>
+                            <div className="pdf-item">
+                                <div className="pdf-own">
+                                    <img src="./image 26.png" alt=""/>
+                                    <div className="deleteIcon"><BasicModal/></div>
+                                </div>
+                                <div className="pdf-own">
+                                    <img src="./image 26.png" alt=""/>
+                                    <div className="deleteIcon"><BasicModal/></div>
+                                </div>
+                                <div className="pdf-own">
+                                    <img src="./image 26.png" alt=""/>
+                                    <div className="deleteIcon"><BasicModal/></div>
+                                </div>
+                                <div className="pdf-own">
+                                    <img src="./image 26.png" alt=""/>
+                                    <div className="deleteIcon"><BasicModal/></div>
+                                </div>
+                                <div className="pdf-own">
+                                    <img src="./image 26.png" alt=""/>
+                                    <div className="deleteIcon"><BasicModal/></div>
+                                </div>
                             </div>
                         </div>
-                        <h3>{t("teachingCulture")}</h3>
-                        <div className="pdf-item">
-                            <div className="pdf-own">
-                                <img src="./image 26.png" alt=""/>
-                                <div className="deleteIcon"><BasicModal/></div>
+                    </div>
+                    <h1>{t("ProfActivity")}</h1>
+                    <div className="about-certificate">
+                        <div className="Orzibek"></div>
+                        <div className="card border-0">
+                            <div className="card-header border-0">
+                                <img className="mx-auto" src="./image 22.png" alt=""/>
                             </div>
-                            <div className="pdf-own">
-                                <img src="./image 26.png" alt=""/>
-                                <div className="deleteIcon"><BasicModal/></div>
-                            </div>
-                            <div className="pdf-own">
-                                <img src="./image 26.png" alt=""/>
-                                <div className="deleteIcon"><BasicModal/></div>
-                            </div>
-                            <div className="pdf-own">
-                                <img src="./image 26.png" alt=""/>
-                                <div className="deleteIcon"><BasicModal/></div>
-                            </div>
-                            <div className="pdf-own">
-                                <img src="./image 26.png" alt=""/>
-                                <div className="deleteIcon"><BasicModal/></div>
+                            <div className="card-body">
+                                Перечень направлений переподготовки и повышения квалификации;
+                                - Студенты, которые планируют повысить свою квалификацию в этом году список; Студенты,
+                                не прошедшие курсы повышения квалификации (исключаются).
+                                - Список студентов, участвующих в повторных курсах;
+                                - список назначенных на повторные курсы;
+                                - список не обучавшихся на повторных курсах;
+                                - Список не прошедших повторные курсы
                             </div>
                         </div>
                     </div>
+                    <Button style={{
+                        display: "block",
+                        backgroundColor: "#FFA41D",
+                        borderRadius: 8,
+                        width: 283,
+                        height: 48,
+                        color: "#fff",
+                        marginRight: 24,
+                        marginLeft: 'auto',
+                        marginTop: 24,
+                        textAlign: "center",
+                        paddingTop: 12
+                    }} href="/portfolio"><span style={{marginRight: 17.5}}><EditIcon fontSize="small"/></span>Редактировать</Button>
                 </div>
-                <h1>{t("ProfActivity")}</h1>
-                <div className="about-certificate">
-                    <div className="Orzibek"></div>
-                    <div className="card border-0">
-                        <div className="card-header border-0">
-                            <img className="mx-auto" src="./image 22.png" alt=""/>
-                        </div>
-                        <div className="card-body">
-                            Перечень направлений переподготовки и повышения квалификации;
-                            - Студенты, которые планируют повысить свою квалификацию в этом году список; Студенты, не прошедшие курсы повышения квалификации (исключаются).
-                            - Список студентов, участвующих в повторных курсах;
-                            - список назначенных на повторные курсы;
-                            - список не обучавшихся на повторных курсах;
-                            - Список не прошедших повторные курсы
-                        </div>
-                    </div>
-                </div>
-                <Button style={{
-                    display:"block",
-                    backgroundColor:"#FFA41D",
-                    borderRadius:8,
-                    width:283,
-                    height: 48,
-                    color:"#fff",
-                    marginRight:24,
-                    marginLeft:'auto',
-                    marginTop:24,
-                    textAlign:"center",
-                    paddingTop:12
-                }} href="/portfolio"><span style={{marginRight:17.5}}><EditIcon fontSize="small" /></span>Редактировать</Button>
-            </div>
-        </section>
-        <Footer/>
+            </section>
+            <Footer/>
         </>
     );
 };

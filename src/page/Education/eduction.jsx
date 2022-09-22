@@ -15,8 +15,6 @@ import Slayder from "../../components/Slayder/slayder";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
-import Notification from "../../components/Notification/notification";
-import Next from "../../components/NextButton/next";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
@@ -35,10 +33,10 @@ const Eduction = () => {
     };
     const handleInstitution = (event) => {
         setInstitution(event.target.value)
-    }
+    };
     const handleSpeciality = (event) => {
         setSpeciality(event.target.value)
-    }
+    };
 
     function getItem(label, key, icon, children) {
         return {
@@ -69,7 +67,7 @@ const Eduction = () => {
                 <ProfileHeader handleChangeLng={handleChangeLng}/>
                 <ProfileNavbar/>
                 <div className="formBox">
-                    <Slayder/>
+                    <Slayder val={1}/>
                     <div className="infoEdu">
                         <h3 className="title">{t("aboutEducation")}</h3>
                         <div className="side-by-side">
