@@ -10,6 +10,8 @@ import userPic from "../../assets/images/userPicture.jpg";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
 import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
 import "./ProfileOverview.scss";
+import BackgroundJob from "../../components/backgroundJob/backgroundJob";
+import EduInfo from "../../components/eduInfo/eduInfo";
 
 function ProfileOverview() {
   const { t, i18n } = useTranslation();
@@ -43,7 +45,13 @@ function ProfileOverview() {
     fullName: "fullName",
     passportId: "passportId",
     education: "education",
-    email: "email"
+    email: "email",
+    nationality: "nationality",
+    dateBirth: "dateBirth",
+    pinfl: "PINFL",
+    learningBuild: "learningBuild",
+    department: "department",
+    district: "district"
   };
 
   return (
@@ -56,19 +64,11 @@ function ProfileOverview() {
           <ProfileNavbar title={t("profile")} />
           <div className="profile-overview__sections">
             <div className="profile-overview__container">
-              <PersonalInfo
-                fullName={t(userInformations.fullName)}
-                passportId={t(userInformations.passportId)}
-                imageURL={userPic}
-                education={userInformations.education}
-              />
-              <PersonalInfo
-                fullName={t(userInformations.fullName)}
-                passportId={t(userInformations.passportId)}
-                imageURL={userPic}
-                education={userInformations.education}
-                email={userInformations.email}
-              />
+              <PersonalInfo imageURL={userPic} obj={userInformations} />
+              <BackgroundJob obj={userInformations} />
+              <BackgroundJob obj={userInformations} />
+              <BackgroundJob obj={userInformations} />
+              {/* <EduInfo /> */}
             </div>
           </div>
         </section>

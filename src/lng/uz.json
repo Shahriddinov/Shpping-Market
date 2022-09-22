@@ -59,9 +59,16 @@
   "experience": "Tajriba",
   "fio": "FIO",
   "responsibilty": "Lavozim",
-  "Botirov Asadbek": "Botirov Asadbek",
   "personalInfo": "Shaxsiy ma'lumotlar",
-  "fullName": "Botirov Asadbek Olimovich",
   "passportId": "Passport Seriyasi",
-  "education": "Ta'lim"
+  "education": "Ta'lim",
+  "email": "Elektron pochta",
+  "jobBackground": "Ish haqida ma'lumot",
+  "department": "Kafedra",
+
+  "Botirov Asadbek": "Botirov Asadbek",
+  "fullName": "Botirov Asadbek Olimovich",
+  "nationality": "Uzbek",
+  "dateBirth": "05.10.2002 y",
+  "PINFL": "Hujjat Ma'lumoti"
 }

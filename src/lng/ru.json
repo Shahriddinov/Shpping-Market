@@ -31,7 +31,7 @@
   "passportNumber": "Паспорт серии",
   "Email": "Электронная почта",
   "nation" : "Национальность",
-  "happy" : " Дата Рождения",
+  "happy" : "Дата Рождения",
   "personal": "Личный номер Индификации ПИНФЛ",
   "phoneNumber": "Телефон номер",
   "district": "Район",
@@ -57,9 +57,16 @@
   "experience": "Стаж ",
   "fio": "ФИО",
   "responsibilty": "должность",
-  "Botirov Asadbek": "Ботиров Асадбек",
   "personalInfo": "Личные данные",
-  "fullName": "Ботиров Асадбек Олимович",
   "passportId": "Паспорт серии ",
-  "education": "Образование"
+  "education": "Образование",
+  "email": "Электронная почта",
+  "jobBackground": "Сведение о работе",
+
+  "fullName": "Ботиров Асадбек Олимович",
+  "Botirov Asadbek": "Ботиров Асадбек",
+  "nationality": "Узбек",
+  "dateBirth": "05.10.2002 г",
+  "PINFL": "Дата документа",
+  "department": "Кафедра"
 }
