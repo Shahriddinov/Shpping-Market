@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 import "./ProfileNavbar.scss";
 import {useTranslation} from "react-i18next";
 
-function ProfileNavbar() {
+function ProfileNavbar({title}) {
   const { t } = useTranslation();
   return (
     <nav className="profile__navbar">
@@ -14,7 +14,7 @@ function ProfileNavbar() {
           <Link to="#">
             <ArrowBackIosIcon className="arrow-back" />
           </Link>
-          <h2 className="profile__navbar-left--title">{t("fullInfo")}</h2>
+          <h2 className="profile__navbar-left--title">{title}</h2>
         </div>
         <div className="profile__navbar-right">
           <SpeedIcon className="icon" />

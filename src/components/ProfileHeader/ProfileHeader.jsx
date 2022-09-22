@@ -12,30 +12,38 @@ import {useTranslation} from "react-i18next";
 
 const { Header } = Layout;
 
-function ProfileHeader({ handleChangeLng }) {
+function ProfileHeader({ handleChangeLng, questionNeed }) {
   const {t} = useTranslation();
-  return (
 
+  return (
     <Layout>
       <Header>
         <div className="profile__container">
           <div className="profile__left">
-            <div className="name">ФИО</div>
-            <div className="jobTitle">должность</div>
+            <div className="name">{t("fio")}</div>
+            <div className="jobTitle">{t("responsibilty")}</div>
           </div>
           <div className="profile__right">
-            <button className="flagButton" onClick={() => handleChangeLng("uz")}>
-              <img className="iconFlag" src={UzFlag} alt=""/>
+            <button
+              className="flagButton"
+              onClick={() => handleChangeLng("uz")}
+            >
+              <img className="iconFlag" src={UzFlag} alt="" />
               Uz
             </button>
-            <button className="flagButton" onClick={() => handleChangeLng("ru")}>
-              <img className="iconFlag" src={RuFlag} alt=""/>
+            <button
+              className="flagButton"
+              onClick={() => handleChangeLng("ru")}
+            >
+              <img className="iconFlag" src={RuFlag} alt="" />
               Ру
             </button>
-            <Notification/>
-            <Link className="question" to="/">
-              <img src={QuestionMark} width="20" height="20" />
-            </Link>
+            <Notification />
+            {questionNeed && (
+              <Link className="question" to="/">
+                <img src={QuestionMark} width="20" height="20" />
+              </Link>
+            )}
           </div>
         </div>
       </Header>

@@ -54,5 +54,12 @@
   "speciality": "Специальность ",
   "dateReceived" : "Дата поступление ",
   "expirationDate": "Дата оканчание ",
-  "experience": "Стаж "
+  "experience": "Стаж ",
+  "fio": "ФИО",
+  "responsibilty": "должность",
+  "Botirov Asadbek": "Ботиров Асадбек",
+  "personalInfo": "Личные данные",
+  "fullName": "Ботиров Асадбек Олимович",
+  "passportId": "Паспорт серии ",
+  "education": "Образование"
 }

@@ -56,5 +56,12 @@
   "speciality" : "Mutaxassislik ",
   "dateReceived" : "Qabul qilingan sana",
   "expirationDate": "Tugash sanasi",
-  "experience": "Tajriba"
+  "experience": "Tajriba",
+  "fio": "FIO",
+  "responsibilty": "Lavozim",
+  "Botirov Asadbek": "Botirov Asadbek",
+  "personalInfo": "Shaxsiy ma'lumotlar",
+  "fullName": "Botirov Asadbek Olimovich",
+  "passportId": "Passport Seriyasi",
+  "education": "Ta'lim"
 }
