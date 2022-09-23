@@ -1,0 +1,52 @@
+.background-job {
+  height: fit-content;
+  flex-basis: calc(50% - 10px);
+  background: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+
+  & .background-job__sections {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+  }
+
+  & .background-job__title-wrapper {
+    margin-bottom: 4px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  & .background-job__title {
+    margin: 0;
+    padding: 0; 
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #2b63c0;
+  }
+
+  & .background-job__button {
+    width: 27px;
+    height: 6px;
+    display: inline-block;
+    background: #2b63c0;
+    border-radius: 5px;
+  }
+
+  & .background-job__drop-down {
+    width: 100%;
+    display: none;
+    padding: 20px;
+    padding-top: 0;
+    padding-bottom: 70px;
+  }
+
+  & .drop-up {
+    display: inline-block;
+  }
+}

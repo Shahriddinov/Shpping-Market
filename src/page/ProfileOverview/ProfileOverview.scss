@@ -1,0 +1,27 @@
+.Profile-overview {
+  display: flex;
+
+  .profile-overview__container {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 20px;
+  }
+}
+
+.profile-overview__page {
+  max-width: 100%;
+  min-width: calc(100% - 256px);
+  width: calc(100% - 256px);
+
+  .ant-layout-header {
+    height: inherit;
+    padding: 0;
+    background: inherit;
+    background: #ffffff;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.08);
+  }
+}
+
