@@ -80,7 +80,7 @@ function Work() {
                 <ProfileNavbar/>
                 {/*<Page1/>*/}
                 <div className="forms">
-                    <Slayder/>
+                    <Slayder val={2}/>
                     <div className="title"> {t("jobDetails")}</div>
                     <div className="form">
                         <div className="left-form">
@@ -242,7 +242,7 @@ function Work() {
 
                     <div className="back-btn">
                         <Stack spacing={2} direction="row">
-                            <Button className="button" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+                            <Button className="button" href="/education" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
                         </Stack>
                     </div>
                     <div className="next-btn">

@@ -79,7 +79,7 @@ function Qualification() {
                 <ProfileNavbar/>
                 {/*<Page1/>*/}
                 <div className="forms">
-                    <Slayder/>
+                    <Slayder val={3}/>
                     <div className="title"> {t("advanced")}</div>
                     <div className="form-control">
                         <div className="form">
@@ -166,13 +166,13 @@ function Qualification() {
 
                     <div className="back-btn">
                         <Stack spacing={2} direction="row">
-                            <Button className="button" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+                            <Button className="button" href="/work" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
                         </Stack>
                     </div>
                     <div className="next-btn">
                         {/*<button>Продолжить</button>*/}
                         <Stack spacing={2} direction="row">
-                            <Button className="button" href="/qualification" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><SaveAsIcon fontSize="small"/></span> Сохранить</Button>
+                            <Button className="button" href="/portfolio" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><SaveAsIcon fontSize="small"/></span> Сохранить</Button>
                         </Stack>
                     </div>
                 </div>

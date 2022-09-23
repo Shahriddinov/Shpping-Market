@@ -15,13 +15,7 @@ import Slayder from "../../components/Slayder/slayder";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import dayjs from 'dayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import Stack from '@mui/material/Stack';
-import Notification from "../../components/Notification/notification";
-import Next from "../../components/NextButton/next";
+import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
@@ -33,21 +27,16 @@ const Eduction = () => {
     const [region, setRegion] = React.useState('');
     const [institution, setInstitution] = React.useState('');
     const [speciality, setSpeciality] = React.useState('');
-    const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
-
-    const handleChange = (newValue) => {
-        setValue(newValue);
-    };
 
     const handleRegion = (event) => {
         setRegion(event.target.value);
     };
     const handleInstitution = (event) => {
         setInstitution(event.target.value)
-    }
+    };
     const handleSpeciality = (event) => {
         setSpeciality(event.target.value)
-    }
+    };
 
     function getItem(label, key, icon, children) {
         return {
@@ -78,7 +67,7 @@ const Eduction = () => {
                 <ProfileHeader handleChangeLng={handleChangeLng}/>
                 <ProfileNavbar/>
                 <div className="formBox">
-                    <Slayder/>
+                    <Slayder val={1}/>
                     <div className="infoEdu">
                         <h3 className="title">{t("aboutEducation")}</h3>
                         <div className="side-by-side">
@@ -137,45 +126,56 @@ const Eduction = () => {
                             </div>
                             <div className="rightSide">
                                 <label className="label" htmlFor="dateReceived">{t("dateReceived")} *</label>
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <Stack spacing={3}>
-                                        <DesktopDatePicker
-                                            className="form-control formData"
-                                            label={t("experience")}
-                                            inputFormat="MM/DD/YYYY"
-                                            value={value}
-                                            onChange={handleChange}
-                                            renderInput={(params) => <TextField {...params} />}
-                                        />
-                                    </Stack>
-                                </LocalizationProvider>
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& > :not(style)': {width: '100%'},
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <TextField
+                                        id="outlined-basic"
+                                        className="form-control formData"
+                                        label={t("experience")}
+                                        type="date"
+                                        variant="outlined"
+                                    />
+                                </Box>
                                 <label className="label" htmlFor="expirationDate">{t("expirationDate")} *</label>
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <Stack spacing={3}>
-                                        <DesktopDatePicker
-                                            className="form-control formData"
-                                            label={t("experience")}
-                                            inputFormat="MM/DD/YYYY"
-                                            value={value}
-                                            onChange={handleChange}
-                                            renderInput={(params) => <TextField {...params} />}
-                                        />
-                                    </Stack>
-                                </LocalizationProvider>
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& > :not(style)': {width: '100%'},
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <TextField
+                                        id="outlined-basic"
+                                        className="form-control formData"
+                                        label={t("experience")}
+                                        type="date"
+                                        variant="outlined"
+                                    />
+                                </Box>
                                 <label className="label" htmlFor="experience">{t("experience")} *</label>
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <Stack spacing={3}>
-                                        <DesktopDatePicker
-                                            className="form-control formData"
-                                            label={t("experience")}
-                                            inputFormat="MM/DD/YYYY"
-                                            value={value}
-                                            onChange={handleChange}
-                                            renderInput={(params) => <TextField {...params} />}
-                                        />
-                                    </Stack>
-                                </LocalizationProvider>
-
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& > :not(style)': {width: '100%'},
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <TextField
+                                        id="outlined-basic"
+                                        className="form-control formData"
+                                        label={t("experience")}
+                                        type="date"
+                                        variant="outlined"
+                                    />
+                                </Box>
                             </div>
                         </div>
                     </div>
