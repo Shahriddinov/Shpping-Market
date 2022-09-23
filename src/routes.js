@@ -13,9 +13,9 @@ const userInfo = lazy(()=>import("./page/comeSystem/comeSystem"));
 const NotFound = lazy(() => import("./page/404"));
 const Education = lazy(()=>import("./page/Education/eduction"));
 const Qualification = lazy(()=>import("./page/Qualification/qualification"));
-const Work = lazy(()=>import("./page/Work/work"))
-
-
+const Work = lazy(()=>import("./page/Work/work"));
+const allInfo = lazy(()=>import("./page/AllInformation/allInformation"))
+const ProfileOverview = lazy(()=>import("./page/ProfileOverview/ProfileOverview"))
 const routes = [
     {path: "/register", element: LoginIn},
     {path: "/login", element: LoginUp},
@@ -23,7 +23,9 @@ const routes = [
     {path: "", element: Home},
     {path: "/profile", element: Profile},
     {path: "/education", element: Education},
+    {path: "/profileOver", element: ProfileOverview},
     {path: "/qualification", element:Qualification},
+    {path: "allInfo", element: allInfo},
     {path: "/work", element: Work}
 ];
 const RoutesContainer = () => (

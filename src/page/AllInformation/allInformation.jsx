@@ -20,6 +20,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import RemoveIcon from '@mui/icons-material/Remove';
 import DownloadIcon from '@mui/icons-material/Download';
 import Switch from '@mui/material/Switch';
 import Button from '@mui/material/Button';
@@ -27,7 +28,10 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Inst from "../../assets/images/inst.svg"
 import "./allInformation.scss"
-
+import ImageUploading from 'react-images-uploading';
+import ImgUploud from "../../components/ImgUploud/imgUploud";
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import SaveAsIcon from "@mui/icons-material/SaveAs";
 
 const label = {inputProps: {'aria-label': 'Switch demo'}};
 const AllInformation = () => {
@@ -37,6 +41,18 @@ const AllInformation = () => {
     const [listEducation, setListEducation] = React.useState('');
     const [directions, setDirections] = React.useState('');
     const [filter, setFilter] = React.useState('');
+    const [images, setImages] = React.useState([]);
+    const maxNumber = 69;
+
+    const onChange = (imageList, addUpdateIndex) => {
+        // data for submit
+        console.log(imageList, addUpdateIndex);
+        setImages(imageList);
+    };
+
+
+
+
 
     const handleListEducation = (event) => {
         setListEducation(event.target.value);
@@ -135,7 +151,7 @@ const AllInformation = () => {
                         </div>
                         <Accordion style={{width: "100%", marginTop: "30px"}}>
                             <AccordionSummary
-                                expandIcon={<ArrowDropDownIcon/>}
+                                expandIcon={<RemoveIcon style={{color:"#2B63C0", fontSize:"42px"}}/>}
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
@@ -353,7 +369,7 @@ const AllInformation = () => {
                         </Accordion>
                         <Accordion style={{width: "100%", marginTop: "30px"}}>
                             <AccordionSummary
-                                expandIcon={<ArrowDropDownIcon/>}
+                                expandIcon={<RemoveIcon style={{color:"#2B63C0", fontSize:"42px"}}/>}
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
@@ -376,12 +392,38 @@ const AllInformation = () => {
                                                 <div className="switchText">{t("return")}</div>
                                                 <Chip label="5" className="clickables" onClick={handleClick}/>
                                             </div>
-                                            <button type="download" className="file">
-                                                <label htmlFor="imgs">
-                                                    <DownloadIcon/>
-                                                    Загрузить Файл</label>
-                                                <input id="imgs" placeholder="Загрузить Файл" type="file" />
-                                            </button>
+
+                                            <ImgUploud/>
+                                            <div className="accordionTitle mt-1" style={{paddingRight:"20px"}}>{t("rating")}</div>
+                                            <div className="d-flex mt-2 mb-2">
+                                                <div className="ScoreLeft">
+                                                    <Switch {...label} defaultChecked/>
+                                                    <div className="ScoreText">{t("ranting")}</div>
+                                                </div>
+                                                <div className="ScoreRight">
+                                                    <Chip label="10" className="clickable" onClick={handleClick}/>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex mt-2 mb-2">
+                                                <div className="ScoreLeft">
+                                                    <Switch {...label} defaultChecked/>
+                                                    <div className="ScoreText">{t("rantingSecond")}</div>
+                                                </div>
+                                                <div className="ScoreRight">
+                                                    <Chip label="20" className="clickable" onClick={handleClick}/>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex mt-2 mb-2">
+                                                <div className="ScoreLeft">
+                                                    <Switch {...label} defaultChecked/>
+                                                    <div className="ScoreText">{t("rantingThree")}</div>
+                                                </div>
+                                                <div className="ScoreRight">
+                                                    <Chip label="40" className="clickable" onClick={handleClick}/>
+                                                </div>
+                                            </div>
+                                            <ImgUploud/>
+
                                         </div>
                                         <div className="accordionLeft">
                                             <div className="accordionTitle">{t("teaching")}</div>
@@ -395,14 +437,54 @@ const AllInformation = () => {
                                                 <div className="switchText">{t("return")}</div>
                                                 <Chip label="5" className="clickables" onClick={handleClick}/>
                                             </div>
-                                            <button type="download" className="file">
-                                                <label htmlFor="imgs">
-                                                    <DownloadIcon/>
-                                                    Загрузить Файл</label>
-                                                <input id="imgs"  type="file" />
-                                            </button>
+                                           <ImgUploud/>
+                                           <div className="accordionTitle mt-1" style={{paddingRight:"20px"}}>{t("rating")}</div>
+                                            <div className="d-flex mt-2 mb-2">
+                                                <div className="ScoreLeft">
+                                                    <Switch {...label} defaultChecked/>
+                                                    <div className="ScoreText">{t("ranting")}</div>
+                                                </div>
+                                                <div className="ScoreRight">
+                                                    <Chip label="10" className="clickable" onClick={handleClick}/>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex mt-2 mb-2">
+                                                <div className="ScoreLeft">
+                                                    <Switch {...label} defaultChecked/>
+                                                    <div className="ScoreText">{t("rantingSecond")}</div>
+                                                </div>
+                                                <div className="ScoreRight">
+                                                    <Chip label="20" className="clickable" onClick={handleClick}/>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex mt-2 mb-2">
+                                                <div className="ScoreLeft">
+                                                    <Switch {...label} defaultChecked/>
+                                                    <div className="ScoreText">{t("rantingThree")}</div>
+                                                </div>
+                                                <div className="ScoreRight">
+                                                    <Chip label="40" className="clickable" onClick={handleClick}/>
+                                                </div>
+                                            </div>
+                                            <ImgUploud/>
+
                                         </div>
                                     </div>
+                                    <div className="next-page">
+
+                                        <div className="back-btn">
+                                            <Stack spacing={2} direction="row">
+                                                <Button className="button" href="#" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+                                            </Stack>
+                                        </div>
+                                        <div className="next-btn">
+                                            {/*<button>Продолжить</button>*/}
+                                            <Stack spacing={2} direction="row">
+                                                <Button className="button" href="#" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><SaveAsIcon fontSize="small"/></span> Сохранить</Button>
+                                            </Stack>
+                                        </div>
+                                    </div>
+
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>

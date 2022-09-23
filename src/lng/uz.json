@@ -56,5 +56,21 @@
   "speciality" : "Mutaxassislik ",
   "dateReceived" : "Qabul qilingan sana",
   "expirationDate": "Tugash sanasi",
-  "experience": "Tajriba"
+  "experience": "Tajriba",
+  "subjectPoints": "Mavzu nuqtalari",
+  "listEducation": "Ta'lim muassasalari va tashkilotlari ro'yxati",
+  "organizations": "Ta'lim muassasalari va tashkilotlari ro'yxati",
+  "network": "TDIU bilan tarmoq markazi",
+  "teachers": "O'qituvchilar:",
+  "go": "Ko'rish",
+  "networkCenter": "TDIU bilan tarmoq markazi",
+  "teaching": "Jismoniy tarbiya va sportni o'qitish:",
+  "higher": "Yuqori",
+  "return": "Qayta tayyorlash",
+  "personalInfo": "Shaxsiy ma'lumotlar",
+  "jobBackground": "Ish haqida ma'lumot",
+  "rating": "Rahbarlik davridagi sport-ta’lim muassasasi faoliyati samaradorligi reytingi:",
+  "ranting": "Reytingning kuchli yigirmataligida (1-20 o'rinlar)",
+  "rantingSecond": "Reytingning ikkinchi yigirmatasida (21-40 o'rinlar)",
+  "rantingThree": "Reytingning uchinchi yigirmatasida (41-60 o'rinlar)"
 }

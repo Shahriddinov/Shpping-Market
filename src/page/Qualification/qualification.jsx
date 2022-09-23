@@ -172,7 +172,7 @@ function Qualification() {
                     <div className="next-btn">
                         {/*<button>Продолжить</button>*/}
                         <Stack spacing={2} direction="row">
-                            <Button className="button" href="/portfolio" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><SaveAsIcon fontSize="small"/></span> Сохранить</Button>
+                            <Button className="button" href="/profileOver" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><SaveAsIcon fontSize="small"/></span> Сохранить</Button>
                         </Stack>
                     </div>
                 </div>
