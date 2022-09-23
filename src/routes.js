@@ -16,6 +16,7 @@ const Qualification = lazy(()=>import("./page/Qualification/qualification"));
 const Work = lazy(()=>import("./page/Work/work"));
 const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
 const Certificates = lazy(() => import("./page/Certificates/certificates"));
+const AllInformation = lazy(()=>import("./page/AllInformation/allInformation"))
 
 
 const routes = [
@@ -28,7 +29,8 @@ const routes = [
     {path: "/qualification", element:Qualification},
     {path: "/work", element: Work},
     {path: "/portfolio", element:Portfolio},
-    {path: "/certificates", element:Certificates}
+    {path: "/certificates", element:Certificates},
+    {path: "/allInfo", element: AllInformation}
 ];
 const RoutesContainer = () => (
     <Router>

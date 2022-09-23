@@ -129,7 +129,7 @@ const ComeSystem = () => {
                         }}
                     >
                         <div className="info">
-                            <div className="left">
+                            <div className="l   eft">
                                 <ArrowBackIosNewIcon  className="icon"/>
                                 <div className="pro">{t("comeSystem")}</div>
                             </div>

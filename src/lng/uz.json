@@ -76,5 +76,16 @@
   "uploadPDF": "PDF yuklash",
   "teachingCulture": "Jismoniy tarbiya va sport fanlarini o'qitish:",
   "fileQuestion": "Test savollari uchun fayllar",
-  "ProfActivity": "Professional faoliyat"
+  "ProfActivity": "Professional faoliyat",
+  "subjectPoints": "Mavzu nuqtalari",
+  "listEducation": "Ta'lim muassasalari va tashkilotlari ro'yxati",
+  "directions": "Yo'nalishlar",
+  "organizations": "Ta'lim muassasalari va tashkilotlari ro'yxati",
+  "network": "TDIU bilan tarmoq markazi",
+  "teachers": "O'qituvchilar:",
+  "go": "Chiqish",
+  "networkCenter": "TDIU bilan tarmoq markazi",
+  "teaching": "Jismoniy tarbiya va sport fanlarini o'qitish:",
+  "higher": "Yuqori",
+  "return": "Qayta tayyorlash"
 }

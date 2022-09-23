@@ -1,0 +1,148 @@
+@import "./src/assets/ui";
+
+.allInformation {
+  display: flex;
+
+  .allInfor {
+    max-width: 100%;
+    min-width: calc(100% - 256px);
+    width: calc(100% - 256px);
+    padding: 0 5px;
+
+    .ant-layout-header {
+      height: inherit;
+      padding: 0;
+      background: inherit;
+      background: #ffffff;
+      box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.08);
+    }
+    .allInfoText{
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      padding:  0 26px;
+    }
+    .selects{
+      display: flex;
+      justify-content: space-between;
+    }
+    .organizations{
+      font-weight: 500;
+      font-size: 16px;
+      color: $colorBlue;
+    }
+    .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type{
+      width: 46%;
+    }
+    .iconFormat{
+      color: $colorBlue;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+
+    }
+    .inst{
+      display: flex;
+      justify-content: space-between;
+
+      .instInfo{
+        width: 30%;
+        height: 130px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        margin: 20px 0  20px 0;
+        .img{
+          padding: 15px;
+          padding-bottom: 0;
+
+        }
+        .instText{
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 24px;
+          padding: 15px;
+          padding-bottom: 0;
+        }
+        .teacher{
+          padding: 0 15px;
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 24px;
+          color: $colorBlue;
+        }
+        .view{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .go{
+            font-weight: 400;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .networkCenter{
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 23px;
+      color: $colorBlue;
+    }
+    .accordionLeft{
+      width: 50%;
+      height: auto;
+      border: 1px solid black;
+      padding: 0;
+      .accordionTitle{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 40px;
+      }
+      .switchText{
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: $colorBlue;
+      }
+      .clickable{
+        width: 80px;
+        margin-left: 23%;
+        background: #90acd8;
+        border-radius: 8px;
+        color: $colorBlue;
+
+      }
+      .clickables{
+        width: 80px;
+        margin-left: 13.5%;
+        background: #e3e1e1;
+        //opacity: 0.1;
+        border-radius: 8px;
+
+      }
+      .file{
+        width: 56%;
+        height: 80px;
+        margin-top: 30px;
+        background: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0.5px dashed #828282;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+        input{
+          display: none;
+        }
+      }
+    }
+
+  }
+
+}

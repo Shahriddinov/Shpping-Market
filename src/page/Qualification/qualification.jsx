@@ -19,14 +19,24 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
+import {DesktopDatePicker} from "@mui/x-date-pickers/DesktopDatePicker";
+import TextField from "@mui/material/TextField";
+import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
+import dayjs from "dayjs";
 
 
 function Qualification() {
     const [region, setRegion] = React.useState('');
     const [direction, setDirection] = React.useState('');
     const [attended, setAttended] = React.useState('');
-
     const {t, i18n} = useTranslation();
+    const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
+
+    const handleChanges = (newValue) => {
+        setValue(newValue);
+    };
+
 
     function getItem(label, key, icon, children) {
         return {
@@ -136,7 +146,18 @@ function Qualification() {
                         </div>
                         <div className="form">
                             <label className="qualificationLabel">{t("date")}*</label>
-                            <input type="date" className="qualificationInput"/>
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <Stack spacing={3}>
+                                    <DesktopDatePicker
+                                        className="form-control formData"
+                                        label={t("date")}
+                                        inputFormat="MM/DD/YYYY"
+                                        value={value}
+                                        onChange={handleChanges}
+                                        renderInput={(params) => <TextField {...params} />}
+                                    />
+                                </Stack>
+                            </LocalizationProvider>
                         </div>
                     </div>
                 </div>
