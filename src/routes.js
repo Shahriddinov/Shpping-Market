@@ -2,9 +2,7 @@ import React, {lazy, Suspense} from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {Spinner} from "./components";
 import ScrollTop from "./hoc/ScrollTop";
-import Layout from "./components/Layout/Layout";
 import Profile from "./page/Profile/Profile";
-import ProfileSidebar from "./components/ProfileSidebar/ProfileSidebar";
 
 const Home = lazy(() => import("./page/Home/Home"));
 const LoginIn = lazy(()=> import("./page/Login"));
@@ -16,6 +14,7 @@ const Qualification = lazy(()=>import("./page/Qualification/qualification"));
 const Work = lazy(()=>import("./page/Work/work"));
 const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
 const Certificates = lazy(() => import("./page/Certificates/certificates"));
+const AdminProfile = lazy(()=>import("./page/admin/adminProfile"));
 
 
 const routes = [
@@ -28,7 +27,8 @@ const routes = [
     {path: "/qualification", element:Qualification},
     {path: "/work", element: Work},
     {path: "/portfolio", element:Portfolio},
-    {path: "/certificates", element:Certificates}
+    {path: "/certificates", element:Certificates},
+    {path: "/adminProfile", element:AdminProfile}
 ];
 const RoutesContainer = () => (
     <Router>

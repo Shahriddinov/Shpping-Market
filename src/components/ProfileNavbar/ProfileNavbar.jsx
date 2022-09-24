@@ -7,7 +7,6 @@ import {useTranslation} from "react-i18next";
 
 function ProfileNavbar(title) {
   const { t } = useTranslation();
-  console.log(title);
   return (
     <nav className="profile__navbar">
       <div className="profile__container">

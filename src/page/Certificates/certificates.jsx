@@ -20,6 +20,13 @@ const label = {inputProps: {'aria-label': 'Switch demo'}};
 const Certificates = () => {
     const {t, i18n} = useTranslation();
 
+    // let teacher = {
+    //     name:"Ботиров Асадбек Алимович",
+    //     image:"teacher.png",
+    //     id:"AD 2113212",
+    //     score:"39"
+    // };
+
     function getItem(label, key, icon, children) {
         return {
             key,
