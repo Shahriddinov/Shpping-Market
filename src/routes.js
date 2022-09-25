@@ -16,6 +16,11 @@ const Qualification = lazy(()=>import("./page/Qualification/qualification"));
 const Work = lazy(()=>import("./page/Work/work"));
 const allInfo = lazy(()=>import("./page/AllInformation/allInformation"))
 const ProfileOverview = lazy(()=>import("./page/ProfileOverview/ProfileOverview"))
+const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
+const Certificates = lazy(() => import("./page/Certificates/certificates"));
+const AdminProfile = lazy(()=>import("./page/admin/adminProfile"));
+
+
 const routes = [
     {path: "/register", element: LoginIn},
     {path: "/login", element: LoginUp},
@@ -23,10 +28,10 @@ const routes = [
     {path: "", element: Home},
     {path: "/profile", element: Profile},
     {path: "/education", element: Education},
-    {path: "/profileOver", element: ProfileOverview},
     {path: "/qualification", element:Qualification},
-    {path: "allInfo", element: allInfo},
-    {path: "/work", element: Work}
+    {path: "/work", element: Work},
+    {path: "/portfolio", element:Portfolio},
+    {path: "/certificates", element:Certificates}
 ];
 const RoutesContainer = () => (
     <Router>

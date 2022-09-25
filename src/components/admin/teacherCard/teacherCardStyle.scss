@@ -1,0 +1,59 @@
+@import "../../../assets/ui";
+
+.teachCard{
+  display: flex;
+  width: 389px;
+  height: 172px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  margin: 2px 24px 24px 2px;
+
+  .teacherImage{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    img{
+      width: 100%;
+    }
+  }
+
+  .teacherInfo{
+    h4, h5{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #333333;
+    margin-bottom: 24px;
+  }
+    .d-flex{
+      h5{
+        font-size: 16px;
+      }
+      div:nth-child(2){
+        margin-left: 40px;
+        h5{
+          color: #8C8C8C;
+          margin-bottom: 12px;
+        }
+        .score{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 121px;
+          height: 48px;
+          background-color: #EAF0F9;
+          color: #2B63C0;
+          border-radius: 8px;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          margin: 0;
+        }
+      }
+    }
+    }
+}
