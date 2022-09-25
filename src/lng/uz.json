@@ -72,5 +72,12 @@
   "rating": "Rahbarlik davridagi sport-ta’lim muassasasi faoliyati samaradorligi reytingi:",
   "ranting": "Reytingning kuchli yigirmataligida (1-20 o'rinlar)",
   "rantingSecond": "Reytingning ikkinchi yigirmatasida (21-40 o'rinlar)",
-  "rantingThree": "Reytingning uchinchi yigirmatasida (41-60 o'rinlar)"
+  "rantingThree": "Reytingning uchinchi yigirmatasida (41-60 o'rinlar)",
+  "upload": "Faylni yuklash",
+  "items": "Element nuqtalari",
+  "chronology": "Xronologiya",
+  "sport": "Jismoniy tarbiya va sport soxdsidagi ma’lumoti:",
+  "high": "Oliy",
+  "CertificationName": "Nomlangan sertifikat",
+  "biography": "Sertifikat tarjimai holi nima uchun olinganligi va boshqalar."
 }

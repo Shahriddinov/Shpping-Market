@@ -32,7 +32,8 @@ import ImageUploading from 'react-images-uploading';
 import ImgUploud from "../../components/ImgUploud/imgUploud";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
-
+import Certification from "../../assets/images/certification.png";
+import BlackCertification from "../../assets/images/blackCer.png"
 const label = {inputProps: {'aria-label': 'Switch demo'}};
 const AllInformation = () => {
 
@@ -49,9 +50,6 @@ const AllInformation = () => {
         console.log(imageList, addUpdateIndex);
         setImages(imageList);
     };
-
-
-
 
 
     const handleListEducation = (event) => {
@@ -151,7 +149,7 @@ const AllInformation = () => {
                         </div>
                         <Accordion style={{width: "100%", marginTop: "30px"}}>
                             <AccordionSummary
-                                expandIcon={<RemoveIcon style={{color:"#2B63C0", fontSize:"42px"}}/>}
+                                expandIcon={<RemoveIcon style={{color: "#2B63C0", fontSize: "42px"}}/>}
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
@@ -369,7 +367,7 @@ const AllInformation = () => {
                         </Accordion>
                         <Accordion style={{width: "100%", marginTop: "30px"}}>
                             <AccordionSummary
-                                expandIcon={<RemoveIcon style={{color:"#2B63C0", fontSize:"42px"}}/>}
+                                expandIcon={<RemoveIcon style={{color: "#2B63C0", fontSize: "42px"}}/>}
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
@@ -394,7 +392,8 @@ const AllInformation = () => {
                                             </div>
 
                                             <ImgUploud/>
-                                            <div className="accordionTitle mt-1" style={{paddingRight:"20px"}}>{t("rating")}</div>
+                                            <div className="accordionTitle mt-1"
+                                                 style={{paddingRight: "20px"}}>{t("rating")}</div>
                                             <div className="d-flex mt-2 mb-2">
                                                 <div className="ScoreLeft">
                                                     <Switch {...label} defaultChecked/>
@@ -437,8 +436,9 @@ const AllInformation = () => {
                                                 <div className="switchText">{t("return")}</div>
                                                 <Chip label="5" className="clickables" onClick={handleClick}/>
                                             </div>
-                                           <ImgUploud/>
-                                           <div className="accordionTitle mt-1" style={{paddingRight:"20px"}}>{t("rating")}</div>
+                                            <ImgUploud/>
+                                            <div className="accordionTitle mt-1"
+                                                 style={{paddingRight: "20px"}}>{t("rating")}</div>
                                             <div className="d-flex mt-2 mb-2">
                                                 <div className="ScoreLeft">
                                                     <Switch {...label} defaultChecked/>
@@ -474,13 +474,16 @@ const AllInformation = () => {
 
                                         <div className="back-btn">
                                             <Stack spacing={2} direction="row">
-                                                <Button className="button" href="#" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+                                                <Button className="button" href="#" variant="contained"> <span
+                                                    className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
                                             </Stack>
                                         </div>
                                         <div className="next-btn">
                                             {/*<button>Продолжить</button>*/}
                                             <Stack spacing={2} direction="row">
-                                                <Button className="button" href="#" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><SaveAsIcon fontSize="small"/></span> Сохранить</Button>
+                                                <Button className="button" href="#" style={{backgroundColor: "#0FBE7B"}}
+                                                        variant="contained"> <span className="icon"><SaveAsIcon
+                                                    fontSize="small"/></span> Сохранить</Button>
                                             </Stack>
                                         </div>
                                     </div>
@@ -488,6 +491,79 @@ const AllInformation = () => {
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>
+                        <div className="d-flex justify-content-between">
+                            <Accordion style={{width: "47%", marginTop: "30px"}}>
+                                <AccordionSummary
+                                    expandIcon={<RemoveIcon style={{color: "#2B63C0", fontSize: "42px"}}/>}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                >
+                                    <Typography>
+                                        <div className="networkCenter">{t("items")}</div>
+                                    </Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>
+                                        <div className="sport">{t("sport")}</div>
+                                        <div className="d-flex mt-4 mb-2">
+                                            <div className="ScoreLeft">
+                                                <div className="HighText">{t("high")}</div>
+                                            </div>
+                                            <div className="ScoreRight">
+                                                <Chip label="10" className="clickable" onClick={handleClick}/>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div className="d-flex mt-4 mb-2">
+                                            <div className="ScoreLeft">
+                                                <div className="HighText">{t("return")}</div>
+                                            </div>
+                                            <div className="ScoreRight">
+                                                <Chip label="5" className="clickable" onClick={handleClick}/>
+                                            </div>
+                                        </div>
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion style={{width: "47%", marginTop: "30px"}}>
+                                <AccordionSummary
+                                    expandIcon={<RemoveIcon style={{color: "#2B63C0", fontSize: "42px"}}/>}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                >
+                                    <Typography>
+                                        <div className="networkCenter">{t("chronology")}</div>
+                                    </Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>
+                                        <div className="scrolls">
+                                            <div className="sport">{t("CertificationName")}</div>
+                                            <div className="colorCertification">
+                                                <div className="imgis">
+                                                    <img src={Certification} alt=""/>
+                                                </div>
+                                                <div className="imgsText">
+                                                    {t("biography")} <br/>
+                                                    {t("biography")}
+                                                </div>
+                                            </div>
+                                            <div className="sport">{t("CertificationName")}</div>
+                                            <div className="colorCertification">
+                                                <div className="imgis">
+                                                    <img src={BlackCertification} alt=""/>
+                                                </div>
+                                                <div className="imgsText">
+                                                    {t("biography")} <br/>
+                                                    {t("biography")}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
+                        </div>
                     </div>
                 </div>
             </section>

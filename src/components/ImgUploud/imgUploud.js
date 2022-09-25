@@ -2,8 +2,11 @@ import React from 'react';
 import ImageUploading from 'react-images-uploading';
 import DownloadIcon from "@mui/icons-material/Download";
 import "./imgUploud.scss"
+import {useTranslation} from "react-i18next";
 
 const ImgUploud = () => {
+    const {t, i18n} = useTranslation();
+
     const [images, setImages] = React.useState([]);
     const maxNumber = 69;
 
@@ -40,7 +43,7 @@ const ImgUploud = () => {
                                 {...dragProps}
                         >
                             <DownloadIcon/>
-                            Загрузить Файл
+                            {t("upload")}
                         </button>
                         &nbsp;
                         {/*<button onClick={onImageRemoveAll}>Remove all images</button>*/}

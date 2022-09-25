@@ -12,6 +12,11 @@ import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
 import "./ProfileOverview.scss";
 import BackgroundJob from "../../components/backgroundJob/backgroundJob";
 import EduInfo from "../../components/eduInfo/eduInfo";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import SaveAsIcon from "@mui/icons-material/SaveAs";
+import React from "react";
 
 function ProfileOverview() {
   const { t, i18n } = useTranslation();
@@ -69,6 +74,20 @@ function ProfileOverview() {
               <BackgroundJob obj={userInformations} />
               <BackgroundJob obj={userInformations} />
               {/* <EduInfo /> */}
+            </div>
+            <div className="next-page">
+
+              {/*<div className="back-btn">*/}
+              {/*  <Stack spacing={2} direction="row">*/}
+              {/*    <Button className="button" href="/work" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>*/}
+              {/*  </Stack>*/}
+              {/*</div>*/}
+              <div className="next-btn">
+                {/*<button>Продолжить</button>*/}
+                <Stack spacing={2} direction="row">
+                  <Button className="button" href="/allInfo" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><SaveAsIcon fontSize="small"/></span> Соответствует</Button>
+                </Stack>
+              </div>
             </div>
           </div>
         </section>
