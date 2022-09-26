@@ -82,5 +82,13 @@
   "Education": "Образование",
   "DateLastQual": "Дата последней квалификации",
   "DirectioName": "Название направления",
-  "Subjects": "Предметы, которые преподает учитель"
+  "Subjects": "Предметы, которые преподает учитель",
+
+  "DistanceLearning": "Дистанционное обучение",
+  "OnlineLibrary": "Онлайн библиотека",
+  "OnlineTest": "Онлайн тест",
+  "Re-qualification": "Повторное квалификация",
+  "Categories": "Категории",
+  "InstructionalVideo": "Обучательное видео",
+  "OurChampions": "Наши чемпионы"
 }

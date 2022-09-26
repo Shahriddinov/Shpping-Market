@@ -84,5 +84,13 @@
   "Education": "Ta'lim",
   "DateLastQual": "Oxirgi malaka sanasi",
   "DirectioName": "Yo'nalish nomi",
-  "Subjects": "O'qituvchi tomonidan o'qitiladigan fanlar"
+  "Subjects": "O'qituvchi tomonidan o'qitiladigan fanlar",
+
+  "DistanceLearning": "Masofaviy ta'lim",
+  "OnlineLibrary": "Onlayn kutubxona",
+  "OnlineTest": "Online test",
+  "Re-qualification": "Qayta malaka oshirish",
+  "Categories": "Kategoriyalar",
+  "InstructionalVideo": "O'quv video",
+  "OurChampions": "Bizning chempionlar"
 }
