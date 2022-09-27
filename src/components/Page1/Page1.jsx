@@ -8,6 +8,12 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Slayder from "../Slayder/slayder";
 import "./Page1.scss";
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import dayjs from 'dayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import Stack from '@mui/material/Stack';
+
 import { Option } from "antd/lib/mentions";
 // import { Select } from "antd";
 import {useTranslation} from "react-i18next";
@@ -17,6 +23,11 @@ import React from "react";
 function Page1() {
   const {t} = useTranslation();
   const [nation, setNation] = React.useState('');
+  const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
+
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
 
   const handleNation = (event) => {
     setNation(event.target.value);
@@ -116,13 +127,17 @@ function Page1() {
             </div>
             <label className="date__label page1__label" htmlFor="date">
               {t("happy")} *
-              <input
-                  className="date__input page1__input"
-                  style={{height:"55px"}}
-                  id="date"
-                  type="date"
-                  placeholder="Дата Рождения"
-              />
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <Stack spacing={3}>
+                  <DesktopDatePicker
+                      label="Date desktop"
+                      inputFormat="MM/DD/YYYY"
+                      value={value}
+                      onChange={handleChange}
+                      renderInput={(params) => <TextField {...params} />}
+                  />
+                </Stack>
+              </LocalizationProvider>
             </label>
             <label className="number__label page1__label" htmlFor="number">
               {t("personal")} *

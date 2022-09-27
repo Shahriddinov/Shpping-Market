@@ -1,299 +1,49 @@
-@import "../../assets/ui";
-
-.back-navbar {
-  z-index: 2000;
+.home{
   width: 100%;
-  height: 60px;
-  background-color: #154BA6;
+  height: auto;
+  overflow: hidden;
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 10px 0;
-  .home-navbar {
-    width: 87%;
-    display: flex;
-    justify-content: space-around;
-    .link-item{
-      padding: 8px 35px;
-      box-sizing: border-box;
-      border-right: 1px white solid;
-      &:last-child{
-        border:0;
-      }
-      a{
-        color:white;
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 24px;
-        &:hover{
-          color:#FFD600;
-        }
-      }
-    }
-  }
-}
-
-  .home{
-    width: 100%;
-    height: auto;
-    overflow: hidden;
+  .homeLogo{
     position: relative;
-    //display: flex;
-    justify-content: center;
-    .homeLogo{
-      position: relative;
-      top:73px;
-      object-position: 0 10px;
-      object-fit: cover;
-    }
-    .homeTitle{
-      position: absolute;
-      top: 45%;
-      font-weight: 900;
-      font-size: 50px;
+    top:73px;
+    object-position: 0 10px;
+    object-fit: cover;
+  }
+  .homeTitle{
+    position: absolute;
+    top: 45%;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 150%;
+    padding:0  5%;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  .buttons{
+
+    display: flex;
+    position: absolute;
+    top: 65%;
+    .homeButton{
+      //position: absolute;
+      //top: 65%;
+      border: 2px solid #FFFFFF;
+      border-radius: 10px;
+      width: 370px;
+      height: 80px;
+      background-color: initial;
+      font-weight: 700;
+      font-size: 30px;
       line-height: 150%;
-      padding:0  5%;
-      text-align: center;
-      color: #FFFFFF;
+      color: #fff;
+      margin: 0 10px;
     }
-    .buttons{
+    .active{
+      //display: none;
 
-      display: flex;
-      position: absolute;
-      top: 65%;
-      right: 25%;
-      .homeButton{
-        //position: absolute;
-        //top: 65%;
-        border: 2px solid #FFFFFF;
-        border-radius: 10px;
-        width: 370px;
-        height: 80px;
-        background-color: initial;
-        font-weight: 700;
-        font-size: 30px;
-        line-height: 150%;
-        color: #fff;
-        margin: 0 10px;
-      }
-      .active{
-        //display: none;
-
-      }
-    }
-
-  }
-
-
-  .Categories{
-    margin-top: 40px;
-    margin-bottom: 40px;
-
-    .CategoriesText{
-      display: flex;
-      align-items: center;
-      margin-bottom: 40px;
-      .line{
-        width: 85px;
-        height: 3px;
-        //margin-top: auto;
-        background-color:$colorBlue;
-        opacity: 0.5;
-        margin-top: 20px;
-        border-radius: 5px;
-        margin-right: 20px;
-      }
-      h2{
-        font-weight: 700;
-        font-size: 35px;
-        line-height: 150%;
-      }
-    }
-    .row{
-      gap: 30px;
-      .homeCard{
-        width: 23%;
-        text-align: center;
-        padding-bottom: 30px;
-        background: #FFFFFF;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-        border-radius: 8px;
-        transition: 0.5s;
-
-        &:hover{
-          background-color:$colorCardBack;
-        }
-        &:nth-child(1){
-          padding-top:54px;
-          img{
-            margin-bottom: 26px;
-          }
-        }
-        &:nth-child(2){
-          padding-top:40px;
-          img{
-            margin-bottom: 11px;
-          }
-        }
-        &:nth-child(3){
-          padding-top: 16px;
-          img{
-            margin-bottom: 18px;
-          }
-        }
-        &:nth-child(4){
-          padding-top: 51px;
-          img{
-            margin-bottom: 37px;
-          }
-        }
-
-        img{
-          width:100%;
-
-        }
-        h4{
-          font-weight: 500;
-          font-size: 20px;
-          line-height: 24px;
-          color:$colorBlue;
-          text-align: center;
-          margin-bottom: 30px;
-        }
-        .home-btn{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 15px;
-          border: none;
-          margin: 0 auto;
-          padding: 12px 56px;
-          color: white;
-          background-color:$colorBlue;
-          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-          border-radius: 8px;
-          p{
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-          }
-        }
-
-      }
-    }
-  }
-  .Instructional-video{
-    .text-video{
-      display: flex;
-      align-items: center;
-      margin-bottom: 40px;
-      .line{
-        width: 85px;
-        height: 3px;
-        //margin-top: auto;
-        background-color:$colorBlue;
-        opacity: 0.5;
-        margin-top: 20px;
-        border-radius: 5px;
-        margin-right: 20px;
-      }
-      h2{
-        font-weight: 700;
-        font-size: 35px;
-        line-height: 150%;
-        margin-bottom: 40px;
-      }
-    }
-  }
-  .champions{
-    .champions-text{
-      display: flex;
-      align-items: center;
-      margin-bottom: 40px;
-      .line{
-        width: 85px;
-        height: 3px;
-        //margin-top: auto;
-        background-color:$colorBlue;
-        opacity: 0.5;
-        margin-top: 20px;
-        border-radius: 5px;
-        margin-right: 20px;
-      }
-      h2{
-        font-weight: 700;
-        font-size: 35px;
-        line-height: 150%;
-        margin-bottom: 40px;
-      }
     }
   }
 
-  .carousel{
-    .slider{
-      height: 318px;
-      position: relative;
-      width: 100%;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      .slide-track{
-        display: flex;
-        gap: 30px;
-        width: calc(318px*10);
-        animation: scroll 40s linear infinite;
-
-        .slide{
-          position: relative;
-          height: 318px;
-          width: 318px;
-          display: flex;
-          border-radius: 10px;
-          align-items: center;
-          //padding: 15px;
-          overflow: hidden;
-
-          .name{
-            position: absolute;
-            bottom: -75px;
-            left: 0px;
-            border-radius: 0 0 10px 10px;
-            transition: 0.5s all linear;
-            width: 100%;
-            padding-left: 12px;
-            h3{
-              font-weight: 700;
-              font-size: 18px;
-              line-height: 150%;
-              color:white;
-            }
-            h5{
-              font-weight: 400;
-              font-size: 18px;
-              line-height: 150%;
-              color: white;
-            }
-          }
-          &:hover .name{
-            bottom: 0;
-            left: 0px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(5px);
-          }
-          img{
-            border-radius: 10px;
-            width: 100%;
-          }
-        }
-      }
-
-      @keyframes scroll {
-        0%{
-          transform: translateX(0);
-        }
-        100%{
-          transform: translateX(calc(-300px * 4));
-        }
-      }
-    }
-  }
+}

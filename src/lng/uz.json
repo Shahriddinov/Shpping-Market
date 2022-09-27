@@ -19,8 +19,13 @@
   "helps" : "Yordam",
   "learning" : "O'quv sahifalari",
   "companyInfo" : "Kompaniya haqida",
+<<<<<<< HEAD
   "profile" : "Profil",
   "gallery" : "Bosh sahifa",
+=======
+  "profile" : "Profile",
+  "gallery" : "Galeriya",
+>>>>>>> d26fd0f0843a6f1a94ddf8e89fbccf7c2fa53a95
   "portfolio" : "Portfel",
   "login" : "Kirish",
   "setting" : "Sozlamalar",
@@ -57,6 +62,7 @@
   "dateReceived" : "Qabul qilingan sana",
   "expirationDate": "Tugash sanasi",
   "experience": "Tajriba",
+<<<<<<< HEAD
 
   "PersonalData": "Shaxsiy ma'lumotlar",
   "FullName": "FIO",
@@ -93,4 +99,29 @@
   "Categories": "Kategoriyalar",
   "InstructionalVideo": "O'quv video",
   "OurChampions": "Bizning chempionlar"
+=======
+  "subjectPoints": "Mavzu nuqtalari",
+  "listEducation": "Ta'lim muassasalari va tashkilotlari ro'yxati",
+  "organizations": "Ta'lim muassasalari va tashkilotlari ro'yxati",
+  "network": "TDIU bilan tarmoq markazi",
+  "teachers": "O'qituvchilar:",
+  "go": "Ko'rish",
+  "networkCenter": "TDIU bilan tarmoq markazi",
+  "teaching": "Jismoniy tarbiya va sportni o'qitish:",
+  "higher": "Yuqori",
+  "return": "Qayta tayyorlash",
+  "personalInfo": "Shaxsiy ma'lumotlar",
+  "jobBackground": "Ish haqida ma'lumot",
+  "rating": "Rahbarlik davridagi sport-ta’lim muassasasi faoliyati samaradorligi reytingi:",
+  "ranting": "Reytingning kuchli yigirmataligida (1-20 o'rinlar)",
+  "rantingSecond": "Reytingning ikkinchi yigirmatasida (21-40 o'rinlar)",
+  "rantingThree": "Reytingning uchinchi yigirmatasida (41-60 o'rinlar)",
+  "upload": "Faylni yuklash",
+  "items": "Element nuqtalari",
+  "chronology": "Xronologiya",
+  "sport": "Jismoniy tarbiya va sport soxdsidagi ma’lumoti:",
+  "high": "Oliy",
+  "CertificationName": "Nomlangan sertifikat",
+  "biography": "Sertifikat tarjimai holi nima uchun olinganligi va boshqalar."
+>>>>>>> d26fd0f0843a6f1a94ddf8e89fbccf7c2fa53a95
 }
