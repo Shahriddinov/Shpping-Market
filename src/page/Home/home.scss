@@ -23,25 +23,26 @@
   }
   .buttons{
 
-    display: flex;
-    position: absolute;
-    top: 65%;
-    .homeButton{
-      //position: absolute;
-      //top: 65%;
-      border: 2px solid #FFFFFF;
-      border-radius: 10px;
-      width: 370px;
-      height: 80px;
-      background-color: initial;
-      font-weight: 700;
-      font-size: 30px;
-      line-height: 150%;
-      color: #fff;
-      margin: 0 10px;
-    }
-    .active{
-      //display: none;
+      display: flex;
+      position: absolute;
+      top: 65%;
+      right: 25%;
+      .homeButton{
+        //position: absolute;
+        //top: 65%;
+        border: 2px solid #FFFFFF;
+        border-radius: 10px;
+        width: 370px;
+        height: 80px;
+        background-color: initial;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 150%;
+        color: #fff;
+        margin: 0 10px;
+      }
+      .active{
+        //display: none;
 
     }
   }

@@ -76,5 +76,13 @@
   "uploadPDF": "PDF yuklash",
   "teachingCulture": "Jismoniy tarbiya va sport fanlarini o'qitish:",
   "fileQuestion": "Test savollari uchun fayllar",
-  "ProfActivity": "Professional faoliyat"
+  "ProfActivity": "Professional faoliyat",
+
+  "AuthorStat": "Avtorizatsiya statistikasi",
+  "ListOfOrganize": "Ta'lim muassasalari va tashkilotlari ro'yxati",
+  "QualInfo":"Malakaviy ma'lumot",
+  "Education": "Ta'lim",
+  "DateLastQual": "Oxirgi malaka sanasi",
+  "DirectioName": "Yo'nalish nomi",
+  "Subjects": "O'qituvchi tomonidan o'qitiladigan fanlar"
 }

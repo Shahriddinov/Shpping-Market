@@ -2,7 +2,7 @@
 .navbar{
   background: linear-gradient(to top, transparent 0%, #ffff 10%);
   color: $colorMain;
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
   z-index: 999;
