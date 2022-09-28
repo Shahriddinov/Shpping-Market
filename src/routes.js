@@ -31,7 +31,9 @@ const routes = [
     {path: "/qualification", element:Qualification},
     {path: "/work", element: Work},
     {path: "/portfolio", element:Portfolio},
-    {path: "/certificates", element:Certificates}
+    {path: "/certificates", element:Certificates},
+    {path: "/profileOver", element: ProfileOverview},
+    {path: "/allInfo", element: allInfo}
 ];
 const RoutesContainer = () => (
     <Router>

@@ -107,8 +107,8 @@ const ComeSystem = () => {
                     >
                         <div className="container">
                             <div className="lefts">
-                                <div className="name">ФИО</div>
-                                <div className="jobTitle">должность</div>
+                                {/*<div className="name">ФИО</div>*/}
+                                <div className="jobTitle">{t("jobTitle")}</div>
                             </div>
                             <div className="right">
                                 <button className="flagButton" onClick={() => handleChangeLng("uz")}>
@@ -129,7 +129,7 @@ const ComeSystem = () => {
                         }}
                     >
                         <div className="info">
-                            <div className="l   eft">
+                            <div className="left">
                                 <ArrowBackIosNewIcon  className="icon"/>
                                 <div className="pro">{t("comeSystem")}</div>
                             </div>

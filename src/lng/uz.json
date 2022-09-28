@@ -3,6 +3,13 @@
   "homeTitle": "Pedagogning elektron partfolio tizimiga xush kelibsiz",
   "welcome" : "Kirish",
   "loginIn" : "Ro'yxat o'tish",
+  "DistanceLearning": "Masofaviy ta'lim",
+  "OnlineLibrary": "Onlayn kutubxona",
+  "OnlineTest": "Onlayn test",
+  "Re-qualification": "Qayta malaka oshirish",
+  "Categories": "Kategoriyalar",
+  "InstructionalVideo": "O'quv video",
+  "OurChampions": "Bizning chempionlar",
   "portfolioText": " O`qituvchining professional faoliyatida egallagan turli masalalarni hal eta olish\n                            malakalarini ko`rsatuvchi shuningdek o`qituvchining professionallik darajasini baholashga\n                            qaratilgan materiallar to`plamidir.\n                            Turli faoliyat yo`nalishlari bo`yicha biror vaqt oralig",
   "portfolioT": "Turli faoliyat yo`nalishlari bo`yicha biror vaqt oralig`ida erishilgan kasbiy yutuqlar aks\n                            ettirilgan va baho beriladigan individual papkadir.",
   "chair": "Bo'limlar",
@@ -27,12 +34,14 @@
   "comeSystem": "Kirish",
 
   "userName": "F.I.SH",
+  "jobBackground": "Ish haqida ma'lumot",
   "women": "Ayol",
   "man": "Erkak",
   "district": "Rayon",
   "learningBuild": "Ta'lim muassasasi",
   "workNumber": "Ish joyi raqami",
   "faculty": "Fakultet",
+  "department": "Bo'lim",
   "jobTitle": "Lavozim",
   "jobName": "Ish joyining nomi",
   "jobDetails": "Ish tafsilotlari",
@@ -84,5 +93,6 @@
   "Education": "Ta'lim",
   "DateLastQual": "Oxirgi malaka sanasi",
   "DirectioName": "Yo'nalish nomi",
-  "Subjects": "O'qituvchi tomonidan o'qitiladigan fanlar"
+  "Subjects": "O'qituvchi tomonidan o'qitiladigan fanlar",
+  "subjectPoints": "Mavzu nuqtalari"
 }

@@ -20,8 +20,8 @@ function ProfileHeader({ handleChangeLng, questionNeed }) {
       <Header>
         <div className="profile__container">
           <div className="profile__left">
-            <div className="name">{t("fio")}</div>
-            <div className="jobTitle">{t("responsibilty")}</div>
+            {/*<div className="name">{t("fio")}</div>*/}
+            <div className="jobTitle">{t("jobTitle")}</div>
           </div>
           <div className="profile__right">
             <button

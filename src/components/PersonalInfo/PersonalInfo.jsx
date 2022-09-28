@@ -16,7 +16,7 @@ function PersonalInfo({obj, imageURL}) {
         className="personal-info__title-wrapper"
         onClick={() => setClicked(!isClicked)}
       >
-        <h2 className="personal-info__title">{t("personalInfo")}</h2>
+        <h2 className="personal-info__title">{t("PersonalData")}</h2>
         <span className="personal-info__button"></span>
       </div>
       <div
@@ -50,8 +50,8 @@ function PersonalInfo({obj, imageURL}) {
             <InputView>AS 1234567</InputView>
           </div>
           <div className="personal-info__education">
-            <p className="personal-info__text">{t(obj.education)}</p>
-            <InputView>{t(obj.education)}</InputView>
+            <p className="personal-info__text">{t("Education")}</p>
+            <InputView>{t("Education")}</InputView>
           </div>
           <div className="personal-info__email">
             <p className="personal-info__text">{t(obj.email)}</p>
