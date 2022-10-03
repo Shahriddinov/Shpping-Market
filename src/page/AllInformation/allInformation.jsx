@@ -26,14 +26,11 @@ import Switch from '@mui/material/Switch';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import Inst from "../../assets/images/inst.svg"
 import "./allInformation.scss"
 import ImageUploading from 'react-images-uploading';
 import ImgUploud from "../../components/ImgUploud/imgUploud";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
-import Certification from "../../assets/images/certification.png";
-import BlackCertification from "../../assets/images/blackCer.png"
 const label = {inputProps: {'aria-label': 'Switch demo'}};
 const AllInformation = () => {
 
@@ -184,7 +181,6 @@ const AllInformation = () => {
                                         <div className="instInfo">
                                             <div className="d-flex">
                                                 <div className="img">
-                                                    <img src={Inst} alt=""/>
                                                 </div>
                                                 <div className="instInfos">
                                                     <div className="instText">{t("network")}</div>
@@ -213,7 +209,6 @@ const AllInformation = () => {
                                         <div className="instInfo">
                                             <div className="d-flex">
                                                 <div className="img">
-                                                    <img src={Inst} alt=""/>
                                                 </div>
                                                 <div className="instInfos">
                                                     <div className="instText">{t("network")}</div>
@@ -242,7 +237,6 @@ const AllInformation = () => {
                                         <div className="instInfo">
                                             <div className="d-flex">
                                                 <div className="img">
-                                                    <img src={Inst} alt=""/>
                                                 </div>
                                                 <div className="instInfos">
                                                     <div className="instText">{t("network")}</div>
@@ -275,7 +269,6 @@ const AllInformation = () => {
                                         <div className="instInfo">
                                             <div className="d-flex">
                                                 <div className="img">
-                                                    <img src={Inst} alt=""/>
                                                 </div>
                                                 <div className="instInfos">
                                                     <div className="instText">{t("network")}</div>
@@ -304,7 +297,6 @@ const AllInformation = () => {
                                         <div className="instInfo">
                                             <div className="d-flex">
                                                 <div className="img">
-                                                    <img src={Inst} alt=""/>
                                                 </div>
                                                 <div className="instInfos">
                                                     <div className="instText">{t("network")}</div>
@@ -333,7 +325,6 @@ const AllInformation = () => {
                                         <div className="instInfo">
                                             <div className="d-flex">
                                                 <div className="img">
-                                                    <img src={Inst} alt=""/>
                                                 </div>
                                                 <div className="instInfos">
                                                     <div className="instText">{t("network")}</div>
@@ -541,7 +532,6 @@ const AllInformation = () => {
                                             <div className="sport">{t("CertificationName")}</div>
                                             <div className="colorCertification">
                                                 <div className="imgis">
-                                                    <img src={Certification} alt=""/>
                                                 </div>
                                                 <div className="imgsText">
                                                     {t("biography")} <br/>
@@ -551,7 +541,6 @@ const AllInformation = () => {
                                             <div className="sport">{t("CertificationName")}</div>
                                             <div className="colorCertification">
                                                 <div className="imgis">
-                                                    <img src={BlackCertification} alt=""/>
                                                 </div>
                                                 <div className="imgsText">
                                                     {t("biography")} <br/>
