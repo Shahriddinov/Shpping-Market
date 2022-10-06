@@ -41,21 +41,21 @@ function Page1() {
               {t("userName")} *
 
 
-            <Box
-                component="form"
-                sx={{
-                  '& > :not(style)': { width: '100%' },
-                }}
-                noValidate
-                autoComplete="off"
-            >
-              <TextField
-                  className="fio__input page1__input"
-                  id="outlined-basic"
-                  label={t("userName")}
-                  variant="outlined"
-              />
-            </Box>
+              <Box
+                  component="form"
+                  sx={{
+                    '& > :not(style)': { width: '100%' },
+                  }}
+                  noValidate
+                  autoComplete="off"
+              >
+                <TextField
+                    className="fio__input page1__input mt-3"
+                    id="outlined-basic"
+                    label={t("userName")}
+                    variant="outlined"
+                />
+              </Box>
             </label>
             <FormGroup className="page1__gender">
               <FormControlLabel control={<Switch />} label={t("women")} />
@@ -75,7 +75,7 @@ function Page1() {
                   autoComplete="off"
               >
                 <TextField
-                    className="identity-card__input page1__input"
+                    className="identity-card__input page1__input mt-3"
                     id="outlined-basic"
                     label={t("passportNumber")}
                     variant="outlined"
@@ -94,7 +94,7 @@ function Page1() {
                   autoComplete="off"
               >
                 <TextField
-                    className="email__input page1__input"
+                    className="email__input page1__input mt-3"
 
                     id="outlined-basic"
                     label={t("Email")}
@@ -105,12 +105,13 @@ function Page1() {
             </label>
           </div>
           <div className="page1__form-right">
-            <div className="page1__nationality-wrapper">
+            <div className="page1__nationality-wrapper mt-2">
               <span className="page1__nationality-title">{t("nation")} *</span>
-              <Box sx={{ minWidth: 120 }}>
+              <Box sx={{ minWidth: "100%" }}>
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">{t("nation")}</InputLabel>
                   <Select
+                      className="mt-2"
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                       value={nation}
@@ -127,9 +128,10 @@ function Page1() {
             </div>
             <label className="date__label page1__label" htmlFor="date">
               {t("happy")} *
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <LocalizationProvider dateAdapter={AdapterDayjs} >
                 <Stack spacing={3}>
                   <DesktopDatePicker
+                      className="mt-3"
                       label="Date desktop"
                       inputFormat="MM/DD/YYYY"
                       value={value}
@@ -150,7 +152,7 @@ function Page1() {
                   autoComplete="off"
               >
                 <TextField
-                    className="number__input page1__input"
+                    className="number__input page1__input mt-3"
                     type="text"
                     id="outlined-basic"
                     label={t("personal")}
@@ -159,7 +161,7 @@ function Page1() {
               </Box>
             </label>
             <label
-                className="phone-number__label page1__label"
+                className="phone-number__label page1__label mt-2"
                 htmlFor="phone-number"
             >
               {t("phoneNumber")} *
@@ -172,7 +174,7 @@ function Page1() {
                   autoComplete="off"
               >
                 <TextField
-                    className="phone-number__input page1__input"
+                    className="phone-number__input page1__input mt-3"
                     type="number"
                     id="outlined-basic"
                     label={t("phoneNumber")}

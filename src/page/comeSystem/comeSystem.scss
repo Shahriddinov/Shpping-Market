@@ -1,4 +1,4 @@
-@import "./src/assets/ui";
+@import "../../assets/ui";
 
 #components-layout-demo-side .logo {
   height: 32px;
@@ -36,6 +36,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-left: -6%;
 
       .name{
         font-weight: 700;
@@ -45,8 +46,8 @@
 
       }
       .jobTitle{
-        font-weight: 400;
-        font-size: 14px;
+        font-weight: 500;
+        font-size: 20px;
         line-height: 18px;
       }
     }
@@ -128,26 +129,26 @@
 
   }
 }
-  .form-control{
-    width: 100%;
-    border: none!important;
-    .cityLabel{
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 24px;
-      margin-bottom: 10px;
-    }
-    .city{
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-      height: 50px;
-
-    }
+.form-control{
+  width: 100%;
+  border: none!important;
+  .cityLabel{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
   }
+  .city{
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    height: 50px;
+
+  }
+}
 .button{
   width:191px;
   height:48px;

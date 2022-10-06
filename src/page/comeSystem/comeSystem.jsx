@@ -62,11 +62,11 @@ const ComeSystem = () => {
 
 
     const handleOnChange = (e)=>{
-      e.preventDefault()
+        e.preventDefault()
 
-      if (text === ''){
-          setTextError(true)
-      }
+        if (text === ''){
+            setTextError(true)
+        }
     };
 
     const handleRegions = (event) => {
@@ -107,8 +107,8 @@ const ComeSystem = () => {
                     >
                         <div className="container">
                             <div className="lefts">
-                                <div className="name">ФИО</div>
-                                <div className="jobTitle">должность</div>
+                                {/*<div className="name">ФИО</div>*/}
+                                <div className="jobTitle">{t("jobTitle")}</div>
                             </div>
                             <div className="right">
                                 <button className="flagButton" onClick={() => handleChangeLng("uz")}>
@@ -119,7 +119,7 @@ const ComeSystem = () => {
                                     <img className="iconFlag" src={RuFlag} alt=""/>
                                     Ру
                                 </button>
-                                   <Notification/>
+                                <Notification/>
                             </div>
                         </div>
                     </Header>
@@ -129,7 +129,7 @@ const ComeSystem = () => {
                         }}
                     >
                         <div className="info">
-                            <div className="l   eft">
+                            <div className="left">
                                 <ArrowBackIosNewIcon  className="icon"/>
                                 <div className="pro">{t("comeSystem")}</div>
                             </div>
@@ -153,24 +153,24 @@ const ComeSystem = () => {
 
                             <div className="form-control">
                                 <label className="cityLabel">Филиалы *</label>
-                                    <FormControl sx={{ minWidth: 120 }} className="city" size="small">
-                                        <InputLabel id="demo-select-small">{t("region")}</InputLabel>
-                                        <Select
-                                            labelId="demo-select-small"
-                                            id="demo-select-small"
-                                            value={regions}
-                                            required
-                                            label={t("region")}
-                                            onAbort={handleRegions}
-                                        >
-                                            <MenuItem value="">
-                                                <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={10}>Toshkent</MenuItem>
-                                            <MenuItem value={20}>Samarqand</MenuItem>
-                                            <MenuItem value={30}>Farg'ona</MenuItem>
-                                        </Select>
-                                    </FormControl>
+                                <FormControl sx={{ minWidth: 120 }} className="city" size="small">
+                                    <InputLabel id="demo-select-small">{t("region")}</InputLabel>
+                                    <Select
+                                        labelId="demo-select-small"
+                                        id="demo-select-small"
+                                        value={regions}
+                                        required
+                                        label={t("region")}
+                                        onAbort={handleRegions}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={10}>Toshkent</MenuItem>
+                                        <MenuItem value={20}>Samarqand</MenuItem>
+                                        <MenuItem value={30}>Farg'ona</MenuItem>
+                                    </Select>
+                                </FormControl>
 
                                 <label className="cityLabel">Логин *</label>
                                 <Box

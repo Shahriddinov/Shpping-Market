@@ -2,9 +2,7 @@ import React, {lazy, Suspense} from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {Spinner} from "./components";
 import ScrollTop from "./hoc/ScrollTop";
-import Layout from "./components/Layout/Layout";
 import Profile from "./page/Profile/Profile";
-import ProfileSidebar from "./components/ProfileSidebar/ProfileSidebar";
 
 const Home = lazy(() => import("./page/Home/Home"));
 const LoginIn = lazy(()=> import("./page/Login"));
@@ -19,6 +17,7 @@ const ProfileOverview = lazy(()=>import("./page/ProfileOverview/ProfileOverview"
 const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
 const Certificates = lazy(() => import("./page/Certificates/certificates"));
 const AdminProfile = lazy(()=>import("./page/admin/adminProfile"));
+const Direction = lazy(()=>import("./page/Direction/direction"));
 
 
 const routes = [
@@ -31,19 +30,23 @@ const routes = [
     {path: "/qualification", element:Qualification},
     {path: "/work", element: Work},
     {path: "/portfolio", element:Portfolio},
-    {path: "/certificates", element:Certificates}
+    {path: "/certificates", element:Certificates},
+    {path: "/profileOver", element: ProfileOverview},
+    {path: "/allInfo", element: allInfo},
+    {path: "/adminProfile", element: AdminProfile},
+    {path: "/direction", element: Direction}
 ];
 const RoutesContainer = () => (
     <Router>
-            <Suspense fallback={<Spinner position="full"/>}>
-                <Routes>
-                    {routes.map((route, key) => {
-                        const RouteComponent = ScrollTop(route.element);
-                        return <Route key={key} path={route.path} element={<RouteComponent/>}/>;
-                    })}
-                    <Route path="*" element={<NotFound/>}/>
-                </Routes>
-            </Suspense>
+        <Suspense fallback={<Spinner position="full"/>}>
+            <Routes>
+                {routes.map((route, key) => {
+                    const RouteComponent = ScrollTop(route.element);
+                    return <Route key={key} path={route.path} element={<RouteComponent/>}/>;
+                })}
+                <Route path="*" element={<NotFound/>}/>
+            </Routes>
+        </Suspense>
     </Router>
 );
 export default RoutesContainer;

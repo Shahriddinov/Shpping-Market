@@ -20,6 +20,11 @@ import Button from "@mui/material/Button";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import TextField from "@mui/material/TextField";
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import dayjs from 'dayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+
 
 const Eduction = () => {
 
@@ -28,6 +33,17 @@ const Eduction = () => {
     const [institution, setInstitution] = React.useState('');
     const [speciality, setSpeciality] = React.useState('');
 
+    const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
+
+    const handleChange = (newValue) => {
+        setValue(newValue);
+    };
+    const handleDataEnd = (newValue) => {
+        setValue(newValue);
+    };
+    const handleExperience = (newValue) => {
+        setValue(newValue);
+    };
     const handleRegion = (event) => {
         setRegion(event.target.value);
     };
@@ -124,58 +140,46 @@ const Eduction = () => {
                                     </FormControl>
                                 </Box>
                             </div>
-                            <div className="rightSide">
-                                <label className="label" htmlFor="dateReceived">{t("dateReceived")} *</label>
-                                <Box
-                                    component="form"
-                                    sx={{
-                                        '& > :not(style)': {width: '100%'},
-                                    }}
-                                    noValidate
-                                    autoComplete="off"
-                                >
-                                    <TextField
-                                        id="outlined-basic"
-                                        className="form-control formData"
-                                        label={t("experience")}
-                                        type="date"
-                                        variant="outlined"
-                                    />
-                                </Box>
-                                <label className="label" htmlFor="expirationDate">{t("expirationDate")} *</label>
-                                <Box
-                                    component="form"
-                                    sx={{
-                                        '& > :not(style)': {width: '100%'},
-                                    }}
-                                    noValidate
-                                    autoComplete="off"
-                                >
-                                    <TextField
-                                        id="outlined-basic"
-                                        className="form-control formData"
-                                        label={t("experience")}
-                                        type="date"
-                                        variant="outlined"
-                                    />
-                                </Box>
+                            <div className="rightSide" style={{width:"45%"}}>
+                                <label className="label mt-1" htmlFor="dateReceived">{t("dateReceived")} *</label>
+                                <LocalizationProvider dateAdapter={AdapterDayjs} >
+                                    <Stack spacing={3}>
+                                        <DesktopDatePicker
+                                            className="mt-1"
+                                            label={t("dateReceived")}
+                                            inputFormat="MM/DD/YYYY"
+                                            value={value}
+                                            onChange={handleChange}
+                                            renderInput={(params) => <TextField {...params} />}
+                                        />
+                                    </Stack>
+                                </LocalizationProvider>
+                                <label className="label mt-2" htmlFor="expirationDate">{t("expirationDate")} *</label>
+                                <LocalizationProvider dateAdapter={AdapterDayjs} >
+                                    <Stack spacing={3}>
+                                        <DesktopDatePicker
+                                            className="mt-3"
+                                            label={t("expirationDate")}
+                                            inputFormat="MM/DD/YYYY"
+                                            value={value}
+                                            onChange={handleDataEnd}
+                                            renderInput={(params) => <TextField {...params} />}
+                                        />
+                                    </Stack>
+                                </LocalizationProvider>
                                 <label className="label" htmlFor="experience">{t("experience")} *</label>
-                                <Box
-                                    component="form"
-                                    sx={{
-                                        '& > :not(style)': {width: '100%'},
-                                    }}
-                                    noValidate
-                                    autoComplete="off"
-                                >
-                                    <TextField
-                                        id="outlined-basic"
-                                        className="form-control formData"
-                                        label={t("experience")}
-                                        type="date"
-                                        variant="outlined"
-                                    />
-                                </Box>
+                                <LocalizationProvider dateAdapter={AdapterDayjs} >
+                                    <Stack spacing={3}>
+                                        <DesktopDatePicker
+                                            className="mt-3"
+                                            label={t("experience")}
+                                            inputFormat="MM/DD/YYYY"
+                                            value={value}
+                                            onChange={handleDataEnd}
+                                            renderInput={(params) => <TextField {...params} />}
+                                        />
+                                    </Stack>
+                                </LocalizationProvider>
                             </div>
                         </div>
                     </div>

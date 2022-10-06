@@ -15,10 +15,25 @@ import Next from "../../components/NextButton/next";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import * as React from "react";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
 
 function Work() {
     const { t, i18n } = useTranslation();
+
+    const [region, setRegion] = React.useState('');
+    const [district, setDistrict] = React.useState('');
+    const [learningBuild, setLearningBuild] = React.useState('');
+    const [typeWork, setTypeWork] = React.useState('');
+    const [faculty, setFaculty] = React.useState('');
+
+
 
     function getItem(label, key, icon, children) {
         return {
@@ -36,6 +51,27 @@ function Work() {
         getItem("Логин", "4", <LoginIcon />),
         getItem("Настройки", "5", <SettingsIcon />),
     ];
+
+
+
+    const handleRegion = (event) => {
+        setRegion(event.target.value)
+    };
+    const handleDistrict = (event) => {
+        setDistrict(event.target.value)
+    };
+    const handleLearningBuild = (event) => {
+        setLearningBuild(event.target.value)
+    };
+    const handleTypeWork = (event) => {
+        setTypeWork(event.target.value)
+    };
+    const handleFaculty = (event) => {
+        setFaculty(event.target.value)
+    };
+
+
+
 
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
@@ -84,7 +120,82 @@ function Work() {
                             <div className="place-number">
                                 <label htmlFor="">Номер место работы </label>
                                 <input className='m-0' placeholder='Номер' type="number"/>
+                                <label className="mt-2" htmlFor="">{t("region")} *</label>
+                                <Box sx={{mt: 1, minWidth: "500px", mb:  2}}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={region}
+                                            label={t("region")}
+                                            onChange={handleRegion}
+                                        >
+                                            <MenuItem value={10}>Toshkent</MenuItem>
+                                            <MenuItem value={20}>Forg'ona</MenuItem>
+                                            <MenuItem value={30}>Nukus</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
                             </div>
+                            <div className="Area">
+                                <label htmlFor="">{t("district")} *</label>
+                                <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">{t("district")}</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={district}
+                                            label={t("district")}
+                                            onChange={handleDistrict}
+                                        >
+                                            <MenuItem value={10}>Toshkent</MenuItem>
+                                            <MenuItem value={20}>Forg'ona</MenuItem>
+                                            <MenuItem value={30}>Nukus</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </div>
+                            <div className="institution">
+                                <label htmlFor="">{t("learningBuild")} *</label>
+                                <Box sx={{mt: 1, minWidth: "500px", mb:  2}}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">{t("learningBuild")}</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={learningBuild}
+                                            label={t("learningBuild")}
+                                            onChange={handleLearningBuild}
+                                        >
+                                            <MenuItem value={10}>Toshkent</MenuItem>
+                                            <MenuItem value={20}>Forg'ona</MenuItem>
+                                            <MenuItem value={30}>Nukus</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </div>
+                            <div className="place-work">
+                                <label htmlFor="">{t("typeWork")} *</label>
+                                <Box sx={{mt: 1, minWidth: "500px", mb:  2}}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">{t("typeWork")}</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={typeWork}
+                                            label={t("typeWork")}
+                                            onChange={handleTypeWork}
+                                        >
+                                            <MenuItem value={10}>Toshkent</MenuItem>
+                                            <MenuItem value={20}>Forg'ona</MenuItem>
+                                            <MenuItem value={30}>Nukus</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </div>
+
                         </div>
                         <div className="right-form">
                             <div className="Faculty">
@@ -105,6 +216,77 @@ function Work() {
                             <div className="">
                                 <label htmlFor="">Название место работы *</label>
                                 <input placeholder='Название' type="text"/>
+                                <label className="mt-2" htmlFor="">{t("faculty")} *</label>
+                                <Box sx={{mt: 1, minWidth: "500px", mb:  2}}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">{t("faculty")}</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={faculty}
+                                            label={t("faculty")}
+                                            onChange={handleFaculty}
+                                        >
+                                            <MenuItem value={10}>Toshkent</MenuItem>
+                                            <MenuItem value={20}>Forg'ona</MenuItem>
+                                            <MenuItem value={30}>Nukus</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </div>
+                            <div className="">
+                                <label htmlFor="">{t("department")} *</label>
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& > :not(style)': { width: '100%' },
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <TextField
+                                        className="mt-1"
+                                        id="outlined-basic"
+                                        label={t("department")}
+                                        variant="outlined"
+                                    />
+                                </Box>
+                            </div>
+                            <div className="">
+                                <label className="mt-2" htmlFor="">{t("jobTitle")} *</label>
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& > :not(style)': { width: '100%' },
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <TextField
+                                        className="mt-1"
+                                        id="outlined-basic"
+                                        label={t("jobTitle")}
+                                        variant="outlined"
+                                    />
+                                </Box>
+                            </div>
+                            <div className="">
+                                <label className="mt-2" htmlFor="">{t("workNumber")} </label>
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& > :not(style)': { width: '100%' },
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <TextField
+                                        className="mt-1"
+                                        id="outlined-basic"
+                                        label={t("workNumber")}
+                                        variant="outlined"
+                                    />
+                                </Box>
                             </div>
                         </div>
                     </div>
@@ -115,6 +297,8 @@ function Work() {
                     <div className="back-btn">
                         <Stack spacing={2} direction="row">
                             <Button className="button" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+
+                            <Button  href="/education" className="button" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
                         </Stack>
                     </div>
                     <div className="next-btn">

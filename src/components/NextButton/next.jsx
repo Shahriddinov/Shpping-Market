@@ -8,7 +8,7 @@ import CancelOutlinedIcon from "@mui/material/SvgIcon/SvgIcon";
 export default function Next() {
     return (
         <Stack spacing={2} direction="row">
-            <Button className="button" href="/education" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>
+            <Button className="button" href="/qualification" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>
         </Stack>
     );
 }

@@ -16,38 +16,38 @@ function ProfileHeader({ handleChangeLng, questionNeed }) {
   const {t} = useTranslation();
 
   return (
-    <Layout>
-      <Header>
-        <div className="profile__container">
-          <div className="profile__left">
-            <div className="name">{t("fio")}</div>
-            <div className="jobTitle">{t("responsibilty")}</div>
+      <Layout>
+        <Header>
+          <div className="profile__container">
+            <div className="profile__left">
+              {/*<div className="name">{t("fio")}</div>*/}
+              <div className="jobTitle">{t("jobTitle")}</div>
+            </div>
+            <div className="profile__right">
+              <button
+                  className="flagButton"
+                  onClick={() => handleChangeLng("uz")}
+              >
+                <img className="iconFlag" src={UzFlag} alt="" />
+                Uz
+              </button>
+              <button
+                  className="flagButton"
+                  onClick={() => handleChangeLng("ru")}
+              >
+                <img className="iconFlag" src={RuFlag} alt="" />
+                Ру
+              </button>
+              <Notification />
+              {questionNeed && (
+                  <Link className="question" to="/">
+                    <img src={QuestionMark} width="20" height="20" />
+                  </Link>
+              )}
+            </div>
           </div>
-          <div className="profile__right">
-            <button
-              className="flagButton"
-              onClick={() => handleChangeLng("uz")}
-            >
-              <img className="iconFlag" src={UzFlag} alt="" />
-              Uz
-            </button>
-            <button
-              className="flagButton"
-              onClick={() => handleChangeLng("ru")}
-            >
-              <img className="iconFlag" src={RuFlag} alt="" />
-              Ру
-            </button>
-            <Notification />
-            {questionNeed && (
-              <Link className="question" to="/">
-                <img src={QuestionMark} width="20" height="20" />
-              </Link>
-            )}
-          </div>
-        </div>
-      </Header>
-    </Layout>
+        </Header>
+      </Layout>
   );
 }
 

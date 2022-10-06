@@ -1,9 +1,10 @@
-@import "./src/assets/ui";
+@import "../../assets/ui";
 
 .file{
-  width: 56%;
-  height: 80px;
-  margin-top: 30px;
+  width: 309px;
+  height: 90px;
+  //margin-top: 30px;
+  margin-right: 40px;
   background: #FFFFFF;
   display: flex;
   align-items: center;
@@ -17,4 +18,12 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  height: 90px;
+  overflow: hidden;
+  border-radius: 5px;
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+}
+.upload__image-wrapper{
+  display: flex;
+  width: 309px;
 }

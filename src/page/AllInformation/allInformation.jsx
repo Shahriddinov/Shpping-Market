@@ -129,12 +129,12 @@ const AllInformation = () => {
                             </Box>
                             <Box sx={{minWidth: "46%"}}>
                                 <FormControl fullWidth>
-                                    <InputLabel id="demo-simple-select-label">{t("directions")}</InputLabel>
+                                    <InputLabel id="demo-simple-select-label">{t("ListOfOrganize")}</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"
                                         value={directions}
-                                        label={t("directions")}
+                                        label={t("ListOfOrganize")}
                                         onChange={handleDirections}
                                     >
                                         <MenuItem value={10}>Ten</MenuItem>
@@ -151,31 +151,13 @@ const AllInformation = () => {
                                 id="panel1a-header"
                             >
                                 <Typography className="iconFormat">
-                                    <div className="organizations">{t("organizations")}</div>
+                                    <div className="organizations">{t("ListOfOrganize")}</div>
                                 </Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography>
 
-                                    <div style={{width: "46%"}}>
-                                        <Box sx={{minWidth: "46%"}}>
-                                            <FormControl fullWidth>
-                                                <InputLabel id="demo-simple-select-label">Filter</InputLabel>
-                                                <Select
-                                                    labelId="demo-simple-select-label"
-                                                    id="demo-simple-select"
-                                                    value={filter}
-                                                    label="Filter"
-                                                    onChange={handleFilter}
-                                                >
-                                                    <MenuItem value={10}>Фергана</MenuItem>
-                                                    <MenuItem value={20}>Джиззах</MenuItem>
-                                                    <MenuItem value={30}>Самарканд</MenuItem>
-                                                    <MenuItem value={40}>Навои</MenuItem>
-                                                </Select>
-                                            </FormControl>
-                                        </Box>
-                                    </div>
+
 
                                     <div className="inst">
                                         <div className="instInfo">
@@ -187,24 +169,7 @@ const AllInformation = () => {
                                                     <div className="teacher">{t("teachers")} 58</div>
                                                 </div>
                                             </div>
-                                            <Accordion style={{width: "100%",}}>
-                                                <AccordionSummary
-                                                    expandIcon={<ExpandMoreIcon/>}
-                                                    aria-controls="panel1a-content"
-                                                    id="panel1a-header"
-                                                    style={{marginRight: "40%"}}
-                                                >
-                                                    {/*<Typography>Accordion 1</Typography>*/}
-                                                </AccordionSummary>
-                                                <AccordionDetails>
-                                                    <Typography className="view">
-                                                        <Button variant="contained" className="go">
-                                                            <CheckCircleOutlineIcon style={{marginRight: "10px"}}/>
-                                                            {t("go")}
-                                                        </Button>
-                                                    </Typography>
-                                                </AccordionDetails>
-                                            </Accordion>
+
                                         </div>
                                         <div className="instInfo">
                                             <div className="d-flex">
@@ -215,24 +180,7 @@ const AllInformation = () => {
                                                     <div className="teacher">{t("teachers")} 58</div>
                                                 </div>
                                             </div>
-                                            <Accordion style={{width: "100%",}}>
-                                                <AccordionSummary
-                                                    expandIcon={<ExpandMoreIcon/>}
-                                                    aria-controls="panel1a-content"
-                                                    id="panel1a-header"
-                                                    style={{marginRight: "40%"}}
-                                                >
-                                                    {/*<Typography>Accordion 1</Typography>*/}
-                                                </AccordionSummary>
-                                                <AccordionDetails>
-                                                    <Typography className="view">
-                                                        <Button variant="contained" className="go">
-                                                            <CheckCircleOutlineIcon style={{marginRight: "10px"}}/>
-                                                            {t("go")}
-                                                        </Button>
-                                                    </Typography>
-                                                </AccordionDetails>
-                                            </Accordion>
+
                                         </div>
                                         <div className="instInfo">
                                             <div className="d-flex">
@@ -243,24 +191,7 @@ const AllInformation = () => {
                                                     <div className="teacher">{t("teachers")} 58</div>
                                                 </div>
                                             </div>
-                                            <Accordion style={{width: "100%",}}>
-                                                <AccordionSummary
-                                                    expandIcon={<ExpandMoreIcon/>}
-                                                    aria-controls="panel1a-content"
-                                                    id="panel1a-header"
-                                                    style={{marginRight: "40%"}}
-                                                >
-                                                    {/*<Typography>Accordion 1</Typography>*/}
-                                                </AccordionSummary>
-                                                <AccordionDetails>
-                                                    <Typography className="view">
-                                                        <Button variant="contained" className="go">
-                                                            <CheckCircleOutlineIcon style={{marginRight: "10px"}}/>
-                                                            {t("go")}
-                                                        </Button>
-                                                    </Typography>
-                                                </AccordionDetails>
-                                            </Accordion>
+
                                         </div>
 
 
@@ -275,24 +206,7 @@ const AllInformation = () => {
                                                     <div className="teacher">{t("teachers")} 58</div>
                                                 </div>
                                             </div>
-                                            <Accordion style={{width: "100%",}}>
-                                                <AccordionSummary
-                                                    expandIcon={<ExpandMoreIcon/>}
-                                                    aria-controls="panel1a-content"
-                                                    id="panel1a-header"
-                                                    style={{marginRight: "40%"}}
-                                                >
-                                                    {/*<Typography>Accordion 1</Typography>*/}
-                                                </AccordionSummary>
-                                                <AccordionDetails>
-                                                    <Typography className="view">
-                                                        <Button variant="contained" className="go">
-                                                            <CheckCircleOutlineIcon style={{marginRight: "10px"}}/>
-                                                            {t("go")}
-                                                        </Button>
-                                                    </Typography>
-                                                </AccordionDetails>
-                                            </Accordion>
+
                                         </div>
                                         <div className="instInfo">
                                             <div className="d-flex">
@@ -303,24 +217,7 @@ const AllInformation = () => {
                                                     <div className="teacher">{t("teachers")} 58</div>
                                                 </div>
                                             </div>
-                                            <Accordion style={{width: "100%",}}>
-                                                <AccordionSummary
-                                                    expandIcon={<ExpandMoreIcon/>}
-                                                    aria-controls="panel1a-content"
-                                                    id="panel1a-header"
-                                                    style={{marginRight: "40%"}}
-                                                >
-                                                    {/*<Typography>Accordion 1</Typography>*/}
-                                                </AccordionSummary>
-                                                <AccordionDetails>
-                                                    <Typography className="view">
-                                                        <Button variant="contained" className="go">
-                                                            <CheckCircleOutlineIcon style={{marginRight: "10px"}}/>
-                                                            {t("go")}
-                                                        </Button>
-                                                    </Typography>
-                                                </AccordionDetails>
-                                            </Accordion>
+
                                         </div>
                                         <div className="instInfo">
                                             <div className="d-flex">
@@ -331,24 +228,7 @@ const AllInformation = () => {
                                                     <div className="teacher">{t("teachers")} 58</div>
                                                 </div>
                                             </div>
-                                            <Accordion style={{width: "100%",}}>
-                                                <AccordionSummary
-                                                    expandIcon={<ExpandMoreIcon/>}
-                                                    aria-controls="panel1a-content"
-                                                    id="panel1a-header"
-                                                    style={{marginRight: "40%"}}
-                                                >
-                                                    {/*<Typography>Accordion 1</Typography>*/}
-                                                </AccordionSummary>
-                                                <AccordionDetails>
-                                                    <Typography className="view">
-                                                        <Button variant="contained" className="go">
-                                                            <CheckCircleOutlineIcon style={{marginRight: "10px"}}/>
-                                                            {t("go")}
-                                                        </Button>
-                                                    </Typography>
-                                                </AccordionDetails>
-                                            </Accordion>
+
                                         </div>
 
 
