@@ -51,11 +51,12 @@ const ImgUploud = () => {
                         {/*<button onClick={onImageRemoveAll}>Remove all images</button>*/}
                         <div className="colms">
                             {imageList.map((image, index) => (
-                                <div key={index} className="image-item position-relative" style={{margin:"0 20px 10px", position:'relative'}}>
+                                <div key={index} className="image-item">
                                     <img src={image['data_url']} alt="" className="img-fluid" width="100"/>
-                                    <div className="image-item__btn-wrapper position-absolute" style={{top:-20, right:-20}}>
+                                    <div className="image-item__btn-wrapper">
                                         {/*<button onClick={() => onImageUpdate(index)}>Update</button>*/}
-                                        <Button style={{width:50, height:50, borderRadius:'50%'}} onClick={() => onImageRemove(index)}><span style={{color:'#FE346E', width:'50%'}}><HighlightOffIcon/></span></Button>                                    </div>
+                                        <Button className="DeleteButton" onClick={() => onImageRemove(index)}><span className="delete-Icon"><HighlightOffIcon/></span></Button>
+                                    </div>
                                 </div>
                             ))}
                         </div>
