@@ -96,5 +96,8 @@
   "Subjects": "O'qituvchi tomonidan o'qitiladigan fanlar",
   "subjectPoints": "Mavzu nuqtalari",
   "network": "TDIU bilan tarmoq markazi",
-  "teachers": "O'qituvchilar:"
+  "teachers": "O'qituvchilar:",
+  "allDirections": "Barcha yo'nalishlar",
+  "statistics": "Statistika",
+  "passSubject": "O'tgan fanlar jadvali"
 }

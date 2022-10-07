@@ -17,13 +17,20 @@ import Button from "@mui/material/Button";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
 import React from "react";
-
+import BarChartIcon from '@mui/icons-material/BarChart';
+import {useNavigate} from "react-router";
 function ProfileOverview() {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
   const handleChangeLng = (lng) => {
     i18n.changeLanguage(lng);
     localStorage.setItem("lng", lng);
+  };
+  const onClicks = () => {
+    setTimeout(() => {
+      navigate("/allInfo");
+    }, 10);
   };
 
   function getItem(label, key, icon, children) {
@@ -36,10 +43,10 @@ function ProfileOverview() {
   }
 
   const items = [
-    getItem("Профиль", "sub1", <AccountCircleIcon />, [
-      getItem("Статистика", "1"),
+    getItem("Главная", "sub1", <HomeIcon />),
+    getItem("Профиль", "2", <AccountCircleIcon />, [
+      getItem("Статистика", "1" ,<BarChartIcon onClick={onClicks}/> ),
     ]),
-    getItem("Главная", "2", <HomeIcon />),
     getItem("Портфолио", "3", <SdCardIcon />),
     getItem("Логин", "4", <LoginIcon />),
     getItem("Настройки", "5", <SettingsIcon />),
