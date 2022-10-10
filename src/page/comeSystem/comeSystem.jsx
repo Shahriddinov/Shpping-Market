@@ -44,14 +44,6 @@ function getItem(label, key, icon, children) {
     };
 }
 
-const items = [
-    getItem(' Пользовательское соглашение', '1', <ArticleIcon/>),
-    getItem('Помощь', '2', <HelpOutlineIcon/>),
-
-    getItem('О проекте', 'sub2', <InfoIcon/>,
-
-    ),
-];
 
 
 const ComeSystem = () => {
@@ -95,8 +87,7 @@ const ComeSystem = () => {
                         <span className="layoutText">JISMONIY TARBIYA VA SPORT BO`YICHA MUTAXASSIZLARNI QATTA TAYYORLASH VA MALAKASINI OSHIRISH INSTITUTI</span>
                     </div>
                     <div className="logo"/>
-                    <Menu theme="dark" style={{marginTop: "36%"}} defaultSelectedKeys={['1']} mode="inline"
-                          items={items}/>
+
                 </Sider>
                 <Layout className="site-layout">
                     <Header
@@ -106,7 +97,7 @@ const ComeSystem = () => {
                         }}
                     >
                         <div className="container">
-                            <div className="lefts">
+                            <div className="leftses">
                                 {/*<div className="name">ФИО</div>*/}
                                 <div className="jobTitle">{t("jobTitle")}</div>
                             </div>
@@ -129,14 +120,14 @@ const ComeSystem = () => {
                         }}
                     >
                         <div className="info">
-                            <div className="left">
-                                <ArrowBackIosNewIcon  className="icon"/>
+                            <a href="/" className="left">
+                                <ArrowBackIosNewIcon  className="icon" />
                                 <div className="pro">{t("comeSystem")}</div>
-                            </div>
+                            </a>
                             <div className="rights">
                                 <SpeedIcon className="icon"/>
                                 <Breadcrumb.Item style={{color: "#2B63C0"}}>{t("gallery")}</Breadcrumb.Item>
-                                <Breadcrumb.Item style={{opacity: "0.5"}}> {t("login")}</Breadcrumb.Item>
+                                <Breadcrumb.Item style={{opacity: "0.5"}}> {t("systemAccess")}</Breadcrumb.Item>
                                 {/*<Breadcrumb.Item style={{opacity:"0.5"}}> Профиль</Breadcrumb.Item>*/}
                             </div>
                         </div>

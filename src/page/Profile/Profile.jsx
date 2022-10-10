@@ -59,7 +59,7 @@ function Profile() {
               Назад
             </Button>
           </Stack>
-          <Stack spacing={2} direction="row">
+          <Stack spacing={2} direction="row" className="mb-4">
             <Button
               className="button"
               href="/education"

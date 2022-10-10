@@ -1,10 +1,15 @@
 @import "../../assets/ui";
 
-.education{
+.education {
   display: flex;
 }
 
-.eduPage{
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root,
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+  height: 48px;
+}
+
+.eduPage {
   max-width: 100%;
   min-width: calc(100% - 256px);
   width: calc(100% - 256px);
@@ -17,14 +22,14 @@
     box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.08);
   }
 
-  .label{
+  .label {
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
     color: #333333;
   }
 
-  .formData{
+  .formData {
     width: 475px;
     height: 48px;
     //border: 0.5px rgba(173, 173, 173, 0.8) solid;
@@ -36,7 +41,7 @@
     margin-bottom: 24px;
   }
 
-  .formBox{
+  .formBox {
     width: calc(100% - 60px);
     margin: 0 30px;
 
@@ -47,20 +52,39 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
     border-radius: 12px;
 
-    .infoEdu{
-      .title{
+    .eduInfo {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 33px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .infoEdu {
+      .title {
         font-size: 28px;
         margin-bottom: 24px;
         line-height: 33px;
         color: #303030;
         font-weight: 600;
       }
-      .side-by-side{
+
+      .side-by-side {
         display: flex;
         justify-content: space-between;
       }
     }
   }
+
+  .added {
+    height: 48px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px 10px;
+    margin-top: 11%;
+  }
+
   .NextPrev {
     margin: 24px 30px 30px auto;
     display: flex;

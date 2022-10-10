@@ -39,8 +39,6 @@ function Page1() {
           <div className="page1__form-left w-100">
             <label className="fio__label page1__label" htmlFor="fio">
               {t("userName")} *
-
-
             <Box
                 component="form"
                 sx={{
@@ -50,7 +48,7 @@ function Page1() {
                 autoComplete="off"
             >
               <TextField
-                  className="fio__input page1__input mt-3"
+                  className="fio__input page1__input mt-2"
                   id="outlined-basic"
                   label={t("userName")}
                   variant="outlined"
@@ -111,7 +109,7 @@ function Page1() {
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">{t("nation")}</InputLabel>
                   <Select
-                      className="mt-2"
+                      className="mt-1"
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                       value={nation}
@@ -128,6 +126,7 @@ function Page1() {
             </div>
             <label className="date__label page1__label" htmlFor="date">
               {t("happy")} *
+
               <LocalizationProvider dateAdapter={AdapterDayjs} >
                 <Stack spacing={3}>
                   <DesktopDatePicker
@@ -152,7 +151,7 @@ function Page1() {
                   autoComplete="off"
               >
                 <TextField
-                    className="number__input page1__input mt-3"
+                    className="number__input page1__input mt-2"
                     type="text"
                     id="outlined-basic"
                     label={t("personal")}

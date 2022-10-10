@@ -32,11 +32,11 @@
     align-items: center;
     justify-content: space-between;
 
-    .lefts{
+    .leftses{
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-left: -6%;
+      margin-left: 1%;
 
       .name{
         font-weight: 700;
@@ -97,6 +97,8 @@
   .left{
     display: flex!important;
     align-items: center;
+    cursor: pointer;
+    color: $colorBlack;
     .icon{
       width: 18px;
     }
@@ -177,13 +179,13 @@
 }
 .passwordError{
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 21px;
   display: flex;
   align-items: center;
-  letter-spacing: 0.02em;
   text-decoration-line: underline;
   cursor: pointer;
+  margin-top: 5px;
   color: #FE346E;
 
 }
@@ -192,4 +194,10 @@
   display: flex;
   width: 398px;
   justify-content: space-between;
+  .button{
+    color: white;
+    &:hover{
+      color: white;
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -8,99 +8,104 @@ import LoginIcon from "@mui/icons-material/Login";
 import SettingsIcon from "@mui/icons-material/Settings";
 import userPic from "../../assets/images/userPicture.jpg";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
-import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
+import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
 import "./ProfileOverview.scss";
-import BackgroundJob from "../../components/backgroundJob/backgroundJob";
+import OneEducation from "./components/OneEducation/oneEducation";
 import EduInfo from "../../components/eduInfo/eduInfo";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
-import SaveAsIcon from "@mui/icons-material/SaveAs";
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 import React from "react";
 import BarChartIcon from '@mui/icons-material/BarChart';
 import {useNavigate} from "react-router";
+import JobAbout from "./components/JobAbout/jobAbout";
+import AdvancedTraining from "./components/AdvancedTraining/advancedTraining";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 function ProfileOverview() {
-  const { t, i18n } = useTranslation();
-  const navigate = useNavigate();
+    const {t, i18n} = useTranslation();
+    const navigate = useNavigate();
 
-  const handleChangeLng = (lng) => {
-    i18n.changeLanguage(lng);
-    localStorage.setItem("lng", lng);
-  };
-  const onClicks = () => {
-    setTimeout(() => {
-      navigate("/allInfo");
-    }, 10);
-  };
-
-  function getItem(label, key, icon, children) {
-    return {
-      key,
-      icon,
-      children,
-      label,
+    const handleChangeLng = (lng) => {
+        i18n.changeLanguage(lng);
+        localStorage.setItem("lng", lng);
     };
-  }
+    const onClicks = () => {
+        setTimeout(() => {
+            navigate("/allInfo");
+        }, 10);
+    };
 
-  const items = [
-    getItem("Главная", "sub1", <HomeIcon />),
-    getItem("Профиль", "2", <AccountCircleIcon />, [
-      getItem("Статистика", "1" ,<BarChartIcon onClick={onClicks}/> ),
-    ]),
-    getItem("Портфолио", "3", <SdCardIcon />),
-    getItem("Логин", "4", <LoginIcon />),
-    getItem("Настройки", "5", <SettingsIcon />),
-  ];
+    function getItem(label, key, icon, children) {
+        return {
+            key,
+            icon,
+            children,
+            label,
+        };
+    }
 
-  const userInformations = {
-    userName: "Botirov Asadbek",
-    fullName: "fullName",
-    passportId: "passportId",
-    education: "education",
-    email: "email",
-    nationality: "nationality",
-    dateBirth: "dateBirth",
-    pinfl: "PINFL",
-    learningBuild: "learningBuild",
-    department: "department",
-    district: "district"
-  };
+    const items = [
+        getItem("Главная", "1", <HomeIcon/>),
+        getItem("Профиль", "2", <AccountCircleIcon/>, [
+            getItem("Направление", "sub1"),
+            getItem("Статистика", "2"),
+        ]),
+        getItem("Портфолио", "3", <SdCardIcon/>),
+        getItem("Логин", "4", <LoginIcon/>),
+        getItem("Настройки", "5", <SettingsIcon/>),
+    ];
 
-  return (
-    <>
-      <section id="Profile-overview" className="Profile-overview">
-        <h1 className="visually-hidden">Profile Overview Page</h1>
-        <ProfileSidebar items={items} userName={t(userInformations.userName)} />
-        <section className="profile-overview__page">
-          <ProfileHeader handleChangeLng={handleChangeLng} />
-          <ProfileNavbar title={t("profile")} />
-          <div className="profile-overview__sections">
-            <div className="profile-overview__container">
-              <PersonalInfo imageURL={userPic} obj={userInformations} />
-              <BackgroundJob obj={userInformations} />
-              <BackgroundJob obj={userInformations} />
-              <BackgroundJob obj={userInformations} />
-              {/* <EduInfo /> */}
-            </div>
-            <div className="next-page">
+    const userInformations = {
+        userName: "Botirov Asadbek",
+        fullName: "fullName",
+        passportId: "passportId",
+        education: "education",
+        email: "email",
+        nationality: "nationality",
+        dateBirth: "dateBirth",
+        pinfl: "PINFL",
+        learningBuild: "learningBuild",
+        department: "department",
+        district: "district"
+    };
 
-              {/*<div className="back-btn">*/}
-              {/*  <Stack spacing={2} direction="row">*/}
-              {/*    <Button className="button" href="/work" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>*/}
-              {/*  </Stack>*/}
-              {/*</div>*/}
-              <div className="next-btn">
-                {/*<button>Продолжить</button>*/}
-                <Stack spacing={2} direction="row">
-                  <Button className="button" href="/allInfo" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><SaveAsIcon fontSize="small"/></span> Соответствует</Button>
-                </Stack>
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
-    </>
-  );
+    return (
+        <>
+            <section id="Profile-overview" className="Profile-overview">
+                <h1 className="visually-hidden">Profile Overview Page</h1>
+                <ProfileSidebar items={items} userName={t(userInformations.userName)}/>
+                <section className="profile-overview__page">
+                    <ProfileHeader handleChangeLng={handleChangeLng}/>
+                    <ProfileNavbar title={t("profile")}/>
+                    <div className="profile-overview__sections">
+                        <PersonalInfo imageURL={userPic} obj={userInformations}/>
+                        <OneEducation obj={userInformations}/>
+                        <OneEducation obj={userInformations}/>
+                        <JobAbout/>
+                        <JobAbout/>
+                        <AdvancedTraining/>
+                        <AdvancedTraining/>
+                        <div className="next-page">
+                            <div className="next-btn">
+                                {/*<button>Продолжить</button>*/}
+                                <Stack spacing={2} direction="row">
+                                    <div className="pencil">
+                                        <Button className="pencilButton" href="/profile" variant="text">
+                                            <BorderColorIcon fontSize="small"/>
+                                            Редактировать
+                                        </Button>
+                                    <Button className="profileButton" href="/allInfo" style={{backgroundColor: "#0FBE7B"}}
+                                            variant="text"> <span className="icon"><CheckCircleOutlineIcon
+                                        fontSize="small"/></span> Соответствует</Button>
+                                    </div>
+                                </Stack>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </>
+    );
 }
 
 export default ProfileOverview;

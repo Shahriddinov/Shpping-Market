@@ -11,10 +11,10 @@ function ProfileNavbar() {
     <nav className="profile__navbar">
       <div className="profile__container">
         <div className="profile__navbar-lef">
-          <Link to="#">
+          <Link to="/userInfo" style={{display:"flex", alignItems:"center"}}>
             <ArrowBackIosIcon className="arrow-back" />
-          </Link>
           <h2 className="profile__navbar-left--title">{t("fullInfo")}</h2>
+          </Link>
         </div>
         <div className="profile__navbar-right">
           <SpeedIcon className="icon" />
@@ -23,10 +23,7 @@ function ProfileNavbar() {
               <Link style={{color: "#2B63C0"}} to="/">{t("gallery")} /</Link>
             </li>
             <li className="profile__navbar-list--item">
-              <Link to="#">{t("login")} /</Link>
-            </li>
-            <li className="profile__navbar-list--item">
-              <Link to="#">{t("profile")}</Link>
+              <Link to="#">{t("systemAccess")}</Link>
             </li>
           </ul>
         </div>
