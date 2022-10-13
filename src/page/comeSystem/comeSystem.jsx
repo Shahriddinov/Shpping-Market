@@ -87,7 +87,8 @@ const ComeSystem = () => {
                         <span className="layoutText">JISMONIY TARBIYA VA SPORT BO`YICHA MUTAXASSIZLARNI QATTA TAYYORLASH VA MALAKASINI OSHIRISH INSTITUTI</span>
                     </div>
                     <div className="logo"/>
-
+                    <Menu theme="dark" style={{marginTop: "36%"}} defaultSelectedKeys={['1']} mode="inline"
+                          />
                 </Sider>
                 <Layout className="site-layout">
                     <Header

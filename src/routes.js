@@ -19,6 +19,8 @@ const ProfileOverview = lazy(()=>import("./page/ProfileOverview/ProfileOverview"
 const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
 const Certificates = lazy(() => import("./page/Certificates/certificates"));
 const AdminProfile = lazy(()=>import("./page/admin/adminProfile"));
+const Direction = lazy(()=>import("./page/Direction/direction"));
+const InfoPdf = lazy(()=>import("./page/InformationAllPdf/informationAllPdf"))
 
 
 const routes = [
@@ -33,7 +35,12 @@ const routes = [
     {path: "/portfolio", element:Portfolio},
     {path: "/certificates", element:Certificates},
     {path: "/profileOver", element: ProfileOverview},
-    {path: "/allInfo", element: allInfo}
+    {path: "/allInfo", element: allInfo},
+    {path: "/adminProfile", element: AdminProfile},
+    {path: "/direction", element: Direction},
+    {path: "/profileOver", element: ProfileOverview},
+    {path: "/allInfo", element: allInfo},
+    {path: "/infoPdf", element: InfoPdf}
 ];
 const RoutesContainer = () => (
     <Router>

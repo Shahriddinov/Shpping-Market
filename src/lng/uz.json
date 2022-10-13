@@ -85,6 +85,7 @@
   "qualificationStart": "Kvalifikatsiyaning boshlanish va tugash sanasi",
   "WebSite": "Veb sayt",
   "PlaceOfResidence": "Yashash joyi",
+  "table": "Ballar bilan o'tgan fanlar jadvali",
   "AddPortfolio": "Portfolio qo'shish",
   "nameCertificate": "Sertikat nomi",
   "WhatDidYouGet":"Nima oldingiz?",
@@ -113,5 +114,11 @@
   "workAbout": "Ish tafsilotlari",
   "addWork": "Ish qo'shish",
   "addEduc": "Ta'lim qo'shish",
-  "jobAbout": "sonli ish haqida ma'lumot"
+  "jobAbout": "sonli ish haqida ma'lumot",
+  "direction": "Yo'nalish",
+  "rating": "Rahbarlik davridagi sport-ta’lim muassasasi faoliyati samaradorligi reytingi:",
+  "sportCategory" : "Sport toifasi uchun:",
+  "judging": "Sport turlari bo'yicha hakamlik toifasi uchun:",
+  "preparation": "O'quv-metodik adabiyotlarni tayyorlash:",
+  "level": "Jismoniy tayyorgarlik darajasi sport testlari natijalariga bog'liq:"
 }

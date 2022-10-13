@@ -216,6 +216,7 @@ function Work() {
                                         id="outlined-basic"
                                         label={t("department")}
                                         variant="outlined"
+                                        pattern="[a-z]*"
                                     />
                                 </Box>
                             </div>

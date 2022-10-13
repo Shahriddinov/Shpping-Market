@@ -3,6 +3,8 @@ import ImageUploading from 'react-images-uploading';
 import DownloadIcon from "@mui/icons-material/Download";
 import "./imgUploud.scss"
 import {useTranslation} from "react-i18next";
+import Button from "@mui/material/Button";
+import HighlightOffIcon from "@mui/material/SvgIcon/SvgIcon";
 
 const ImgUploud = () => {
     const {t, i18n} = useTranslation();
@@ -41,20 +43,20 @@ const ImgUploud = () => {
                                 style={isDragging ? {color: 'red'} : undefined}
                                 onClick={onImageUpload}
                                 {...dragProps}
+                                disabled={images.length === 1}
                         >
                             <DownloadIcon/>
                             {t("upload")}
                         </button>
-                        &nbsp;
                         {/*<button onClick={onImageRemoveAll}>Remove all images</button>*/}
                         <div className="colms">
                             {imageList.map((image, index) => (
-                                <div key={index} className="image-item " style={{margin:"0 20px 10px"}}>
-                                    <img src={image['data_url']} alt="" width="100"/>
-                                    {/*<div className="image-item__btn-wrapper">*/}
-                                    {/*    <button onClick={() => onImageUpdate(index)}>Update</button>*/}
-                                    {/*    <button onClick={() => onImageRemove(index)}>Remove</button>*/}
-                                    {/*</div>*/}
+                                <div key={index} className="image-item">
+                                    <img src={image['data_url']} alt="" className="img-fluid" width="100"/>
+                                    <div className="image-item__btn-wrapper">
+                                        {/*<button onClick={() => onImageUpdate(index)}>Update</button>*/}
+                                        <Button className="DeleteButton" onClick={() => onImageRemove(index)}><span className="delete-Icon"><HighlightOffIcon/></span></Button>
+                                    </div>
                                 </div>
                             ))}
                         </div>

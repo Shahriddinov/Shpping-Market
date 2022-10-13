@@ -94,7 +94,7 @@ function ProfileOverview() {
                                             <BorderColorIcon fontSize="small"/>
                                             Редактировать
                                         </Button>
-                                    <Button className="profileButton" href="/allInfo" style={{backgroundColor: "#0FBE7B"}}
+                                    <Button className="profileButton" href="/direction" style={{backgroundColor: "#0FBE7B"}}
                                             variant="text"> <span className="icon"><CheckCircleOutlineIcon
                                         fontSize="small"/></span> Соответствует</Button>
                                     </div>
