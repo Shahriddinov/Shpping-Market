@@ -22,6 +22,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import DownloadIcon from '@mui/icons-material/Download';
 
 const Direction = () => {
     const {t, i18n} = useTranslation();
@@ -334,6 +335,21 @@ const Direction = () => {
         document.getElementById("teacherSpec").value = teachers[index].speciality;
     }
 
+    const onButtonClick = (typeDoc) => {
+        // using Java Script method to get PDF file
+        fetch(`Algoritmlar.${typeDoc}`).then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = `Algoritmlar.${typeDoc}`;
+                alink.click();
+            })
+        })
+    }
+
 
     function getItem(label, key, icon, children) {
         return {
@@ -408,6 +424,17 @@ const Direction = () => {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="DownloadFile">
+                                    <div className="downloadItem" onClick={()=>onButtonClick('doc')}>
+                                        <span><DownloadIcon fontSize="small"/></span>Загрузить в Word
+                                    </div>
+                                    <div className="downloadItem" onClick={()=>onButtonClick('xls')}>
+                                        <span><DownloadIcon fontSize="small"/></span>Загрузить в Excel
+                                    </div>
+                                    <div className="downloadItem" onClick={()=>onButtonClick('pdf')}>
+                                        <span><DownloadIcon fontSize="small"/></span>Загрузить в PDF
+                                    </div>
+                                </div>
                             </div> : ""
                         }
                         {
@@ -478,6 +505,17 @@ const Direction = () => {
                                                 marginTop:52
                                             }} variant="contained"> <span style={{marginRight:15}}><CheckCircleOutlineIcon fontSize="small"/></span> Перейти в профиль</Button>
                                         </Stack>
+                                    </div>
+                                </div>
+                                <div className="DownloadFile">
+                                    <div className="downloadItem" onClick={()=>onButtonClick('doc')}>
+                                        <span><DownloadIcon fontSize="small"/></span>Загрузить в Word
+                                    </div>
+                                    <div className="downloadItem" onClick={()=>onButtonClick('xls')}>
+                                        <span><DownloadIcon fontSize="small"/></span>Загрузить в Excel
+                                    </div>
+                                    <div className="downloadItem" onClick={()=>onButtonClick('pdf')}>
+                                        <span><DownloadIcon fontSize="small"/></span>Загрузить в PDF
                                     </div>
                                 </div>
                             </div> : ""
