@@ -1,71 +1,95 @@
-import React from 'react';
-import {useTranslation} from "react-i18next";
+import React, {useState} from 'react';
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import HomeIcon from "@mui/icons-material/Home";
 import SdCardIcon from "@mui/icons-material/SdCard";
 import LoginIcon from "@mui/icons-material/Login";
 import SettingsIcon from "@mui/icons-material/Settings";
+import {useTranslation} from "react-i18next";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import RemoveIcon from '@mui/icons-material/Remove';
-import DownloadIcon from '@mui/icons-material/Download';
-import Switch from '@mui/material/Switch';
-import Button from '@mui/material/Button';
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
 import "./allInformation.scss"
-import ImageUploading from 'react-images-uploading';
-import ImgUploud from "../../components/ImgUploud/imgUploud";
-import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
-import SaveAsIcon from "@mui/icons-material/SaveAs";
-const label = {inputProps: {'aria-label': 'Switch demo'}};
+
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+import faker from 'faker';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Chip from "@mui/material/Chip";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import Button from "@mui/material/Button";
+import Footer from "../../components/Layout/Footer/Footer";
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+export const options = {
+    responsive: true,
+    plugins: {
+        legend: {
+            display: false,
+            position: 'top' ,
+        },
+        title: {
+            display: false,
+            text: 'Chart.js Bar Chart',
+        },
+    },
+};
+
+const labels = [
+    'Урок 1',
+    'Урок 2',
+    'Урок 3',
+    'Урок 4',
+    'Урок 5',
+    'Урок 6',
+    'Урок 7',
+    'Урок 8',
+    'Урок 9',
+    'Урок 10',
+    'Урок 11',
+    'Урок 12',
+    'Урок 13',
+    'Урок 14',
+];
+const background = ['#0FBE7B', '#2B63C0']
+export const data = {
+    labels,
+    datasets: [
+        {
+            label: 'Dataset 1',
+            data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
+            backgroundColor: '#2B63C0',
+        },
+        // {
+        //     label: 'Dataset 2',
+        //     data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
+        //     backgroundColor: '#2B63C0',
+        // },
+    ],
+};
+
 const AllInformation = () => {
 
 
+
     const {t, i18n} = useTranslation();
-    const [listEducation, setListEducation] = React.useState('');
-    const [directions, setDirections] = React.useState('');
-    const [filter, setFilter] = React.useState('');
-    const [images, setImages] = React.useState([]);
-    const maxNumber = 69;
-
-    const onChange = (imageList, addUpdateIndex) => {
-        // data for submit
-        console.log(imageList, addUpdateIndex);
-        setImages(imageList);
-    };
-
-
-    const handleListEducation = (event) => {
-        setListEducation(event.target.value);
-    };
-    const handleDirections = (event) => {
-        setDirections(event.target.value);
-    };
-    const handleFilter = (event) => {
-        setFilter(event.target.value);
-    };
-
-    const handleClick = () => {
-        console.info('You clicked the Chip.');
-    };
-    <Stack direction="row" spacing={1}>
-        <Chip label="Clickable" onClick={handleClick}/>
-        <Chip label="Clickable" variant="outlined" onClick={handleClick}/>
-    </Stack>
+    const [ isClicked, setClicked ] = useState(false);
+    const [ isBall, setBall ] = useState(false);
 
     function getItem(label, key, icon, children) {
         return {
@@ -77,366 +101,119 @@ const AllInformation = () => {
     }
 
     const items = [
-        getItem("Профиль", "1", <AddCircleIcon/>),
-        getItem("Главная", "2", <HomeIcon/>),
-        getItem("Портфолио", "3", <SdCardIcon/>),
-        getItem("Логин", "4", <LoginIcon/>),
-        getItem("Настройки", "5", <SettingsIcon/>),
+        getItem("Профиль", "1", <AccountCircleIcon/>, [
+            getItem("Направление", "sub1"),
+            getItem("Статистика", "2"),
+        ]),
+        getItem("Главная", "3", <HomeIcon/>),
+        getItem("Портфолио", "4", <SdCardIcon/>),
+        getItem("Логин", "5", <LoginIcon/>),
+        getItem("Настройки", "6", <SettingsIcon/>),
     ];
 
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
         localStorage.setItem("lng", lng);
     };
-
-
     return (
-        <>
-            <section id="certificates" className="allInformation">
+        <div className="allInformation">
+            <div className="d-flex">
                 <ProfileSidebar items={items}/>
-                <div className="allInfor">
+                <div className="eduPage">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
-                    <ProfileNavbar title={"portfolio"}/>
-                    <div className="allInfoText">{t("subjectPoints")}</div>
-                    <div
-                        className="site-layout-background"
-                        style={{
-                            padding: 24,
-                            height: "auto",
-                            border: "0.5px solid rgba(0, 0, 0, 0.04)",
-                            boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)",
-                            borderRadius: "12px",
-                            marginTop: "30px",
-                            marginBottom: "30px"
-                        }}
-                    >
-                        <div className="selects">
-                            <Box sx={{minWidth: "46%"}}>
-                                <FormControl fullWidth>
-                                    <InputLabel id="demo-simple-select-label">{t("listEducation")}</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={listEducation}
-                                        label={t("listEducation")}
-                                        onChange={handleListEducation}
-                                    >
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Box>
-                            <Box sx={{minWidth: "46%"}}>
-                                <FormControl fullWidth>
-                                    <InputLabel id="demo-simple-select-label">{t("ListOfOrganize")}</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={directions}
-                                        label={t("ListOfOrganize")}
-                                        onChange={handleDirections}
-                                    >
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Box>
-                        </div>
-                        <Accordion style={{width: "100%", marginTop: "30px"}}>
-                            <AccordionSummary
-                                expandIcon={<RemoveIcon style={{color: "#2B63C0", fontSize: "42px"}}/>}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
+                    <ProfileNavbar/>
+                    <div style={{padding:"0 20px"}}>
+                        <div className="advancedTraining">
+                            <div
+                                className="background-job__title-wrapper"
+                                onClick={() => setClicked(!isClicked)}
                             >
-                                <Typography className="iconFormat">
-                                    <div className="organizations">{t("ListOfOrganize")}</div>
-                                </Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography>
-
-
-
-                                    <div className="inst">
-                                        <div className="instInfo">
-                                            <div className="d-flex">
-                                                <div className="img">
-                                                </div>
-                                                <div className="instInfos">
-                                                    <div className="instText">{t("network")}</div>
-                                                    <div className="teacher">{t("teachers")} 58</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div className="instInfo">
-                                            <div className="d-flex">
-                                                <div className="img">
-                                                </div>
-                                                <div className="instInfos">
-                                                    <div className="instText">{t("network")}</div>
-                                                    <div className="teacher">{t("teachers")} 58</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div className="instInfo">
-                                            <div className="d-flex">
-                                                <div className="img">
-                                                </div>
-                                                <div className="instInfos">
-                                                    <div className="instText">{t("network")}</div>
-                                                    <div className="teacher">{t("teachers")} 58</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-                                    </div>
-                                    <div className="inst">
-                                        <div className="instInfo">
-                                            <div className="d-flex">
-                                                <div className="img">
-                                                </div>
-                                                <div className="instInfos">
-                                                    <div className="instText">{t("network")}</div>
-                                                    <div className="teacher">{t("teachers")} 58</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div className="instInfo">
-                                            <div className="d-flex">
-                                                <div className="img">
-                                                </div>
-                                                <div className="instInfos">
-                                                    <div className="instText">{t("network")}</div>
-                                                    <div className="teacher">{t("teachers")} 58</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div className="instInfo">
-                                            <div className="d-flex">
-                                                <div className="img">
-                                                </div>
-                                                <div className="instInfos">
-                                                    <div className="instText">{t("network")}</div>
-                                                    <div className="teacher">{t("teachers")} 58</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-                                    </div>
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-                        <Accordion style={{width: "100%", marginTop: "30px"}}>
-                            <AccordionSummary
-                                expandIcon={<RemoveIcon style={{color: "#2B63C0", fontSize: "42px"}}/>}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
+                                <h2 className="background-job__title">{t("passSubject")} </h2>
+                                <span className="background-job__button"></span>
+                            </div>
+                            <div
+                                className={
+                                    isClicked
+                                        ? `background-job__drop-down  drop-up`
+                                        : `background-job__drop-down`
+                                }
                             >
-                                <Typography>
-                                    <div className="networkCenter">{t("networkCenter")}</div>
-                                </Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography>
-                                    <div className="d-flex">
-                                        <div className="accordionLeft">
-                                            <div className="accordionTitle">{t("teaching")}</div>
-                                            <div className="d-flex align-items-center">
-                                                <Switch {...label} defaultChecked/>
-                                                <div className="switchText">{t("higher")}</div>
-                                                <Chip label="10" className="clickable" onClick={handleClick}/>
-                                            </div>
-                                            <div className="d-flex align-items-center">
-                                                <Switch {...label} disabled/>
-                                                <div className="switchText">{t("return")}</div>
-                                                <Chip label="5" className="clickables" onClick={handleClick}/>
-                                            </div>
-
-                                            <ImgUploud/>
-                                            <div className="accordionTitle mt-1"
-                                                 style={{paddingRight: "20px"}}>{t("rating")}</div>
-                                            <div className="d-flex mt-2 mb-2">
-                                                <div className="ScoreLeft">
-                                                    <Switch {...label} defaultChecked/>
-                                                    <div className="ScoreText">{t("ranting")}</div>
-                                                </div>
-                                                <div className="ScoreRight">
-                                                    <Chip label="10" className="clickable" onClick={handleClick}/>
-                                                </div>
-                                            </div>
-                                            <div className="d-flex mt-2 mb-2">
-                                                <div className="ScoreLeft">
-                                                    <Switch {...label} defaultChecked/>
-                                                    <div className="ScoreText">{t("rantingSecond")}</div>
-                                                </div>
-                                                <div className="ScoreRight">
-                                                    <Chip label="20" className="clickable" onClick={handleClick}/>
-                                                </div>
-                                            </div>
-                                            <div className="d-flex mt-2 mb-2">
-                                                <div className="ScoreLeft">
-                                                    <Switch {...label} defaultChecked/>
-                                                    <div className="ScoreText">{t("rantingThree")}</div>
-                                                </div>
-                                                <div className="ScoreRight">
-                                                    <Chip label="40" className="clickable" onClick={handleClick}/>
-                                                </div>
-                                            </div>
-                                            <ImgUploud/>
-
-                                        </div>
-                                        <div className="accordionLeft">
-                                            <div className="accordionTitle">{t("teaching")}</div>
-                                            <div className="d-flex align-items-center">
-                                                <Switch {...label} defaultChecked/>
-                                                <div className="switchText">{t("higher")}</div>
-                                                <Chip label="10" className="clickable" onClick={handleClick}/>
-                                            </div>
-                                            <div className="d-flex align-items-center">
-                                                <Switch {...label} disabled/>
-                                                <div className="switchText">{t("return")}</div>
-                                                <Chip label="5" className="clickables" onClick={handleClick}/>
-                                            </div>
-                                            <ImgUploud/>
-                                            <div className="accordionTitle mt-1"
-                                                 style={{paddingRight: "20px"}}>{t("rating")}</div>
-                                            <div className="d-flex mt-2 mb-2">
-                                                <div className="ScoreLeft">
-                                                    <Switch {...label} defaultChecked/>
-                                                    <div className="ScoreText">{t("ranting")}</div>
-                                                </div>
-                                                <div className="ScoreRight">
-                                                    <Chip label="10" className="clickable" onClick={handleClick}/>
-                                                </div>
-                                            </div>
-                                            <div className="d-flex mt-2 mb-2">
-                                                <div className="ScoreLeft">
-                                                    <Switch {...label} defaultChecked/>
-                                                    <div className="ScoreText">{t("rantingSecond")}</div>
-                                                </div>
-                                                <div className="ScoreRight">
-                                                    <Chip label="20" className="clickable" onClick={handleClick}/>
-                                                </div>
-                                            </div>
-                                            <div className="d-flex mt-2 mb-2">
-                                                <div className="ScoreLeft">
-                                                    <Switch {...label} defaultChecked/>
-                                                    <div className="ScoreText">{t("rantingThree")}</div>
-                                                </div>
-                                                <div className="ScoreRight">
-                                                    <Chip label="40" className="clickable" onClick={handleClick}/>
-                                                </div>
-                                            </div>
-                                            <ImgUploud/>
-
-                                        </div>
-                                    </div>
-                                    <div className="next-page">
-
-                                        <div className="back-btn">
-                                            <Stack spacing={2} direction="row">
-                                                <Button className="button" href="#" variant="contained"> <span
-                                                    className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
-                                            </Stack>
-                                        </div>
-                                        <div className="next-btn">
-                                            {/*<button>Продолжить</button>*/}
-                                            <Stack spacing={2} direction="row">
-                                                <Button className="button" href="#" style={{backgroundColor: "#0FBE7B"}}
-                                                        variant="contained"> <span className="icon"><SaveAsIcon
-                                                    fontSize="small"/></span> Сохранить</Button>
-                                            </Stack>
-                                        </div>
-                                    </div>
-
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-                        <div className="d-flex justify-content-between">
-                            <Accordion style={{width: "47%", marginTop: "30px"}}>
-                                <AccordionSummary
-                                    expandIcon={<RemoveIcon style={{color: "#2B63C0", fontSize: "42px"}}/>}
-                                    aria-controls="panel1a-content"
-                                    id="panel1a-header"
-                                >
-                                    <Typography>
-                                        <div className="networkCenter">{t("items")}</div>
-                                    </Typography>
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    <Typography>
-                                        <div className="sport">{t("sport")}</div>
-                                        <div className="d-flex mt-4 mb-2">
-                                            <div className="ScoreLeft">
-                                                <div className="HighText">{t("high")}</div>
-                                            </div>
-                                            <div className="ScoreRight">
-                                                <Chip label="10" className="clickable" onClick={handleClick}/>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div className="d-flex mt-4 mb-2">
-                                            <div className="ScoreLeft">
-                                                <div className="HighText">{t("return")}</div>
-                                            </div>
-                                            <div className="ScoreRight">
-                                                <Chip label="5" className="clickable" onClick={handleClick}/>
-                                            </div>
-                                        </div>
-                                    </Typography>
-                                </AccordionDetails>
-                            </Accordion>
-                            <Accordion style={{width: "47%", marginTop: "30px"}}>
-                                <AccordionSummary
-                                    expandIcon={<RemoveIcon style={{color: "#2B63C0", fontSize: "42px"}}/>}
-                                    aria-controls="panel1a-content"
-                                    id="panel1a-header"
-                                >
-                                    <Typography>
-                                        <div className="networkCenter">{t("chronology")}</div>
-                                    </Typography>
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    <Typography>
-                                        <div className="scrolls">
-                                            <div className="sport">{t("CertificationName")}</div>
-                                            <div className="colorCertification">
-                                                <div className="imgis">
-                                                </div>
-                                                <div className="imgsText">
-                                                    {t("biography")} <br/>
-                                                    {t("biography")}
-                                                </div>
-                                            </div>
-                                            <div className="sport">{t("CertificationName")}</div>
-                                            <div className="colorCertification">
-                                                <div className="imgis">
-                                                </div>
-                                                <div className="imgsText">
-                                                    {t("biography")} <br/>
-                                                    {t("biography")}
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </Typography>
-                                </AccordionDetails>
-                            </Accordion>
+                                <div>
+                                    <Bar options={options} data={data} />
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div style={{padding:"0 20px"}}>
+                        <div className="advancedTraining">
+                            <div
+                                className="background-job__title-wrapper"
+                                onClick={() => setBall(!isBall)}
+                            >
+                                <h2 className="background-job__title">{t("table")} </h2>
+                                <span className="background-job__button"></span>
+                            </div>
+                            <div
+                                className={
+                                    isBall
+                                        ? `background-job__drop-down  drop-up`
+                                        : `background-job__drop-down`
+                                }
+                            >
+                                <div>
+                                    <div className="form-group">
+                                        <div className="subjectName">1. {t("teachingCulture")}</div>
+                                        <div className="subjectBall">
+                                            Высшее
+                                            <Chip className="chip" label="10" />
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
+                                        <div className="subjectName">2. {t("rating")}</div>
+                                        <div className="subjectBall">
+                                            Во второй двадцатке рейтинга (21-40 места)
+                                            <Chip className="chip" label="30" />
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
+                                        <div className="subjectName">3. {t("sportCategory")}</div>
+                                        <div className="subjectBall">
+                                            кандидат в мастера спорта
+                                            <Chip className="chip" label="3" />
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
+                                        <div className="subjectName">4. {t("judging")}</div>
+                                        <div className="subjectBall">
+                                            кандидат в мастера спорта
+                                            <Chip className="chip" label="10" />
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
+                                        <div className="subjectName">5. {t("preparation")}</div>
+                                        <div className="subjectBall">
+                                            методическое пособие, учебно-методические рекомендации, для разработок
+                                            <Chip className="chip" label="50" />
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
+                                        <div className="subjectName">6. {t("level")}</div>
+                                        <div className="subjectBall">
+                                            2 место
+                                            <Chip className="chip" label="5" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <Button className="profileButton" href="#" style={{backgroundColor: "#0FBE7B"}}
+                            variant="text"> <span className="icon"><CheckCircleOutlineIcon
+                        fontSize="small"/></span> Соответствует</Button>
                 </div>
-            </section>
-        </>
+            </div>
+            <Footer/>
+        </div>
     );
 };
 

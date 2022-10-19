@@ -6,7 +6,16 @@ import "./ProfileSidebar.scss";
 
 function ProfileSidebar({ items, userName, userPic }) {
   return (
-    <Sider className="profile__sider">
+    <Sider
+        style={{
+            overflow: 'auto',
+            height: '100vh',
+            position: 'sticky',
+            left: 0,
+            top: 0,
+            bottom: 0,
+        }}
+        className="profile__sider">
       <div className="d-flex align-items-center px-3 mt-3">
         <UserPicture pictureURL={userPic} />
         <span className="profile__title">{userName}</span>

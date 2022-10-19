@@ -44,6 +44,15 @@
           border-radius: 8px;
         }
       }
+    }
+
+    .added {
+      height: 48px;
+      padding: 0 25px;
+      display: flex;
+      align-items: center;
+      gap: 20px 10px;
+      margin: 10px 10px;
 
     }
   }
@@ -56,6 +65,7 @@
       width: 190px;
       color: white;
       border: 0;
+
 
 
     }

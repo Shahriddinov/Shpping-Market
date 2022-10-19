@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import HomeIcon from "@mui/icons-material/Home";
 import SdCardIcon from "@mui/icons-material/SdCard";
@@ -24,7 +24,7 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import dayjs from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
 
 const Eduction = () => {
 
@@ -34,7 +34,10 @@ const Eduction = () => {
     const [speciality, setSpeciality] = React.useState('');
 
     const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
+    const [count, setCount] = useState('');
+    const sayHello = () => {
 
+    };
     const handleChange = (newValue) => {
         setValue(newValue);
     };
@@ -82,8 +85,10 @@ const Eduction = () => {
             <div className="eduPage">
                 <ProfileHeader handleChangeLng={handleChangeLng}/>
                 <ProfileNavbar/>
+
                 <div className="formBox">
                     <Slayder val={1}/>
+                    {/*<div className="eduInfo">{t("eduInfo")}</div>*/}
                     <div className="infoEdu">
                         <h3 className="title">{t("aboutEducation")}</h3>
                         <div className="side-by-side">
@@ -141,11 +146,11 @@ const Eduction = () => {
                                 </Box>
                             </div>
                             <div className="rightSide" style={{width:"45%"}}>
-                                <label className="label mt-1" htmlFor="dateReceived">{t("dateReceived")} *</label>
+                                <label className="label mb-2" htmlFor="dateReceived">{t("dateReceived")} *</label>
                                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                                     <Stack spacing={3}>
                                         <DesktopDatePicker
-                                            className="mt-1"
+                                            className="mt-2"
                                             label={t("dateReceived")}
                                             inputFormat="MM/DD/YYYY"
                                             value={value}
@@ -158,7 +163,7 @@ const Eduction = () => {
                                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                                     <Stack spacing={3}>
                                         <DesktopDatePicker
-                                            className="mt-3"
+                                            className="mt-2"
                                             label={t("expirationDate")}
                                             inputFormat="MM/DD/YYYY"
                                             value={value}
@@ -167,23 +172,103 @@ const Eduction = () => {
                                         />
                                     </Stack>
                                 </LocalizationProvider>
-                                <label className="label" htmlFor="experience">{t("experience")} *</label>
-                                <LocalizationProvider dateAdapter={AdapterDayjs} >
-                                    <Stack spacing={3}>
-                                        <DesktopDatePicker
-                                            className="mt-3"
-                                            label={t("experience")}
-                                            inputFormat="MM/DD/YYYY"
-                                            value={value}
-                                            onChange={handleDataEnd}
-                                            renderInput={(params) => <TextField {...params} />}
-                                        />
-                                    </Stack>
-                                </LocalizationProvider>
+                                <Button className=" added"  onClick={() => {setCount(count + 1);}} variant="outlined"><ControlPointIcon/>{t("addEduc")}</Button>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div>{count.length > 0 &&  (
+                    <div className="formBox mt-5">
+                        <div className="infoEdu">
+                            <div className="side-by-side">
+                                <div className="leftSide">
+                                    <label className="label" htmlFor="region">{t("region")} *</label>
+                                    <Box sx={{mt: 1, minWidth: "500px"}}>
+                                        <FormControl fullWidth>
+                                            <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={region}
+                                                label={t("region")}
+                                                onChange={handleRegion}
+                                            >
+                                                <MenuItem value={10}>Ташкент</MenuItem>
+                                                <MenuItem value={20}>Бухара</MenuItem>
+                                                <MenuItem value={30}>Самарканд</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                    <label className="label mt-3" htmlFor="institution">{t("institution")} *</label>
+                                    <Box sx={{mt: 1, minWidth: "500px"}}>
+                                        <FormControl fullWidth>
+                                            <InputLabel id="demo-simple-select-label">{t("institution")}</InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={institution}
+                                                label={t("institution")}
+                                                onChange={handleInstitution}
+                                            >
+                                                <MenuItem value={10}>Образавательное учреждение1</MenuItem>
+                                                <MenuItem value={20}>Образавательное учреждение1</MenuItem>
+                                                <MenuItem value={30}>Образавательное учреждение1</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                    <label className="label mt-3" htmlFor="speciality">{t("speciality")} *</label>
+                                    <Box sx={{mt: 1, minWidth: "500px"}}>
+                                        <FormControl fullWidth>
+                                            <InputLabel id="demo-simple-select-label">{t("speciality")}</InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={speciality}
+                                                label={t("speciality")}
+                                                onChange={handleSpeciality}
+                                            >
+                                                <MenuItem value={10}>Специальность</MenuItem>
+                                                <MenuItem value={20}>Специальность</MenuItem>
+                                                <MenuItem value={30}>Специальность</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Box>
+                                </div>
+                                <div className="rightSide" style={{width:"45%"}}>
+                                    <label className="label mt-1" htmlFor="dateReceived">{t("dateReceived")} *</label>
+                                    <LocalizationProvider dateAdapter={AdapterDayjs} >
+                                        <Stack spacing={3}>
+                                            <DesktopDatePicker
+                                                className="mt-1"
+                                                label={t("dateReceived")}
+                                                inputFormat="MM/DD/YYYY"
+                                                value={value}
+                                                onChange={handleChange}
+                                                renderInput={(params) => <TextField {...params} />}
+                                            />
+                                        </Stack>
+                                    </LocalizationProvider>
+                                    <label className="label mt-2" htmlFor="expirationDate">{t("expirationDate")} *</label>
+                                    <LocalizationProvider dateAdapter={AdapterDayjs} >
+                                        <Stack spacing={3}>
+                                            <DesktopDatePicker
+                                                className="mt-3"
+                                                label={t("expirationDate")}
+                                                inputFormat="MM/DD/YYYY"
+                                                value={value}
+                                                onChange={handleDataEnd}
+                                                renderInput={(params) => <TextField {...params} />}
+                                            />
+                                        </Stack>
+                                    </LocalizationProvider>
+                                    <Button className=" added "   onClick={() => {setCount(count + 1);}} variant="outlined"><ControlPointIcon/>{t("addEduc")}</Button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                )}</div>
+
                 <div className="NextPrev">
                     <Stack spacing={2} direction="row">
                         <Button className="button" href="/profile" variant="contained"> <span

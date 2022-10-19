@@ -14,6 +14,7 @@ import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
 import Footer from "../../components/Layout/Footer/Footer";
 import BasicModal from "../../components/DeleteModal/deleteModal";
 import PortfolioInfo from "../../components/PortfolioInfo/portfolioInfo";
+// import AboutInfo from "../../components";
 
 const label = {inputProps: {'aria-label': 'Switch demo'}};
 
@@ -142,6 +143,7 @@ const Certificates = () => {
                 </div>
             </section>
             <Footer/>
+            {/*<AboutInfo/>*/}
         </>
     );
 };

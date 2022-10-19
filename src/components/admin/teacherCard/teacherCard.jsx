@@ -14,7 +14,7 @@ function TeacherCard({props}) {
                         <h5>Номер ID:</h5>
                         <h5>Балл:</h5>
                     </div>
-                        <div>
+                    <div>
                         <h5>{props.id}</h5>
                         <div className="score">
                             {props.score}

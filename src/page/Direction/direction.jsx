@@ -17,6 +17,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Slayder6 from "../../components/Slayder6/slayder6";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Direction = () => {
     const {t, i18n} = useTranslation();
@@ -87,8 +88,11 @@ const Direction = () => {
     }
 
     const items = [
-        getItem("Профиль", "1", <AddCircleIcon/>),
-        getItem("Главная", "2", <HomeIcon/>),
+        getItem("Главная", "1", <HomeIcon/>),
+        getItem("Профиль", "2", <AccountCircleIcon/>, [
+            getItem("Направление", "sub1"),
+            getItem("Статистика", "2"),
+        ]),
         getItem("Портфолио", "3", <SdCardIcon/>),
         getItem("Логин", "4", <LoginIcon/>),
         getItem("Настройки", "5", <SettingsIcon/>),
@@ -341,7 +345,7 @@ const Direction = () => {
                                     className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
                             </Stack>
                             <Stack spacing={2} direction="row">
-                                <Button className="button" style={{backgroundColor: "#0FBE7B", margin:0}}
+                                <Button className="button" href="/allInfo" style={{backgroundColor: "#0FBE7B", margin:0}}
                                         variant="contained"> <span className="icones"><SaveIcon
                                     fontSize="small"/></span> Сохранить</Button>
                             </Stack>

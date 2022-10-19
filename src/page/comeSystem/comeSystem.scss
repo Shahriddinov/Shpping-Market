@@ -1,4 +1,4 @@
-@import "../../assets/ui";
+@import "./src/assets/ui";
 
 #components-layout-demo-side .logo {
   height: 32px;
@@ -36,7 +36,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-left: -6%;
+      margin-left: 1%;
 
       .name{
         font-weight: 700;
@@ -97,6 +97,8 @@
   .left{
     display: flex!important;
     align-items: center;
+    cursor: pointer;
+    color: $colorBlack;
     .icon{
       width: 18px;
     }
@@ -129,26 +131,26 @@
 
   }
 }
-.form-control{
-  width: 100%;
-  border: none!important;
-  .cityLabel{
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 10px;
-  }
-  .city{
+  .form-control{
     width: 100%;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    height: 50px;
+    border: none!important;
+    .cityLabel{
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 10px;
+    }
+    .city{
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      height: 50px;
 
+    }
   }
-}
 .button{
   width:191px;
   height:48px;
@@ -177,13 +179,14 @@
 }
 .passwordError{
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 21px;
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
   text-decoration-line: underline;
   cursor: pointer;
+  margin-top: 5px;
   color: #FE346E;
 
 }
@@ -192,4 +195,10 @@
   display: flex;
   width: 398px;
   justify-content: space-between;
+  .button{
+    color: white;
+    &:hover{
+      color: white;
+    }
+  }
 }

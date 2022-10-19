@@ -8,30 +8,27 @@ import {useTranslation} from "react-i18next";
 function ProfileNavbar(title) {
   const { t } = useTranslation();
   return (
-      <nav className="profile__navbar">
-        <div className="profile__container">
-          <div className="profile__navbar-lef">
-            <Link to="#">
-              <ArrowBackIosIcon className="arrow-back" />
-            </Link>
-            <h2 className="profile__navbar-left--title">{t(title.title)}</h2>
-          </div>
-          <div className="profile__navbar-right">
-            <SpeedIcon className="icon" />
-            <ul className="profile__navbar-list">
-              <li className="profile__navbar-list--item">
-                <Link style={{color: "#2B63C0"}} to="/">{t("gallery")} /</Link>
-              </li>
-              <li className="profile__navbar-list--item">
-                <Link to="#">{t("login")} /</Link>
-              </li>
-              <li className="profile__navbar-list--item">
-                <Link to="#">{t("profile")}</Link>
-              </li>
-            </ul>
-          </div>
+    <nav className="profile__navbar">
+      <div className="profile__container">
+        <div className="profile__navbar-lef">
+          <Link to="/userInfo" style={{display:"flex", alignItems:"center"}}>
+            <ArrowBackIosIcon className="arrow-back" />
+          <h2 className="profile__navbar-left--title">{t(title.title)}</h2>
+          </Link>
         </div>
-      </nav>
+        <div className="profile__navbar-right">
+          <SpeedIcon className="icon" />
+          <ul className="profile__navbar-list">
+            <li className="profile__navbar-list--item">
+              <Link style={{color: "#2B63C0"}} to="/">{t("gallery")} /</Link>
+            </li>
+            <li className="profile__navbar-list--item">
+              <Link to="#">{t("systemAccess")}</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 
