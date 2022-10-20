@@ -88,6 +88,10 @@
           flex-direction: column;
           justify-content: space-between;
 
+          &:hover{
+            border: 1px solid #2B63C0;
+          }
+
           h5{
             font-weight: 600;
             font-size: 20px;
@@ -237,6 +241,14 @@
         }
       }
     }
+    .label-text{
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      color: #333333;
+      margin-bottom: 8px;
+    }
+
     .InfoOfTeacher {
       margin-top: 24px;
       box-sizing: border-box;
@@ -356,9 +368,6 @@
             line-height: 24px;
             color: #333333;
             margin-bottom: 8px;
-            &:nth-child(3){
-              //margin-top: 19px;
-            }
           }
           .editSpec{
             width: 425px;
@@ -416,6 +425,28 @@
                 margin-left: 24px;
               }
             }
+          }
+        }
+      }
+      .item2 {
+        margin-top: 24px;
+        .Scores {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .ScoreOfTeacher {
+            width: 121px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #EAF0F9;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            color: #2B63C0;
           }
         }
       }

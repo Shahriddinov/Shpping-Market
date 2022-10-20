@@ -121,5 +121,13 @@
   "judging": "Sport turlari bo'yicha hakamlik toifasi uchun:",
   "preparation": "O'quv-metodik adabiyotlarni tayyorlash:",
   "level": "Jismoniy tayyorgarlik darajasi sport testlari natijalariga bog'liq:",
-  "listOfDirection": "Yo'nalishlar ro'yxati"
+  "listOfDirection": "Yo'nalishlar ro'yxati",
+  "numberID": "ID raqami",
+  "Score": "Ball",
+  "resultOfCourse": "Kurs natijasi",
+  "View": "Ko'rinish",
+  "CourseLang": "Kurs tili",
+  "password": "Parol",
+  "EduOrganize": "Ta'lim muassasalari va tashkilotlari",
+  "DateOfQual": "Malaka berilgan sana"
 }
