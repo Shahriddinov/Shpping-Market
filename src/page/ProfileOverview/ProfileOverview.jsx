@@ -21,6 +21,8 @@ import {useNavigate} from "react-router";
 import JobAbout from "./components/JobAbout/jobAbout";
 import AdvancedTraining from "./components/AdvancedTraining/advancedTraining";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+
+
 function ProfileOverview() {
     const {t, i18n} = useTranslation();
     const navigate = useNavigate();

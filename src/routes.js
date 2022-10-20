@@ -11,16 +11,16 @@ const LoginIn = lazy(()=> import("./page/Login"));
 const LoginUp = lazy(()=> import("./page/Login/LoginUp"));
 const userInfo = lazy(()=>import("./page/comeSystem/comeSystem"));
 const NotFound = lazy(() => import("./page/404"));
+const Work=lazy(()=>import("./page/Works/works"));
 const Education = lazy(()=>import("./page/Education/eduction"));
 const Qualification = lazy(()=>import("./page/Qualification/qualification"));
-const Work = lazy(()=>import("./page/Works/works"));
-const allInfo = lazy(()=>import("./page/AllInformation/allInformation"))
+const allInfo = lazy(()=>import("./page/AllInformation/allInformation"));
 const ProfileOverview = lazy(()=>import("./page/ProfileOverview/ProfileOverview"))
 const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
 const Certificates = lazy(() => import("./page/Certificates/certificates"));
-const AdminProfile = lazy(()=>import("./page/admin/adminProfile"));
+const AdminProfile = lazy(()=>import("./page/admin/AdminProfile/adminprofile"));
 const Direction = lazy(()=>import("./page/Direction/direction"));
-const InfoPdf = lazy(()=>import("./page/InformationAllPdf/informationAllPdf"))
+const AllPdf = lazy(()=>import("./page/InformationAllPdf/informationAllPdf"))
 
 
 const routes = [
@@ -30,17 +30,19 @@ const routes = [
     {path: "", element: Home},
     {path: "/profile", element: Profile},
     {path: "/education", element: Education},
-    {path: "/qualification", element:Qualification},
-    {path: "/work", element: Work},
-    {path: "/portfolio", element:Portfolio},
-    {path: "/certificates", element:Certificates},
-    {path: "/profileOver", element: ProfileOverview},
-    {path: "/allInfo", element: allInfo},
-    {path: "/adminProfile", element: AdminProfile},
+    {path:"/allInfo", element:allInfo},
+    {path:"/adminProfile", element:AdminProfile},
+    {path:"/work", element:Work},
+    {path:"/certificates", element:Certificates},
+    {path:"/portfolio", element:Portfolio},
+    {path:"/profileOver", element:ProfileOverview},
+    {path:"/qualification", element:Qualification},
     {path: "/direction", element: Direction},
-    {path: "/profileOver", element: ProfileOverview},
-    {path: "/allInfo", element: allInfo},
-    {path: "/infoPdf", element: InfoPdf}
+    {path: "/allPdf", element: AllPdf}
+
+
+
+
 ];
 const RoutesContainer = () => (
     <Router>

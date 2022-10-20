@@ -193,7 +193,7 @@ const InformationAllPdf = ({imageURL}) => {
                         </div>
 
                     </div>
-                    <Button className="profileButton" href="/infoPdf" style={{backgroundColor: "#0FBE7B"}}
+                    <Button className="profileButton" href="#" style={{backgroundColor: "#0FBE7B"}}
                             variant="text"> <span className="icon"><CheckCircleOutlineIcon
                         fontSize="small"/></span> Соответствует</Button>
                 </div>
