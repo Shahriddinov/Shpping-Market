@@ -11,14 +11,13 @@ const LoginIn = lazy(()=> import("./page/Login"));
 const LoginUp = lazy(()=> import("./page/Login/LoginUp"));
 const userInfo = lazy(()=>import("./page/comeSystem/comeSystem"));
 const NotFound = lazy(() => import("./page/404"));
-const Work=lazy(()=>import("./page/Works/works"));
 const Education = lazy(()=>import("./page/Education/eduction"));
 const Qualification = lazy(()=>import("./page/Qualification/qualification"));
 const allInfo = lazy(()=>import("./page/AllInformation/allInformation"));
 const ProfileOverview = lazy(()=>import("./page/ProfileOverview/ProfileOverview"))
 const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
 const Certificates = lazy(() => import("./page/Certificates/certificates"));
-const AdminProfile = lazy(()=>import("./page/admin/AdminProfile/adminprofile"));
+const AdminProfile = lazy(()=>import("./page/admin/adminProfile"));
 const Direction = lazy(()=>import("./page/Direction/direction"));
 const AllPdf = lazy(()=>import("./page/InformationAllPdf/informationAllPdf"))
 

@@ -5,7 +5,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useTranslation } from "react-i18next";
 import "antd/dist/antd.css";
-import "./works.scss";
+import "./work.scss";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
@@ -30,6 +30,7 @@ import Checkbox from '@mui/material/Checkbox';
 
 function Works() {
     const { t, i18n } = useTranslation();
+
     const [region, setRegion] = React.useState('');
     const [district, setDistrict] = React.useState('');
     const [learningBuild, setLearningBuild] = React.useState('');
@@ -159,23 +160,10 @@ function Works() {
                                 </Box>
                             </div>
                             <div className="place-work">
-                                <label htmlFor="">{t("typeWork")} *</label>
-                                <Box sx={{mt: 1, minWidth: "500px", mb:  2}}>
-                                    <FormControl fullWidth>
-                                        <InputLabel id="demo-simple-select-label">{t("typeWork")}</InputLabel>
-                                        <Select
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            value={typeWork}
-                                            label={t("typeWork")}
-                                            onChange={handleTypeWork}
-                                        >
-                                            <MenuItem value={10}>Toshkent</MenuItem>
-                                            <MenuItem value={20}>Forg'ona</MenuItem>
-                                            <MenuItem value={30}>Nukus</MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </Box>
+                                <label htmlFor="">Тип место работы *</label>
+                                <select name="" id="">
+                                    <option value=""></option>
+                                </select>
                             </div>
                             <FormGroup>
                                 <FormControlLabel control={<Checkbox />} label={t("check")} />
@@ -428,11 +416,14 @@ function Works() {
                     </div>
                 )}
                 <div className="next-page">
-                    {/*<div className="back-btn">*/}
-                        <Stack direction="row">
+
+                    <div className="back-btn">
+                        <Stack spacing={2} direction="row">
+                            <Button className="button" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+
                             <Button  href="/education" className="button" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
                         </Stack>
-                    {/*</div>*/}
+                    </div>
                     <div className="next-btn">
                         {/*<button>Продолжить</button>*/}
                         <Next/>
@@ -444,4 +435,4 @@ function Works() {
     );
 }
 
-export default Works;
+export default Work;

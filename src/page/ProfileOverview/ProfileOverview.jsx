@@ -1,4 +1,4 @@
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -23,6 +23,11 @@ import AdvancedTraining from "./components/AdvancedTraining/advancedTraining";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 
+import BarChartIcon from '@mui/icons-material/BarChart';
+import {useNavigate} from "react-router";
+import JobAbout from "./components/JobAbout/jobAbout";
+import AdvancedTraining from "./components/AdvancedTraining/advancedTraining";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 function ProfileOverview() {
     const {t, i18n} = useTranslation();
     const navigate = useNavigate();
