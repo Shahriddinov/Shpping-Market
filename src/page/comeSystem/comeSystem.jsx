@@ -40,9 +40,6 @@ function getItem(label, key, icon, children) {
 const ComeSystem = (props) => {
     const [regions, setRegions] = React.useState('');
     const [text, setText] = React.useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('')
-    const [texts, setTexts] = useState('');
     const navigate = useNavigate();
 
 
@@ -59,23 +56,6 @@ const ComeSystem = (props) => {
     };
 
 
-    function login() {
-        axios.post("http://test.z7.uz/api/auth/login", {username: username, password: password}).then((response) => {
-            setTexts(response.data.message);
-            console.log("hello", response.data.message);
-        })
-            .catch((error) => {
-                if (error.response.status === 500) {
-                    setTexts("Login yoki parol noto`g`ri!");
-
-                }
-
-                // if (error.response.message >= 422){
-                //
-                //     setTexts("Login maydoni to‘ldirilishi shart.");
-                // }
-            })
-    }
 
     return (
         <>
@@ -130,7 +110,6 @@ const ComeSystem = (props) => {
                                 <ArrowBackIosNewIcon className="icon"/>
                                 <div className="pro">{t("comeSystem")}</div>
                             </a>
-                            <div className="d-flex justify-content-center">{texts}</div>
 
                             <div className="rights">
                                 <SpeedIcon className="icon"/>
@@ -185,12 +164,8 @@ const ComeSystem = (props) => {
                                         label="Login"
                                         variant="outlined"
                                         className="city"
-                                        onChange={(e) => setUsername(e.target.value)}
                                         required
-                                        value={username}
                                         type="username"
-                                        error={username}
-                                        helperText={!username ? '' : 'Username should be 3-16 characters and shouldn\'t include any special character!'}
                                     />
 
                                 </Box>
@@ -206,7 +181,6 @@ const ComeSystem = (props) => {
                                     <TextField
                                         id="outlined-basic"
                                         label="Пароль"
-                                        onChange={(e) => setPassword(e.target.value)}
                                         required="error"
                                         variant="outlined"
                                         className="city"/>
@@ -228,11 +202,11 @@ const ComeSystem = (props) => {
                         </div>
                         <div className="NextPrev">
                             <Stack spacing={2} direction="row">
-                                <Button className="button" href="./" variant="contained"> <span
+                                <Button className="button" href="/" variant="contained"> <span
                                     className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
                             </Stack>
                             <Stack spacing={2} direction="row">
-                                <Button className="button" onClick={login}
+                                <Button href="/profile" className="button"
                                         style={{backgroundColor: "#0FBE7B"}}
                                         variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon
                                     fontSize="small"/></span> Продолжить</Button>

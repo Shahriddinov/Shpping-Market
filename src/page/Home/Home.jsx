@@ -28,7 +28,7 @@ const Home = () => {
                     <div className="back-navbar">
                         <div className="home-navbar">
                             <div className="link-item"><a href="/">{t("DistanceLearning")}</a></div>
-                            <div className="link-item"><a href="/">{t("portfolio")}</a></div>
+                            <div className="link-item"><a href="/userInfo">{t("portfolio")}</a></div>
                             <div className="link-item"><a href="/">{t("OnlineLibrary")}</a></div>
                             <div className="link-item"><a href="/">{t("OnlineTest")}</a></div>
                             <div className="link-item"><a href="/">{t("Re-qualification")}</a></div>
