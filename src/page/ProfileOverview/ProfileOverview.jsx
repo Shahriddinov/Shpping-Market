@@ -17,17 +17,15 @@ import Button from "@mui/material/Button";
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import React from "react";
 import BarChartIcon from '@mui/icons-material/BarChart';
-import {useNavigate} from "react-router";
-import JobAbout from "./components/JobAbout/jobAbout";
 import AdvancedTraining from "./components/AdvancedTraining/advancedTraining";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 
-import BarChartIcon from '@mui/icons-material/BarChart';
+// import BarChartIcon from '@mui/icons-material/BarChart';
 import {useNavigate} from "react-router";
 import JobAbout from "./components/JobAbout/jobAbout";
-import AdvancedTraining from "./components/AdvancedTraining/advancedTraining";
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+// import AdvancedTraining from "./components/AdvancedTraining/advancedTraining";
+// import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 function ProfileOverview() {
     const {t, i18n} = useTranslation();
     const navigate = useNavigate();
@@ -52,14 +50,14 @@ function ProfileOverview() {
     }
 
     const items = [
-        getItem("Главная", "1", <HomeIcon/>),
-        getItem("Профиль", "2", <AccountCircleIcon/>, [
-            getItem("Направление", "sub1"),
-            getItem("Статистика", "2"),
+        getItem(t("profile"), "2", <AccountCircleIcon/>, [
+            getItem(t("directions"), "sub1"),
+            getItem(t("statistics"), "2"),
         ]),
-        getItem("Портфолио", "3", <SdCardIcon/>),
-        getItem("Логин", "4", <LoginIcon/>),
-        getItem("Настройки", "5", <SettingsIcon/>),
+        getItem(t("gallery"), "1", <HomeIcon/>),
+        getItem(t("portfolio"), "3", <SdCardIcon/>),
+        getItem(t("login"), "4", <LoginIcon/>),
+        getItem(t("setting"), "5", <SettingsIcon/>),
     ];
 
     const userInformations = {

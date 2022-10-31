@@ -4,12 +4,13 @@
 .Page1 {
   width: calc(100% - 60px);
   height: auto;
-  margin: 0 30px;
+  margin: 0 30px 0 30px;
   background: #ffffff;
   border: 0.5px solid rgba(0, 0, 0, 0.04);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   position: relative;
+
 }
 
 .css-2royc9 {
@@ -20,16 +21,17 @@
 }
 
 .page1__form {
-  padding: 24px 28px 128px 24px;
+  padding: 0 30px;
+  //padding: 24px 28px 128px 24px;
   display: flex;
   flex-wrap: nowrap;
   column-gap: 34px;
 }
 
 .page1__label {
-  width: 520px;
-  max-width: 520px;
-  min-width: 520px;
+  width: 480px;
+  max-width: 100%;
+  min-width: 80%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -50,6 +52,7 @@
   border: 0.5px solid rgba(173, 173, 173, 0.8);
   border-radius: 8px;
   cursor: pointer;
+
 
   &::placeholder {
     font-style: normal;

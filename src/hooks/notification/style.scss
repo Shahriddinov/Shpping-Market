@@ -1,0 +1,86 @@
+$infoColor: rgba(20, 46, 113, 1);
+$dangerColor: rgba(211, 41, 41, 1);
+$warningColor: rgba(251, 197, 0, 1);
+$successColor: rgba(145, 199, 20, 1);
+
+//---Alert start---
+#custom-alert-zone {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  max-width: 400px;
+  z-index: 99999999;
+  overflow: hidden;
+  height: 100vh;
+  padding: 20px;
+  pointer-events: none;
+
+  & > div:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .alert-item {
+    pointer-events: auto;
+    border-radius: 16px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    padding: 15px 30px 15px 80px;
+    background-repeat: no-repeat;
+    background-position: center left 20px;
+    background-size: 40px;
+    position: relative;
+    transition: 0.2s ease-in-out;
+    transform: translateX(20px);
+    opacity: 0;
+
+    &.--show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    &__close-btn {
+      width: 15px;
+      height: 15px;
+      content: "";
+      cursor: pointer;
+      background-image: url("../../assets/images/close-white.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+
+    &__title {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    &__text {
+      font-weight: 400;
+    }
+
+    &--info {
+      background-image: url("../../assets/images/alert-danger.svg");
+      background-color: $infoColor;
+    }
+
+    &--danger {
+      background-image: url("../../assets/images/alert-danger.svg");
+      background-color: $dangerColor;
+    }
+
+    &--warning {
+      background-image: url("../../assets/images/alert-danger.svg");
+      background-color: $warningColor;
+    }
+
+    &--success {
+      background-image: url("../../assets/images/alert-check.svg");
+      background-color: $successColor;
+    }
+  }
+}

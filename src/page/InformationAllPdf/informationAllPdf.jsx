@@ -17,7 +17,7 @@ import Chip from "@mui/material/Chip";
 import Button from "@mui/material/Button";
 import UserPic from "../../assets/images/userPicture.jpg"
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import PDF from "../../assets/images/pdf.svg"
+// import PDF from "../../assets/images/pdf.svg"
 import Footer from "../../components/Layout/Footer/Footer";
 const InformationAllPdf = ({imageURL}) => {
 
@@ -163,31 +163,31 @@ const InformationAllPdf = ({imageURL}) => {
                            <div className="d-flex justify-content-between">
                                <div className="pdfLeft">
                                    <div className="pdfText">1. {t("teachingCulture")}</div>
-                                   <img src={PDF} alt="" className="imgPdf" style={{marginTop:"20%"}}/>
+                                   <img src="" alt="" className="imgPdf" style={{marginTop:"20%"}}/>
                                </div>
                                <div className="pdfLeft">
                                    <div className="pdfText">2. {t("rating")}</div>
-                                   <img src={PDF} alt="" className="imgPdf"/>
+                                   <img src="" alt="" className="imgPdf"/>
                                </div>
                            </div>
                             <div className="d-flex justify-content-between">
                                <div className="pdfLeft">
                                    <div className="pdfText">3. {t("rating")}</div>
-                                   <img src={PDF} alt="" className="imgPdf" style={{marginTop:"15%"}}/>
+                                   <img src="" alt="" className="imgPdf" style={{marginTop:"15%"}}/>
                                </div>
                                <div className="pdfLeft">
                                    <div className="pdfText" >4. {t("judging")}</div>
-                                   <img src={PDF} alt="" className="imgPdf" style={{marginTop:"20%"}}/>
+                                   <img src="" alt="" className="imgPdf" style={{marginTop:"20%"}}/>
                                </div>
                            </div>
                             <div className="d-flex justify-content-between">
                                 <div className="pdfLeft">
                                     <div className="pdfText">5. {t("preparation")}</div>
-                                    <img src={PDF} alt="" className="imgPdf" style={{marginTop: "20%"}}/>
+                                    <img src="" alt="" className="imgPdf" style={{marginTop: "20%"}}/>
                                 </div>
                                 <div className="pdfLeft">
                                     <div className="pdfText">6. {t("level")}</div>
-                                    <img src={PDF} alt="" className="imgPdf"/>
+                                    <img src="" alt="" className="imgPdf"/>
                                 </div>
                             </div>
                         </div>

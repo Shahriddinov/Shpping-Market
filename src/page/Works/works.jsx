@@ -5,7 +5,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useTranslation } from "react-i18next";
 import "antd/dist/antd.css";
-import "./work.scss";
+import "./works.scss";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
@@ -53,11 +53,11 @@ function Works() {
     }
 
     const items = [
-        getItem("Профиль", "1", <AddCircleIcon />),
-        getItem("Главная", "2", <HomeIcon />),
-        getItem("Портфолио", "3", <SdCardIcon />),
-        getItem("Логин", "4", <LoginIcon />),
-        getItem("Настройки", "5", <SettingsIcon />),
+        getItem(t("profile"), "1", <AddCircleIcon />),
+        getItem(t("gallery"), "2", <HomeIcon />),
+        getItem(t("portfolio"), "3", <SdCardIcon />),
+        getItem(t("portfolio"), "4", <LoginIcon />),
+        getItem(t("setting"), "5", <SettingsIcon />),
     ];
 
 
@@ -407,7 +407,7 @@ function Works() {
                                         />
                                     </Box>
                                 </div>
-                                <Button className=" added"  onClick={() => {setCount(count + 1);}} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>
+                                {/*<Button className=" added"  onClick={() => {setCount(count + 1);}} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>*/}
 
                             </div>
 
@@ -419,7 +419,7 @@ function Works() {
 
                     <div className="back-btn">
                         <Stack spacing={2} direction="row">
-                            <Button className="button" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+                            {/*<Button className="button" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>*/}
 
                             <Button  href="/education" className="button" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
                         </Stack>
@@ -435,4 +435,4 @@ function Works() {
     );
 }
 
-export default Work;
+export default Works;

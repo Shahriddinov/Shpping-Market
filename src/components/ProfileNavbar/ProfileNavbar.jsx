@@ -13,7 +13,7 @@ function ProfileNavbar() {
         <div className="profile__navbar-lef">
           <Link to="/userInfo" style={{display:"flex", alignItems:"center"}}>
             <ArrowBackIosIcon className="arrow-back" />
-          <h2 className="profile__navbar-left--title">{t(title.title)}</h2>
+          <h2 className="profile__navbar-left--title">{t("title")}</h2>
           </Link>
         </div>
         <div className="profile__navbar-right">
@@ -29,28 +29,7 @@ function ProfileNavbar() {
         </div>
       </div>
     </nav>
-    <nav className="profile__navbar">
-      <div className="profile__container">
-        <div className="profile__navbar-lef">
-          <Link to="/userInfo" style={{display:"flex", alignItems:"center"}}>
-            <ArrowBackIosIcon className="arrow-back" />
-          <h2 className="profile__navbar-left--title">{t("fullInfo")}</h2>
-          </Link>
-        </div>
-        <div className="profile__navbar-right">
-          <SpeedIcon className="icon" />
-          <ul className="profile__navbar-list">
-            <li className="profile__navbar-list--item">
-              <Link style={{color: "#2B63C0"}} to="/">{t("gallery")} /</Link>
-            </li>
-            <li className="profile__navbar-list--item">
-              <Link to="#">{t("systemAccess")}</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  );
+  )
 }
 
 export default ProfileNavbar;

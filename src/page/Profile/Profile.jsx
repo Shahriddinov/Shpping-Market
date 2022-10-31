@@ -42,40 +42,40 @@ function Profile() {
   };
 
   return (
-    <section id="Profile" className="Profile">
-      <h1 className="visually-hidden">Profile Page</h1>
-      <ProfileSidebar items={items} userName={t("fio")} />
-      <section className="profile__page">
-        <ProfileHeader handleChangeLng={handleChangeLng} questionNeed={true} />
-        <ProfileNavbar title={t("fullInfo")} />
-        <Page1 />
-        <div className="NextPrev">
-          <Stack spacing={2} direction="row">
-            <Button className="button" href="/userInfo" variant="contained">
-              {" "}
-              <span className="icones">
+      <section id="Profile" className="Profile">
+        <h1 className="visually-hidden">Profile Page</h1>
+        <ProfileSidebar items={items} userName={t("fio")} />
+        <section className="profile__page">
+          <ProfileHeader handleChangeLng={handleChangeLng} questionNeed={true} />
+          <ProfileNavbar title={t("fullInfo")} />
+          <Page1 />
+          <div className="NextPrev">
+            <Stack spacing={2} direction="row">
+              <Button className="button" href="/userInfo" variant="contained">
+                {" "}
+                <span className="icones">
                 <CancelOutlinedIcon fontSize="small" />
               </span>{" "}
-              Назад
-            </Button>
-          </Stack>
-          <Stack spacing={2} direction="row" className="mb-4">
-            <Button
-              className="button"
-              href="/education"
-              style={{ backgroundColor: "#0FBE7B" }}
-              variant="contained"
-            >
-              {" "}
-              <span className="icones">
+                Назад
+              </Button>
+            </Stack>
+            <Stack spacing={2} direction="row" className="mb-4">
+              <Button
+                  className="button"
+                  href="/education"
+                  style={{ backgroundColor: "#0FBE7B" }}
+                  variant="contained"
+              >
+                {" "}
+                <span className="icones">
                 <CheckCircleOutlineOutlinedIcon fontSize="small" />
               </span>{" "}
-              Продолжить
-            </Button>
-          </Stack>
-        </div>
+                Продолжить
+              </Button>
+            </Stack>
+          </div>
+        </section>
       </section>
-    </section>
   );
 }
 

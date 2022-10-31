@@ -67,11 +67,11 @@ const Eduction = () => {
     }
 
     const items = [
-        getItem("Профиль", "1", <AddCircleIcon/>),
-        getItem("Главная", "2", <HomeIcon/>),
-        getItem("Портфолио", "3", <SdCardIcon/>),
-        getItem("Логин", "4", <LoginIcon/>),
-        getItem("Настройки", "5", <SettingsIcon/>),
+        getItem(t("profile"), "1", <AddCircleIcon/>),
+        getItem(t("gallery"), "2", <HomeIcon/>),
+        getItem(t("partfolio"), "3", <SdCardIcon/>),
+        getItem(t("login"), "4", <LoginIcon/>),
+        getItem(t("setting"), "5", <SettingsIcon/>),
     ];
 
     const handleChangeLng = (lng) => {
@@ -261,7 +261,7 @@ const Eduction = () => {
                                             />
                                         </Stack>
                                     </LocalizationProvider>
-                                    <Button className=" added "   onClick={() => {setCount(count + 1);}} variant="outlined"><ControlPointIcon/>{t("addEduc")}</Button>
+                                    {/*<Button className=" added "   onClick={() => {setCount(count + 1);}} variant="outlined"><ControlPointIcon/>{t("addEduc")}</Button>*/}
                                 </div>
 
                             </div>
