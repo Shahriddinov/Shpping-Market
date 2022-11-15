@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Breadcrumb, Layout, Menu} from 'antd';
 import Logo from "../../assets/images/logo.svg"
-
 import "./comeSystem.scss"
 import 'antd/dist/antd.css';
 import UzFlag from "../../assets/images/Uz.png";
@@ -13,8 +12,6 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Notification from "../../components/Notification/notification";
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
 import Button from "@mui/material/Button";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
@@ -23,6 +20,10 @@ import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutli
 import InputLabel from "@mui/material/InputLabel";
 import axios from "axios";
 import {useNavigate} from "react-router";
+import {Link} from "react-router-dom";
+import {Formik, Form} from 'formik';
+import * as Yup from 'yup';
+import {TextField} from "./components/TextFiled";
 
 const label = {inputProps: {'aria-label': 'Switch demo'}};
 const {Header, Content, Footer, Sider} = Layout;
@@ -37,11 +38,15 @@ function getItem(label, key, icon, children) {
 }
 
 
-const ComeSystem = (props) => {
+const ComeSystem = () => {
     const [regions, setRegions] = React.useState('');
-    const [text, setText] = React.useState('');
+    const [text, setText] = useState('');
     const navigate = useNavigate();
-
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
+    const [fillial_id, setFillial_id] = useState([]);
+    const [pasport_id, setPasport_id] = useState([]);
+    const [filialId, setFilialId] = useState([]);
 
     const handleRegions = (event) => {
         setRegions(event.target.value);
@@ -54,6 +59,48 @@ const ComeSystem = (props) => {
         i18n.changeLanguage(lng);
         localStorage.setItem("lng", lng);
     };
+
+    const validate = Yup.object({
+        Логин: Yup.string()
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
+        lastName: Yup.string()
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
+        email: Yup.string()
+            .email('Email is invalid')
+            .required('Email is required'),
+        password: Yup.string()
+            .min(6, 'Password must be at least 6 charaters')
+            .required('Password is required'),
+        confirmPassword: Yup.string()
+            .oneOf([Yup.ref('password'), null], 'Password must match')
+            .required('Confirm password is required'),
+    })
+
+    function loginIn() {
+
+        axios.post("https://micros-test.w.wschool.uz/public/api/register", {
+            fillial_id: fillial_id,
+            login: login,
+            password: password,
+            // pasport_id: pasport_id
+        }).then((response) => {
+            setText(response.data.message)
+            setFillial_id(response.data)
+            setText(response.data.status)
+            console.log(response.data)
+            if (response.data.status >= 'success') {
+                localStorage.setItem("token", response.data.authorisation)
+            }
+            // if (response.data.status === 'success') {
+            //     localStorage.setItem("token", response.data.authorisation)
+            // }
+        }).catch((error) => {
+            if (error.response.data.message >= 422)
+                setText("Kiritilgan ma'lumotlarda xatolik");
+        })
+    }
 
 
 
@@ -105,6 +152,7 @@ const ComeSystem = (props) => {
                             margin: '0 16px',
                         }}
                     >
+
                         <div className="info">
                             <a href="/" className="left">
                                 <ArrowBackIosNewIcon className="icon"/>
@@ -118,100 +166,85 @@ const ComeSystem = (props) => {
                                 {/*<Breadcrumb.Item style={{opacity:"0.5"}}> Профиль</Breadcrumb.Item>*/}
                             </div>
                         </div>
-                        <div
-                            className="site-layout-background"
-                            style={{
-                                padding: 24,
-                                height: "68vh",
-                                border: "0.5px solid rgba(0, 0, 0, 0.04)",
-                                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)",
-                                borderRadius: "12px",
+                        <Formik
+                            initialValues={{
+                                Логин: '',
+                                password: '',
+                            }}
+                            validationSchema={validate}
+                            onSubmit={values => {
+                                console.log(values)
                             }}
                         >
-                            <div className="form-control">
-                                <label className="cityLabel">Филиалы *</label>
+                            {formik => (
+                                <div>
+                                    <Form>
+                                        <div
+                                            className="site-layout-background"
+                                            style={{
+                                                padding: 24,
+                                                height: "68vh",
+                                                border: "0.5px solid rgba(0, 0, 0, 0.04)",
+                                                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)",
+                                                borderRadius: "12px",
+                                            }}
+                                        >
 
-                                <FormControl sx={{minWidth: 120}} className="city" size="small">
-                                    <InputLabel id="demo-select-small">{t("region")}</InputLabel>
-                                    <Select
-                                        labelId="demo-select-small"
-                                        id="demo-select-small"
-                                        value={regions}
-                                        required
-                                        label={t("region")}
-                                        onAbort={handleRegions}
-                                    >
-                                        <MenuItem value="">
-                                            <em>None</em>
-                                        </MenuItem>
-                                        <MenuItem value={10}>Toshkent</MenuItem>
-                                        <MenuItem value={20}>Samarqand</MenuItem>
-                                        <MenuItem value={30}>Farg'ona</MenuItem>
-                                    </Select>
-                                </FormControl>
 
-                                <label className="cityLabel">Логин *</label>
-                                <Box
-                                    component="form"
-                                    sx={{
-                                        '& > :not(style)': {width: '25ch'},
-                                    }}
-                                    noValidate
-                                    autoComplete="off"
-                                >
-                                    <TextField
-                                        id="outlined-basic"
-                                        label="Login"
-                                        variant="outlined"
-                                        className="city"
-                                        required
-                                        type="username"
-                                    />
+                                            <div className="form-control">
+                                                <label className="cityLabel">Филиалы *</label>
 
-                                </Box>
-                                <label className="cityLabel">Пароль *</label>
-                                <Box
-                                    component="form"
-                                    sx={{
-                                        '& > :not(style)': {width: '25ch'},
-                                    }}
-                                    noValidate
-                                    autoComplete="off"
-                                >
-                                    <TextField
-                                        id="outlined-basic"
-                                        label="Пароль"
-                                        required="error"
-                                        variant="outlined"
-                                        className="city"/>
+                                                <select className="city" name="select" onChange={(e)=>fillial_id(e.target.value)}>
 
-                                </Box>
-                            </div>
-                            <div className="d-flex p-3 align-items-center justify-content-between">
-                                <div className="d-flex align-items-center">
-                                    <Switch {...label} />
+                                                    <option value="Toshkent">Toshkent</option>
+                                                    <option value="Samarkhand">Samarkhand</option>
+                                                    <option value="Nukus">Nukus</option>
+                                                    <option value="Fargana">Fargana</option>
+                                                </select>
 
-                                    <div className="radioText">
-                                        Я согласен с политикой конфедициальности
-                                    </div>
+
+                                                <TextField label="Логин *" name="Логин" type="text" className="city"/>
+
+                                                <TextField
+                                                    label="Пароль *"
+                                                    name="password"
+                                                    type="password"
+                                                    className="city"
+                                                />
+                                                {/*<button className="btn btn-dark mt-3" type="submit">Register</button>*/}
+                                                {/*<button className="btn btn-danger mt-3 ml-3" type="reset">Reset</button>*/}
+
+
+                                            </div>
+                                            <div className="d-flex p-3 align-items-center justify-content-end">
+
+                                                <div className="passwordError">
+                                                    <Link to="/register">
+                                                        Забыли пароль ?
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="NextPrev">
+                                            <Stack spacing={2} direction="row">
+                                                <Button type="reset" className="button" href="/"
+                                                        variant="contained"> <span
+                                                    className="icones"><CancelOutlinedIcon
+                                                    fontSize="small"/></span> Назад</Button>
+                                            </Stack>
+                                            <Stack spacing={2} direction="row">
+                                                {/*href="/profile"*/}
+                                                <Button type="submit" onClick={loginIn} className="button"
+                                                        style={{backgroundColor: "#0FBE7B"}}
+                                                        variant="contained"> <span
+                                                    className="icones"><CheckCircleOutlineOutlinedIcon
+                                                    fontSize="small"/></span> Продолжить</Button>
+                                            </Stack>
+                                        </div>
+                                    </Form>
                                 </div>
-                                <div className="passwordError">
-                                    Забыли пароль ?
-                                </div>
-                            </div>
-                        </div>
-                        <div className="NextPrev">
-                            <Stack spacing={2} direction="row">
-                                <Button className="button" href="/" variant="contained"> <span
-                                    className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
-                            </Stack>
-                            <Stack spacing={2} direction="row">
-                                <Button href="/profile" className="button"
-                                        style={{backgroundColor: "#0FBE7B"}}
-                                        variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon
-                                    fontSize="small"/></span> Продолжить</Button>
-                            </Stack>
-                        </div>
+                            )}
+                        </Formik>
                     </Content>
                 </Layout>
             </Layout>

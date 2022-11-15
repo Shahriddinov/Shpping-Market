@@ -134,20 +134,45 @@
 .form-control{
   width: 100%;
   border: none!important;
-  .cityLabel{
+  label{
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
     margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  .error {
+    position: absolute;
+    color: red;
+    font-size: 16px;
+    margin-bottom: 20px;
   }
   .city{
     width: 100%;
+    padding: 0 15px;
     border-radius: 8px;
-    margin-bottom: 20px;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     height: 50px;
+    background: #FFFFFF;
+    border: 0.5px solid rgba(173, 173, 173, 0.8);
+    border-radius: 8px;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+    :active{
+      border: none!important;
+    }
+    :hover{
+      border: none!important;
+    }
+    p {
+      color: #bf1650;
+    }
+
+    p::before {
+      display: inline;
+      content: "⚠ ";
+    }
 
   }
 }

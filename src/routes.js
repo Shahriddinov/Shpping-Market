@@ -26,7 +26,7 @@ const AllPdf = lazy(() => import("./page/InformationAllPdf/informationAllPdf"))
 const routes = [
     {path: "/register", element: LoginIn},
     {path: "/login", element: LoginUp},
-    {path: "/userInfo", element: userInfo},
+    {path: "/userInfo/:id", element: userInfo},
     {path: "", element: Home},
     {path: "/profile", element: Profile},
     {path: "/education", element: Education},

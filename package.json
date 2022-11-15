@@ -51,10 +51,10 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "cross-env NODE_ENV=development react-scripts start",
+    "build": "cross-env NODE_ENV=production react-scripts build",
+    "build-development": "cp ./.env.development .env && cross-env NODE_ENV=production CI=false react-scripts build",
+    "build-production": "cp ./.env.production .env && cross-env NODE_ENV=production CI=false react-scripts build"
   },
   "eslintConfig": {
     "extends": [
