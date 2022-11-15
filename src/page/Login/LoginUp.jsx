@@ -8,6 +8,8 @@ import {Link} from "react-router-dom";
 import {useNavigate} from "react-router";
 import Button from "@mui/material/Button";
 import Switch from '@mui/material/Switch';
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 
@@ -31,38 +33,42 @@ const LoginUp = () => {
                         <img src={Logo} alt="" className="loginLogo"/>
                         <div className="loginTitle">Добро пожаловать</div>
                         <div className="form-group">
-                            <label className="label">Имя *</label>
-                            <input type="name" placeholder="Aliboy" className="InputName"/>
-                        </div>
-                        <div className="d-flex">
-                            <div className="form-group">
-                                <label className="label m-lg-2">Фамилия *</label>
-                                <input type="username" placeholder="Aliyev" className="InputInfo"/>
-                            </div>
-                            <div className="form-group">
-                                <label className="label  m-lg-2">Отчество *</label>
-                                <input type="username" placeholder="Aliyev" className="InputInfo"/>
-                            </div>
 
+                            <label className="label mt-5">Введите телефон номер *</label>
+                            <Box
+                                component="form"
+
+                                noValidate
+                                autoComplete="off"
+                            >
+                                <TextField
+                                    className="InputName"
+                                    id="outlined-basic"
+                                    label="+998 90 721 88 36"
+                                    variant="outlined"
+                                    placeholder="+998 90 721 88 36"
+                                />
+                            </Box>
                         </div>
                         <div className="form-group">
-                            <label className="label mt-1">Логин *</label>
-                            <input type="name" placeholder="login" className="InputName"/>
+
+                            <label className="label mt-5">Введите СМС Код *</label>
+                            <Box
+                                component="form"
+
+                                noValidate
+                                autoComplete="off"
+                            >
+                                <TextField
+                                    className="InputName"
+                                    id="outlined-basic"
+                                    label="1254"
+                                    variant="outlined"
+                                    placeholder="1254"
+                                />
+                            </Box>
                         </div>
-                        <div className="form-group">
-                            <label className="label mt-1">Пароль *</label>
-                            <input type="text" placeholder="Parol" className="InputName"/>
-                        </div>
-                        <div className="form-group">
-                            <label className="label mt-1">Повторный пароль *</label>
-                            <input type="text" placeholder="Again parol" className="InputName"/>
-                        </div>
-                        <div className="d-flex align-items-center" style={{marginLeft: "-26%", marginTop: "15px", cursor:"pointer"}}>
-                            <Switch {...label} />
-                            <div className="radioText" >
-                                Я согласен с политикой конфедициальности
-                            </div>
-                        </div>
+
                         <Button onClick={onClick} variant="outlined" className="save">Сохранить</Button>
                     </div>
                 </div>

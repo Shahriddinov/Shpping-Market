@@ -474,7 +474,7 @@ const Direction = () => {
                                         </div>
                                     </div>
                                 </div>
-                            : ""
+                                : ""
                         }
                         {
                             showTeacher ? (filterType === 0 ? <div className="InfoOfTeacher">

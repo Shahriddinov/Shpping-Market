@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 import "./ProfileNavbar.scss";
 import {useTranslation} from "react-i18next";
 
-function ProfileNavbar(title) {
+function ProfileNavbar() {
   const { t } = useTranslation();
   return (
     <nav className="profile__navbar">
@@ -13,7 +13,7 @@ function ProfileNavbar(title) {
         <div className="profile__navbar-lef">
           <Link to="/userInfo" style={{display:"flex", alignItems:"center"}}>
             <ArrowBackIosIcon className="arrow-back" />
-          <h2 className="profile__navbar-left--title">{t(title.title)}</h2>
+          <h2 className="profile__navbar-left--title">{t("title")}</h2>
           </Link>
         </div>
         <div className="profile__navbar-right">
@@ -29,7 +29,7 @@ function ProfileNavbar(title) {
         </div>
       </div>
     </nav>
-  );
+  )
 }
 
 export default ProfileNavbar;

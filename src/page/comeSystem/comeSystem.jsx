@@ -1,11 +1,4 @@
 import React, {useState} from 'react';
-import {
-    DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from '@ant-design/icons';
 import {Breadcrumb, Layout, Menu} from 'antd';
 import Logo from "../../assets/images/logo.svg"
 
@@ -14,12 +7,8 @@ import 'antd/dist/antd.css';
 import UzFlag from "../../assets/images/Uz.png";
 import RuFlag from "../../assets/images/ruFlag.png";
 import {useTranslation} from "react-i18next";
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import SpeedIcon from '@mui/icons-material/Speed';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import InfoIcon from '@mui/icons-material/Info';
-import ArticleIcon from '@mui/icons-material/Article';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -32,7 +21,10 @@ import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import Stack from "@mui/material/Stack";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import InputLabel from "@mui/material/InputLabel";
-const label = { inputProps: { 'aria-label': 'Switch demo' } };
+import axios from "axios";
+import {useNavigate} from "react-router";
+
+const label = {inputProps: {'aria-label': 'Switch demo'}};
 const {Header, Content, Footer, Sider} = Layout;
 
 function getItem(label, key, icon, children) {
@@ -45,21 +37,11 @@ function getItem(label, key, icon, children) {
 }
 
 
-
-const ComeSystem = () => {
+const ComeSystem = (props) => {
     const [regions, setRegions] = React.useState('');
-    const [textError, setTextError] =React.useState(false);
-    const [text, setText] =React.useState('');
+    const [text, setText] = React.useState('');
+    const navigate = useNavigate();
 
-
-
-    const handleOnChange = (e)=>{
-      e.preventDefault()
-
-      if (text === ''){
-          setTextError(true)
-      }
-    };
 
     const handleRegions = (event) => {
         setRegions(event.target.value);
@@ -72,6 +54,9 @@ const ComeSystem = () => {
         i18n.changeLanguage(lng);
         localStorage.setItem("lng", lng);
     };
+
+
+
     return (
         <>
             <Layout
@@ -88,7 +73,7 @@ const ComeSystem = () => {
                     </div>
                     <div className="logo"/>
                     <Menu theme="dark" style={{marginTop: "36%"}} defaultSelectedKeys={['1']} mode="inline"
-                          />
+                    />
                 </Sider>
                 <Layout className="site-layout">
                     <Header
@@ -111,7 +96,7 @@ const ComeSystem = () => {
                                     <img className="iconFlag" src={RuFlag} alt=""/>
                                     Ру
                                 </button>
-                                   <Notification/>
+                                <Notification/>
                             </div>
                         </div>
                     </Header>
@@ -122,9 +107,10 @@ const ComeSystem = () => {
                     >
                         <div className="info">
                             <a href="/" className="left">
-                                <ArrowBackIosNewIcon  className="icon" />
+                                <ArrowBackIosNewIcon className="icon"/>
                                 <div className="pro">{t("comeSystem")}</div>
                             </a>
+
                             <div className="rights">
                                 <SpeedIcon className="icon"/>
                                 <Breadcrumb.Item style={{color: "#2B63C0"}}>{t("gallery")}</Breadcrumb.Item>
@@ -136,39 +122,39 @@ const ComeSystem = () => {
                             className="site-layout-background"
                             style={{
                                 padding: 24,
-                                height: "60vh",
+                                height: "68vh",
                                 border: "0.5px solid rgba(0, 0, 0, 0.04)",
                                 boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)",
                                 borderRadius: "12px",
                             }}
                         >
-
                             <div className="form-control">
                                 <label className="cityLabel">Филиалы *</label>
-                                    <FormControl sx={{ minWidth: 120 }} className="city" size="small">
-                                        <InputLabel id="demo-select-small">{t("region")}</InputLabel>
-                                        <Select
-                                            labelId="demo-select-small"
-                                            id="demo-select-small"
-                                            value={regions}
-                                            required
-                                            label={t("region")}
-                                            onAbort={handleRegions}
-                                        >
-                                            <MenuItem value="">
-                                                <em>None</em>
-                                            </MenuItem>
-                                            <MenuItem value={10}>Toshkent</MenuItem>
-                                            <MenuItem value={20}>Samarqand</MenuItem>
-                                            <MenuItem value={30}>Farg'ona</MenuItem>
-                                        </Select>
-                                    </FormControl>
+
+                                <FormControl sx={{minWidth: 120}} className="city" size="small">
+                                    <InputLabel id="demo-select-small">{t("region")}</InputLabel>
+                                    <Select
+                                        labelId="demo-select-small"
+                                        id="demo-select-small"
+                                        value={regions}
+                                        required
+                                        label={t("region")}
+                                        onAbort={handleRegions}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={10}>Toshkent</MenuItem>
+                                        <MenuItem value={20}>Samarqand</MenuItem>
+                                        <MenuItem value={30}>Farg'ona</MenuItem>
+                                    </Select>
+                                </FormControl>
 
                                 <label className="cityLabel">Логин *</label>
                                 <Box
                                     component="form"
                                     sx={{
-                                        '& > :not(style)': { width: '25ch' },
+                                        '& > :not(style)': {width: '25ch'},
                                     }}
                                     noValidate
                                     autoComplete="off"
@@ -178,8 +164,8 @@ const ComeSystem = () => {
                                         label="Login"
                                         variant="outlined"
                                         className="city"
-                                        error={textError}
-                                        onAbort={handleOnChange}
+                                        required
+                                        type="username"
                                     />
 
                                 </Box>
@@ -187,7 +173,7 @@ const ComeSystem = () => {
                                 <Box
                                     component="form"
                                     sx={{
-                                        '& > :not(style)': { width: '25ch' },
+                                        '& > :not(style)': {width: '25ch'},
                                     }}
                                     noValidate
                                     autoComplete="off"
@@ -195,8 +181,9 @@ const ComeSystem = () => {
                                     <TextField
                                         id="outlined-basic"
                                         label="Пароль"
+                                        required="error"
                                         variant="outlined"
-                                        className="city" />
+                                        className="city"/>
 
                                 </Box>
                             </div>
@@ -215,10 +202,14 @@ const ComeSystem = () => {
                         </div>
                         <div className="NextPrev">
                             <Stack spacing={2} direction="row">
-                                <Button className="button" href="./" variant="contained"> <span className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+                                <Button className="button" href="/" variant="contained"> <span
+                                    className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
                             </Stack>
                             <Stack spacing={2} direction="row">
-                                <Button className="button" href="/profile" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon fontSize="small"/></span> Продолжить</Button>
+                                <Button href="/profile" className="button"
+                                        style={{backgroundColor: "#0FBE7B"}}
+                                        variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon
+                                    fontSize="small"/></span> Продолжить</Button>
                             </Stack>
                         </div>
                     </Content>

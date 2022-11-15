@@ -88,14 +88,14 @@ const Direction = () => {
     }
 
     const items = [
-        getItem("Главная", "1", <HomeIcon/>),
-        getItem("Профиль", "2", <AccountCircleIcon/>, [
-            getItem("Направление", "sub1"),
-            getItem("Статистика", "2"),
+        getItem(t("profile"), "2", <AccountCircleIcon/>, [
+            getItem(t("directions"), "sub1"),
+            getItem(t("statistics"), "2"),
         ]),
-        getItem("Портфолио", "3", <SdCardIcon/>),
-        getItem("Логин", "4", <LoginIcon/>),
-        getItem("Настройки", "5", <SettingsIcon/>),
+        getItem(t("gallery"), "1", <HomeIcon/>),
+        getItem(t("portfolio"), "3", <SdCardIcon/>),
+        getItem(t("login"), "4", <LoginIcon/>),
+        getItem(t("setting"), "5", <SettingsIcon/>),
     ];
 
     const handleChangeLng = (lng) => {

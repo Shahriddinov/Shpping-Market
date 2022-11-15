@@ -57,7 +57,7 @@
         }
         .label{
           font-weight: 500;
-          font-size: 20px;
+          font-size: 18px;
           line-height: 23px;
           justify-content: left;
           display: flex;
@@ -69,17 +69,24 @@
           width: 500px;
           height: 60px;
           background: #FFFFFF;
-          box-shadow: 0px 0px 10px rgba(38, 38, 38, 0.1);
-          border-radius: 8px;
+          //box-shadow: 0px 0px 10px rgba(38, 38, 38, 0.1);
+          //border-radius: 8px;
           border: 0;
-          padding: 0 15px;
           &:focus{
             border: none;
           }
         }
+        .Infopass{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 5%;
+          width: 100%;
+          padding-left: 30px;
+          //padding: 0 30px;
+        }
         .line{
-          border: 1px solid $colorBlue;
-          width: 210px;
+          width: 88%;
         }
         .lines{
           font-weight: 500;
@@ -123,7 +130,7 @@
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
           border-radius: 10px;
           border: none;
-          margin-top: 30px;
+          margin-top: 10%;
           display: flex;
           justify-content: center;
           align-items: center;
