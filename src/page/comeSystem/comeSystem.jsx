@@ -79,29 +79,30 @@ const ComeSystem = () => {
     })
 
     function loginIn() {
+        let user = {
+            login,
+            password,
+            fillial_id,
+            pasport_id: localStorage.getItem('userId')
+        }
 
-        axios.post("https://micros-test.w.wschool.uz/public/api/register", {
-            fillial_id: fillial_id,
-            login: login,
-            password: password,
-            // pasport_id: pasport_id
-        }).then((response) => {
-            setText(response.data.message)
-            setFillial_id(response.data)
-            setText(response.data.status)
+
+        axios.post("https://micros-test.w.wschool.uz/public/api/register", user).then((response) => {
             console.log(response.data)
-            if (response.data.status >= 'success') {
-                localStorage.setItem("token", response.data.authorisation)
+            localStorage.setItem("token", response.data.authorisation.token)
+            console.log(response.data.authorisation.token)
+            if ((response.data.user.role_id === 3) ){
+                setTimeout(() => {
+                    navigate("/profile");
+                    // console.log(id)
+                }, 100);
             }
-            // if (response.data.status === 'success') {
-            //     localStorage.setItem("token", response.data.authorisation)
-            // }
-        }).catch((error) => {
-            if (error.response.data.message >= 422)
-                setText("Kiritilgan ma'lumotlarda xatolik");
+            // window.location('/adminProfile')
+                }).catch((error) => {
+            // if (error.response.data.message >= 422)
+            //     setText("Kiritilgan ma'lumotlarda xatolik");
         })
     }
-
 
 
     return (
@@ -194,22 +195,31 @@ const ComeSystem = () => {
                                             <div className="form-control">
                                                 <label className="cityLabel">Филиалы *</label>
 
-                                                <select className="city" name="select" onChange={(e)=>fillial_id(e.target.value)}>
+                                                <select className="city" name="select"
+                                                        onChange={(e) => setFillial_id(e.target.value)}>
 
-                                                    <option value="Toshkent">Toshkent</option>
-                                                    <option value="Samarkhand">Samarkhand</option>
-                                                    <option value="Nukus">Nukus</option>
-                                                    <option value="Fargana">Fargana</option>
+                                                    <option value="1">Toshkent</option>
+                                                    <option value="2">Samarkhand</option>
+                                                    <option value="3">Nukus</option>
+                                                    <option value="4">Fargana</option>
                                                 </select>
 
 
-                                                <TextField label="Логин *" name="Логин" type="text" className="city"/>
+                                                <TextField
+                                                    label="Логин *"
+                                                    name="Логин"
+                                                    type="text"
+                                                    className="city"
+                                                    onKeyUp={(e) => setLogin(e.target.value)}
+                                                />
 
                                                 <TextField
                                                     label="Пароль *"
                                                     name="password"
                                                     type="password"
                                                     className="city"
+                                                    onKeyUp={(e) => setPassword(e.target.value)}
+                                                    // onChange={(e) => setPassword(e.target.value)}
                                                 />
                                                 {/*<button className="btn btn-dark mt-3" type="submit">Register</button>*/}
                                                 {/*<button className="btn btn-danger mt-3 ml-3" type="reset">Reset</button>*/}
@@ -220,7 +230,7 @@ const ComeSystem = () => {
 
                                                 <div className="passwordError">
                                                     <Link to="/register">
-                                                        Забыли пароль ?
+                                                        Pasport
                                                     </Link>
                                                 </div>
                                             </div>

@@ -33,7 +33,7 @@ function reduser(state, action) {
 }
 
 const LoginIn = () => {
-
+    const [text, setText] = useState('')
     const navigate = useNavigate();
     const onClick = () => {
         // setTimeout(() => {
@@ -66,14 +66,20 @@ const LoginIn = () => {
         axios.post("https://micros-test.w.wschool.uz/public/api/pasport", state.user).then((response) => {
             console.log(response.data)
             if (response.data.status === 'success') {
-                let id = response.data.pasport.id
-                setId(id)
+                localStorage.setItem('userId', response.data.pasport.id)
+                localStorage.setItem('pnfl', response.data.pasport.pnfl)
+                // let id = response.data.pasport.id
+                //
+                // setId(id)
                 setTimeout(() => {
-                    navigate("/userInfo/" + id);
+                    navigate("/userInfo");
                     console.log(id)
                 }, 100);
 
             }
+        }).catch((error)=>{
+            if (error.response.status >= 500)
+                setText("server connection error");
         })
     }
 
@@ -89,6 +95,7 @@ const LoginIn = () => {
                     <div className="col-md-10 offset-1">
                         <img src={Logo} alt="" className="loginLogo"/>
                         <div className="loginTitle">Добро пожаловать</div>
+                        <h4 style={{color:'red'}}>{text}</h4>
                         {/*<h4>{JSON.stringify(state.user)}</h4>*/}
                         <div className="form-group mt-5">
                             <label className="label">Введите ПИНФЛ*</label>

@@ -20,7 +20,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import faker from 'faker';
+// import faker from 'faker';
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Chip from "@mui/material/Chip";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
@@ -72,7 +72,7 @@ export const data = {
     datasets: [
         {
             label: 'Dataset 1',
-            data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
+            // data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
             backgroundColor: '#2B63C0',
         },
         // {
