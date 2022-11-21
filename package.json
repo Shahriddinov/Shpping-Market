@@ -18,6 +18,7 @@
     "bootstrap": "^5.2.1",
     "chart.js": "^3.9.1",
     "classnames": "^2.3.1",
+    "cross-env": "^7.0.3",
     "dayjs": "^1.11.5",
     "faker": "5.5.3",
     "i18next": "^21.9.1",
@@ -51,10 +52,10 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "cross-env NODE_ENV=development react-scripts start",
+    "build": "cross-env NODE_ENV=production react-scripts build",
+    "build-development": "cp ./.env.development .env && cross-env NODE_ENV=production CI=false react-scripts build",
+    "build-production": "cp ./.env.production .env && cross-env NODE_ENV=production CI=false react-scripts build"
   },
   "eslintConfig": {
     "extends": [

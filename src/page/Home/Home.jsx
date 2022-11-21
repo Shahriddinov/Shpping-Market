@@ -43,7 +43,7 @@ const Home = () => {
                         <Button href="/register" variant="outlined" className="homeButton">
                             {t("loginIn")}
                         </Button>
-                        <Button href="/userInfo" variant="outlined" className="homeButton">
+                        <Button href="/login" variant="outlined" className="homeButton">
                             {t("welcome")}
                         </Button>
                     </div>
