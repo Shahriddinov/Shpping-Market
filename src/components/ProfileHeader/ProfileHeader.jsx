@@ -38,12 +38,12 @@ function ProfileHeader({ handleChangeLng, questionNeed }) {
               <img className="iconFlag" src={RuFlag} alt="" />
               Ру
             </button>
-            <Notification />
-            {questionNeed && (
-              <Link className="question" to="/">
-                <img src={QuestionMark} width="20" height="20" />
-              </Link>
-            )}
+            {/*<Notification />*/}
+            {/*{questionNeed && (*/}
+            {/*  <Link className="question" to="/">*/}
+            {/*    <img src={QuestionMark} width="20" height="20" />*/}
+            {/*  </Link>*/}
+            {/*)}*/}
           </div>
         </div>
       </Header>

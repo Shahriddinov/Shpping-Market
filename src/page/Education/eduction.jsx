@@ -28,7 +28,7 @@ import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-const Eduction = () => {
+const Education = () => {
 
     const {t, i18n} = useTranslation();
     const [region, setRegion] = useState('');
@@ -77,7 +77,7 @@ const Eduction = () => {
     const items = [
         getItem(t("profile"), "1", <AddCircleIcon/>),
         getItem(t("gallery"), "2", <HomeIcon/>),
-        getItem(t("partfolio"), "3", <SdCardIcon/>),
+        getItem(t("portfolio"), "3", <SdCardIcon/>),
         getItem(t("login"), "4", <LoginIcon/>),
         getItem(t("setting"), "5", <SettingsIcon/>),
     ];
@@ -322,4 +322,4 @@ const Eduction = () => {
     );
 };
 
-export default Eduction;
+export default Education;

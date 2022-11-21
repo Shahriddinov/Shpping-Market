@@ -1,5 +1,6 @@
 import React from "react";
 import Stepper from "react-stepper-horizontal";
+import {useTranslation} from "react-i18next";
 import "./slayder.scss";
 
 const styles = {
@@ -8,20 +9,24 @@ const styles = {
 
 var num = 0;
 
-const Slayder = (active) => (
-    <div style={styles}>
+
+const Slayder = (active) => {
+
+    const handleChangeLng = (lng) => {
+        i18n.changeLanguage(lng);
+        localStorage.setItem("lng", lng);
+    };
+
+    const {t, i18n} = useTranslation();
+
+    return <div style={styles}>
         <div>
             <Stepper
                 steps={[
-                    {
-                        title: "Личные данные"
-                        // ,onClick: function() {
-                        //     alert("sfsdjkfhksfdhhksdf");
-                        // }
-                    },
-                    { title: "Сведение об образование" },
-                    { title: "Сведение о работе" },
-                    { title: "Периодичности повышения \n квалификации" }
+                    {title: t("PersonalData")},
+                    {title: t("oneEducationInfo1")},
+                    {title: t("jobAbout1")},
+                    {title: t("advancedTraining")}
                 ]}
                 activeStep={active.val}
                 activeColor="#2B63C0"
@@ -35,6 +40,6 @@ const Slayder = (active) => (
             />
         </div>
     </div>
-);
+};
 
 export default Slayder;
