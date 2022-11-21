@@ -33,56 +33,6 @@ function reduser(state, action) {
 }
 
 const LoginIn = () => {
-    const [text, setText] = useState('')
-    const navigate = useNavigate();
-    const onClick = () => {
-        // setTimeout(() => {
-        //     navigate("/userInfo");
-        // }, 10);
-    };
-    const [id, setId] = useState('')
-
-    const initialUser = {
-        id: '',
-        pnfl: "",
-        pasport_seria: "",
-        pasport_seria_code: ""
-    }
-    const [state, dispatch] = useReducer(reduser, {user: initialUser});
-
-    function getInputValues(e) {
-        dispatch({
-            type: ACTIONS.USER_ADD,
-            payload: {
-                key: e.target.name,
-                value: e.target.value
-            }
-
-        });
-
-    }
-
-    async function addUser() {
-        axios.post("https://micros-test.w.wschool.uz/public/api/pasport", state.user).then((response) => {
-            console.log(response.data)
-            if (response.data.status === 'success') {
-                localStorage.setItem('userId', response.data.pasport.id)
-                let id   = response.data.pasport.id
-
-                setId(id)
-                setTimeout(() => {
-                    navigate("/userInfo");
-                    console.log(id)
-                }, 100);
-
-            }
-        }).catch((error)=>{
-            if (error.response.status >= 500)
-                setText("server connection error");
-        })
-    }
-
-
     return (
         <div className="loginIn">
             <div className="left">

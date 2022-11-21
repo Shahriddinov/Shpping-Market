@@ -32,6 +32,7 @@ import Box from "@mui/material/Box";
 
 function Qualification() {
     const [region, setRegion] = React.useState('');
+    const [direction, setDirection] = React.useState('');
     const [attended, setAttended] = React.useState('');
     const {t, i18n} = useTranslation();
     const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));

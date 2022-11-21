@@ -265,14 +265,12 @@ const Eduction = () => {
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <Stack spacing={3}>
                                             <DesktopDatePicker
-                                                className="mt-2"
+                                                className="mt-3"
                                                 label={t("expirationDate")}
                                                 inputFormat="MM/DD/YYYY"
-                                                value={end_date}
-                                                onChange={setEnd_date}
-                                                renderInput={(params) => {
-                                                    return <TextField {...params} />
-                                                }}
+                                                value={value}
+                                                onChange={handleDataEnd}
+                                                renderInput={(params) => <TextField {...params} />}
                                             />
                                         </Stack>
                                     </LocalizationProvider>
@@ -280,6 +278,7 @@ const Eduction = () => {
                                         setCount(count + 1);
                                     }} variant="outlined"><ControlPointIcon/>{t("addEduc")}</Button>
                                 </div>
+
                             </div>
                         </div>
                     </div>

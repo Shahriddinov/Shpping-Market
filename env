@@ -1,0 +1,4 @@
+NODE_PATH=src
+GENERATE_SOURCEMAP=false
+REACT_APP_API_ROOT='http://test.z7.uz/api'
+SKIP_PREFLIGHT_CHECK=true
