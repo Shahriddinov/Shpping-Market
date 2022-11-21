@@ -80,6 +80,7 @@ const ComeSystem = () => {
 
     function loginIn() {
         let user = {
+
             login,
             password,
             fillial_id,
@@ -91,7 +92,8 @@ const ComeSystem = () => {
             console.log(response.data)
             localStorage.setItem("token", response.data.authorisation.token)
             console.log(response.data.authorisation.token)
-            if ((response.data.user.role_id === 3) ){
+            if ((response.data.status === 'success') ){
+                localStorage.setItem('id', response.data.user.id)
                 setTimeout(() => {
                     navigate("/profile");
                     // console.log(id)
@@ -99,8 +101,8 @@ const ComeSystem = () => {
             }
             // window.location('/adminProfile')
                 }).catch((error) => {
-            // if (error.response.data.message >= 422)
-            //     setText("Kiritilgan ma'lumotlarda xatolik");
+            if (error.response.data.message >= 500 || 422)
+                setText("Kiritilgan ma'lumotlarda xatolik");
         })
     }
 
@@ -194,10 +196,10 @@ const ComeSystem = () => {
 
                                             <div className="form-control">
                                                 <label className="cityLabel">Филиалы *</label>
-
+                                                <span>{text}</span>
                                                 <select className="city" name="select"
                                                         onChange={(e) => setFillial_id(e.target.value)}>
-
+                                                    <option value="">{t("choose")}</option>
                                                     <option value="1">Toshkent</option>
                                                     <option value="2">Samarkhand</option>
                                                     <option value="3">Nukus</option>

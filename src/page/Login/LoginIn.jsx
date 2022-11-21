@@ -67,10 +67,9 @@ const LoginIn = () => {
             console.log(response.data)
             if (response.data.status === 'success') {
                 localStorage.setItem('userId', response.data.pasport.id)
-                localStorage.setItem('pnfl', response.data.pasport.pnfl)
-                // let id = response.data.pasport.id
-                //
-                // setId(id)
+                let id   = response.data.pasport.id
+
+                setId(id)
                 setTimeout(() => {
                     navigate("/userInfo");
                     console.log(id)

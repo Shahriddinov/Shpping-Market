@@ -25,18 +25,26 @@ import TextField from "@mui/material/TextField";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs from "dayjs";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
+import Box from "@mui/material/Box";
 
 
 function Qualification() {
     const [region, setRegion] = React.useState('');
-    const [direction, setDirection] = React.useState('');
     const [attended, setAttended] = React.useState('');
     const {t, i18n} = useTranslation();
     const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
     const [count, setCount] = useState('');
-    const sayHello = () => {
+    const [region_id, setRegion_id] = useState('');
+    const [fillial_id, setFillial_id] = useState('');
+    const [direction, setDirection] = useState('');
+    const [date_start, setDate_start] = React.useState(dayjs('2014-08-18T21:11:54'));
+    const [date_end, setDate_end] = React.useState(dayjs('2014-08-18T21:11:54'));
+    const [text, setText] = useState('')
+    const navigate = useNavigate();
 
-    };
+
     const handleChanges = (newValue) => {
         setValue(newValue);
     };
@@ -74,6 +82,28 @@ function Qualification() {
         setAttended(event.target.value);
     };
 
+    function training() {
+        let train = {
+            user_id: localStorage.getItem('userId'),
+            region_id,
+            fillial_id,
+            direction,
+            date_start,
+            date_end
+        }
+        axios.post('https://micros-test.w.wschool.uz/public/api/training', train).then((response) => {
+            console.log(response.data);
+            if (response.data.status === 'success') {
+                setTimeout(() => {
+                    navigate("/profileOver");
+                }, 100);
+            }
+        }).catch((error) => {
+            if (error.response.status >= 500)
+                setText("server connection error");
+        })
+    }
+
     return (
         <section className="qualification">
             <h1 className="visually-hidden">Profile Page</h1>
@@ -91,42 +121,44 @@ function Qualification() {
                             <FormControl sx={{minWidth: "100%"}} size="small">
                                 <InputLabel id="demo-select-small">{t("region")}</InputLabel>
                                 <Select
-                                    labelId="demo-select-small"
-                                    id="demo-select-small"
-                                    value={region}
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
                                     label={t("region")}
-                                    onChange={handleChange}
+                                    onChange={(e) => setRegion_id(e.target.value)}
                                 >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
+                                    <MenuItem value={1}>Ташкент</MenuItem>
+                                    <MenuItem value={2}>Andijan</MenuItem>
+                                    <MenuItem value={3}>Bukhara</MenuItem>
+                                    <MenuItem value={4}>Jizzakh</MenuItem>
+                                    <MenuItem value={5}>Kashkadarya</MenuItem>
+                                    <MenuItem value={6}>Navoi</MenuItem>
+                                    <MenuItem value={7}>Namangan</MenuItem>
+                                    <MenuItem value={8}>Samarkand</MenuItem>
+                                    <MenuItem value={9}>Sirdarya</MenuItem>
+                                    <MenuItem value={10}>Surkhandarya</MenuItem>
+                                    <MenuItem value={11}>Fergana</MenuItem>
+                                    <MenuItem value={12}>Khorezm</MenuItem>
                                 </Select>
                             </FormControl>
+
                         </div>
                         <div className="form">
                             <label className="qualificationLabel">{t("direction")}*</label>
-                            <FormControl sx={{minWidth: "100%"}} size="small">
-                                <InputLabel id="demo-select-small">{t("direction")}</InputLabel>
-                                <Select
-                                    labelId="demo-select-small"
-                                    id="demo-select-small"
-                                    value={direction}
+                            <Box sx={{ minWidth: "500px"}}>
+                                <TextField
                                     label={t("direction")}
-                                    onChange={handleDirection}
-                                >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
-                                </Select>
-                            </FormControl>
+                                    name="direction"
+                                    type="text"
+                                    style={{width: "538px"}}
+                                    className="city"
+                                    onChange={(e) => setDirection(e.target.value)}
+                                />
+                            </Box>
                         </div>
+
+
                     </div>
+
                     <div className="form-control">
                         <div className="form">
                             <label className="qualificationLabel">{t("attended")}*</label>
@@ -135,16 +167,17 @@ function Qualification() {
                                 <Select
                                     labelId="demo-select-small"
                                     id="demo-select-small"
-                                    value={attended}
+
                                     label={t("attended")}
-                                    onChange={handleAttended}
+                                    onChange={(e) => setFillial_id(e.target.value)}
                                 >
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
+                                    <MenuItem value={1}>Toshkent</MenuItem>
+                                    <MenuItem value={2}>Samarkhand</MenuItem>
+                                    <MenuItem value={3}>Samarkhand</MenuItem>
+                                    <MenuItem value={4}>Fargana</MenuItem>
                                 </Select>
                             </FormControl>
                         </div>
@@ -156,63 +189,84 @@ function Qualification() {
                                         className="form-control formData"
                                         label={t("date")}
                                         inputFormat="MM/DD/YYYY"
-                                        value={value}
-                                        onChange={handleChanges}
-                                        renderInput={(params) => <TextField {...params} />}
+                                        value={date_start}
+                                        onChange={setDate_start}
+                                        renderInput={(params) => {
+                                            return <TextField {...params} />
+                                        }}
                                     />
                                 </Stack>
                             </LocalizationProvider>
                         </div>
 
                     </div>
-                    <Button className=" added" onClick={() => {
-                        setCount(count + 1);
-                    }} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>
+                    <div className="d-flex  justify-content-between">
+                        <div className="">
+                            <label className="qualificationLabel m-lg-2">{t("date")}*</label>
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <Stack spacing={3}>
+                                    <DesktopDatePicker
+                                        className=" startDate"
+                                        label={t("date")}
+                                        inputFormat="MM/DD/YYYY"
+                                        value={date_end}
+                                        onChange={setDate_end}
+                                        renderInput={(params) => <TextField {...params} />}
+                                    />
+                                </Stack>
+                            </LocalizationProvider>
+                        </div>
+                        <Button className=" added" onClick={() => {
+                            setCount(count + 1);
+                        }} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>
+                    </div>
+
                 </div>
                 {count.length > 0 && (
-                    <div className="forms">
+                    <div className="forms mt-5">
                         <div className="form-control">
                             <div className="form">
                                 <label className="qualificationLabel">{t("region")}*</label>
                                 <FormControl sx={{minWidth: "100%"}} size="small">
                                     <InputLabel id="demo-select-small">{t("region")}</InputLabel>
                                     <Select
-                                        labelId="demo-select-small"
-                                        id="demo-select-small"
-                                        value={region}
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
                                         label={t("region")}
-                                        onChange={handleChange}
+                                        onChange={(e) => setRegion_id(e.target.value)}
                                     >
-                                        <MenuItem value="">
-                                            <em>None</em>
-                                        </MenuItem>
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
+                                        <MenuItem value={1}>Ташкент</MenuItem>
+                                        <MenuItem value={2}>Andijan</MenuItem>
+                                        <MenuItem value={3}>Bukhara</MenuItem>
+                                        <MenuItem value={4}>Jizzakh</MenuItem>
+                                        <MenuItem value={5}>Kashkadarya</MenuItem>
+                                        <MenuItem value={6}>Navoi</MenuItem>
+                                        <MenuItem value={7}>Namangan</MenuItem>
+                                        <MenuItem value={8}>Samarkand</MenuItem>
+                                        <MenuItem value={9}>Sirdarya</MenuItem>
+                                        <MenuItem value={10}>Surkhandarya</MenuItem>
+                                        <MenuItem value={11}>Fergana</MenuItem>
+                                        <MenuItem value={12}>Khorezm</MenuItem>
                                     </Select>
                                 </FormControl>
+
                             </div>
                             <div className="form">
                                 <label className="qualificationLabel">{t("direction")}*</label>
-                                <FormControl sx={{minWidth: "100%"}} size="small">
-                                    <InputLabel id="demo-select-small">{t("direction")}</InputLabel>
-                                    <Select
-                                        labelId="demo-select-small"
-                                        id="demo-select-small"
-                                        value={direction}
+                                <Box sx={{ minWidth: "500px"}}>
+                                    <TextField
                                         label={t("direction")}
-                                        onChange={handleDirection}
-                                    >
-                                        <MenuItem value="">
-                                            <em>None</em>
-                                        </MenuItem>
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
-                                    </Select>
-                                </FormControl>
+                                        name="direction"
+                                        type="text"
+                                        className="city"
+                                        onChange={(e) => setDirection(e.target.value)}
+                                    />
+                                </Box>
                             </div>
+
+
                         </div>
+
                         <div className="form-control">
                             <div className="form">
                                 <label className="qualificationLabel">{t("attended")}*</label>
@@ -221,16 +275,16 @@ function Qualification() {
                                     <Select
                                         labelId="demo-select-small"
                                         id="demo-select-small"
-                                        value={attended}
                                         label={t("attended")}
-                                        onChange={handleAttended}
+                                        onChange={(e) => setFillial_id(e.target.value)}
                                     >
                                         <MenuItem value="">
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
+                                        <MenuItem value={1}>Toshkent</MenuItem>
+                                        <MenuItem value={2}>Samarkhand</MenuItem>
+                                        <MenuItem value={3}>Nukus</MenuItem>
+                                        <MenuItem value={4}>Fargana</MenuItem>
                                     </Select>
                                 </FormControl>
                             </div>
@@ -242,18 +296,38 @@ function Qualification() {
                                             className="form-control formData"
                                             label={t("date")}
                                             inputFormat="MM/DD/YYYY"
-                                            value={value}
-                                            onChange={handleChanges}
-                                            renderInput={(params) => <TextField {...params} />}
+                                            value={date_start}
+                                            onChange={setDate_start}
+                                            renderInput={(params) => {
+                                                return <TextField {...params} />
+                                            }}
                                         />
                                     </Stack>
                                 </LocalizationProvider>
                             </div>
 
                         </div>
-                        {/*<Button className=" added" onClick={() => {*/}
-                        {/*    setCount(count + 1);*/}
-                        {/*}} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>*/}
+                        <div className="d-flex  justify-content-between">
+                            <div className="">
+                                <label className="qualificationLabel m-lg-2">{t("date")}*</label>
+                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                    <Stack spacing={3}>
+                                        <DesktopDatePicker
+                                            className=" startDate"
+                                            label={t("date")}
+                                            inputFormat="MM/DD/YYYY"
+                                            value={date_end}
+                                            onChange={setDate_end}
+                                            renderInput={(params) => {
+                                                return <TextField {...params} />
+                                            }}
+                                        />
+                                    </Stack>
+                                </LocalizationProvider>
+                            </div>
+
+                        </div>
+
                     </div>
                 )}
 
@@ -274,7 +348,7 @@ function Qualification() {
                     <div className="next-btn">
                         {/*<button>Продолжить</button>*/}
                         <Stack spacing={2} direction="row">
-                            <Button className="button" href="/profileOver" style={{backgroundColor: "#0FBE7B"}}
+                            <Button className="button" onClick={training} style={{backgroundColor: "#0FBE7B"}}
                                     variant="contained"> <span className="icon"><SaveAsIcon
                                 fontSize="small"/></span> Сохранить</Button>
                         </Stack>

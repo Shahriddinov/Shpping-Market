@@ -31,9 +31,6 @@ import {useNavigate} from "react-router-dom";
 const Eduction = () => {
 
     const {t, i18n} = useTranslation();
-    const [region, setRegion] = useState('');
-    const [institution, setInstitution] = React.useState('');
-    const [speciality, setSpeciality] = React.useState('');
     const [text, setText] = useState('')
     const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
     const [count, setCount] = useState('');
@@ -45,24 +42,6 @@ const Eduction = () => {
     const navigate = useNavigate();
     const sayHello = () => {
 
-    };
-    const handleChange = (newValue) => {
-        setValue(newValue);
-    };
-    const handleDataEnd = (newValue) => {
-        setValue(newValue);
-    };
-    const handleExperience = (newValue) => {
-        setValue(newValue);
-    };
-    const handleRegion = (event) => {
-        setRegion(event.target.value);
-    };
-    const handleInstitution = (event) => {
-        setInstitution(event.target.value)
-    };
-    const handleSpeciality = (event) => {
-        setSpeciality(event.target.value)
     };
 
     function getItem(label, key, icon, children) {
@@ -89,7 +68,7 @@ const Eduction = () => {
 
     function educations() {
         let education = {
-            user_id: localStorage.getItem('id'),
+            user_id: localStorage.getItem('userId'),
             region_id,
             enter_date,
             end_date,

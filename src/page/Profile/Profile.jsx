@@ -47,9 +47,9 @@ function Profile() {
     // const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
 
 
-    const handleChange = (newValue: Date | null) => {
-        setBirth_date(newValue);
-    };
+    // const handleChange = (newValue: Date | null) => {
+    //     setBirth_date(newValue);
+    // };
 
     // const handleNation = (event) => {
     //     setNation(event.target.value);
@@ -82,14 +82,14 @@ function Profile() {
 
     function personalInfo() {
         let info = {
-            user_id: localStorage.getItem('id'),
+            user_id: localStorage.getItem('userId'),
             full_name,
             email,
             phone,
             gender,
             birth_date,
             nationality,
-            pasport_id: localStorage.getItem('pasportId')
+            pasport_id: localStorage.getItem('userId')
         }
         axios.post('https://micros-test.w.wschool.uz/public/api/personal', info).then((response) => {
             console.log(response.data)
