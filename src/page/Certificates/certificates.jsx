@@ -38,11 +38,11 @@ const Certificates = () => {
     }
 
     const items = [
-        getItem("Профиль", "1", <AddCircleIcon/>),
-        getItem("Главная", "2", <HomeIcon/>),
-        getItem("Портфолио", "3", <SdCardIcon/>),
-        getItem("Логин", "4", <LoginIcon/>),
-        getItem("Настройки", "5", <SettingsIcon/>),
+        getItem(t("profile"), "1", <AddCircleIcon/>),
+        getItem(t("gallery"), "2", <HomeIcon/>),
+        getItem(t("portfolio"), "3", <SdCardIcon/>),
+        getItem(t("login"), "4", <LoginIcon/>),
+        getItem(t("setting"), "5", <SettingsIcon/>),
     ];
 
     const handleChangeLng = (lng) => {
