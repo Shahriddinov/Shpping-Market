@@ -368,8 +368,8 @@ function Works() {
                                     </Box>
                                 </div>
                                 <div className="institution">
-                                    <label htmlFor="">{t("typeWork")} *</label>
-                                    <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
+                                    <label htmlFor="">{t("learningBuild")} *</label>
+                                    <Box sx={{mt: 1, minWidth: "500px", mb:  2}}>
                                         <FormControl fullWidth>
                                             <TextField
                                                 id="outlined-basic"

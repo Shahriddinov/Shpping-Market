@@ -87,6 +87,12 @@ const ComeSystem = () => {
             fillial_id,
             pasport_id: localStorage.getItem('userId')
         }
+        let user = {
+            login,
+            password,
+            fillial_id,
+            pasport_id: localStorage.getItem('userId')
+        }
 
 
         axios.post("https://micros-test.w.wschool.uz/public/api/register", user).then((response) => {
@@ -99,11 +105,22 @@ const ComeSystem = () => {
                     navigate("/profile");
                     // console.log(id)
                 }, 100);
+            localStorage.setItem("token", response.data.authorisation.token)
+            console.log(response.data.authorisation.token)
+            if ((response.data.user.role_id === 3) ){
+                setTimeout(() => {
+                    navigate("/profile");
+                    // console.log(id)
+                }, 100);
             }
             // window.location('/adminProfile')
                 }).catch((error) => {
             if (error.response.data.message >= 500 || 422)
                 setText("Kiritilgan ma'lumotlarda xatolik");
+            // window.location('/adminProfile')
+                }).catch((error) => {
+            // if (error.response.data.message >= 422)
+            //     setText("Kiritilgan ma'lumotlarda xatolik");
         })
     }
 
@@ -207,6 +224,26 @@ const ComeSystem = () => {
                                                     <option value="4">Fargana</option>
                                                 </select>
 
+
+                                            <div className="form-control">
+                                                <label className="cityLabel">Филиалы *</label>
+
+                                                <select className="city" name="select"
+                                                        onChange={(e) => setFillial_id(e.target.value)}>
+
+                                                    <option value="1">Toshkent</option>
+                                                    <option value="2">Samarkhand</option>
+                                                    <option value="3">Nukus</option>
+                                                    <option value="4">Fargana</option>
+                                                </select>
+
+                                                <TextField
+                                                    label="Логин *"
+                                                    name="Логин"
+                                                    type="text"
+                                                    className="city"
+                                                    onKeyUp={(e) => setLogin(e.target.value)}
+                                                />
 
                                                 <TextField
                                                     label="Логин *"

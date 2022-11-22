@@ -28,9 +28,13 @@ import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-const Eduction = () => {
+const Education = () => {
 
     const {t, i18n} = useTranslation();
+    const [text, setText] = useState('')
+    const [region, setRegion] = useState('');
+    const [institution, setInstitution] = React.useState('');
+    const [speciality, setSpeciality] = React.useState('');
     const [text, setText] = useState('')
     const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
     const [count, setCount] = useState('');
@@ -89,6 +93,29 @@ const Eduction = () => {
         })
     }
 
+    function educations() {
+        let education = {
+            user_id: localStorage.getItem('id'),
+            region_id,
+            enter_date,
+            end_date,
+            education_name,
+            specialization
+        }
+        axios.post('https://micros-test.w.wschool.uz/public/api/education', education).then((response) => {
+            console.log(response.data);
+            if (response.data.status === 'success') {
+                setTimeout(() => {
+                    navigate("/work");
+                }, 100);
+            }
+
+        }).catch((error) => {
+            if (error.response.status >= 500)
+                setText("server connection error");
+        })
+    }
+
     return (
         <section id="education" className="education">
             <ProfileSidebar items={items}/>
@@ -110,6 +137,7 @@ const Eduction = () => {
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
+                                            value={region}
                                             label={t("region")}
                                             onChange={(e) => setRegion_id(e.target.value)}
                                         >
@@ -265,12 +293,14 @@ const Eduction = () => {
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <Stack spacing={3}>
                                             <DesktopDatePicker
-                                                className="mt-3"
+                                                className="mt-2"
                                                 label={t("expirationDate")}
                                                 inputFormat="MM/DD/YYYY"
-                                                value={value}
-                                                onChange={handleDataEnd}
-                                                renderInput={(params) => <TextField {...params} />}
+                                                value={end_date}
+                                                onChange={setEnd_date}
+                                                renderInput={(params) => {
+                                                    return <TextField {...params} />
+                                                }}
                                             />
                                         </Stack>
                                     </LocalizationProvider>
@@ -300,4 +330,4 @@ const Eduction = () => {
     );
 };
 
-export default Eduction;
+export default Education;
