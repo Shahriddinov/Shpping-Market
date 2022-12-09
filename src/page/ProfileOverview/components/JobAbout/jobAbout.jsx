@@ -1,15 +1,72 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./jobAbout.scss"
 import {useTranslation} from "react-i18next";
-const JobAbout = () => {
-    const [ isClicked, setClicked ] = useState(false);
-    const { t } = useTranslation();
+import axios from "axios";
+import {useParams} from "react-router-dom";
+import {baseApi} from "../../../../services/api";
+import {toast} from "react-toastify";
 
+const JobAbout = () => {
+    const {id} = useParams()
+    const [isClicked, setClicked] = useState(false);
+    const {t} = useTranslation();
+    const [districts, setDistricts] = useState('');
+    const [workplace, setWorkPlace] = useState('');
+    const [workNumber, setWorkNumber] = useState('');
+    const [workStart, setWorkStart] = useState('');
+    const [faculty, setFaculty] = useState('');
+    const [regionName, setRegionName] = useState('')
+    const [regionOne, setRegionOne] = useState([]);
+    const [cafedra, setCafedra] = useState('');
+    const [level, setLevel] = useState('');
+    const [workName, setWorkName] = useState('');
+    const [workEnd, setWorkEnd] = useState('');
     const [nation, setNation] = useState("");
 
     const handleNation = (event) => {
         setNation(event.target.value);
     };
+    useEffect(() => {
+        axios.get('https://sport.napaautomotive.uz/api/allData/' + id,{
+            headers:{
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then((response) => {
+            setDistricts(response.data.user_work[0].district);
+            setRegionOne(response.data.user_work[0].region_id)
+
+            setWorkPlace(response.data.user_work[0].work_place);
+            setWorkNumber(response.data.user_work[0].work_phone);
+            setWorkStart(response.data.user_work[0].date_start);
+            setFaculty(response.data.user_work[0].faculty);
+            setCafedra(response.data.user_work[0].cafedra);
+            setLevel(response.data.user_work[0].position);
+            setWorkName(response.data.user_work[0].work_name);
+            setWorkEnd(response.data.user_work[0].date_end);
+
+        })
+    }, [])
+    useEffect(()=>{
+        getRegionJob()
+    },[regionOne])
+
+    function getRegionJob (){
+        axios.get(`${baseApi}/region`, {
+            headers: {
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then((response) => {
+            // console.log(response?.data?.regions)
+
+            return  response?.data?.regions?.map((item) => {
+                if (item.id === regionOne) {
+                    return setRegionName(item.name_ru ?? item.name_en ?? item.name_uz )
+                }
+            })
+        }).catch((error) => {
+            toast.error(error.response?.data?.message)
+        })
+    }
     return (
         <div className="jobAbout">
             <div
@@ -30,45 +87,45 @@ const JobAbout = () => {
                     <div className="jobAboutLeft">
                         <div className="form-group">
                             <div className="jobInfos">{t("region")}</div>
-                            <div className="jobText">Toshkent</div>
+                            <div className="jobText">{regionName}</div>
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("district")}</div>
-                            <div className="jobText">yangi Obod</div>
+                            <div className="jobText">{districts}</div>
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("typeWork")}</div>
-                            <div className="jobText">Образавательное учреждение</div>
+                            <div className="jobText">{workplace}</div>
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("workNumber")}</div>
-                            <div className="jobText">Номер</div>
+                            <div className="jobText">{workNumber}</div>
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("startJob")}</div>
-                            <div className="jobText">02. 05. 2021 г.</div>
+                            <div className="jobText">{workStart}</div>
                         </div>
                     </div>
                     <div className="jobAboutRight">
                         <div className="form-group">
                             <div className="jobInfos">{t("faculty")}</div>
-                            <div className="jobText">Факультет</div>
+                            <div className="jobText">{faculty}</div>
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("department")}</div>
-                            <div className="jobText">Кафедра</div>
+                            <div className="jobText">{cafedra}</div>
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("jobTitle")}</div>
-                            <div className="jobText">Должность</div>
+                            <div className="jobText">{level}</div>
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("jobName")}</div>
-                            <div className="jobText">Название</div>
+                            <div className="jobText">{workName}</div>
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("fenishJob")}</div>
-                            <div className="jobText">02. 05. 2021 г.</div>
+                            <div className="jobText">{workEnd}</div>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,4 @@
 import React, {useState} from 'react';
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import HomeIcon from "@mui/icons-material/Home";
-import SdCardIcon from "@mui/icons-material/SdCard";
-import LoginIcon from "@mui/icons-material/Login";
-import SettingsIcon from "@mui/icons-material/Settings";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -27,16 +22,13 @@ import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-
+import Toast from "light-toast";
+import {baseApi} from "../../services/api";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const Education = () => {
 
     const {t, i18n} = useTranslation();
-    const [text, setText] = useState('')
-    const [region, setRegion] = useState('');
-    const [institution, setInstitution] = React.useState('');
-    const [speciality, setSpeciality] = React.useState('');
-    const [text, setText] = useState('')
-    const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
     const [count, setCount] = useState('');
     const [region_id, setRegion_id] = useState('');
     const [enter_date, setEnter_date] = React.useState(dayjs('2014-08-18T21:11:54'));
@@ -44,26 +36,8 @@ const Education = () => {
     const [education_name, setEducation_name] = useState('');
     const [specialization, setSpecialization] = useState('');
     const navigate = useNavigate();
-    const sayHello = () => {
 
-    };
 
-    function getItem(label, key, icon, children) {
-        return {
-            key,
-            icon,
-            children,
-            label,
-        };
-    }
-
-    const items = [
-        getItem(t("profile"), "1", <AddCircleIcon/>),
-        getItem(t("gallery"), "2", <HomeIcon/>),
-        getItem(t("partfolio"), "3", <SdCardIcon/>),
-        getItem(t("login"), "4", <LoginIcon/>),
-        getItem(t("setting"), "5", <SettingsIcon/>),
-    ];
 
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
@@ -79,65 +53,47 @@ const Education = () => {
             education_name,
             specialization
         }
-        axios.post('https://micros-test.w.wschool.uz/public/api/education', education).then((response) => {
+        axios.post(`${baseApi}/education`, education, {
+            headers:{
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then((response) => {
             console.log(response.data);
-            if (response.data.status === 'success') {
+            if (response.data.status === 'ok') {
                 setTimeout(() => {
                     navigate("/work");
                 }, 100);
+                toast.success(response.data.Message);
             }
 
         }).catch((error) => {
-            if (error.response.status >= 500)
-                setText("server connection error");
+            toast.error(error.response?.data?.message)
+
         })
     }
 
-    function educations() {
-        let education = {
-            user_id: localStorage.getItem('id'),
-            region_id,
-            enter_date,
-            end_date,
-            education_name,
-            specialization
-        }
-        axios.post('https://micros-test.w.wschool.uz/public/api/education', education).then((response) => {
-            console.log(response.data);
-            if (response.data.status === 'success') {
-                setTimeout(() => {
-                    navigate("/work");
-                }, 100);
-            }
 
-        }).catch((error) => {
-            if (error.response.status >= 500)
-                setText("server connection error");
-        })
-    }
 
     return (
         <section id="education" className="education">
-            <ProfileSidebar items={items}/>
+            <ProfileSidebar items/>
             <div className="eduPage">
                 <ProfileHeader handleChangeLng={handleChangeLng}/>
                 <ProfileNavbar/>
 
                 <div className="formBox">
                     <Slayder val={1}/>
-                    {/*<div className="eduInfo">{t("eduInfo")}</div>*/}
                     <div className="infoEdu">
                         <h3 className="title">{t("aboutEducation")}</h3>
                         <div className="side-by-side">
                             <div className="leftSide">
-                                <label className="label" htmlFor="region">{t("region")} *</label>
                                 <Box sx={{mt: 1, minWidth: "500px"}}>
                                     <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
-                                            value={region}
+                                            className="mb-4"
                                             label={t("region")}
                                             onChange={(e) => setRegion_id(e.target.value)}
                                         >
@@ -156,35 +112,32 @@ const Education = () => {
                                         </Select>
                                     </FormControl>
                                 </Box>
-                                <label className="label mt-3" htmlFor="institution">{t("institution")} *</label>
                                 <Box sx={{mt: 1, minWidth: "500px"}}>
                                     <TextField
                                         label={t("institution")}
                                         name="institution"
                                         type="text"
                                         style={{width: "550px"}}
-                                        className="city"
+                                        className="city mb-4"
                                         onChange={(e) => setEducation_name(e.target.value)}
                                     />
                                 </Box>
-                                <label className="label mt-3" htmlFor="speciality">{t("speciality")} *</label>
                                 <Box sx={{mt: 1, minWidth: "500px"}}>
                                     <TextField
                                         label={t("speciality")}
                                         name="speciality"
                                         type="text"
                                         style={{width: "550px"}}
-                                        className="city"
+                                        className="city mb-4"
                                         onChange={(e) => setSpecialization(e.target.value)}
                                     />
                                 </Box>
                             </div>
                             <div className="rightSide" style={{width: "45%"}}>
-                                <label className="label mb-2" htmlFor="dateReceived">{t("dateReceived")} *</label>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <Stack spacing={3}>
                                         <DesktopDatePicker
-                                            className="mt-2"
+                                            className="mt-2 mb-4"
                                             label={t("dateReceived")}
                                             inputFormat="MM/DD/YYYY"
                                             value={enter_date}
@@ -195,11 +148,10 @@ const Education = () => {
                                         />
                                     </Stack>
                                 </LocalizationProvider>
-                                <label className="label mt-2" htmlFor="expirationDate">{t("expirationDate")} *</label>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <Stack spacing={3}>
                                         <DesktopDatePicker
-                                            className="mt-2"
+                                            className="mt-3 mb-4"
                                             label={t("expirationDate")}
                                             inputFormat="MM/DD/YYYY"
                                             value={end_date}
@@ -219,66 +171,61 @@ const Education = () => {
                 </div>
                 <div>{count.length > 0 && (
                     <div className="formBox">
-                        <Slayder val={1}/>
-                        {/*<div className="eduInfo">{t("eduInfo")}</div>*/}
                         <div className="infoEdu">
                             <h3 className="title">{t("aboutEducation")}</h3>
                             <div className="side-by-side">
                                 <div className="leftSide">
-                                    <label className="label" htmlFor="region">{t("region")} *</label>
                                     <Box sx={{mt: 1, minWidth: "500px"}}>
                                         <FormControl fullWidth>
                                             <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>
                                             <Select
                                                 labelId="demo-simple-select-label"
                                                 id="demo-simple-select"
+                                                className="mb-4"
                                                 label={t("region")}
                                                 onChange={(e) => setRegion_id(e.target.value)}
                                             >
-                                                <MenuItem value="1">Ташкент</MenuItem>
-                                                <MenuItem value="2">Andijan</MenuItem>
-                                                <MenuItem value="3">Bukhara</MenuItem>
-                                                <MenuItem value="4">Jizzakh</MenuItem>
-                                                <MenuItem value="5">Kashkadarya</MenuItem>
-                                                <MenuItem value="6">Navoi</MenuItem>
-                                                <MenuItem value="7">Namangan</MenuItem>
-                                                <MenuItem value="8">Samarkand</MenuItem>
-                                                <MenuItem value="9">Sirdarya</MenuItem>
-                                                <MenuItem value="10">Surkhandarya</MenuItem>
-                                                <MenuItem value="11">Fergana</MenuItem>
-                                                <MenuItem value="12">Khorezm</MenuItem>
+                                                <MenuItem value={1}>Ташкент</MenuItem>
+                                                <MenuItem value={2}>Andijan</MenuItem>
+                                                <MenuItem value={3}>Bukhara</MenuItem>
+                                                <MenuItem value={4}>Jizzakh</MenuItem>
+                                                <MenuItem value={5}>Kashkadarya</MenuItem>
+                                                <MenuItem value={6}>Navoi</MenuItem>
+                                                <MenuItem value={7}>Namangan</MenuItem>
+                                                <MenuItem value={8}>Samarkand</MenuItem>
+                                                <MenuItem value={9}>Sirdarya</MenuItem>
+                                                <MenuItem value={10}>Surkhandarya</MenuItem>
+                                                <MenuItem value={11}>Fergana</MenuItem>
+                                                <MenuItem value={12}>Khorezm</MenuItem>
                                             </Select>
                                         </FormControl>
                                     </Box>
-                                    <label className="label mt-3" htmlFor="institution">{t("institution")} *</label>
                                     <Box sx={{mt: 1, minWidth: "500px"}}>
                                         <TextField
                                             label={t("institution")}
                                             name="institution"
                                             type="text"
                                             style={{width: "550px"}}
-                                            className="city"
+                                            className="city mb-4"
                                             onChange={(e) => setEducation_name(e.target.value)}
                                         />
                                     </Box>
-                                    <label className="label mt-3" htmlFor="speciality">{t("speciality")} *</label>
                                     <Box sx={{mt: 1, minWidth: "500px"}}>
                                         <TextField
                                             label={t("speciality")}
                                             name="speciality"
                                             type="text"
                                             style={{width: "550px"}}
-                                            className="city"
+                                            className="city mb-4"
                                             onChange={(e) => setSpecialization(e.target.value)}
                                         />
                                     </Box>
                                 </div>
                                 <div className="rightSide" style={{width: "45%"}}>
-                                    <label className="label mb-2" htmlFor="dateReceived">{t("dateReceived")} *</label>
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <Stack spacing={3}>
                                             <DesktopDatePicker
-                                                className="mt-2"
+                                                className="mt-2 mb-4"
                                                 label={t("dateReceived")}
                                                 inputFormat="MM/DD/YYYY"
                                                 value={enter_date}
@@ -289,11 +236,10 @@ const Education = () => {
                                             />
                                         </Stack>
                                     </LocalizationProvider>
-                                    <label className="label mt-2" htmlFor="expirationDate">{t("expirationDate")} *</label>
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <Stack spacing={3}>
                                             <DesktopDatePicker
-                                                className="mt-2"
+                                                className="mt-3 mb-4"
                                                 label={t("expirationDate")}
                                                 inputFormat="MM/DD/YYYY"
                                                 value={end_date}
@@ -308,7 +254,6 @@ const Education = () => {
                                         setCount(count + 1);
                                     }} variant="outlined"><ControlPointIcon/>{t("addEduc")}</Button>
                                 </div>
-
                             </div>
                         </div>
                     </div>

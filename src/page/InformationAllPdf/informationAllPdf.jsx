@@ -1,15 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./informationAllPdf.scss"
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
 import {useTranslation} from "react-i18next";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import HomeIcon from "@mui/icons-material/Home";
-import SdCardIcon from "@mui/icons-material/SdCard";
-import LoginIcon from "@mui/icons-material/Login";
-import SettingsIcon from "@mui/icons-material/Settings";
-import {Link} from "react-router-dom";
+import Imgs from "../../assets/images/avatar.png"
+
+import {Link, useParams} from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SpeedIcon from "@mui/icons-material/Speed";
 import {Bar} from "react-chartjs-2";
@@ -17,13 +14,37 @@ import Chip from "@mui/material/Chip";
 import Button from "@mui/material/Button";
 import UserPic from "../../assets/images/userPicture.jpg"
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-// import PDF from "../../assets/images/pdf.svg"
+import PDF from "../../assets/images/pdfImg.svg"
 import Footer from "../../components/Layout/Footer/Footer";
-const InformationAllPdf = ({imageURL}) => {
+import axios from "axios";
+import Toast from "light-toast";
+import {baseApi} from "../../services/api";
+import {toast} from "react-toastify";
 
+const InformationAllPdf = (props) => {
     const {t, i18n} = useTranslation();
+    const {id} = useParams()
+
     const [isClicked, setClicked] = useState(false);
     const [isBall, setBall] = useState(false);
+    const [userName, setUserName] = useState([]);
+    const [userPhoto, setUserPhoto] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [userPhone, setUserPhone] = useState('');
+    const [mainPdf, setMainPdf] = useState([])
+    useEffect(() => {
+        axios.get(`${baseApi}/allData/` + id).then((response) => {
+            console.log(response.data)
+            setUserPhoto(response.data.user_avatar.photo)
+            setUserName(response.data.user_personal_info.full_name)
+            setUserEmail(response.data.user_personal_info.email)
+            setUserPhone(response.data.user_personal_info.phone)
+
+        }).catch((error) => {
+            Toast.fail(t("Something went wrong Photo"), 2000);
+
+        })
+    }, [])
 
     function getItem(label, key, icon, children) {
         return {
@@ -34,25 +55,33 @@ const InformationAllPdf = ({imageURL}) => {
         };
     }
 
-    const items = [
-        getItem("Профиль", "1", <AccountCircleIcon/>, [
-            getItem("Направление", "sub1"),
-            getItem("Статистика", "2"),
-        ]),
-        getItem("Главная", "3", <HomeIcon/>),
-        getItem("Портфолио", "4", <SdCardIcon/>),
-        getItem("Логин", "5", <LoginIcon/>),
-        getItem("Настройки", "6", <SettingsIcon/>),
-    ];
 
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
         localStorage.setItem("lng", lng);
     };
+
+
+    useEffect(() => {
+        axios.get(`${baseApi}/evaluate/` + id, {
+            headers: {
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then((response) => {
+            console.log(response.data.data)
+            setMainPdf(response.data.data)
+            toast.success(response.data.Message);
+
+        }).catch((error) => {
+            toast.error(error.response?.data?.message)
+        })
+    }, [])
+
+
     return (
         <div className="informationAllPdf">
             <div className="d-flex">
-                <ProfileSidebar items={items}/>
+                <ProfileSidebar items/>
                 <div className="eduPage">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <nav className="profile__navbar">
@@ -101,10 +130,12 @@ const InformationAllPdf = ({imageURL}) => {
                                 >
                                     <div>
                                         <div className="users">
-                                            <img src={UserPic} alt=""/>
+                                            <img className="userPhoto"
+                                                 src={userPhoto !== "null" ? `https://sport.napaautomotive.uz/storage/${userPhoto}` : Imgs}
+                                                 alt="userAvatar"/>
                                             <div className="">
-                                                <div className="userNames">David Macallicter</div>
-                                                <div className="jobsYear">Опыт работы 2 года 7 месяцев</div>
+                                                <div className="userNames">{userName}</div>
+                                                {/*<div className="jobsYear">Опыт работы 2 года 7 месяцев</div>*/}
                                             </div>
                                         </div>
 
@@ -143,15 +174,12 @@ const InformationAllPdf = ({imageURL}) => {
                                     <div>
                                         <div className="form-group">
                                             <div className="phoneLabel">{t("PhoneNumber")}</div>
-                                            <div className="phoneText">+998 90 123 45 67</div>
+                                            <div className="phoneText">{userPhone}</div>
                                         </div>
-                                        <div className="form-group">
-                                            <div className="phoneLabel">{t("WebSite")}</div>
-                                            <div className="phoneText">www.sport.uz</div>
-                                        </div>
+
                                         <div className="form-group">
                                             <div className="phoneLabel">{t("Email")}</div>
-                                            <div className="phoneText">sport01@gmail.com</div>
+                                            <div className="phoneText">{userEmail}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -159,37 +187,16 @@ const InformationAllPdf = ({imageURL}) => {
                         </div>
                     </div>
                     <div className="pdf">
-                        <div className="advancedTrain">
-                           <div className="d-flex justify-content-between">
-                               <div className="pdfLeft">
-                                   <div className="pdfText">1. {t("teachingCulture")}</div>
-                                   <img src="" alt="" className="imgPdf" style={{marginTop:"20%"}}/>
-                               </div>
-                               <div className="pdfLeft">
-                                   <div className="pdfText">2. {t("rating")}</div>
-                                   <img src="" alt="" className="imgPdf"/>
-                               </div>
-                           </div>
-                            <div className="d-flex justify-content-between">
-                               <div className="pdfLeft">
-                                   <div className="pdfText">3. {t("rating")}</div>
-                                   <img src="" alt="" className="imgPdf" style={{marginTop:"15%"}}/>
-                               </div>
-                               <div className="pdfLeft">
-                                   <div className="pdfText" >4. {t("judging")}</div>
-                                   <img src="" alt="" className="imgPdf" style={{marginTop:"20%"}}/>
-                               </div>
-                           </div>
-                            <div className="d-flex justify-content-between">
-                                <div className="pdfLeft">
-                                    <div className="pdfText">5. {t("preparation")}</div>
-                                    <img src="" alt="" className="imgPdf" style={{marginTop: "20%"}}/>
+                        <div className="advancedTrain row">
+                            {mainPdf?.map((item, index) => (
+                                <div className="col-6  d-flex justify-content-between" key={index.toString()}>
+
+                                    <div className="pdfLeft w-100">
+                                        <div className="pdfText">{item.direction_name.category_ru ?? item.direction_name.category_en ?? item.direction_name.category_uz}</div>
+                                        <div className="imgPdf">{!item.pdf || <img src={PDF} alt=""  style={{marginTop: "20%"}}/>}</div>
+                                    </div>
                                 </div>
-                                <div className="pdfLeft">
-                                    <div className="pdfText">6. {t("level")}</div>
-                                    <img src="" alt="" className="imgPdf"/>
-                                </div>
-                            </div>
+                            ))}
                         </div>
 
                     </div>

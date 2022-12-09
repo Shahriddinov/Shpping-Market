@@ -16,17 +16,22 @@
 
 .profile-icon {
   border-radius: 50%;
+  width: 60px!important;
+  height: 60px;
+
 }
 
 .profile__title {
   margin-left: 10px;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 150%;
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
   color: #ffffff;
+}
+.userImg{
 }
 

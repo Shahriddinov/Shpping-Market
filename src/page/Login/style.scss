@@ -21,7 +21,7 @@
       }
     .lgBlur{
       background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(3px);
       border-radius: 10px;
       width: 45%;
       position: absolute;
@@ -82,7 +82,7 @@
           align-items: center;
           margin-top: 5%;
           width: 100%;
-          padding-left: 30px;
+          padding-left: 35px;
           //padding: 0 30px;
         }
         .line{
@@ -125,7 +125,7 @@
           }
         }
         .sends{
-          width: 500px;
+          width: 550px;
           height: 60px;
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
           border-radius: 10px;

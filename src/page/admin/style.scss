@@ -29,14 +29,15 @@
   .Box{
     margin: 0 24px 0 20px;
 
-    .destination{
-      width: 100%;
-      background: #FFFFFF;
-      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
-      border-radius: 12px;
-      padding: 20px 30px 26px 20px;
-      box-sizing: border-box;
-      margin-bottom: 24px;
+
+    //.destination{
+    //  //width: 100%;
+    //  background: #FFFFFF;
+    //  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+    //  border-radius: 12px;
+    //  //padding: 20px 30px 26px 20px;
+    //  box-sizing: border-box;
+    //  margin-bottom: 24px;
 
       &-title{
         font-weight: 600;
@@ -108,7 +109,7 @@
           }
         }
       }
-    }
+    //}
 
     .DownloadFile{
       margin-top: 40px;
@@ -249,206 +250,116 @@
       margin-bottom: 8px;
     }
 
-    .InfoOfTeacher {
-      margin-top: 24px;
-      box-sizing: border-box;
-      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
-      padding: 0 30px;
 
-      .boxNav{
+  }
+  .teachCards {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 28px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    margin: 2px 24px 24px 2px;
+    display: flex;
+
+
+    &:hover {
+      border: 1px solid #2B63C0;
+    }
+    .leftUser,
+    .RightUser{
+      width: 50%;
+      //border: 2px solid black;
+    }
+    .leftUser{
+      //display: flex;
+      //flex-direction: row;
+      gap: 20px;
+      .userImg{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+      .userName{
+        width: 330px;
+        height: 45px;
+        padding: 10px;
+        margin-top: 10px;
+        background: #FFFFFF;
+        border: 0.5px solid rgba(173, 173, 173, 0.8);
+        border-radius: 8px;
+      }
+      .gender{
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: #2B63C0;
+        margin-top: 20px;
+      }
+      .info{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #333333;
+        margin-top: 20px;
+      }
+      .textarea{
+        background: #FFFFFF;
+        border: 0.5px solid rgba(173, 173, 173, 0.8);
+        border-radius: 8px;
+        width: 415px;
+        height: 136px;
+        margin-top: 20px;
+        padding: 10px;
+      }
+      .textsa{
+        background: #FFFFFF;
+        border: 0.5px solid rgba(173, 173, 173, 0.8);
+        border-radius: 8px;
+        margin-top: 20px;
+        padding: 10px;
+        width: 415px;
+        height: 45px;
+      }
+    }
+    .RightUser{
+      .RightInfo{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #333333;
+      }
+      .RightTextsa{
+        background: #FFFFFF;
+        border: 0.5px solid rgba(173, 173, 173, 0.8);
+        border-radius: 8px;
+        margin-top: 10px;
+        padding: 10px;
+        width: 415px;
+        height: 45px;
+      }
+      .RightInfos{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #333333;
+        margin-top: 12%;
+      }
+      .scores{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-
-        h1 {
-          font-size: 18px;
-          font-weight: 600;
-          line-height: 24px;
-          color: #2B63C0;
-          margin-bottom: 24px;
-        }
-        .Cancel {
-          width: 27px;
-          height: 6px;
-          background: #2B63C0;
-          border-radius: 5px;
-          margin-right: 30px;
-        }
-      }
-
-      .displayFlex {
-        display: flex;
-
-        .leftSide {
-          width: 425px;
-          margin-right: 32px;
-
-          .firstInfo {
-            display: flex;
-            margin-bottom: 24px;
-
-            .TeacherImage {
-              width: 80px;
-              height: 80px;
-              border-radius: 50%;
-              overflow: hidden;
-              margin-right: 15px;
-
-              img {
-                width: 100%;
-              }
-            }
-
-            .FullName {
-              h4{
-                font-weight: 600;
-                font-size: 16px;
-                line-height: 24px;
-                color: #333333;
-                margin-bottom: 8px;
-              }
-              .BoxForInfo{
-                width: 330px;
-                height: 48px;
-                background: #FFFFFF;
-                border: 0.5px solid rgba(173, 173, 173, 0.8);
-                border-radius: 8px;
-                box-sizing: border-box;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                padding: 12px;
-                gap: 10px;
-                font-weight: 400;
-                font-size: 16px;
-                line-height: 24px;
-                color: #8C8C8C;
-              }
-            }
-          }
-          .InfoTitle{
-            margin: 24px 0 8px;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 24px;
-            color: #333333;
-          }
-          .QualInfo{
-            padding: 12px;
-            box-sizing: border-box;
-            width: 425px;
-            height: 136px;
-            background: #FFFFFF;
-            border: 0.5px solid rgba(173, 173, 173, 0.8);
-            border-radius: 8px;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-            color: #8C8C8C;
-          }
-          .DataQual{
-            padding: 12px;
-            box-sizing: border-box;
-            width: 425px;
-            height: 48px;
-            background: #FFFFFF;
-            border: 0.5px solid rgba(173, 173, 173, 0.8);
-            border-radius: 8px;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-            color: #8C8C8C;
-          }
-        }
-        .rightSide{
-          width: 425px;
-          .labelSpec{
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 24px;
-            color: #333333;
-            margin-bottom: 8px;
-          }
-          .editSpec{
-            width: 425px;
-            height: 48px;
-            padding: 12px;
-            box-sizing: border-box;
-            background: #FFFFFF;
-            border: 0.5px solid rgba(173, 173, 173, 0.8);
-            border-radius: 8px;
-            margin-bottom: 85px;
-          }
-          .DirectForm{
-            width: 425px;
-            height: 48px;
-            background: #FFFFFF;
-            border: 0.5px solid rgba(173, 173, 173, 0.8);
-            border-radius: 8px;
-            margin-bottom: 5px;
-            &:nth-child(2){
-              margin-bottom: 56px;
-            }
-            display: flex;
-            align-items: center;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-            color: #8C8C8C;
-            padding: 12px;
-          }
-          .Variants{
-            width: 425px;
-            display: flex;
-            margin-bottom: 19px;
-
-            .directVariant{
-              width: 139px;
-              .directType{
-                width: 100%;
-                height: 30px;
-                background: #EAF0F9;
-                border-radius: 8px;
-                font-weight: 600;
-                font-size: 15px;
-                line-height: 18px;
-                letter-spacing: 0.02em;
-                color: #2B63C0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-top: 14px;
-                cursor: pointer;
-              }
-              &:nth-child(2){
-                width: 215px;
-                margin-left: 24px;
-              }
-            }
-          }
-        }
-      }
-      .item2 {
-        margin-top: 24px;
-        .Scores {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          .ScoreOfTeacher {
-            width: 121px;
-            height: 48px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #EAF0F9;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 24px;
-            color: #2B63C0;
-          }
-        }
+        width: auto;
+        padding: 10px;
+        height: 48px;
+        background-color: #EAF0F9;
+        color: #2B63C0;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        margin: 0;
       }
     }
   }

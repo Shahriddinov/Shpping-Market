@@ -1,12 +1,15 @@
 import React, {Suspense} from "react";
 import {createRoot} from "react-dom/client";
 import Routes from "./routes";
-import bootstrap from "bootstrap/dist/css/bootstrap-grid.css.map"
 import "./services/i18n"
+import {ToastContainer} from "react-toastify"
+
+
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
     <Suspense fallback="">
+        <ToastContainer/>
         <Routes/>
     </Suspense>
 );

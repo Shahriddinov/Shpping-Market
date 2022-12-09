@@ -24,7 +24,7 @@
 
     .lgBlur {
       background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(3px);
       border-radius: 10px;
       width: 45%;
       position: absolute;
@@ -132,6 +132,16 @@
           border: none;
 
         }
+        .Reset{
+          width: 88%;
+          margin-top: 20%;
+          font-size: 16px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          //justify-content: space-around;
+        }
+
       }
     }
   }

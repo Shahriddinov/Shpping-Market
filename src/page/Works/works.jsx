@@ -1,8 +1,4 @@
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import HomeIcon from "@mui/icons-material/Home";
-import SdCardIcon from "@mui/icons-material/SdCard";
-import LoginIcon from "@mui/icons-material/Login";
-import SettingsIcon from "@mui/icons-material/Settings";
+
 import {useTranslation} from "react-i18next";
 import "antd/dist/antd.css";
 import "./works.scss";
@@ -10,9 +6,7 @@ import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
 import dayjs from 'dayjs';
-import Page1 from "../../components/Page1/Page1";
 import Slayder from "../../components/Slayder/slayder";
-import Next from "../../components/NextButton/next";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
@@ -33,15 +27,17 @@ import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
+import Toast from "light-toast";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import {baseApi} from "../../services/api";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function Works() {
     const {t, i18n} = useTranslation();
-
-    const [learningBuild, setLearningBuild] = React.useState('');
-    const [typeWork, setTypeWork] = React.useState('');
     const [count, setCount] = useState('');
 
-    const [text, setText] = useState('')
     const [region_id, setRegion_id ] =useState('');
     const [district, setDistrict] = useState('');
     const [work_place, setWork_place] =useState('');
@@ -54,34 +50,6 @@ function Works() {
     const [date_end, setDate_end] = React.useState(dayjs('2014-08-18T21:11:54'));
     const navigate = useNavigate();
 
-    function getItem(label, key, icon, children) {
-        return {
-            key,
-            icon,
-            children,
-            label,
-        };
-    }
-
-    const items = [
-        getItem(t("profile"), "1", <AddCircleIcon/>),
-        getItem(t("gallery"), "2", <HomeIcon/>),
-        getItem(t("portfolio"), "3", <SdCardIcon/>),
-        getItem(t("portfolio"), "4", <LoginIcon/>),
-        getItem(t("setting"), "5", <SettingsIcon/>),
-    ];
-
-
-
-    const handleDistrict = (event) => {
-        setDistrict(event.target.value)
-    };
-    const handleLearningBuild = (event) => {
-        setLearningBuild(event.target.value)
-    };
-    const handleTypeWork = (event) => {
-        setTypeWork(event.target.value)
-    };
 
 
 
@@ -103,29 +71,33 @@ function Works() {
             date_start,
             date_end
         }
-        axios.post('https://micros-test.w.wschool.uz/public/api/work', work).then((response)=>{
+        axios.post(`${baseApi}/work`, work, {
+            headers:{
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then((response)=>{
             console.log(response.data);
-            if (response.data.status === 'success') {
+            if (response.data.status === 'ok') {
                 setTimeout(() => {
                     navigate("/qualification");
                 }, 100);
+                toast.success(response.data.Message);
             }
         }).catch((error) => {
-            if (error.response.status >= 500)
-                setText("server connection error");
+            toast.error(error.response?.data?.message)
         })
     }
 
     return (
         <section id="Profile" className="Profile">
             <h1 className="visually-hidden">Profile Page</h1>
-            <ProfileSidebar items={items}/>
+            <ProfileSidebar items/>
             <section className="profile__page">
                 <ProfileHeader handleChangeLng={handleChangeLng}/>
                 <ProfileNavbar/>
                 {/*<Page1/>*/}
                 <div className="forms">
-                    <Slayder/>
+                    <Slayder val={2}/>
                     <div className="workInfo">
                         <div className="workAbout">{t("workAbout")}</div>
                     </div>
@@ -133,7 +105,6 @@ function Works() {
                     <div className="form">
                         <div className="left-form">
                             <div className="Region">
-                                <label className="mt-2" htmlFor="">{t("region")} *</label>
                                 <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
                                     <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>
@@ -144,24 +115,23 @@ function Works() {
                                             onChange={(e) => setRegion_id(e.target.value)}
                                         >
                                             <MenuItem value={1}>Ташкент</MenuItem>
-                                            <MenuItem value={2}>Andijan</MenuItem>
-                                            <MenuItem value={3}>Bukhara</MenuItem>
-                                            <MenuItem value={4}>Jizzakh</MenuItem>
+                                            <MenuItem value={2}>Nukus</MenuItem>
+                                            <MenuItem value={3}>Samarkand</MenuItem>
+                                            <MenuItem value={4}>Fergana</MenuItem>
                                             <MenuItem value={5}>Kashkadarya</MenuItem>
                                             <MenuItem value={6}>Navoi</MenuItem>
                                             <MenuItem value={7}>Namangan</MenuItem>
-                                            <MenuItem value={8}>Samarkand</MenuItem>
+                                            <MenuItem value={8}>Bukhara</MenuItem>
                                             <MenuItem value={9}>Sirdarya</MenuItem>
                                             <MenuItem value={10}>Surkhandarya</MenuItem>
-                                            <MenuItem value={11}>Fergana</MenuItem>
+                                            <MenuItem value={11}>Jizzakh</MenuItem>
                                             <MenuItem value={12}>Khorezm</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Box>
                             </div>
                             <div className="Area">
-                                <label htmlFor="">{t("district")} *</label>
-                                <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
+                                <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>
                                     <FormControl fullWidth>
                                         <TextField
                                             id="outlined-basic"
@@ -173,8 +143,7 @@ function Works() {
                                 </Box>
                             </div>
                             <div className="institution">
-                                <label htmlFor="">{t("typeWork")} *</label>
-                                <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
+                                <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>
                                     <FormControl fullWidth>
                                         <TextField
                                             id="outlined-basic"
@@ -186,21 +155,18 @@ function Works() {
                                 </Box>
                             </div>
                             <div className="institution">
-                                <label htmlFor="">{t("workNumber")} *</label>
-                                <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
+                                <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>
                                     <FormControl fullWidth>
-                                        <TextField
-                                            id="outlined-basic"
-                                            label={t("workNumber")}
-                                            variant="outlined"
-                                            onChange={(e)=>setWork_phone(e.target.value)}
-
-                                        />
+                                        <PhoneInput
+                                            international
+                                            countryCallingCodeEditable={false}
+                                            defaultCountry="UZ"
+                                            value={work_phone}
+                                            onChange={(e) => setWork_phone(e)}/>
                                     </FormControl>
                                 </Box>
                             </div>
                             <div className="institution">
-                                <label className="titles" htmlFor="">{t("startJob")} *</label>
 
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <Stack spacing={3}>
@@ -218,13 +184,12 @@ function Works() {
                                     </Stack>
                                 </LocalizationProvider>
                             </div>
-                            <FormGroup>
-                                <FormControlLabel control={<Checkbox/>} label={t("check")}/>
-                            </FormGroup>
+                            {/*<FormGroup>*/}
+                            {/*    <FormControlLabel control={<Checkbox/>} label={t("check")}/>*/}
+                            {/*</FormGroup>*/}
                         </div>
                         <div className="right-form">
                             <div className="Faculty">
-                                <label className="mt-2" htmlFor="">{t("faculty")} *</label>
                                 <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
                                     <FormControl fullWidth>
                                         <TextField
@@ -238,11 +203,10 @@ function Works() {
                                 </Box>
                             </div>
                             <div className="">
-                                <label htmlFor="">{t("department")} *</label>
                                 <Box
                                     component="form"
                                     sx={{
-                                        '& > :not(style)': {width: '100%'},
+                                        '& > :not(style)': {width: '100%', mt: 2, mb: 4},
                                     }}
                                     noValidate
                                     autoComplete="off"
@@ -258,11 +222,10 @@ function Works() {
                                 </Box>
                             </div>
                             <div className="">
-                                <label className="mt-3" htmlFor="">{t("jobTitle")} *</label>
                                 <Box
                                     component="form"
                                     sx={{
-                                        '& > :not(style)': {width: '100%'},
+                                        '& > :not(style)': {width: '100%', mb: 4},
                                     }}
                                     noValidate
                                     autoComplete="off"
@@ -278,11 +241,10 @@ function Works() {
                                 </Box>
                             </div>
                             <div className="">
-                                <label className="mt-3" htmlFor="">{t("jobName")} </label>
                                 <Box
                                     component="form"
                                     sx={{
-                                        '& > :not(style)': {width: '100%'},
+                                        '& > :not(style)': {width: '100%', mb: 3},
                                     }}
                                     noValidate
                                     autoComplete="off"
@@ -298,8 +260,6 @@ function Works() {
                                 </Box>
                             </div>
                             <div className="institution">
-                                <label className="mt-4" htmlFor="">{t("startJob")} *</label>
-
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <Stack spacing={3}>
                                         <DesktopDatePicker
@@ -328,7 +288,6 @@ function Works() {
                         <div className="form">
                             <div className="left-form">
                                 <div className="Region">
-                                    <label className="mt-2" htmlFor="">{t("region")} *</label>
                                     <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
                                         <FormControl fullWidth>
                                             <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>
@@ -339,24 +298,23 @@ function Works() {
                                                 onChange={(e) => setRegion_id(e.target.value)}
                                             >
                                                 <MenuItem value={1}>Ташкент</MenuItem>
-                                                <MenuItem value={2}>Andijan</MenuItem>
-                                                <MenuItem value={3}>Bukhara</MenuItem>
-                                                <MenuItem value={4}>Jizzakh</MenuItem>
+                                                <MenuItem value={2}>Nukus</MenuItem>
+                                                <MenuItem value={3}>Samarkand</MenuItem>
+                                                <MenuItem value={4}>Fergana</MenuItem>
                                                 <MenuItem value={5}>Kashkadarya</MenuItem>
                                                 <MenuItem value={6}>Navoi</MenuItem>
                                                 <MenuItem value={7}>Namangan</MenuItem>
-                                                <MenuItem value={8}>Samarkand</MenuItem>
+                                                <MenuItem value={8}>Bukhara</MenuItem>
                                                 <MenuItem value={9}>Sirdarya</MenuItem>
                                                 <MenuItem value={10}>Surkhandarya</MenuItem>
-                                                <MenuItem value={11}>Fergana</MenuItem>
+                                                <MenuItem value={11}>Jizzakh</MenuItem>
                                                 <MenuItem value={12}>Khorezm</MenuItem>
                                             </Select>
                                         </FormControl>
                                     </Box>
                                 </div>
                                 <div className="Area">
-                                    <label htmlFor="">{t("district")} *</label>
-                                    <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
+                                    <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>
                                         <FormControl fullWidth>
                                             <TextField
                                                 id="outlined-basic"
@@ -368,8 +326,7 @@ function Works() {
                                     </Box>
                                 </div>
                                 <div className="institution">
-                                    <label htmlFor="">{t("learningBuild")} *</label>
-                                    <Box sx={{mt: 1, minWidth: "500px", mb:  2}}>
+                                    <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>
                                         <FormControl fullWidth>
                                             <TextField
                                                 id="outlined-basic"
@@ -381,21 +338,18 @@ function Works() {
                                     </Box>
                                 </div>
                                 <div className="institution">
-                                    <label htmlFor="">{t("workNumber")} *</label>
-                                    <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
+                                    <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>
                                         <FormControl fullWidth>
-                                            <TextField
-                                                id="outlined-basic"
-                                                label={t("workNumber")}
-                                                variant="outlined"
-                                                onChange={(e)=>setWork_phone(e.target.value)}
-
-                                            />
+                                            <PhoneInput
+                                                international
+                                                countryCallingCodeEditable={false}
+                                                defaultCountry="UZ"
+                                                value={work_phone}
+                                                onChange={(e) => setWork_phone(e)}/>
                                         </FormControl>
                                     </Box>
                                 </div>
                                 <div className="institution">
-                                    <label className="titles" htmlFor="">{t("startJob")} *</label>
 
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <Stack spacing={3}>
@@ -413,13 +367,12 @@ function Works() {
                                         </Stack>
                                     </LocalizationProvider>
                                 </div>
-                                <FormGroup>
-                                    <FormControlLabel control={<Checkbox/>} label={t("check")}/>
-                                </FormGroup>
+                                {/*<FormGroup>*/}
+                                {/*    <FormControlLabel control={<Checkbox/>} label={t("check")}/>*/}
+                                {/*</FormGroup>*/}
                             </div>
                             <div className="right-form">
                                 <div className="Faculty">
-                                    <label className="mt-2" htmlFor="">{t("faculty")} *</label>
                                     <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
                                         <FormControl fullWidth>
                                             <TextField
@@ -433,11 +386,10 @@ function Works() {
                                     </Box>
                                 </div>
                                 <div className="">
-                                    <label htmlFor="">{t("department")} *</label>
                                     <Box
                                         component="form"
                                         sx={{
-                                            '& > :not(style)': {width: '100%'},
+                                            '& > :not(style)': {width: '100%', mt: 2, mb: 4},
                                         }}
                                         noValidate
                                         autoComplete="off"
@@ -453,11 +405,10 @@ function Works() {
                                     </Box>
                                 </div>
                                 <div className="">
-                                    <label className="mt-3" htmlFor="">{t("jobTitle")} *</label>
                                     <Box
                                         component="form"
                                         sx={{
-                                            '& > :not(style)': {width: '100%'},
+                                            '& > :not(style)': {width: '100%', mb: 4},
                                         }}
                                         noValidate
                                         autoComplete="off"
@@ -473,11 +424,10 @@ function Works() {
                                     </Box>
                                 </div>
                                 <div className="">
-                                    <label className="mt-3" htmlFor="">{t("jobName")} </label>
                                     <Box
                                         component="form"
                                         sx={{
-                                            '& > :not(style)': {width: '100%'},
+                                            '& > :not(style)': {width: '100%', mb: 3},
                                         }}
                                         noValidate
                                         autoComplete="off"
@@ -493,8 +443,6 @@ function Works() {
                                     </Box>
                                 </div>
                                 <div className="institution">
-                                    <label className="mt-4" htmlFor="">{t("startJob")} *</label>
-
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <Stack spacing={3}>
                                             <DesktopDatePicker
@@ -510,6 +458,10 @@ function Works() {
                                         </Stack>
                                     </LocalizationProvider>
                                 </div>
+                                <Button className=" added" onClick={() => {
+                                    setCount(count + 1);
+                                }} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>
+
                             </div>
                         </div>
 

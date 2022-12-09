@@ -1,30 +1,29 @@
-
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Breadcrumb, Layout, Menu} from 'antd';
 import Logo from "../../assets/images/logo.svg"
-import "./comeSystem.scss"
+import "./register.scss"
 import 'antd/dist/antd.css';
 import UzFlag from "../../assets/images/Uz.png";
 import RuFlag from "../../assets/images/ruFlag.png";
 import {useTranslation} from "react-i18next";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import SpeedIcon from '@mui/icons-material/Speed';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import Notification from "../../components/Notification/notification";
-import Switch from '@mui/material/Switch';
 import Button from "@mui/material/Button";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import Stack from "@mui/material/Stack";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
-import InputLabel from "@mui/material/InputLabel";
 import axios from "axios";
 import {useNavigate} from "react-router";
 import {Link} from "react-router-dom";
 import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
 import {TextField} from "./components/TextFiled";
+import Toast from "light-toast";
+import EnFlag from "../../assets/images/en.png";
+import {baseApi} from "../../services/api";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const label = {inputProps: {'aria-label': 'Switch demo'}};
 const {Header, Content, Footer, Sider} = Layout;
@@ -39,19 +38,15 @@ function getItem(label, key, icon, children) {
 }
 
 
-const ComeSystem = () => {
-    const [regions, setRegions] = React.useState('');
-    const [text, setText] = useState('');
+const Register = () => {
     const navigate = useNavigate();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [fillial_id, setFillial_id] = useState([]);
-    const [pasport_id, setPasport_id] = useState([]);
-    const [filialId, setFilialId] = useState([]);
 
-    const handleRegions = (event) => {
-        setRegions(event.target.value);
-    };
+    // const handleRegions = (event) => {
+    //     setRegions(event.target.value);
+    // };
     const [collapsed, setCollapsed] = useState(false);
 
     const {t, i18n} = useTranslation();
@@ -81,46 +76,30 @@ const ComeSystem = () => {
 
     function loginIn() {
         let user = {
-
             login,
             password,
             fillial_id,
-            pasport_id: localStorage.getItem('userId')
-        }
-        let user = {
-            login,
-            password,
-            fillial_id,
-            pasport_id: localStorage.getItem('userId')
+            pasport_id: localStorage.getItem('passport')
         }
 
 
-        axios.post("https://micros-test.w.wschool.uz/public/api/register", user).then((response) => {
-            console.log(response.data)
-            localStorage.setItem("token", response.data.authorisation.token)
-            console.log(response.data.authorisation.token)
-            if ((response.data.status === 'success') ){
-                localStorage.setItem('id', response.data.user.id)
-                setTimeout(() => {
-                    navigate("/profile");
-                    // console.log(id)
-                }, 100);
-            localStorage.setItem("token", response.data.authorisation.token)
-            console.log(response.data.authorisation.token)
-            if ((response.data.user.role_id === 3) ){
-                setTimeout(() => {
-                    navigate("/profile");
-                    // console.log(id)
-                }, 100);
+        axios.post(`${baseApi}/register`, user, {
+            headers: {
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
-            // window.location('/adminProfile')
-                }).catch((error) => {
-            if (error.response.data.message >= 500 || 422)
-                setText("Kiritilgan ma'lumotlarda xatolik");
-            // window.location('/adminProfile')
-                }).catch((error) => {
-            // if (error.response.data.message >= 422)
-            //     setText("Kiritilgan ma'lumotlarda xatolik");
+        }).then((response) => {
+            console.log(response.data)
+            localStorage.setItem('userId', response.data.user.id)
+            localStorage.setItem("token", response.data.authorisation.token)
+            console.log(response.data.authorisation.token)
+            if ((response.data.status === 'ok')) {
+                setTimeout(() => {
+                    navigate("/profile");
+                }, 100);
+                toast.success(response.data.Message);
+            }
+        }).catch((error) => {
+            toast.error(error.response?.data?.message)
         })
     }
 
@@ -164,7 +143,11 @@ const ComeSystem = () => {
                                     <img className="iconFlag" src={RuFlag} alt=""/>
                                     Ру
                                 </button>
-                                <Notification/>
+                                <button className="flagButton"
+                                        onClick={() => handleChangeLng("en")}>
+                                    <img className="iconFlag" src={EnFlag} alt=""/>
+                                    En
+                                </button>
                             </div>
                         </div>
                     </Header>
@@ -177,14 +160,13 @@ const ComeSystem = () => {
                         <div className="info">
                             <a href="/" className="left">
                                 <ArrowBackIosNewIcon className="icon"/>
-                                <div className="pro">{t("comeSystem")}</div>
+                                <div className="pro">{t("register")}</div>
                             </a>
 
                             <div className="rights">
                                 <SpeedIcon className="icon"/>
                                 <Breadcrumb.Item style={{color: "#2B63C0"}}>{t("gallery")}</Breadcrumb.Item>
                                 <Breadcrumb.Item style={{opacity: "0.5"}}> {t("systemAccess")}</Breadcrumb.Item>
-                                {/*<Breadcrumb.Item style={{opacity:"0.5"}}> Профиль</Breadcrumb.Item>*/}
                             </div>
                         </div>
                         <Formik
@@ -214,36 +196,15 @@ const ComeSystem = () => {
 
                                             <div className="form-control">
                                                 <label className="cityLabel">Филиалы *</label>
-                                                <span>{text}</span>
                                                 <select className="city" name="select"
                                                         onChange={(e) => setFillial_id(e.target.value)}>
-                                                    <option value="">{t("choose")}</option>
+                                                    <option value="">{t('filial')}</option>
                                                     <option value="1">Toshkent</option>
                                                     <option value="2">Samarkhand</option>
                                                     <option value="3">Nukus</option>
                                                     <option value="4">Fargana</option>
                                                 </select>
 
-
-                                            <div className="form-control">
-                                                <label className="cityLabel">Филиалы *</label>
-
-                                                <select className="city" name="select"
-                                                        onChange={(e) => setFillial_id(e.target.value)}>
-
-                                                    <option value="1">Toshkent</option>
-                                                    <option value="2">Samarkhand</option>
-                                                    <option value="3">Nukus</option>
-                                                    <option value="4">Fargana</option>
-                                                </select>
-
-                                                <TextField
-                                                    label="Логин *"
-                                                    name="Логин"
-                                                    type="text"
-                                                    className="city"
-                                                    onKeyUp={(e) => setLogin(e.target.value)}
-                                                />
 
                                                 <TextField
                                                     label="Логин *"
@@ -266,18 +227,10 @@ const ComeSystem = () => {
 
 
                                             </div>
-                                            <div className="d-flex p-3 align-items-center justify-content-end">
-
-                                                <div className="passwordError">
-                                                    <Link to="/register">
-                                                        Pasport
-                                                    </Link>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div className="NextPrev">
                                             <Stack spacing={2} direction="row">
-                                                <Button type="reset" className="button" href="/"
+                                                <Button type="reset" className="button" href="/passport"
                                                         variant="contained"> <span
                                                     className="icones"><CancelOutlinedIcon
                                                     fontSize="small"/></span> Назад</Button>
@@ -303,4 +256,4 @@ const ComeSystem = () => {
         ;
 };
 
-export default ComeSystem;
+export default Register;

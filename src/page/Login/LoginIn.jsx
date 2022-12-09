@@ -1,85 +1,73 @@
-import React from 'react';
-import LoginImg from "../../assets/images/loginImg.svg"
-import Logo from "../../assets/images/logo.svg"
-import EmailIcon from '@mui/icons-material/Email';
-import Google from "../../assets/images/google.svg"
-import Button from '@mui/material/Button';
-import "./style.scss"
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-
+import React, {useState} from 'react';
+import LoginImg from "../../assets/images/loginImg.svg";
+import Logo from "../../assets/images/logo.svg";
+import "./loginUp.scss"
 import {Link} from "react-router-dom";
+import {useNavigate} from "react-router";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 import axios from "axios";
-// import reducers from "../../modules/entity/reducers";
-import {useNavigate} from "react-router-dom";
+import Toast from "light-toast";
+import {baseApi} from "../../services/api";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
-const ACTIONS = {
-    USER_ADD: "user_add"
-};
-
-function reduser(state, action) {
-    switch (action.type) {
-        case ACTIONS.USER_ADD:
-            state = {
-                user: {
-                    ...state.user,
-                    [action.payload.key]: action.payload.value
-                }
-            };
-            break;
-    }
-    return state;
-}
 
 const LoginIn = () => {
-
     const navigate = useNavigate();
-    const onClick = () => {
-        // setTimeout(() => {
-        //     navigate("/userInfo");
-        // }, 10);
-    };
-    const [id, setId] = useState('')
+    const [login, setLogin] = useState('')
+    const [error, setError] =useState('')
+    const [password, setPassword] = useState('')
 
-    const initialUser = {
-        id: '',
-        pnfl: "",
-        pasport_seria: "",
-        pasport_seria_code: ""
-    }
-    const [state, dispatch] = useReducer(reduser, {user: initialUser});
-
-    function getInputValues(e) {
-        dispatch({
-            type: ACTIONS.USER_ADD,
-            payload: {
-                key: e.target.name,
-                value: e.target.value
+    function loginUp() {
+        let allCome = {
+            login,
+            password
+        }
+        axios.post(`${baseApi}/login`, allCome, {
+            headers:{
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
+        }).then((response) => {
+            localStorage.setItem("token", response.data.authorisation.token)
 
-        });
-
-    }
-
-    async function addUser() {
-        axios.post("https://micros-test.w.wschool.uz/public/api/pasport", state.user).then((response) => {
-            console.log(response.data)
-            if (response.data.status === 'success') {
-                let id = response.data.pasport.id
-                setId(id)
+            if ((response.data.user.role_id >= 1)) {
                 setTimeout(() => {
-                    navigate("/userInfo/" + id);
-                    console.log(id)
-                }, 100);
+                    navigate("/");
+                    // console.log(id)
+                }, 500);
+                toast.success(response.data.Message);
 
             }
-        })
-    }
+            if ((response.data.user.role_id >= 2)) {
+                setTimeout(() => {
+                    navigate("/adminProfile");
+                    // console.log(id)
+                }, 500);
+                toast.success(response.data.Message);
 
+            }
+            if ((response.data.user.role_id >= 3)) {
+                localStorage.setItem('id', response.data.user.id)
+                localStorage.setItem('pasportId', response.data.user.pasport_id)
+                setTimeout(() => {
+                    navigate(`/profileOver/${localStorage.getItem('userId')}`);
+                    // console.log(id)
+                }, 500);
+                toast.success(response.data.Message);
+
+            }
+            console.log(response.data)
+        }).catch((error)=>{
+            toast.error(error.response?.data?.message)
+        })
+
+    }
 
     return (
-        <div className="loginIn">
+        <div className="loginUp">
             <div className="left">
                 <div className="lgBlur"></div>
                 <img className="loginImg" src={LoginImg} alt=""/>
@@ -89,75 +77,52 @@ const LoginIn = () => {
                     <div className="col-md-10 offset-1">
                         <img src={Logo} alt="" className="loginLogo"/>
                         <div className="loginTitle">Добро пожаловать</div>
-                        <h4 style={{color:'red'}}>{text}</h4>
-                        {/*<h4>{JSON.stringify(state.user)}</h4>*/}
-                        <div className="form-group mt-5">
-                            <label className="label">Введите ПИНФЛ*</label>
+                        <h3 style={{color:"red"}}>{error}</h3>
+                        <div className="form-group">
+
                             <Box
                                 component="form"
-
+                                className="mt-5 mb-4"
                                 noValidate
                                 autoComplete="off"
                             >
                                 <TextField
-                                    className="numberPhone"
+                                    className="InputName"
+                                    type="text"
                                     id="outlined-basic"
-                                    label="1234567891011121314"
+                                    label="Логин"
                                     variant="outlined"
-                                    type="number"
-                                    placeholder="1234567891011121314"
-                                    onChange={getInputValues}
-                                    name={'pnfl'}
+                                    onChange={(e) => setLogin(e.target.value)}
+                                    placeholder="QWde1234134"
                                 />
                             </Box>
-                            {/*<input type="number" placeholder="+99 890 123 45 67" className="numberPhone"/>*/}
                         </div>
-                        <div className="Infopass">
-                            <div className="w-100">
-                                <label className="label">Введите Серию паспорта*</label>
+                        <div className="form-group">
 
-                                <Box
-                                    component="form"
-
-                                    noValidate
-                                    autoComplete="off"
-                                >
-                                    <TextField
-                                        className="line"
-                                        id="outlined-basic"
-                                        label="AB"
-                                        variant="outlined"
-                                        placeholder="AB"
-                                        type="text"
-                                        name={'pasport_seria'}
-                                        onChange={getInputValues}
-                                    />
-                                </Box>
-                            </div>
-                            <div className="w-100">
-                                <label className="label">Введите номер паспорта*</label>
-
-                                <Box
-                                    component="form"
-
-                                    noValidate
-                                    autoComplete="off"
-                                >
-                                    <TextField
-                                        className="line"
-                                        id="outlined-basic"
-                                        label="12345689"
-                                        variant="outlined"
-                                        placeholder="12345689"
-                                        type="number"
-                                        onChange={getInputValues}
-                                        name={'pasport_seria_code'}
-                                    />
-                                </Box>
-                            </div>
+                            <Box
+                                component="form"
+                                name="password"
+                                className="mt-3"
+                                type="password"
+                                noValidate
+                                autoComplete="off"
+                            >
+                                <TextField
+                                    className="InputName"
+                                    id="outlined-basic"
+                                    label="Пароль"
+                                    variant="outlined"
+                                    placeholder="sqw13rwef"
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </Box>
                         </div>
-                        <Button onClick={addUser} variant="outlined" className="sends"> Продолжить</Button>
 
+                        <Button onClick={loginUp} variant="outlined" className="save">Продолжить</Button>
+                        <div className="Reset">
+                            <Link to="/passport">Register</Link>
+                            <Link to="/logOut">Forgot Password</Link>
+                        </div>
                     </div>
                 </div>
             </div>

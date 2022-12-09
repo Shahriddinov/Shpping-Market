@@ -37,13 +37,7 @@ const Portfolio = () => {
         };
     }
 
-    const items = [
-        getItem(t("profile"), "1", <AddCircleIcon/>),
-        getItem(t("gallery"), "2", <HomeIcon/>),
-        getItem(t("portfolio"), "3", <SdCardIcon/>),
-        getItem(t("login"), "4", <LoginIcon/>),
-        getItem(t("setting"), "5", <SettingsIcon/>),
-    ];
+
 
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
@@ -53,7 +47,7 @@ const Portfolio = () => {
     return (
         <>
             <section id="portfolio" className="portfolio">
-                <ProfileSidebar items={items}/>
+                <ProfileSidebar items/>
                 <div className="basePart">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar/>
@@ -151,38 +145,17 @@ const Portfolio = () => {
                         </div>
 
                     </div>
-                    <div className="add_portfolio">
-                        <h3>{t("AddPortfolio")}</h3>
 
-                        <div className="file_add">
-                            <div className="add_left">
-                                <label htmlFor="file">
-                                    <DownloadIcon fontSize="medium"/>
-                                    <p>{t("uploadPDF")}</p>
-                                </label>
-                                <input className='d-none' id="file" type="file"/>
-                            </div>
-                            <div className="add_right">
-                                <h3>{t("nameCertificate")}</h3>
-                                <input className='form-control' placeholder={t("title")} type="text"/>
-                                <h3>{t("WhatDidYouGet")}</h3>
-                                <textarea className='form-control' placeholder={t("text")} name="" id=""></textarea>
-                            </div>
-                        </div>
-
-
-                        <div className="next-page">
-
-                            <div className="back-btn">
-                                <Stack spacing={2} direction="row">
-                                    <Button className="button" href="/qualification" variant="contained"> <span className="icon"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
-                                </Stack>
-                            </div>
-                            <div className="next-btn">
-                                <Stack spacing={2} direction="row">
-                                    <Button className="button" href="/certificates" style={{backgroundColor: "#0FBE7B"}} variant="contained"> <span className="icon"><SaveAsIcon fontSize="small"/></span> Сохранить</Button>
-                                </Stack>
-                            </div>
+                    <div className="pdf-file">
+                        <h2>Файлы 6 ти документов</h2>
+                        <div className="pdf-card">
+                            <div className="pdf-card-item"></div>
+                            <div className="pdf-card-item"></div>
+                            <div className="pdf-card-item"></div>
+                            <div className="pdf-card-item"></div>
+                            <div className="pdf-card-item"></div>
+                            <div className="pdf-card-item"></div>
+                            <div className="pdf-card-item"></div>
                         </div>
                     </div>
                 </div>

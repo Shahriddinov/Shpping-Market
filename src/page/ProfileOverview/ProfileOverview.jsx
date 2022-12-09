@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -48,18 +48,6 @@ function ProfileOverview() {
             label,
         };
     }
-
-    const items = [
-        getItem(t("profile"), "2", <AccountCircleIcon/>, [
-            getItem(t("directions"), "sub1"),
-            getItem(t("statistics"), "2"),
-        ]),
-        getItem(t("gallery"), "1", <HomeIcon/>),
-        getItem(t("portfolio"), "3", <SdCardIcon/>),
-        getItem(t("login"), "4", <LoginIcon/>),
-        getItem(t("setting"), "5", <SettingsIcon/>),
-    ];
-
     const userInformations = {
         userName: "Botirov Asadbek",
         fullName: "fullName",
@@ -78,18 +66,18 @@ function ProfileOverview() {
         <>
             <section id="Profile-overview" className="Profile-overview">
                 <h1 className="visually-hidden">Profile Overview Page</h1>
-                <ProfileSidebar items={items} userName={t(userInformations.userName)}/>
+                <ProfileSidebar items userName={t(userInformations.userName)}/>
                 <section className="profile-overview__page">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar title={t("profile")}/>
                     <div className="profile-overview__sections">
                         <PersonalInfo imageURL={userPic} obj={userInformations}/>
                         <OneEducation obj={userInformations}/>
-                        <OneEducation obj={userInformations}/>
+                        {/*<OneEducation obj={userInformations}/>*/}
                         <JobAbout/>
-                        <JobAbout/>
+                        {/*<JobAbout/>*/}
                         <AdvancedTraining/>
-                        <AdvancedTraining/>
+                        {/*<AdvancedTraining/>*/}
                         <div className="next-page">
                             <div className="next-btn">
                                 {/*<button>Продолжить</button>*/}
@@ -99,9 +87,10 @@ function ProfileOverview() {
                                             <BorderColorIcon fontSize="small"/>
                                             Редактировать
                                         </Button>
-                                    <Button className="profileButton" href="/direction" style={{backgroundColor: "#0FBE7B"}}
-                                            variant="text"> <span className="icon"><CheckCircleOutlineIcon
-                                        fontSize="small"/></span> Соответствует</Button>
+                                        <Button className="profileButton" href={`/direction/${localStorage.getItem("userId")}`}
+                                                style={{backgroundColor: "#0FBE7B"}}
+                                                variant="text"> <span className="icon"><CheckCircleOutlineIcon
+                                            fontSize="small"/></span> Соответствует</Button>
                                     </div>
                                 </Stack>
                             </div>

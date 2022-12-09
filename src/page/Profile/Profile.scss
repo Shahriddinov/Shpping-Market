@@ -56,7 +56,7 @@
   line-height: 24px;
   color: #333333 !important;
 }
-
+.PhoneInputInput,
 .page1__input {
   width: 100%;
   height: 50px;
@@ -83,10 +83,24 @@
 .page1__gender {
   margin-top: 50px;
   margin-bottom: 30px;
-  display: flex !important;
+  display: flex;
   flex-direction: row !important;
-  column-gap: 38px;
-  color: $colorBlue;
+  column-gap: 25px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: black;
+  .women:hover,
+  .womenInput:hover{
+    cursor: pointer;
+    color: #2B63C0;
+
+  }
+  .women:focus-within,
+  .womenInput:focus-within {
+    background: hsla(0, 0%, 80%, .14);
+    color: #2B63C0;
+  }
 }
 
 .email__label {

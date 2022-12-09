@@ -3,6 +3,7 @@ import {initReactI18next} from "react-i18next";
 
 import uz from "../../lng/uz.json";
 import ru from "../../lng/ru.json";
+import en from "../../lng/en.json"
 
 i18next.use(initReactI18next).init({
     resources: {
@@ -12,6 +13,9 @@ i18next.use(initReactI18next).init({
         ru: {
             translation: ru,
         },
+        en: {
+            translation: en,
+        }
     },
     lng: localStorage.getItem("lng") || "uz",
 });

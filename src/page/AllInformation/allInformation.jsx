@@ -1,9 +1,4 @@
-import React, {useState} from 'react';
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import HomeIcon from "@mui/icons-material/Home";
-import SdCardIcon from "@mui/icons-material/SdCard";
-import LoginIcon from "@mui/icons-material/Login";
-import SettingsIcon from "@mui/icons-material/Settings";
+import React, {useEffect, useState} from 'react';
 import {useTranslation} from "react-i18next";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
@@ -19,13 +14,16 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-// import faker from 'faker';
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import {Bar} from 'react-chartjs-2';
+import faker from 'faker';
 import Chip from "@mui/material/Chip";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Button from "@mui/material/Button";
 import Footer from "../../components/Layout/Footer/Footer";
+import axios from "axios";
+import {baseApi} from "../../services/api";
+import {useParams} from "react-router-dom";
+import {toast} from "react-toastify";
 
 ChartJS.register(
     CategoryScale,
@@ -41,7 +39,7 @@ export const options = {
     plugins: {
         legend: {
             display: false,
-            position: 'top' ,
+            position: 'top',
         },
         title: {
             display: false,
@@ -66,30 +64,31 @@ const labels = [
     'Урок 13',
     'Урок 14',
 ];
-const background = ['#0FBE7B', '#2B63C0']
 export const data = {
     labels,
     datasets: [
         {
             label: 'Dataset 1',
-            // data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
+            data: labels.map(() => faker.datatype.number({min: 0, max: 10})),
             backgroundColor: '#2B63C0',
         },
-        // {
-        //     label: 'Dataset 2',
-        //     data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
-        //     backgroundColor: '#2B63C0',
-        // },
+        {
+            label: 'Dataset 2',
+            data: labels.map(() => faker.datatype.number({min: 0, max: 10})),
+            backgroundColor: '#2B63C0',
+        },
     ],
 };
 
 const AllInformation = () => {
-
-
-
+    const {id} = useParams()
     const {t, i18n} = useTranslation();
-    const [ isClicked, setClicked ] = useState(false);
-    const [ isBall, setBall ] = useState(false);
+    const [isClicked, setClicked] = useState(false);
+    const [isBall, setBall] = useState(false);
+    const [categoryName, setCategoryName] = useState('')
+    const [categoryScore, setCategoryScore] = useState('')
+    const [mainInfo, setMainInfo] = useState([])
+
 
     function getItem(label, key, icon, children) {
         return {
@@ -100,29 +99,37 @@ const AllInformation = () => {
         };
     }
 
-    const items = [
-        getItem("Профиль", "1", <AccountCircleIcon/>, [
-            getItem("Направление", "sub1"),
-            getItem("Статистика", "2"),
-        ]),
-        getItem("Главная", "3", <HomeIcon/>),
-        getItem("Портфолио", "4", <SdCardIcon/>),
-        getItem("Логин", "5", <LoginIcon/>),
-        getItem("Настройки", "6", <SettingsIcon/>),
-    ];
 
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
         localStorage.setItem("lng", lng);
     };
+
+
+    useEffect(() => {
+        axios.get(`${baseApi}/evaluate/` + id, {
+            headers: {
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then((response) => {
+            console.log(response.data.data)
+            setMainInfo(response.data.data)
+            toast.success(response.data.Message);
+
+        }).catch((error)=>{
+            toast.error(error.response?.data?.message)
+        })
+    }, [])
+    // console.log(mainInfo)
+
     return (
         <div className="allInformation">
             <div className="d-flex">
-                <ProfileSidebar items={items}/>
+                <ProfileSidebar items/>
                 <div className="eduPage">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar/>
-                    <div style={{padding:"0 20px"}}>
+                    <div style={{padding: "0 20px"}}>
                         <div className="advancedTraining">
                             <div
                                 className="background-job__title-wrapper"
@@ -139,12 +146,12 @@ const AllInformation = () => {
                                 }
                             >
                                 <div>
-                                    <Bar options={options} data={data} />
+                                    <Bar options={options} data={data}/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div style={{padding:"0 20px"}}>
+                    <div style={{padding: "0 20px"}}>
                         <div className="advancedTraining">
                             <div
                                 className="background-job__title-wrapper"
@@ -160,50 +167,18 @@ const AllInformation = () => {
                                         : `background-job__drop-down`
                                 }
                             >
-                                <div>
-                                    <div className="form-group">
-                                        <div className="subjectName">1. {t("teachingCulture")}</div>
+                                {console.log(mainInfo)}
+                                {mainInfo?.map((item, index) => (
+                                    <div key={index.toString()} className="form-group">
+                                        {console.log(item.direction_name)}
+                                        <div className="subjectName">{item.direction_name.category_ru ?? item.direction_name.category_en ?? item.direction_name.category_uz}</div>
                                         <div className="subjectBall">
-                                            Высшее
-                                            <Chip className="chip" label="10" />
+                                            {item.direction_category_name}
+                                            <Chip className="chip" label={item.score}/>
                                         </div>
                                     </div>
-                                    <div className="form-group">
-                                        <div className="subjectName">2. {t("rating")}</div>
-                                        <div className="subjectBall">
-                                            Во второй двадцатке рейтинга (21-40 места)
-                                            <Chip className="chip" label="30" />
-                                        </div>
-                                    </div>
-                                    <div className="form-group">
-                                        <div className="subjectName">3. {t("sportCategory")}</div>
-                                        <div className="subjectBall">
-                                            кандидат в мастера спорта
-                                            <Chip className="chip" label="3" />
-                                        </div>
-                                    </div>
-                                    <div className="form-group">
-                                        <div className="subjectName">4. {t("judging")}</div>
-                                        <div className="subjectBall">
-                                            кандидат в мастера спорта
-                                            <Chip className="chip" label="10" />
-                                        </div>
-                                    </div>
-                                    <div className="form-group">
-                                        <div className="subjectName">5. {t("preparation")}</div>
-                                        <div className="subjectBall">
-                                            методическое пособие, учебно-методические рекомендации, для разработок
-                                            <Chip className="chip" label="50" />
-                                        </div>
-                                    </div>
-                                    <div className="form-group">
-                                        <div className="subjectName">6. {t("level")}</div>
-                                        <div className="subjectBall">
-                                            2 место
-                                            <Chip className="chip" label="5" />
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
+
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ import Logo from "../../../assets/images/logo.svg"
 import "../../../assets/header.scss"
 import UzFlag from "../../../assets/images/Uz.png"
 import RuFlag from "../../../assets/images/ruFlag.png"
+import EnFlag from "../../../assets/images/en.png"
 const Header = () => {
 
     const {t, i18n} = useTranslation();
@@ -32,6 +33,10 @@ const Header = () => {
                     <img className="iconFlag" src={RuFlag} alt=""/>
                     Ру
                 </button>
+                    <button className="flagButton" onClick={() => handleChangeLng("en")}>
+                        <img className="iconFlag" src={EnFlag} alt=""/>
+                        En
+                    </button>
                 </div>
             </div>
         </div>

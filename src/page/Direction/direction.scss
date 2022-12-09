@@ -10,7 +10,6 @@
   width: calc(100% - 256px);
 
 
-
   .ant-layout-header {
     height: inherit;
     padding: 0;
@@ -28,10 +27,10 @@
     color: #333333;
   }
 
-  .Box{
+  .Box {
     margin: 0 24px 0 20px;
 
-    .FilterDirect{
+    .FilterDirect {
       width: 560px;
       height: 50px;
       background: #FFFFFF;
@@ -44,7 +43,7 @@
       margin-bottom: 24px;
     }
 
-    .destination{
+    .destination {
       width: 100%;
       background: #FFFFFF;
       box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
@@ -53,7 +52,7 @@
       box-sizing: border-box;
       margin-bottom: 24px;
 
-      &-title{
+      &-title {
         font-weight: 600;
         font-size: 20px;
         line-height: 23px;
@@ -61,7 +60,7 @@
         margin-bottom: 24px;
       }
 
-      .dest-direct{
+      .dest-direct {
         width: 100%;
         margin-left: 10px;
         padding: 20px 20px 26px;
@@ -70,7 +69,7 @@
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
         border-radius: 8px;
 
-        h5{
+        h5 {
           font-weight: 600;
           font-size: 20px;
           line-height: 150%;
@@ -78,7 +77,7 @@
           margin-bottom: 50px;
         }
 
-        p{
+        p {
           font-weight: 400;
           font-size: 20px;
           line-height: 24px;
@@ -87,11 +86,12 @@
         }
       }
 
-      .directions{
+      .directions {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        .directItem{
+
+        .directItem {
           width: 528px;
           height: 242px;
           margin: 0 24px 24px 10px;
@@ -103,14 +103,14 @@
           flex-direction: column;
           justify-content: space-between;
 
-          h5{
+          h5 {
             font-weight: 600;
             font-size: 20px;
             line-height: 150%;
             color: rgba(0, 0, 0, 0.8);
           }
 
-          p{
+          p {
             font-weight: 400;
             font-size: 20px;
             line-height: 24px;
@@ -118,32 +118,54 @@
             margin: 0;
           }
         }
+
       }
 
-      .toTeach{
+
+
+      .imgsPdf {
+        display: flex;
+        position: relative;
+
+        .clearIcon {
+          position: absolute;
+          right: 0;
+          top: 0;
+          color: red;
+          cursor: pointer;
+        }
+      }
+
+      .toTeach {
         padding: 40px 0;
         box-sizing: border-box;
         border-bottom: 1px rgba(151, 151, 151, 0.5) solid;
-        &:last-child{
+
+        &:last-child {
           border: 0;
         }
-        .itemTitle{
+
+        .itemTitle {
           font-weight: 600;
           font-size: 18px;
           line-height: 24px;
           color: #333333;
           margin-bottom: 24px;
         }
-        .formBox{
-          display:flex;
+
+        .formBox {
+          display: flex;
           justify-content: space-between;
-          .forma{
+
+          .forma {
             width: 532px;
-            .variants{
+
+            .variants {
               display: flex;
               margin-bottom: 14px;
               cursor: pointer;
-              label{
+
+              .radioButton {
                 margin-left: 33px;
                 font-weight: 600;
                 font-size: 15px;
@@ -153,8 +175,10 @@
                 color: #979797;
                 display: flex;
                 width: 100%;
+                cursor: pointer;
 
-                .price{
+
+                .price {
                   width: 93px;
                   height: 31px;
                   background: #F5F5F5;
@@ -167,29 +191,34 @@
                 }
               }
 
-              &:hover{
-                label{
-                  color:#2B63C0;
+              &:checked {
+                label {
+                  color: #2B63C0;
                 }
-                .price{
+
+                .price {
                   background-color: #EAF0F9;
-                  color:#2B63C0;
+                  color: #2B63C0;
+                }
+              }
+
+              &:hover {
+                label {
+                  color: #2B63C0;
+
+                  .price {
+                    background-color: #EAF0F9;
+                    color: #2B63C0;
+                  }
                 }
               }
             }
-            .active{
-              label{
-                color:#2B63C0;
-                .price{
-                  background-color: #EAF0F9;
-                  color:#2B63C0;
-                }
-              }
-            }
+
           }
         }
       }
     }
+
     .NextPrev {
       //margin: 24px 30px 30px auto;
       display: flex;

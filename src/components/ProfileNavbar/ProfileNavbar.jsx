@@ -11,7 +11,7 @@ function ProfileNavbar() {
     <nav className="profile__navbar">
       <div className="profile__container">
         <div className="profile__navbar-lef">
-          <Link to="/userInfo" style={{display:"flex", alignItems:"center"}}>
+          <Link to="/register" style={{display:"flex", alignItems:"center"}}>
             <ArrowBackIosIcon className="arrow-back" />
           <h2 className="profile__navbar-left--title">{t("title")}</h2>
           </Link>

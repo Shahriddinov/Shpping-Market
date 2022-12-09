@@ -28,7 +28,7 @@ const Home = () => {
                     <div className="back-navbar">
                         <div className="home-navbar">
                             <div className="link-item"><a href="/">{t("DistanceLearning")}</a></div>
-                            <div className="link-item"><a href="/userInfo">{t("portfolio")}</a></div>
+                            <div className="link-item"><a href="/loginIn">{t("portfolio")}</a></div>
                             <div className="link-item"><a href="/">{t("OnlineLibrary")}</a></div>
                             <div className="link-item"><a href="/">{t("OnlineTest")}</a></div>
                             <div className="link-item"><a href="/">{t("Re-qualification")}</a></div>
@@ -40,10 +40,10 @@ const Home = () => {
                     </div>
 
                     <div className="buttons">
-                        <Button href="/register" variant="outlined" className="homeButton">
+                        <Button href="/passport" variant="outlined" className="homeButton">
                             {t("loginIn")}
                         </Button>
-                        <Button href="/login" variant="outlined" className="homeButton">
+                        <Button href="/loginIn" variant="outlined" className="homeButton">
                             {t("welcome")}
                         </Button>
                     </div>
