@@ -17,10 +17,13 @@ import Button from "@mui/material/Button";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Footer from "../../../../components/Layout/Footer/Footer";
 import ProfileSidebarAdmin from "../../../../components/admin/profileSidebarAdmin/profileSidebarAdmin";
+import CloseIcon from '@mui/icons-material/Close';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CheckPdf(props) {
     const {t, i18n} = useTranslation();
     const {id} = useParams()
+    // console.log(localStorage.getItem('checkId'))
 
     const [isClicked, setClicked] = useState(false);
     const [isBall, setBall] = useState(false);
@@ -28,14 +31,23 @@ function CheckPdf(props) {
     const [userPhoto, setUserPhoto] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [userPhone, setUserPhone] = useState('');
+    const [scores, setScores] = useState('');
     const [mainPdf, setMainPdf] = useState([])
+    // const [message, setMessage] = useState('');
+    // const [permission, setPermission] = useState('')
     useEffect(() => {
-        axios.get(`${baseApi}/allData/` + id).then((response) => {
+        axios.get(`${baseApi}/user_in_direction/` + id, {
+            headers: {
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then((response) => {
             console.log(response.data)
-            setUserPhoto(response.data.user_avatar.photo)
-            setUserName(response.data.user_personal_info.full_name)
-            setUserEmail(response.data.user_personal_info.email)
-            setUserPhone(response.data.user_personal_info.phone)
+            setUserPhoto(response.data.user.avatar)
+            console.log(response.data.user[0].user_name)
+            setUserName(response.data.user[0].user_name)
+            setScores(response.data.user[0].all_score)
+            setUserEmail(response.data.user[0].email)
+            setUserPhone(response.data.user[0].phone)
 
         }).catch((error) => {
             Toast.fail(t("Something went wrong Photo"), 2000);
@@ -65,7 +77,6 @@ function CheckPdf(props) {
                 "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
         }).then((response) => {
-            console.log(response.data.data)
             setMainPdf(response.data.data)
             toast.success(response.data.Message);
 
@@ -73,6 +84,35 @@ function CheckPdf(props) {
             toast.error(error.response?.data?.message)
         })
     }, [])
+
+    function CheckMessage(req) {
+        let checkM={}
+        if (req){
+             checkM= {
+                user_id: Number(id),
+                permission:"passed",
+                message:"sen utding"
+            }
+        } else {
+             checkM= {
+                user_id: Number(id),
+                permission:"feild",
+                message:"sen utaolmading"
+            }
+        }
+        console.log(typeof Number(id))
+        axios.post(`${baseApi}/checkUser`, checkM, {
+            headers: {
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then((response)=>{
+
+
+            toast.success(response.data.message)
+
+            console.log(response)
+        })
+    }
 
 
     return (
@@ -128,7 +168,7 @@ function CheckPdf(props) {
                                     <div>
                                         <div className="users">
                                             <img className="userPhoto"
-                                                 src={userPhoto !== "null" ? `https://sport.napaautomotive.uz/storage/${userPhoto}` : Imgs}
+                                                 src={userPhoto ?  `https://sport.napaautomotive.uz/storage/${userPhoto}` : Imgs}
                                                  alt="userAvatar"/>
                                             <div className="">
                                                 <div className="userNames">{userName}</div>
@@ -138,7 +178,7 @@ function CheckPdf(props) {
 
                                         <div className="object">
                                             <Chip className="port" label={t("portfolio")}/>
-                                            <Chip className="rating" label="29"/>
+                                            <Chip className="rating" label={scores ? scores : 0}/>
                                         </div>
                                         <div className="object">
                                             <Chip className="port" label={t("testScores")}/>
@@ -197,9 +237,15 @@ function CheckPdf(props) {
                         </div>
 
                     </div>
-                    <Button className="profileButton" href="#" style={{backgroundColor: "#0FBE7B"}}
-                            variant="text"> <span className="icon"><CheckCircleOutlineIcon
-                        fontSize="small"/></span> Соответствует</Button>
+                    <div className="stops">Информация соответствует требованиям?</div>
+                    <div className="d-flex align-items-center justify-content-center">
+                        <Button onClick={()=>CheckMessage(false)} className="profileButton" style={{backgroundColor: "#2B63C0"}}
+                                variant="text"> <span className="icon"><CloseIcon
+                            fontSize="small"/></span> Нет</Button>
+                        <Button  onClick={()=>CheckMessage(true)} className="profileButton"  style={{backgroundColor: "#0FBE7B"}}
+                                 variant="text"> <span className="icon"><CheckCircleOutlineIcon
+                            fontSize="small"/></span> Да</Button>
+                    </div>
                 </div>
             </div>
             <Footer/>

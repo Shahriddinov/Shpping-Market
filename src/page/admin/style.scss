@@ -30,14 +30,14 @@
     margin: 0 24px 0 20px;
 
 
-    //.destination{
-    //  //width: 100%;
-    //  background: #FFFFFF;
-    //  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
-    //  border-radius: 12px;
-    //  //padding: 20px 30px 26px 20px;
-    //  box-sizing: border-box;
-    //  margin-bottom: 24px;
+    .destination{
+      width: 100%;
+      background: #FFFFFF;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      padding: 20px 30px 26px 20px;
+      box-sizing: border-box;
+      margin-bottom: 24px;
 
       &-title{
         font-weight: 600;
@@ -77,10 +77,12 @@
         width: 100%;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-evenly;
         .directItem{
-          width: 528px;
+          width: 48%;
           height: 242px;
-          margin: 0 24px 24px 10px;
+          margin-bottom: 2%;
+          //margin: 0 5px 24px 10px;
           padding: 20px 20px 26px;
           background: #FFFFFF;
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
@@ -109,7 +111,7 @@
           }
         }
       }
-    //}
+    }
 
     .DownloadFile{
       margin-top: 40px;

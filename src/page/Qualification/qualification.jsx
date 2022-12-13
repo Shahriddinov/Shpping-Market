@@ -182,117 +182,117 @@ function Qualification() {
                                 </Stack>
                             </LocalizationProvider>
                         </div>
-                        <Button className=" added" onClick={() => {
-                            setCount(count + 1);
-                        }} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>
+                        {/*<Button className=" added" onClick={() => {*/}
+                        {/*    setCount(count + 1);*/}
+                        {/*}} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>*/}
                     </div>
 
                 </div>
-                {count.length > 0 && (
-                    <div className="forms mt-5">
-                        <div className="form-control">
-                            <div className="form">
-                                <FormControl sx={{minWidth: "100%"}} size="small">
-                                    <InputLabel className="mt-1" id="demo-select-small">{t("region")}</InputLabel>
-                                    <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        label={t("region")}
-                                        onChange={(e) => setRegion_id(e.target.value)}
-                                    >
-                                        <MenuItem value={1}>Ташкент</MenuItem>
-                                        <MenuItem value={2}>Nukus</MenuItem>
-                                        <MenuItem value={3}>Samarkand</MenuItem>
-                                        <MenuItem value={4}>Fergana</MenuItem>
-                                        <MenuItem value={5}>Kashkadarya</MenuItem>
-                                        <MenuItem value={6}>Navoi</MenuItem>
-                                        <MenuItem value={7}>Namangan</MenuItem>
-                                        <MenuItem value={8}>Bukhara</MenuItem>
-                                        <MenuItem value={9}>Sirdarya</MenuItem>
-                                        <MenuItem value={10}>Surkhandarya</MenuItem>
-                                        <MenuItem value={11}>Jizzakh</MenuItem>
-                                        <MenuItem value={12}>Khorezm</MenuItem>
-                                    </Select>
-                                </FormControl>
+                {/*{count.length > 0 && (*/}
+                {/*    <div className="forms mt-5">*/}
+                {/*        <div className="form-control">*/}
+                {/*            <div className="form">*/}
+                {/*                <FormControl sx={{minWidth: "100%"}} size="small">*/}
+                {/*                    <InputLabel className="mt-1" id="demo-select-small">{t("region")}</InputLabel>*/}
+                {/*                    <Select*/}
+                {/*                        labelId="demo-simple-select-label"*/}
+                {/*                        id="demo-simple-select"*/}
+                {/*                        label={t("region")}*/}
+                {/*                        onChange={(e) => setRegion_id(e.target.value)}*/}
+                {/*                    >*/}
+                {/*                        <MenuItem value={1}>Ташкент</MenuItem>*/}
+                {/*                        <MenuItem value={2}>Nukus</MenuItem>*/}
+                {/*                        <MenuItem value={3}>Samarkand</MenuItem>*/}
+                {/*                        <MenuItem value={4}>Fergana</MenuItem>*/}
+                {/*                        <MenuItem value={5}>Kashkadarya</MenuItem>*/}
+                {/*                        <MenuItem value={6}>Navoi</MenuItem>*/}
+                {/*                        <MenuItem value={7}>Namangan</MenuItem>*/}
+                {/*                        <MenuItem value={8}>Bukhara</MenuItem>*/}
+                {/*                        <MenuItem value={9}>Sirdarya</MenuItem>*/}
+                {/*                        <MenuItem value={10}>Surkhandarya</MenuItem>*/}
+                {/*                        <MenuItem value={11}>Jizzakh</MenuItem>*/}
+                {/*                        <MenuItem value={12}>Khorezm</MenuItem>*/}
+                {/*                    </Select>*/}
+                {/*                </FormControl>*/}
 
-                            </div>
-                            <div className="form">
-                                <Box sx={{ minWidth: "500px", mb: 4}}>
-                                    <TextField
-                                        label={t("direction")}
-                                        name="direction"
-                                        type="text"
-                                        style={{width: "538px"}}
-                                        className="city"
-                                        onChange={(e) => setDirection(e.target.value)}
-                                    />
-                                </Box>
-                            </div>
+                {/*            </div>*/}
+                {/*            <div className="form">*/}
+                {/*                <Box sx={{ minWidth: "500px", mb: 4}}>*/}
+                {/*                    <TextField*/}
+                {/*                        label={t("direction")}*/}
+                {/*                        name="direction"*/}
+                {/*                        type="text"*/}
+                {/*                        style={{width: "538px"}}*/}
+                {/*                        className="city"*/}
+                {/*                        onChange={(e) => setDirection(e.target.value)}*/}
+                {/*                    />*/}
+                {/*                </Box>*/}
+                {/*            </div>*/}
 
 
-                        </div>
+                {/*        </div>*/}
 
-                        <div className="form-control">
-                            <div className="form">
-                                <FormControl sx={{minWidth: "100%"}} size="small">
-                                    <InputLabel className="mt-1" id="demo-select-small">{t("attended")}</InputLabel>
-                                    <Select
-                                        labelId="demo-select-small"
-                                        id="demo-select-small"
-                                        className="mb-4"
-                                        label={t("attended")}
-                                        onChange={(e) => setFillial_id(e.target.value)}
-                                    >
-                                        <MenuItem value="">
-                                            <em>None</em>
-                                        </MenuItem>
-                                        <MenuItem value={1}>Toshkent</MenuItem>
-                                        <MenuItem value={2}>Nukus</MenuItem>
-                                        <MenuItem value={3}>Samarkhand</MenuItem>
-                                        <MenuItem value={4}>Fargana</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </div>
-                            <div className="form">
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <Stack spacing={3}>
-                                        <DesktopDatePicker
-                                            className="form-control formData"
-                                            label={t("date")}
-                                            inputFormat="MM/DD/YYYY"
-                                            value={date_start}
-                                            onChange={setDate_start}
-                                            renderInput={(params) => {
-                                                return <TextField {...params} />
-                                            }}
-                                        />
-                                    </Stack>
-                                </LocalizationProvider>
-                            </div>
+                {/*        <div className="form-control">*/}
+                {/*            <div className="form">*/}
+                {/*                <FormControl sx={{minWidth: "100%"}} size="small">*/}
+                {/*                    <InputLabel className="mt-1" id="demo-select-small">{t("attended")}</InputLabel>*/}
+                {/*                    <Select*/}
+                {/*                        labelId="demo-select-small"*/}
+                {/*                        id="demo-select-small"*/}
+                {/*                        className="mb-4"*/}
+                {/*                        label={t("attended")}*/}
+                {/*                        onChange={(e) => setFillial_id(e.target.value)}*/}
+                {/*                    >*/}
+                {/*                        <MenuItem value="">*/}
+                {/*                            <em>None</em>*/}
+                {/*                        </MenuItem>*/}
+                {/*                        <MenuItem value={1}>Toshkent</MenuItem>*/}
+                {/*                        <MenuItem value={2}>Nukus</MenuItem>*/}
+                {/*                        <MenuItem value={3}>Samarkhand</MenuItem>*/}
+                {/*                        <MenuItem value={4}>Fargana</MenuItem>*/}
+                {/*                    </Select>*/}
+                {/*                </FormControl>*/}
+                {/*            </div>*/}
+                {/*            <div className="form">*/}
+                {/*                <LocalizationProvider dateAdapter={AdapterDayjs}>*/}
+                {/*                    <Stack spacing={3}>*/}
+                {/*                        <DesktopDatePicker*/}
+                {/*                            className="form-control formData"*/}
+                {/*                            label={t("date")}*/}
+                {/*                            inputFormat="MM/DD/YYYY"*/}
+                {/*                            value={date_start}*/}
+                {/*                            onChange={setDate_start}*/}
+                {/*                            renderInput={(params) => {*/}
+                {/*                                return <TextField {...params} />*/}
+                {/*                            }}*/}
+                {/*                        />*/}
+                {/*                    </Stack>*/}
+                {/*                </LocalizationProvider>*/}
+                {/*            </div>*/}
 
-                        </div>
-                        <div className="d-flex  justify-content-between">
-                            <div>
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <Stack spacing={3}>
-                                        <DesktopDatePicker
-                                            className=" startDate mt-2"
-                                            label={t("date")}
-                                            inputFormat="MM/DD/YYYY"
-                                            value={date_end}
-                                            onChange={setDate_end}
-                                            renderInput={(params) => <TextField {...params} />}
-                                        />
-                                    </Stack>
-                                </LocalizationProvider>
-                            </div>
-                            <Button className=" added" onClick={() => {
-                                setCount(count + 1);
-                            }} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>
-                        </div>
+                {/*        </div>*/}
+                {/*        <div className="d-flex  justify-content-between">*/}
+                {/*            <div>*/}
+                {/*                <LocalizationProvider dateAdapter={AdapterDayjs}>*/}
+                {/*                    <Stack spacing={3}>*/}
+                {/*                        <DesktopDatePicker*/}
+                {/*                            className=" startDate mt-2"*/}
+                {/*                            label={t("date")}*/}
+                {/*                            inputFormat="MM/DD/YYYY"*/}
+                {/*                            value={date_end}*/}
+                {/*                            onChange={setDate_end}*/}
+                {/*                            renderInput={(params) => <TextField {...params} />}*/}
+                {/*                        />*/}
+                {/*                    </Stack>*/}
+                {/*                </LocalizationProvider>*/}
+                {/*            </div>*/}
+                {/*            <Button className=" added" onClick={() => {*/}
+                {/*                setCount(count + 1);*/}
+                {/*            }} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>*/}
+                {/*        </div>*/}
 
-                    </div>
-                )}
+                {/*    </div>*/}
+                {/*)}*/}
 
                 <div className="next-page">
 

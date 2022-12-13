@@ -275,198 +275,198 @@ function Works() {
                                     </Stack>
                                 </LocalizationProvider>
                             </div>
-                            <Button className=" added" onClick={() => {
-                                setCount(count + 1);
-                            }} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>
+                            {/*<Button className=" added" onClick={() => {*/}
+                            {/*    setCount(count + 1);*/}
+                            {/*}} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>*/}
 
                         </div>
                     </div>
 
                 </div>
-                {count.length > 0 && (
-                    <div className="forms mt-5">
-                        <div className="form">
-                            <div className="left-form">
-                                <div className="Region">
-                                    <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
-                                        <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>
-                                            <Select
-                                                labelId="demo-simple-select-label"
-                                                id="demo-simple-select"
-                                                label={t("region")}
-                                                onChange={(e) => setRegion_id(e.target.value)}
-                                            >
-                                                <MenuItem value={1}>Ташкент</MenuItem>
-                                                <MenuItem value={2}>Nukus</MenuItem>
-                                                <MenuItem value={3}>Samarkand</MenuItem>
-                                                <MenuItem value={4}>Fergana</MenuItem>
-                                                <MenuItem value={5}>Kashkadarya</MenuItem>
-                                                <MenuItem value={6}>Navoi</MenuItem>
-                                                <MenuItem value={7}>Namangan</MenuItem>
-                                                <MenuItem value={8}>Bukhara</MenuItem>
-                                                <MenuItem value={9}>Sirdarya</MenuItem>
-                                                <MenuItem value={10}>Surkhandarya</MenuItem>
-                                                <MenuItem value={11}>Jizzakh</MenuItem>
-                                                <MenuItem value={12}>Khorezm</MenuItem>
-                                            </Select>
-                                        </FormControl>
-                                    </Box>
-                                </div>
-                                <div className="Area">
-                                    <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>
-                                        <FormControl fullWidth>
-                                            <TextField
-                                                id="outlined-basic"
-                                                label={t("district")}
-                                                variant="outlined"
-                                                onChange={(e)=>setDistrict(e.target.value)}
-                                            />
-                                        </FormControl>
-                                    </Box>
-                                </div>
-                                <div className="institution">
-                                    <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>
-                                        <FormControl fullWidth>
-                                            <TextField
-                                                id="outlined-basic"
-                                                label={t("typeWork")}
-                                                variant="outlined"
-                                                onChange={(e)=>setWork_name(e.target.value)}
-                                            />
-                                        </FormControl>
-                                    </Box>
-                                </div>
-                                <div className="institution">
-                                    <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>
-                                        <FormControl fullWidth>
-                                            <PhoneInput
-                                                international
-                                                countryCallingCodeEditable={false}
-                                                defaultCountry="UZ"
-                                                value={work_phone}
-                                                onChange={(e) => setWork_phone(e)}/>
-                                        </FormControl>
-                                    </Box>
-                                </div>
-                                <div className="institution">
+                {/*{count.length > 0 && (*/}
+                {/*    <div className="forms mt-5">*/}
+                {/*        <div className="form">*/}
+                {/*            <div className="left-form">*/}
+                {/*                <div className="Region">*/}
+                {/*                    <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>*/}
+                {/*                        <FormControl fullWidth>*/}
+                {/*                            <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>*/}
+                {/*                            <Select*/}
+                {/*                                labelId="demo-simple-select-label"*/}
+                {/*                                id="demo-simple-select"*/}
+                {/*                                label={t("region")}*/}
+                {/*                                onChange={(e) => setRegion_id(e.target.value)}*/}
+                {/*                            >*/}
+                {/*                                <MenuItem value={1}>Ташкент</MenuItem>*/}
+                {/*                                <MenuItem value={2}>Nukus</MenuItem>*/}
+                {/*                                <MenuItem value={3}>Samarkand</MenuItem>*/}
+                {/*                                <MenuItem value={4}>Fergana</MenuItem>*/}
+                {/*                                <MenuItem value={5}>Kashkadarya</MenuItem>*/}
+                {/*                                <MenuItem value={6}>Navoi</MenuItem>*/}
+                {/*                                <MenuItem value={7}>Namangan</MenuItem>*/}
+                {/*                                <MenuItem value={8}>Bukhara</MenuItem>*/}
+                {/*                                <MenuItem value={9}>Sirdarya</MenuItem>*/}
+                {/*                                <MenuItem value={10}>Surkhandarya</MenuItem>*/}
+                {/*                                <MenuItem value={11}>Jizzakh</MenuItem>*/}
+                {/*                                <MenuItem value={12}>Khorezm</MenuItem>*/}
+                {/*                            </Select>*/}
+                {/*                        </FormControl>*/}
+                {/*                    </Box>*/}
+                {/*                </div>*/}
+                {/*                <div className="Area">*/}
+                {/*                    <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>*/}
+                {/*                        <FormControl fullWidth>*/}
+                {/*                            <TextField*/}
+                {/*                                id="outlined-basic"*/}
+                {/*                                label={t("district")}*/}
+                {/*                                variant="outlined"*/}
+                {/*                                onChange={(e)=>setDistrict(e.target.value)}*/}
+                {/*                            />*/}
+                {/*                        </FormControl>*/}
+                {/*                    </Box>*/}
+                {/*                </div>*/}
+                {/*                <div className="institution">*/}
+                {/*                    <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>*/}
+                {/*                        <FormControl fullWidth>*/}
+                {/*                            <TextField*/}
+                {/*                                id="outlined-basic"*/}
+                {/*                                label={t("typeWork")}*/}
+                {/*                                variant="outlined"*/}
+                {/*                                onChange={(e)=>setWork_name(e.target.value)}*/}
+                {/*                            />*/}
+                {/*                        </FormControl>*/}
+                {/*                    </Box>*/}
+                {/*                </div>*/}
+                {/*                <div className="institution">*/}
+                {/*                    <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>*/}
+                {/*                        <FormControl fullWidth>*/}
+                {/*                            <PhoneInput*/}
+                {/*                                international*/}
+                {/*                                countryCallingCodeEditable={false}*/}
+                {/*                                defaultCountry="UZ"*/}
+                {/*                                value={work_phone}*/}
+                {/*                                onChange={(e) => setWork_phone(e)}/>*/}
+                {/*                        </FormControl>*/}
+                {/*                    </Box>*/}
+                {/*                </div>*/}
+                {/*                <div className="institution">*/}
 
-                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                        <Stack spacing={3}>
-                                            <DesktopDatePicker
-                                                label={t("startJob")}
-                                                inputFormat="MM/DD/YYYY"
-                                                value={date_start}
-                                                onChange={setDate_start}
-                                                className="mb-3"
+                {/*                    <LocalizationProvider dateAdapter={AdapterDayjs}>*/}
+                {/*                        <Stack spacing={3}>*/}
+                {/*                            <DesktopDatePicker*/}
+                {/*                                label={t("startJob")}*/}
+                {/*                                inputFormat="MM/DD/YYYY"*/}
+                {/*                                value={date_start}*/}
+                {/*                                onChange={setDate_start}*/}
+                {/*                                className="mb-3"*/}
 
-                                                renderInput={(params) => {
-                                                    return <TextField {...params} />
-                                                }}
-                                            />
-                                        </Stack>
-                                    </LocalizationProvider>
-                                </div>
-                                {/*<FormGroup>*/}
-                                {/*    <FormControlLabel control={<Checkbox/>} label={t("check")}/>*/}
-                                {/*</FormGroup>*/}
-                            </div>
-                            <div className="right-form">
-                                <div className="Faculty">
-                                    <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>
-                                        <FormControl fullWidth>
-                                            <TextField
-                                                id="outlined-basic"
-                                                label={t("faculty")}
-                                                variant="outlined"
-                                                onChange={(e)=>setFaculty(e.target.value)}
+                {/*                                renderInput={(params) => {*/}
+                {/*                                    return <TextField {...params} />*/}
+                {/*                                }}*/}
+                {/*                            />*/}
+                {/*                        </Stack>*/}
+                {/*                    </LocalizationProvider>*/}
+                {/*                </div>*/}
+                {/*                /!*<FormGroup>*!/*/}
+                {/*                /!*    <FormControlLabel control={<Checkbox/>} label={t("check")}/>*!/*/}
+                {/*                /!*</FormGroup>*!/*/}
+                {/*            </div>*/}
+                {/*            <div className="right-form">*/}
+                {/*                <div className="Faculty">*/}
+                {/*                    <Box sx={{mt: 1, minWidth: "500px", mb: 2}}>*/}
+                {/*                        <FormControl fullWidth>*/}
+                {/*                            <TextField*/}
+                {/*                                id="outlined-basic"*/}
+                {/*                                label={t("faculty")}*/}
+                {/*                                variant="outlined"*/}
+                {/*                                onChange={(e)=>setFaculty(e.target.value)}*/}
 
-                                            />
-                                        </FormControl>
-                                    </Box>
-                                </div>
-                                <div className="">
-                                    <Box
-                                        component="form"
-                                        sx={{
-                                            '& > :not(style)': {width: '100%', mt: 2, mb: 4},
-                                        }}
-                                        noValidate
-                                        autoComplete="off"
-                                    >
-                                        <TextField
-                                            className=""
-                                            id="outlined-basic"
-                                            label={t("department")}
-                                            variant="outlined"
-                                            onChange={(e)=>setCafedra(e.target.value)}
+                {/*                            />*/}
+                {/*                        </FormControl>*/}
+                {/*                    </Box>*/}
+                {/*                </div>*/}
+                {/*                <div className="">*/}
+                {/*                    <Box*/}
+                {/*                        component="form"*/}
+                {/*                        sx={{*/}
+                {/*                            '& > :not(style)': {width: '100%', mt: 2, mb: 4},*/}
+                {/*                        }}*/}
+                {/*                        noValidate*/}
+                {/*                        autoComplete="off"*/}
+                {/*                    >*/}
+                {/*                        <TextField*/}
+                {/*                            className=""*/}
+                {/*                            id="outlined-basic"*/}
+                {/*                            label={t("department")}*/}
+                {/*                            variant="outlined"*/}
+                {/*                            onChange={(e)=>setCafedra(e.target.value)}*/}
 
-                                        />
-                                    </Box>
-                                </div>
-                                <div className="">
-                                    <Box
-                                        component="form"
-                                        sx={{
-                                            '& > :not(style)': {width: '100%', mb: 4},
-                                        }}
-                                        noValidate
-                                        autoComplete="off"
-                                    >
-                                        <TextField
-                                            className=""
-                                            id="outlined-basic"
-                                            label={t("jobTitle")}
-                                            variant="outlined"
-                                            onChange={(e)=>setWork_place(e.target.value)}
+                {/*                        />*/}
+                {/*                    </Box>*/}
+                {/*                </div>*/}
+                {/*                <div className="">*/}
+                {/*                    <Box*/}
+                {/*                        component="form"*/}
+                {/*                        sx={{*/}
+                {/*                            '& > :not(style)': {width: '100%', mb: 4},*/}
+                {/*                        }}*/}
+                {/*                        noValidate*/}
+                {/*                        autoComplete="off"*/}
+                {/*                    >*/}
+                {/*                        <TextField*/}
+                {/*                            className=""*/}
+                {/*                            id="outlined-basic"*/}
+                {/*                            label={t("jobTitle")}*/}
+                {/*                            variant="outlined"*/}
+                {/*                            onChange={(e)=>setWork_place(e.target.value)}*/}
 
-                                        />
-                                    </Box>
-                                </div>
-                                <div className="">
-                                    <Box
-                                        component="form"
-                                        sx={{
-                                            '& > :not(style)': {width: '100%', mb: 3},
-                                        }}
-                                        noValidate
-                                        autoComplete="off"
-                                    >
-                                        <TextField
-                                            className=""
-                                            id="outlined-basic"
-                                            label={t("jobName")}
-                                            variant="outlined"
-                                            onChange={(e)=>setPosition(e.target.value)}
+                {/*                        />*/}
+                {/*                    </Box>*/}
+                {/*                </div>*/}
+                {/*                <div className="">*/}
+                {/*                    <Box*/}
+                {/*                        component="form"*/}
+                {/*                        sx={{*/}
+                {/*                            '& > :not(style)': {width: '100%', mb: 3},*/}
+                {/*                        }}*/}
+                {/*                        noValidate*/}
+                {/*                        autoComplete="off"*/}
+                {/*                    >*/}
+                {/*                        <TextField*/}
+                {/*                            className=""*/}
+                {/*                            id="outlined-basic"*/}
+                {/*                            label={t("jobName")}*/}
+                {/*                            variant="outlined"*/}
+                {/*                            onChange={(e)=>setPosition(e.target.value)}*/}
 
-                                        />
-                                    </Box>
-                                </div>
-                                <div className="institution">
-                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                        <Stack spacing={3}>
-                                            <DesktopDatePicker
-                                                label={t("startJob")}
-                                                inputFormat="MM/DD/YYYY"
-                                                value={date_end}
-                                                className="workEnd"
-                                                onChange={setDate_end}
-                                                renderInput={(params) => {
-                                                    return <TextField {...params} />
-                                                }}
-                                            />
-                                        </Stack>
-                                    </LocalizationProvider>
-                                </div>
-                                <Button className=" added" onClick={() => {
-                                    setCount(count + 1);
-                                }} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>
+                {/*                        />*/}
+                {/*                    </Box>*/}
+                {/*                </div>*/}
+                {/*                <div className="institution">*/}
+                {/*                    <LocalizationProvider dateAdapter={AdapterDayjs}>*/}
+                {/*                        <Stack spacing={3}>*/}
+                {/*                            <DesktopDatePicker*/}
+                {/*                                label={t("startJob")}*/}
+                {/*                                inputFormat="MM/DD/YYYY"*/}
+                {/*                                value={date_end}*/}
+                {/*                                className="workEnd"*/}
+                {/*                                onChange={setDate_end}*/}
+                {/*                                renderInput={(params) => {*/}
+                {/*                                    return <TextField {...params} />*/}
+                {/*                                }}*/}
+                {/*                            />*/}
+                {/*                        </Stack>*/}
+                {/*                    </LocalizationProvider>*/}
+                {/*                </div>*/}
+                {/*                <Button className=" added" onClick={() => {*/}
+                {/*                    setCount(count + 1);*/}
+                {/*                }} variant="outlined"><ControlPointIcon/>{t("addWork")}</Button>*/}
 
-                            </div>
-                        </div>
+                {/*            </div>*/}
+                {/*        </div>*/}
 
-                    </div>
-                )}
+                {/*    </div>*/}
+                {/*)}*/}
                 <div className="next-page">
 
                     <div className="back-btn">

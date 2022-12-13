@@ -1,0 +1,85 @@
+.Profile-overview {
+  display: flex;
+
+  .profile-overview__sections {
+    padding: 0 20px;
+  }
+
+  .profile-overview__container {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 20px;
+  }
+}
+
+.profile-overview__page {
+  max-width: 100%;
+  min-width: calc(100% - 256px);
+  width: calc(100% - 256px);
+
+  .ant-layout-header {
+    height: inherit;
+    padding: 0;
+    background: inherit;
+    background: #ffffff;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.08);
+  }
+
+  .pencil {
+    display: flex;
+    flex-direction: column;
+    .pencilButton{
+      background: #FFA41D;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 10px 25px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      gap: 0 10px;
+      border: none!important;
+      margin-bottom: 30px;
+      margin-left: 31%;
+      color: white;
+    }
+
+  }
+
+  .stops{
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2B63C0;
+  }
+  .profileButton {
+    background: rgba(64, 220, 117, 0.4);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 10px 35px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    border: none !important;
+    color: white;
+    float: right;
+    margin-right: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+
+    &:hover {
+      color: white;
+      background: none;
+      border: none !important;
+    }
+  }
+
+
+}
+

@@ -98,7 +98,7 @@ function Profile() {
                 toast.success(response.data.Message);
             }
         }).catch((error) => {
-            toast.error(error.response?.data?.message)
+            // toast.error(error.response?.data?.message)
         })
 
     }

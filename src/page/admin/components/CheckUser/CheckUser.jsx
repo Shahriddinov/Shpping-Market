@@ -1,10 +1,7 @@
 import {useTranslation} from "react-i18next";
-import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
-import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
-import userPic from "../../assets/images/userPicture.jpg";
-import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
+// import userPic from "../../../../assets/images/userPicture.jpg";
 import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
-import "./ProfileOverview.scss";
+import "./checkuser.scss";
 import OneEducation from "./components/OneEducation/oneEducation";
 
 import Stack from "@mui/material/Stack";
@@ -18,11 +15,19 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 import {useNavigate} from "react-router";
 import JobAbout from "./components/JobAbout/jobAbout";
+import ProfileSidebar from "../../../../components/ProfileSidebar/ProfileSidebar";
+import ProfileHeader from "../../../../components/ProfileHeader/ProfileHeader";
+import ProfileNavbar from "../../../../components/ProfileNavbar/ProfileNavbar";
+import CloseIcon from "@mui/icons-material/Close";
+import axios from "axios";
+import {baseApi} from "../../../../services/api";
+import {toast} from "react-toastify";
+import {useParams} from "react-router-dom";
 
-function ProfileOverview() {
+function CheckUser() {
     const {t, i18n} = useTranslation();
     const navigate = useNavigate();
-
+    const {id} = useParams()
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
         localStorage.setItem("lng", lng);
@@ -40,6 +45,37 @@ function ProfileOverview() {
             children,
             label,
         };
+    }
+
+
+
+    function CheckMessage(req) {
+        let checkM={}
+        if (req){
+            checkM= {
+                user_id: Number(id),
+                permission:"passed",
+                message:"sen utding"
+            }
+        } else {
+            checkM= {
+                user_id: Number(id),
+                permission:"failed",
+                message:"sen utaolmading"
+            }
+        }
+        console.log(typeof Number(id))
+        axios.post(`${baseApi}/checkUser`, checkM, {
+            headers: {
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then((response)=>{
+
+
+            toast.success(response.data.message)
+
+            console.log(response)
+        })
     }
     const userInformations = {
         userName: "Botirov Asadbek",
@@ -64,29 +100,21 @@ function ProfileOverview() {
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar title={t("profile")}/>
                     <div className="profile-overview__sections">
-                        <PersonalInfo imageURL={userPic} obj={userInformations}/>
+                        <PersonalInfo  obj={userInformations}/>
                         <OneEducation obj={userInformations}/>
                         {/*<OneEducation obj={userInformations}/>*/}
                         <JobAbout/>
                         {/*<JobAbout/>*/}
                         <AdvancedTraining/>
                         {/*<AdvancedTraining/>*/}
-                        <div className="next-page">
-                            <div className="next-btn">
-                                {/*<button>Продолжить</button>*/}
-                                <Stack spacing={2} direction="row">
-                                    <div className="pencil">
-                                        <Button className="pencilButton" href="/profile" variant="text">
-                                            <BorderColorIcon fontSize="small"/>
-                                            Редактировать
-                                        </Button>
-                                        <Button className="profileButton" href={`/direction/${localStorage.getItem("userId")}`}
-                                                style={{backgroundColor: "#0FBE7B"}}
-                                                variant="text"> <span className="icon"><CheckCircleOutlineIcon
-                                            fontSize="small"/></span> Соответствует</Button>
-                                    </div>
-                                </Stack>
-                            </div>
+                        <div className="stops">Информация соответствует требованиям?</div>
+                        <div className="d-flex align-items-center justify-content-center">
+                            <Button onClick={()=>CheckMessage(false)} className="profileButton" style={{backgroundColor: "#2B63C0"}}
+                                    variant="text"> <span className="icon"><CloseIcon
+                                fontSize="small"/></span> Нет</Button>
+                            <Button  onClick={()=>CheckMessage(true)} className="profileButton"  style={{backgroundColor: "#0FBE7B"}}
+                                     variant="text"> <span className="icon"><CheckCircleOutlineIcon
+                                fontSize="small"/></span> Да</Button>
                         </div>
                     </div>
                 </section>
@@ -95,4 +123,4 @@ function ProfileOverview() {
     );
 }
 
-export default ProfileOverview;
+export default CheckUser;

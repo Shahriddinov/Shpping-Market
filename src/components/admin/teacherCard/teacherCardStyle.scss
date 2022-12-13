@@ -33,31 +33,34 @@
     color: #333333;
     margin-bottom: 24px;
   }
-    .d-flex{
+    .persons{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 220px;
       h5{
         font-size: 16px;
       }
-      div:nth-child(2){
-        margin-left: 40px;
+
         h5{
           color: #8C8C8C;
-          margin-bottom: 12px;
+          //margin-bottom: 12px;
         }
-        .score{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 121px;
-          height: 48px;
-          background-color: #EAF0F9;
-          color: #2B63C0;
-          border-radius: 8px;
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 24px;
-          margin: 0;
-        }
-      }
+
+    }
+    .score{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 121px;
+      height: 48px;
+      background-color: #EAF0F9;
+      color: #2B63C0;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      margin: 0;
     }
     }
 }

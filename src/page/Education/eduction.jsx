@@ -67,7 +67,7 @@ const Education = () => {
             }
 
         }).catch((error) => {
-            toast.error(error.response?.data?.message)
+            // toast.error(error.response?.data?.message)
 
         })
     }
@@ -162,102 +162,102 @@ const Education = () => {
                                         />
                                     </Stack>
                                 </LocalizationProvider>
-                                <Button className=" added" onClick={() => {
-                                    setCount(count + 1);
-                                }} variant="outlined"><ControlPointIcon/>{t("addEduc")}</Button>
+                                {/*<Button className=" added" onClick={() => {*/}
+                                {/*    setCount(count + 1);*/}
+                                {/*}} variant="outlined"><ControlPointIcon/>{t("addEduc")}</Button>*/}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div>{count.length > 0 && (
-                    <div className="formBox">
-                        <div className="infoEdu">
-                            <h3 className="title">{t("aboutEducation")}</h3>
-                            <div className="side-by-side">
-                                <div className="leftSide">
-                                    <Box sx={{mt: 1, minWidth: "500px"}}>
-                                        <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>
-                                            <Select
-                                                labelId="demo-simple-select-label"
-                                                id="demo-simple-select"
-                                                className="mb-4"
-                                                label={t("region")}
-                                                onChange={(e) => setRegion_id(e.target.value)}
-                                            >
-                                                <MenuItem value={1}>Ташкент</MenuItem>
-                                                <MenuItem value={2}>Andijan</MenuItem>
-                                                <MenuItem value={3}>Bukhara</MenuItem>
-                                                <MenuItem value={4}>Jizzakh</MenuItem>
-                                                <MenuItem value={5}>Kashkadarya</MenuItem>
-                                                <MenuItem value={6}>Navoi</MenuItem>
-                                                <MenuItem value={7}>Namangan</MenuItem>
-                                                <MenuItem value={8}>Samarkand</MenuItem>
-                                                <MenuItem value={9}>Sirdarya</MenuItem>
-                                                <MenuItem value={10}>Surkhandarya</MenuItem>
-                                                <MenuItem value={11}>Fergana</MenuItem>
-                                                <MenuItem value={12}>Khorezm</MenuItem>
-                                            </Select>
-                                        </FormControl>
-                                    </Box>
-                                    <Box sx={{mt: 1, minWidth: "500px"}}>
-                                        <TextField
-                                            label={t("institution")}
-                                            name="institution"
-                                            type="text"
-                                            style={{width: "550px"}}
-                                            className="city mb-4"
-                                            onChange={(e) => setEducation_name(e.target.value)}
-                                        />
-                                    </Box>
-                                    <Box sx={{mt: 1, minWidth: "500px"}}>
-                                        <TextField
-                                            label={t("speciality")}
-                                            name="speciality"
-                                            type="text"
-                                            style={{width: "550px"}}
-                                            className="city mb-4"
-                                            onChange={(e) => setSpecialization(e.target.value)}
-                                        />
-                                    </Box>
-                                </div>
-                                <div className="rightSide" style={{width: "45%"}}>
-                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                        <Stack spacing={3}>
-                                            <DesktopDatePicker
-                                                className="mt-2 mb-4"
-                                                label={t("dateReceived")}
-                                                inputFormat="MM/DD/YYYY"
-                                                value={enter_date}
-                                                onChange={setEnter_date}
-                                                renderInput={(params) => {
-                                                    return <TextField {...params} />
-                                                }}
-                                            />
-                                        </Stack>
-                                    </LocalizationProvider>
-                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                        <Stack spacing={3}>
-                                            <DesktopDatePicker
-                                                className="mt-3 mb-4"
-                                                label={t("expirationDate")}
-                                                inputFormat="MM/DD/YYYY"
-                                                value={end_date}
-                                                onChange={setEnd_date}
-                                                renderInput={(params) => {
-                                                    return <TextField {...params} />
-                                                }}
-                                            />
-                                        </Stack>
-                                    </LocalizationProvider>
-                                    <Button className=" added" onClick={() => {
-                                        setCount(count + 1);
-                                    }} variant="outlined"><ControlPointIcon/>{t("addEduc")}</Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}</div>
+                {/*<div>{count.length > 0 && (*/}
+                {/*    <div className="formBox">*/}
+                {/*        <div className="infoEdu">*/}
+                {/*            <h3 className="title">{t("aboutEducation")}</h3>*/}
+                {/*            <div className="side-by-side">*/}
+                {/*                <div className="leftSide">*/}
+                {/*                    <Box sx={{mt: 1, minWidth: "500px"}}>*/}
+                {/*                        <FormControl fullWidth>*/}
+                {/*                            <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>*/}
+                {/*                            <Select*/}
+                {/*                                labelId="demo-simple-select-label"*/}
+                {/*                                id="demo-simple-select"*/}
+                {/*                                className="mb-4"*/}
+                {/*                                label={t("region")}*/}
+                {/*                                onChange={(e) => setRegion_id(e.target.value)}*/}
+                {/*                            >*/}
+                {/*                                <MenuItem value={1}>Ташкент</MenuItem>*/}
+                {/*                                <MenuItem value={2}>Andijan</MenuItem>*/}
+                {/*                                <MenuItem value={3}>Bukhara</MenuItem>*/}
+                {/*                                <MenuItem value={4}>Jizzakh</MenuItem>*/}
+                {/*                                <MenuItem value={5}>Kashkadarya</MenuItem>*/}
+                {/*                                <MenuItem value={6}>Navoi</MenuItem>*/}
+                {/*                                <MenuItem value={7}>Namangan</MenuItem>*/}
+                {/*                                <MenuItem value={8}>Samarkand</MenuItem>*/}
+                {/*                                <MenuItem value={9}>Sirdarya</MenuItem>*/}
+                {/*                                <MenuItem value={10}>Surkhandarya</MenuItem>*/}
+                {/*                                <MenuItem value={11}>Fergana</MenuItem>*/}
+                {/*                                <MenuItem value={12}>Khorezm</MenuItem>*/}
+                {/*                            </Select>*/}
+                {/*                        </FormControl>*/}
+                {/*                    </Box>*/}
+                {/*                    <Box sx={{mt: 1, minWidth: "500px"}}>*/}
+                {/*                        <TextField*/}
+                {/*                            label={t("institution")}*/}
+                {/*                            name="institution"*/}
+                {/*                            type="text"*/}
+                {/*                            style={{width: "550px"}}*/}
+                {/*                            className="city mb-4"*/}
+                {/*                            onChange={(e) => setEducation_name(e.target.value)}*/}
+                {/*                        />*/}
+                {/*                    </Box>*/}
+                {/*                    <Box sx={{mt: 1, minWidth: "500px"}}>*/}
+                {/*                        <TextField*/}
+                {/*                            label={t("speciality")}*/}
+                {/*                            name="speciality"*/}
+                {/*                            type="text"*/}
+                {/*                            style={{width: "550px"}}*/}
+                {/*                            className="city mb-4"*/}
+                {/*                            onChange={(e) => setSpecialization(e.target.value)}*/}
+                {/*                        />*/}
+                {/*                    </Box>*/}
+                {/*                </div>*/}
+                {/*                <div className="rightSide" style={{width: "45%"}}>*/}
+                {/*                    <LocalizationProvider dateAdapter={AdapterDayjs}>*/}
+                {/*                        <Stack spacing={3}>*/}
+                {/*                            <DesktopDatePicker*/}
+                {/*                                className="mt-2 mb-4"*/}
+                {/*                                label={t("dateReceived")}*/}
+                {/*                                inputFormat="MM/DD/YYYY"*/}
+                {/*                                value={enter_date}*/}
+                {/*                                onChange={setEnter_date}*/}
+                {/*                                renderInput={(params) => {*/}
+                {/*                                    return <TextField {...params} />*/}
+                {/*                                }}*/}
+                {/*                            />*/}
+                {/*                        </Stack>*/}
+                {/*                    </LocalizationProvider>*/}
+                {/*                    <LocalizationProvider dateAdapter={AdapterDayjs}>*/}
+                {/*                        <Stack spacing={3}>*/}
+                {/*                            <DesktopDatePicker*/}
+                {/*                                className="mt-3 mb-4"*/}
+                {/*                                label={t("expirationDate")}*/}
+                {/*                                inputFormat="MM/DD/YYYY"*/}
+                {/*                                value={end_date}*/}
+                {/*                                onChange={setEnd_date}*/}
+                {/*                                renderInput={(params) => {*/}
+                {/*                                    return <TextField {...params} />*/}
+                {/*                                }}*/}
+                {/*                            />*/}
+                {/*                        </Stack>*/}
+                {/*                    </LocalizationProvider>*/}
+                {/*                    <Button className=" added" onClick={() => {*/}
+                {/*                        setCount(count + 1);*/}
+                {/*                    }} variant="outlined"><ControlPointIcon/>{t("addEduc")}</Button>*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*)}</div>*/}
 
                 <div className="NextPrev">
                     <Stack spacing={2} direction="row">

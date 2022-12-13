@@ -1,0 +1,24 @@
+.avatar{
+  position: relative;
+  .defaultImg{
+
+    width: 70px;
+    height: 70px;
+    border-radius: 50% ;
+    padding: 2px;
+    background: linear-gradient(to left, #2B63C0, #154BA6);
+  }
+  .avatarLabel{
+    width:20px;
+    height:20px;
+    cursor: pointer;
+    margin-top: 30px;
+    position: absolute;
+    right: 0.1px;
+    bottom: 1px;
+    .InputAvatar{
+      display: none;
+    }
+
+  }
+}
