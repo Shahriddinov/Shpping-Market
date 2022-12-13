@@ -26,11 +26,18 @@
     color: #333333;
   }
 
-  .Box{
+  .Box {
     margin: 0 24px 0 20px;
 
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      .stepFilter{
+        width: 45% !important;
+      }
+    }
 
-    .destination{
+    .destination {
       width: 100%;
       background: #FFFFFF;
       box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
@@ -39,7 +46,7 @@
       box-sizing: border-box;
       margin-bottom: 24px;
 
-      &-title{
+      &-title {
         font-weight: 600;
         font-size: 20px;
         line-height: 23px;
@@ -47,7 +54,7 @@
         margin-bottom: 24px;
       }
 
-      .dest-direct{
+      .dest-direct {
         width: 100%;
         margin-left: 10px;
         padding: 20px 20px 26px;
@@ -56,7 +63,7 @@
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
         border-radius: 8px;
 
-        h5{
+        h5 {
           font-weight: 600;
           font-size: 20px;
           line-height: 150%;
@@ -64,7 +71,7 @@
           margin-bottom: 50px;
         }
 
-        p{
+        p {
           font-weight: 400;
           font-size: 20px;
           line-height: 24px;
@@ -73,12 +80,13 @@
         }
       }
 
-      .directions{
+      .directions {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
-        .directItem{
+        justify-content: space-between;
+
+        .directItem {
           width: 48%;
           height: 242px;
           margin-bottom: 2%;
@@ -91,18 +99,18 @@
           flex-direction: column;
           justify-content: space-between;
 
-          &:hover{
+          &:hover {
             border: 1px solid #2B63C0;
           }
 
-          h5{
+          h5 {
             font-weight: 600;
             font-size: 20px;
             line-height: 150%;
             color: rgba(0, 0, 0, 0.8);
           }
 
-          p{
+          p {
             font-weight: 400;
             font-size: 20px;
             line-height: 24px;
@@ -113,13 +121,14 @@
       }
     }
 
-    .DownloadFile{
+    .DownloadFile {
       margin-top: 40px;
       padding-bottom: 27px;
       display: flex;
       justify-content: right;
       cursor: pointer;
-      .downloadItem{
+
+      .downloadItem {
         width: 120px;
         margin-left: 54.17px;
         font-weight: 400;
@@ -200,11 +209,12 @@
             width: 100%;
             overflow-y: auto;
             display: flex;
+            justify-content: space-around;
             align-items: center;
             flex-wrap: wrap;
 
             .pdf-own {
-              width: 342px;
+              width: 80%;
               height: 135px;
               display: flex;
               padding: 17px;
@@ -244,7 +254,8 @@
         }
       }
     }
-    .label-text{
+
+    .label-text {
       font-weight: 600;
       font-size: 16px;
       line-height: 24px;
@@ -254,6 +265,7 @@
 
 
   }
+
   .teachCards {
     display: flex;
     width: 100%;
@@ -269,91 +281,109 @@
     &:hover {
       border: 1px solid #2B63C0;
     }
+
     .leftUser,
-    .RightUser{
+    .RightUser {
       width: 50%;
       //border: 2px solid black;
     }
-    .leftUser{
+
+    .leftUser {
       //display: flex;
       //flex-direction: row;
       gap: 20px;
-      .userImg{
-        width: 60px;
-        height: 60px;
+
+      .userImg {
+        width: 12%;
+        height: 12%;
         border-radius: 50%;
       }
-      .userName{
-        width: 330px;
-        height: 45px;
+
+      .userName {
+        width: 80%;
+        height: 80%;
         padding: 10px;
+        display: flex;
+        align-items: center;
         margin-top: 10px;
         background: #FFFFFF;
         border: 0.5px solid rgba(173, 173, 173, 0.8);
         border-radius: 8px;
       }
-      .gender{
+
+      .gender {
         font-weight: 500;
         font-size: 15px;
         line-height: 18px;
         color: #2B63C0;
         margin-top: 20px;
       }
-      .info{
+
+      .info {
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
         color: #333333;
         margin-top: 20px;
       }
-      .textarea{
+
+      .textarea {
         background: #FFFFFF;
         border: 0.5px solid rgba(173, 173, 173, 0.8);
         border-radius: 8px;
-        width: 415px;
-        height: 136px;
+        width: 83%;
+        height: 25%;
         margin-top: 20px;
         padding: 10px;
       }
-      .textsa{
+
+      .textsa {
         background: #FFFFFF;
         border: 0.5px solid rgba(173, 173, 173, 0.8);
         border-radius: 8px;
         margin-top: 20px;
         padding: 10px;
-        width: 415px;
-        height: 45px;
+        width: 83%;
+        height: 10%;
+        display: flex;
+        align-items: center;
       }
     }
-    .RightUser{
-      .RightInfo{
+
+    .RightUser {
+      .RightInfo {
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
         color: #333333;
       }
-      .RightTextsa{
+
+      .RightTextsa {
         background: #FFFFFF;
         border: 0.5px solid rgba(173, 173, 173, 0.8);
         border-radius: 8px;
         margin-top: 10px;
         padding: 10px;
-        width: 415px;
-        height: 45px;
+        width: 80%;
+        height: 10%;
+        display: flex;
+        align-items: center;
       }
-      .RightInfos{
+
+      .RightInfos {
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
         color: #333333;
         margin-top: 12%;
       }
-      .scores{
+
+      .scores {
         display: flex;
         justify-content: center;
         align-items: center;
         width: auto;
-        padding: 10px;
+        padding: 15px;
         height: 48px;
         background-color: #EAF0F9;
         color: #2B63C0;

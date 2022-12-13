@@ -170,20 +170,21 @@ const Direction = () => {
 
                         <div>
                             {count &&
-                            <div className="d-flex justify-content-between">
+                            <div className="filters">
                                 <Autocomplete
                                     disablePortal
                                     id="combo-box-demo"
                                     options={Filters}
+                                    className="stepFilter"
                                     onChange={(event, value) => setFilterType(value.val)}
-                                    sx={{width: 560}}
+                                    // sx={{width: 560}}
                                     renderInput={(params) => <TextField {...params} label="Filter"/>}
                                 />
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <DatePicker
                                         label="Filter Data"
                                         value={value}
-                                        style={{width: "500px"}}
+                                        className="stepFilter"
                                         onChange={(newValue) => dataValue(newValue)}
                                         renderInput={(params) => <TextField style={{width: "500px"}}  {...params} />}
                                     />
@@ -243,8 +244,7 @@ const Direction = () => {
 
                                                             }
                                                         ) : teacher?.map((item, index) => {
-                                                                return <div key={index.toString()} style={{margin: 0}}>
-                                                                    {console.log(item)}
+                                                                return <div key={index.toString()} style={{margin: 0, width:"45%"}}>
                                                                     <div className="teachCard"
                                                                          onClick={() => {
                                                                              directionUserid(item.user_id)
@@ -311,7 +311,7 @@ const Direction = () => {
                                     <img className="userImg"
                                          src={usersId.avatar ? `https://sport.napaautomotive.uz/storage/${usersId.avatar}` : Imgs}
                                          alt="No img"/>
-                                    <div>
+                                    <div className="w-100">
                                         <div>ФИО</div>
                                         <div className="userName">{usersId?.user_name}</div>
                                     </div>
@@ -341,13 +341,13 @@ const Direction = () => {
 
                                 </div>
                                 <div
-                                    className="RightTextsa"> {usersId?.education_specialization?.specialization_uz ?? usersId?.education_specialization?.specialization_ru ?? usersId?.education_specialization?.specialization_en}</div>
-                                <div className="RightInfos">
+                                    className="RightTextsa" > {usersId?.education_specialization?.specialization_uz ?? usersId?.education_specialization?.specialization_ru ?? usersId?.education_specialization?.specialization_en}</div>
+                                <div className="RightInfos" style={{marginTop:"5%"}}>
                                     Название направления
                                 </div>
                                 <div
                                     className="RightTextsa"> {usersId?.education_specialization?.specialization_uz ?? usersId?.education_specialization?.specialization_ru ?? usersId?.education_specialization?.specialization_en}</div>
-                                <div className="d-flex mt-3 gap-2">
+                                <div className="d-flex gap-2" style={{marginTop:"5%"}}>
                                     <div className="scores">Женщина с ребенком</div>
                                     <div className="scores">Годен</div>
                                 </div>
@@ -361,7 +361,7 @@ const Direction = () => {
                                         fontSize: 16,
                                         width: 270,
                                         height: 48,
-                                        marginTop: "24%"
+                                        marginTop: "25%"
                                     }} variant="contained"> <span
                                         style={{marginRight: 15}}><CheckCircleOutlineIcon
                                         fontSize="small"/></span> Перейти в профиль</Button>
