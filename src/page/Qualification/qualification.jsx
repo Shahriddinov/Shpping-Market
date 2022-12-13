@@ -118,8 +118,8 @@ function Qualification() {
                                     label={t("direction")}
                                     name="direction"
                                     type="text"
-                                    style={{width: "538px"}}
-                                    className="city"
+
+                                    className="city w-100"
                                     onChange={(e) => setDirection(e.target.value)}
                                 />
                             </Box>
@@ -153,7 +153,7 @@ function Qualification() {
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <Stack spacing={3}>
                                     <DesktopDatePicker
-                                        className="form-control formData"
+                                        className="schedule"
                                         label={t("date")}
                                         inputFormat="MM/DD/YYYY"
                                         value={date_start}
@@ -168,11 +168,11 @@ function Qualification() {
 
                     </div>
                     <div className="d-flex  justify-content-between">
-                        <div>
+                        <div style={{width:"47%"}}>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <Stack spacing={3}>
                                     <DesktopDatePicker
-                                        className=" startDate mt-2"
+                                        className=" startDate mt-2 w-100"
                                         label={t("date")}
                                         inputFormat="MM/DD/YYYY"
                                         value={date_end}

@@ -58,7 +58,10 @@
     display: flex;
     justify-content: space-between;
     //gap: 32px;
-
+    .left-form,
+    .right-form{
+      width: 48%;
+    }
     label{
       display: block;
       //font-family: 'Roboto';

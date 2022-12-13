@@ -16,6 +16,8 @@
     .link-item{
       padding: 8px 35px;
       box-sizing: border-box;
+      display: flex;
+      justify-content: center;
       border-right: 1px white solid;
       &:last-child{
         border:0;
@@ -52,7 +54,11 @@
     font-weight: 900;
     font-size: 45px;
     line-height: 150%;
-    padding:0  10%;
+    display: flex;
+    justify-content: center;
+    left: 10%;
+    right: 10%;
+    //padding:0  10%;
     text-align: center;
     color: #FFFFFF;
   }

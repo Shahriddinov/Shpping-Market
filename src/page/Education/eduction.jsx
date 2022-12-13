@@ -31,8 +31,8 @@ const Education = () => {
     const {t, i18n} = useTranslation();
     const [count, setCount] = useState('');
     const [region_id, setRegion_id] = useState('');
-    const [enter_date, setEnter_date] = React.useState(dayjs('2014-08-18T21:11:54'));
-    const [end_date, setEnd_date] = React.useState(dayjs('2014-08-18T21:11:54'));
+    const [enter_date, setEnter_date] = React.useState(dayjs('2014-08-18'));
+    const [end_date, setEnd_date] = React.useState(dayjs('2014-08-18'));
     const [education_name, setEducation_name] = useState('');
     const [specialization, setSpecialization] = useState('');
     const navigate = useNavigate();
@@ -86,7 +86,7 @@ const Education = () => {
                     <div className="infoEdu">
                         <h3 className="title">{t("aboutEducation")}</h3>
                         <div className="side-by-side">
-                            <div className="leftSide">
+                            <div className="leftSide w-50">
                                 <Box sx={{mt: 1, minWidth: "500px"}}>
                                     <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>
@@ -112,23 +112,22 @@ const Education = () => {
                                         </Select>
                                     </FormControl>
                                 </Box>
-                                <Box sx={{mt: 1, minWidth: "500px"}}>
+                                <Box sx={{mt: 1}}>
                                     <TextField
                                         label={t("institution")}
                                         name="institution"
                                         type="text"
-                                        style={{width: "550px"}}
-                                        className="city mb-4"
+                                        // style={{width: "550px"}}
+                                        className="w-100 mb-4"
                                         onChange={(e) => setEducation_name(e.target.value)}
                                     />
                                 </Box>
-                                <Box sx={{mt: 1, minWidth: "500px"}}>
+                                <Box sx={{mt: 1}}>
                                     <TextField
                                         label={t("speciality")}
                                         name="speciality"
                                         type="text"
-                                        style={{width: "550px"}}
-                                        className="city mb-4"
+                                        className="w-100 mb-4"
                                         onChange={(e) => setSpecialization(e.target.value)}
                                     />
                                 </Box>

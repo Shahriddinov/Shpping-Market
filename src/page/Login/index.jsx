@@ -1,3 +1,3 @@
-import Passports from "./passports";
+import Passports from "./components/Passport/passports";
 
 export default Passports
