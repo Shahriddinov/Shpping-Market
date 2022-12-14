@@ -78,7 +78,7 @@ function ProfileSidebar({ items, userName, userPic }) {
         items={[
           {
             label: t("profile"),
-            key: "/profile",
+            key: `/profileOver/${id}`,
             icon: <AccountCircleIcon />,
             // [
             //     {label: t("directions"), key: "/directions"},
