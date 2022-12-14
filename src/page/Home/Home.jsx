@@ -1,25 +1,25 @@
-import React, {useState} from 'react';
-import {useTranslation} from "react-i18next";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./home.scss";
 import Home1 from "../../assets/images/home1.svg";
 import Home2 from "../../assets/images/home2.svg";
 import Home3 from "../../assets/images/home3.svg";
 import Home4 from "../../assets/images/home4.svg";
-import Bahodir from  "../../assets/images/bahodir.svg";
+import Bahodir from "../../assets/images/bahodir.svg";
 import Akbar from "../../assets/images/akbar.svg";
 import Ulugbek from "../../assets/images/ulugbek.svg";
 import Bekzod from "../../assets/images/bekzod.svg";
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import MainProfile from "./components/MainProfile/mainProfile";
 import Layout from "../../components/Layout/Layout";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import ReactPlayer from "react-player";
 import App from "../../components/Carousel/carousel";
 
 
 
 const Home = () => {
-    const {t} = useTranslation();
+  const { t } = useTranslation();
 
     return (
         <>
@@ -49,15 +49,15 @@ const Home = () => {
                         {t("homeTitle")}
                     </div>
 
-                    <div className="buttons">
-                        <Button href="/passport" variant="outlined" className="homeButton">
-                            {t("loginIn")}
-                        </Button>
-                        <Button href="/loginIn" variant="outlined" className="homeButton">
-                            {t("welcome")}
-                        </Button>
-                    </div>
-                </div>
+          <div className="buttons">
+            <Button href="/passport" variant="outlined" className="homeButton">
+              {t("loginIn")}
+            </Button>
+            <Button href="/loginIn" variant="outlined" className="homeButton">
+              {t("welcome")}
+            </Button>
+          </div>
+        </div>
 
                 <div className="container">
                     <div className="Categories">
