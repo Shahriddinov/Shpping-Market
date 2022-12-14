@@ -63,10 +63,13 @@ const InformationAllPdf = (props) => {
     localStorage.setItem("lng", lng);
   };
 
+  const language = localStorage.getItem("lng");
+
   const allScoreData = allScore?.reduce(
     (total, item) => (total += item?.score),
     0
   );
+
   useEffect(() => {
     axios
       .get(`${baseApi}/allScoreWithUserId/${id}`, {
@@ -75,9 +78,8 @@ const InformationAllPdf = (props) => {
         },
       })
       .then((response) => {
-        console.log("ALL SCORE", response?.data?.all_score_user);
         setAllScore(response?.data?.all_score_user);
-        toast.success("ALL Score is fetched");
+        // toast.success("ALL Score is fetched");
       })
       .catch((error) => {
         toast.error(error.response?.data?.message);
@@ -226,25 +228,29 @@ const InformationAllPdf = (props) => {
           </div>
           <div className="pdf">
             <div className="advancedTrain row">
-              {mainPdf?.map((item, index) => (
-                <div
-                  className="col-6  d-flex justify-content-between"
-                  key={index.toString()}
-                >
-                  <div className="pdfLeft w-100">
-                    <div className="pdfText">
-                      {item.direction_name.category_ru ??
-                        item.direction_name.category_en ??
-                        item.direction_name.category_uz}
-                    </div>
-                    <div className="imgPdf">
-                      {!item.pdf || (
-                        <img src={PDF} alt="" style={{ marginTop: "20%" }} />
-                      )}
+              {mainPdf?.map((item, index) => {
+                const fileName =
+                  language === "uz"
+                    ? item.direction_name.category_uz
+                    : language === "ru"
+                    ? item.direction_name.category_ru
+                    : item.direction_name.category_en;
+                return (
+                  <div
+                    className="col-6  d-flex justify-content-between"
+                    key={index.toString()}
+                  >
+                    <div className="pdfLeft w-100">
+                      <div className="pdfText">{fileName}</div>
+                      <div className="imgPdf">
+                        {!item.pdf || (
+                          <img src={PDF} alt="" style={{ marginTop: "20%" }} />
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
           <Button
