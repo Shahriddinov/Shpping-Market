@@ -38,8 +38,7 @@ const InformationAllPdf = (props) => {
     axios
       .get(`${baseApi}/allData/` + id)
       .then((response) => {
-        console.log(response.data);
-        setUserPhoto(response.data.user_avatar.photo);
+        setUserPhoto(response?.data?.user_avatar?.photo);
         setUserName(response.data.user_personal_info.full_name);
         setUserEmail(response.data.user_personal_info.email);
         setUserPhone(response.data.user_personal_info.phone);
@@ -167,7 +166,7 @@ const InformationAllPdf = (props) => {
                       <img
                         className="userPhoto"
                         src={
-                          userPhoto !== "null"
+                          userPhoto
                             ? `https://sport.napaautomotive.uz/storage/${userPhoto}`
                             : Imgs
                         }
