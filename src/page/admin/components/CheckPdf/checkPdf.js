@@ -19,6 +19,7 @@ import Footer from "../../../../components/Layout/Footer/Footer";
 import ProfileSidebarAdmin from "../../../../components/admin/profileSidebarAdmin/profileSidebarAdmin";
 import CloseIcon from '@mui/icons-material/Close';
 import 'react-toastify/dist/ReactToastify.css';
+import {useNavigate} from "react-router";
 
 function CheckPdf(props) {
     const {t, i18n} = useTranslation();
@@ -32,7 +33,9 @@ function CheckPdf(props) {
     const [userEmail, setUserEmail] = useState('');
     const [userPhone, setUserPhone] = useState('');
     const [scores, setScores] = useState('');
-    const [mainPdf, setMainPdf] = useState([])
+    const [mainPdf, setMainPdf] = useState([]);
+    const navigate = useNavigate();
+
     // const [message, setMessage] = useState('');
     // const [permission, setPermission] = useState('')
     useEffect(() => {
@@ -101,12 +104,14 @@ function CheckPdf(props) {
             }
         }
         console.log(typeof Number(id))
-        axios.post(`${baseApi}/checkUser`, checkM, {
+        axios.post(`${baseApi}/portfolioUser`, checkM, {
             headers: {
                 "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
         }).then((response)=>{
-
+            if (response.data.status === 'ok'){
+                navigate(`/adminProfile/checkInfo/${id}`);
+            }
 
             toast.success(response.data.message)
 

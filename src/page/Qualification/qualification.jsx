@@ -154,7 +154,7 @@ function Qualification() {
                                 <Stack spacing={3}>
                                     <DesktopDatePicker
                                         className="schedule"
-                                        label={t("date")}
+                                        label={t("data_end")}
                                         inputFormat="MM/DD/YYYY"
                                         value={date_start}
                                         onChange={setDate_start}

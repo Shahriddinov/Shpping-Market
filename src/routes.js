@@ -22,6 +22,7 @@ const Direction = lazy(() => import("./page/Direction/direction"));
 const AllPdf = lazy(() => import("./page/InformationAllPdf/informationAllPdf"));
 const CheckPdf = lazy(()=> import('./page/admin/components/CheckPdf/checkPdf'))
 const CheckUser = lazy(()=> import('./page/admin/components/CheckUser/CheckUser'))
+const CheckInfo = lazy(()=> import('./page/admin/components/CheckAllInformation/checkAllInformation'))
 
 
 const routes = [
@@ -96,6 +97,10 @@ const routes = [
     {
         path: '/adminProfile/checkUser/:id',
         element: CheckUser,
+    },
+    {
+        path: '/adminProfile/checkInfo/:id',
+        element: CheckInfo,
     }
 
 

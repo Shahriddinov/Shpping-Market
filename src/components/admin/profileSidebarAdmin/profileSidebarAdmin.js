@@ -65,32 +65,32 @@ function ProfileSidebarAdmin({userPic}) {
                 defaultSelectedKeys={["1"]}
                 mode="inline"
                 items={[
-                    {
-                        label: t("profile"), key:"/profile", icon: <AccountCircleIcon/>
-                        // [
-                        //     {label: t("directions"), key: "/directions"},
-                        //         {label: t("statistics"), key: "/statistics"}
-                        //
-                        //     ]
-
-                    },
+                    // {
+                    //     label: t("profile"), key:"/profile", icon: <AccountCircleIcon/>
+                    //     // [
+                    //     //     {label: t("directions"), key: "/directions"},
+                    //     //         {label: t("statistics"), key: "/statistics"}
+                    //     //
+                    //     //     ]
+                    //
+                    // },
                     {
                         label:t("gallery"), key:`/adminProfile`, icon:<HomeIcon/>
                     },
                     {
-                        label:t("portfolio"), key:`/adminProfile/check/${localStorage.getItem("userId")}`, icon:<SdCardIcon/>
+                        label:t("portfolio"), key:`/adminProfile/checkUser/${localStorage.getItem("userId")}`, icon:<SdCardIcon/>
+                    },
+                    // {
+                    //     label:t("login"), key:"/loginIn", icon:<LoginIcon/>
+                    // },
+                    // {
+                    //     label:t("setting"), key:"/setting", icon:<SettingsIcon/>
+                    // },
+                    {
+                        label: t("directions"), key: `/adminProfile/checkPdf/${localStorage.getItem("userId")}`, icon:<ApartmentOutlined />
                     },
                     {
-                        label:t("login"), key:"/loginIn", icon:<LoginIcon/>
-                    },
-                    {
-                        label:t("setting"), key:"/setting", icon:<SettingsIcon/>
-                    },
-                    {
-                        label: t("directions"), key: `/direction/${localStorage.getItem("userId")}`, icon:<ApartmentOutlined />
-                    },
-                    {
-                        label: t("statistics"), key: `/allInfo/${localStorage.getItem("userId")}`, icon:<SettingsIcon/>
+                        label: t("statistics"), key: `/adminProfile/checkInfo/${localStorage.getItem("userId")}`, icon:<SettingsIcon/>
                     }
 
                 ]}

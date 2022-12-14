@@ -48,17 +48,18 @@ function OneEducation({obj}) {
     }
 
     async function getAllData (){
-        axios.get(`${baseApi}/allData/` + id, {
+        axios.get(`${baseApi}/user_in_direction/` + id, {
             headers: {
                 "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
         }).then((response) => {
-            // console.log(response.data.pending)
-            setRegionOne(response.data.user_education[0].region_id)
-            setEducation(response.data.user_education[0])
-            setSpecialization(response.data.user_education[0])
-            setStartData(response.data.user_education[0].enter_date)
-            setEndData(response.data.user_education[0].end_date)
+            // console.log(response.data.user[0].education[0].region_id)
+            setRegionOne(response.data.user[0].education[0].region_id)
+            console.log(response.data.user[0].education[0].region_id)
+            setEducation(response.data.user[0].education[0])
+            setSpecialization(response.data.user[0].education[0])
+            setStartData(response.data.user[0].education[0].enter_date)
+            setEndData(response.data.user[0].education[0].end_date)
 
         })
     }

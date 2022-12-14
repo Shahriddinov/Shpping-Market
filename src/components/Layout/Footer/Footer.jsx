@@ -3,6 +3,8 @@ import {useTranslation} from "react-i18next";
 import FooterLogo from "../../../assets/images/logo.svg";
 import FooterImg from "../../../assets/images/footer.svg"
 import "../../../assets/footer.scss"
+import {Link} from "react-router-dom";
+import Napa from "../../../assets/images/developmentNAPA.png"
 
 const Footer = () => {
     const {t} = useTranslation();
@@ -26,14 +28,17 @@ const Footer = () => {
                    <div className="d-flex">
                        <div className="footerConnect">
                            <div className="connectTitle">{t("footerInfo")}</div>
-                           <div className="connectText">+998 90 000 00 00</div>
-                           <div className="connectText">test02@gmail.com</div>
+                           <div className="connectText">+998 71 242-30-87</div>
+                           <div className="connectText">institut@sportedu.uz</div>
                            <div className="connectTitle mt-3">{t("helps")}</div>
-                           <div className="connectText">{t("learning")}</div>
+                           <div className="connectText">Toshkent shahar, Shayxontohur tumani,
+                               Ko‘kcha darvoza ko‘chasi,27 uy</div>
                        </div>
                        <div className="footerInfo">
                            <div className="infoTitle">{t("companyInfo")}</div>
+                           <Link to="/loginIn">
                            <div className="infoText">{t("profile")}</div>
+                           </Link>
                            <div className="infoText">{t("gallery")}</div>
                            <div className="infoText">{t("portfolio")}</div>
                            <div className="infoText">{t("login")}</div>

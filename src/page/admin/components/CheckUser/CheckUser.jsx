@@ -23,6 +23,7 @@ import axios from "axios";
 import {baseApi} from "../../../../services/api";
 import {toast} from "react-toastify";
 import {useParams} from "react-router-dom";
+import ProfileSidebarAdmin from "../../../../components/admin/profileSidebarAdmin/profileSidebarAdmin";
 
 function CheckUser() {
     const {t, i18n} = useTranslation();
@@ -70,7 +71,9 @@ function CheckUser() {
                 "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
         }).then((response)=>{
-
+            if (response.data.status === 'ok'){
+                navigate(`/adminProfile/checkPdf/${id}`);
+            }
 
             toast.success(response.data.message)
 
@@ -95,7 +98,7 @@ function CheckUser() {
         <>
             <section id="Profile-overview" className="Profile-overview">
                 <h1 className="visually-hidden">Profile Overview Page</h1>
-                <ProfileSidebar items userName={t(userInformations.userName)}/>
+                <ProfileSidebarAdmin items />
                 <section className="profile-overview__page">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar title={t("profile")}/>

@@ -27,22 +27,23 @@ const JobAbout = () => {
         setNation(event.target.value);
     };
     useEffect(() => {
-        axios.get(`${baseApi}/allData/` + id,{
+        axios.get(`${baseApi}/user_in_direction/` + id,{
             headers:{
                 "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
         }).then((response) => {
-            setDistricts(response.data.user_work[0].district);
-            setRegionOne(response.data.user_work[0].region_id)
+            // console.log(response.data.user[0].work[0]);
+            setDistricts(response.data.user[0].work[0].district);
+            setRegionOne(response.data.user[0].work[0].region_id)
 
-            setWorkPlace(response.data.user_work[0].work_place);
-            setWorkNumber(response.data.user_work[0].work_phone);
-            setWorkStart(response.data.user_work[0].date_start);
-            setFaculty(response.data.user_work[0].faculty);
-            setCafedra(response.data.user_work[0].cafedra);
-            setLevel(response.data.user_work[0].position);
-            setWorkName(response.data.user_work[0].work_name);
-            setWorkEnd(response.data.user_work[0].date_end);
+            setWorkPlace(response.data.user[0].work[0].work_place);
+            setWorkNumber(response.data.user[0].work[0].work_phone);
+            setWorkStart(response.data.user[0].work[0].date_start);
+            setFaculty(response.data.user[0].work[0].faculty);
+            setCafedra(response.data.user[0].work[0].cafedra);
+            setLevel(response.data.user[0].work[0].position);
+            setWorkName(response.data.user[0].work[0].work_name);
+            setWorkEnd(response.data.user[0].work[0].date_end);
 
         })
     }, [])

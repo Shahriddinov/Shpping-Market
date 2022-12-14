@@ -15,7 +15,7 @@ function PersonalInfo({obj, imageURL}) {
     const [allPasport, setAllPasport] = useState([]);
     const [allPasport_seria, setAllPasport_seria] = useState([]);
     const [education, setEducation] = useState([]);
-
+    const [educations, setEducations] = useState([]);
     const [email, setEmail] = useState('');
     const [national, setNational] = useState('');
     const [brithday, setBrithday] = useState('');
@@ -33,12 +33,14 @@ function PersonalInfo({obj, imageURL}) {
             setAllPasport(response.data.user[0].pasport_seria)
             setAllPasport_seria(response.data.user[0].pasport_seria_code)
             setEducation(response.data.user[0].education_specialization)
+            console.log(response.data.user[0].education_specialization)
             setEmail(response.data.user[0].email)
             setNational(response.data.user[0].nationality)
             setBrithday(response.data.user[0].birth_date)
             setPnfl(response.data.user[0].pnfl)
             setPhone(response.data.user[0].phone)
-
+            setEducations(response.data.user[0].education[0])
+            console.log(response.data.user[0].education[0])
         })
     }, [])
 
@@ -77,7 +79,7 @@ function PersonalInfo({obj, imageURL}) {
                         <div className="form-group">
                             <div className="personalNation">{t("Education")}</div>
                             <div className="nationInfo">
-                                {education.specialization_uz ?? education.specialization_en ?? education.specialization_ru ?? ""}
+                                {education.specialization_uz ?? education.specialization_en ?? education.specialization_ru ?? "Malumot kiritilmagan"}
                             </div>
                         </div>
                         <div className="form-group">

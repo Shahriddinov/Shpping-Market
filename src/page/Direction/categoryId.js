@@ -23,13 +23,14 @@ function CategoryId({item, IdCategory}) {
         formData.append("direction_category_name", nameCategory);
         formData.append("score", scores);
         formData.append("pdf", v.target.files[0]);
-
+        console.log(v.target.files[0])
         axios.post(`${baseApi}/check`, formData, {
             headers: {
                 "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
         }).then((response) => {
             setCheck(true)
+            console.log(response.data)
             toast.success(response.data.Message);
             toast.success(response.data.check.message);
             toast.success(response.data.check.admin_permission);

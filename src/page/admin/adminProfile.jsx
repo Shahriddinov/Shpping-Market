@@ -92,7 +92,7 @@ const Direction = () => {
                 "Accept-Language": localStorage.getItem("lng") || "uz"
             }
         }).then((response) => {
-
+            console.log(response.data.user)
             setTeacher(response.data.user)
         }).catch((error) => {
 
@@ -100,7 +100,7 @@ const Direction = () => {
     }
 
     function directionUserid(user_id) {
-        console.log("USER_ID", localStorage.getItem("checkId"))
+        console.log('hello')
 
         setIdUsers(user_id)
         axios.get(`${baseApi}/user_in_direction/${user_id}`, {
@@ -111,6 +111,7 @@ const Direction = () => {
             localStorage.setItem('checkId', user_id)
 
             setUsersId(response.data.user[0])
+            console.log(response.data.user[0])
         }).catch((error) => {
 
         })

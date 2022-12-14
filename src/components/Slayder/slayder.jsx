@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import "./slayder.scss";
 
 const styles = {
-    textAlign: "center"
+    textAlign: "center",
 };
 
 var num = 0;

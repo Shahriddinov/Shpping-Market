@@ -20,9 +20,9 @@ const App = () => (
         <div style={contentStyle}>
             <img src={HomeImgsThree} alt="logo" width={'100%'}/>
         </div>
-        <div style={contentStyle}>
-            <img src="main.svg" alt="logo" width={'100%'}/>
-        </div>
+        {/*<div style={contentStyle}>*/}
+        {/*    <img src="main.svg" alt="logo" width={'100%'}/>*/}
+        {/*</div>*/}
     </Carousel>
 );
 

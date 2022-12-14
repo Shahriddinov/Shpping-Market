@@ -27,11 +27,21 @@ const Home = () => {
                 <div className="home">
                     <div className="back-navbar">
                         <div className="home-navbar">
-                            <div className="link-item"><a href="/">{t("DistanceLearning")}</a></div>
-                            <div className="link-item"><a href="/loginIn">{t("portfolio")}</a></div>
-                            <div className="link-item"><a href="/">{t("OnlineLibrary")}</a></div>
-                            <div className="link-item"><a href="/">{t("OnlineTest")}</a></div>
-                            <div className="link-item"><a href="/">{t("Re-qualification")}</a></div>
+                            <div className="link-item">
+                                <a href="/">{t("DistanceLearning")}</a>
+                            </div>
+                            <div className="link-item">
+                                <a href="/loginIn">{t("portfolio")}</a>
+                            </div>
+                            <div className="link-item">
+                                <a href="/">{t("OnlineLibrary")}</a>
+                            </div>
+                            <div className="link-item">
+                                <a href="/">{t("OnlineTest")}</a>
+                            </div>
+                            <div className="link-item">
+                                <a href="/">{t("Re-qualification")}</a>
+                            </div>
                         </div>
                     </div>
                     <App/>
@@ -99,7 +109,7 @@ const Home = () => {
                             width='100%'
                             height='500px'
                             controls
-                            url="https://youtu.be/zvTXjohja64"/>
+                            url="https://youtu.be/7deznzPAzsk"/>
                     </div>
 
                 </div>

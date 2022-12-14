@@ -24,16 +24,17 @@ const AdvancedTraining = () => {
     };
 
     useEffect(() => {
-        axios.get(`${baseApi}/allData/` + id, {
+        axios.get(`${baseApi}/user_in_direction/` + id, {
             headers: {
                 "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
         }).then((response) => {
-            setRegionsTwo(response.data.user_training[0].region_id)
-            setGetAdopted(response.data.user_training[0].fillial_id)
-            setDirection(response.data.user_training[0].direction)
-            setSetTrainingStart(response.data.user_training[0].date_start)
-            setSetTrainingEnd(response.data.user_training[0].date_end)
+            setRegionsTwo(response.data.user[0].training[0].region_id)
+            setGetAdopted(response.data.user[0].training[0].fillial_id)
+            setDirection(response.data.user[0].training[0].direction)
+            setSetTrainingStart(response.data.user[0].training[0].date_start)
+            setSetTrainingEnd(response.data.user[0].training[0].date_end)
+            console.log(response.data.user[0].training[0].fillial_id)
 
         })
     }, [])

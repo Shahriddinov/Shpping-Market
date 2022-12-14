@@ -1,0 +1,126 @@
+@import "./src/assets/ui";
+
+
+.allInformation {
+  //display: flex;
+
+  .eduPage {
+    max-width: 100%;
+    min-width: calc(100% - 256px);
+    width: calc(100% - 256px);
+
+    .ant-layout-header {
+      height: inherit;
+      padding: 0;
+      background: inherit;
+      background: #ffffff;
+      box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.08);
+    }
+  }
+  .advancedTraining {
+    height: fit-content;
+    flex-basis: calc(50% - 10px);
+    background: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    margin-top: 30px;
+
+
+    & .background-job__title-wrapper {
+      margin-bottom: 4px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    & .background-job__title {
+      margin: 0;
+      padding: 0;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 23px;
+      color: #2b63c0;
+    }
+
+    & .background-job__button {
+      width: 27px;
+      height: 6px;
+      display: inline-block;
+      background: #2b63c0;
+      border-radius: 5px;
+    }
+
+    & .background-job__drop-down {
+      width: 100%;
+      display: none;
+      padding: 20px;
+      padding-top: 0;
+      padding-bottom: 70px;
+    }
+
+    & .drop-up {
+      display: inline-block;
+    }
+    .subjectName{
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 150%;
+      margin-top: 20px;
+    }
+    .subjectBall{
+      width: 100%;
+      height: 48px;
+      margin-top: 15px;
+      border: 1px solid #2B63C0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 23px;
+
+      color: rgba(43, 99, 192, 0.65);
+      justify-content: space-between;
+      padding: 0 15px;
+      .chip{
+        background: rgba(43, 99, 192, 0.1);
+        border-radius: 8px;
+        padding: 0 15px;
+      }
+    }
+  }
+  .stops{
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2B63C0;
+  }
+  .profileButton {
+    background: rgba(64, 220, 117, 0.4);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 10px 35px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    border: none !important;
+    color: white;
+    float: right;
+    margin-right: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+
+    &:hover {
+      color: white;
+      background: none;
+      border: none !important;
+    }
+  }
+}
