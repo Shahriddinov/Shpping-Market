@@ -104,7 +104,9 @@ const JobAbout = () => {
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("startJob")}</div>
-                            <div className="jobText">{workStart}</div>
+                            <div className="jobText">
+                                {workStart && new Date(workStart).toLocaleDateString()}
+                            </div>
                         </div>
                     </div>
                     <div className="jobAboutRight">
@@ -126,7 +128,8 @@ const JobAbout = () => {
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("fenishJob")}</div>
-                            <div className="jobText">{workEnd}</div>
+                            <div className="jobText">
+                                {workEnd && new Date(workEnd).toLocaleDateString()}</div>
                         </div>
                     </div>
                 </div>

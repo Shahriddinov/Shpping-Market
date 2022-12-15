@@ -98,7 +98,10 @@ const AdvancedTraining = () => {
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("qualificationStart")}</div>
-                            <div className="jobText">{trainingStart} --{t("to")}-- {trainingEnd}</div>
+                            <div className="jobText">
+                                {trainingStart && new Date(trainingStart).toLocaleDateString()}
+                                  --{t("to")}--
+                                {trainingEnd && new Date(trainingEnd).toLocaleDateString()}</div>
                         </div>
                     </div>
                 </div>
