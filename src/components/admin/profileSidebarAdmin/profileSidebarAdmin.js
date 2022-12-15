@@ -77,21 +77,21 @@ function ProfileSidebarAdmin({userPic}) {
                     {
                         label:t("gallery"), key:`/adminProfile`, icon:<HomeIcon/>
                     },
-                    {
-                        label:t("portfolio"), key:`/adminProfile/checkUser/${localStorage.getItem("userId")}`, icon:<SdCardIcon/>
-                    },
                     // {
+                    //     label:t("portfolio"), key:`/adminProfile/checkUser/${localStorage.getItem("userId")}`, icon:<SdCardIcon/>
+                    // },
+                    // // {
                     //     label:t("login"), key:"/loginIn", icon:<LoginIcon/>
                     // },
                     // {
                     //     label:t("setting"), key:"/setting", icon:<SettingsIcon/>
                     // },
-                    {
-                        label: t("directions"), key: `/adminProfile/checkPdf/${localStorage.getItem("userId")}`, icon:<ApartmentOutlined />
-                    },
-                    {
-                        label: t("statistics"), key: `/adminProfile/checkInfo/${localStorage.getItem("userId")}`, icon:<SettingsIcon/>
-                    }
+                    // {
+                    //     label: t("directions"), key: `/adminProfile/checkPdf/${localStorage.getItem("userId")}`, icon:<ApartmentOutlined />
+                    // },
+                    // {
+                    //     label: t("statistics"), key: `/adminProfile/checkInfo/${localStorage.getItem("userId")}`, icon:<SettingsIcon/>
+                    // }
 
                 ]}
             />

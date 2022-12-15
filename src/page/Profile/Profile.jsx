@@ -25,6 +25,8 @@ import "react-phone-number-input/style.css";
 import { baseApi } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import en from "react-phone-number-input/locale/en";
+
 function Profile() {
   const [full_name, setFull_name] = useState("");
   const [email, setEmail] = useState("");
