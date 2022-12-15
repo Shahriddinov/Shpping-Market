@@ -25,7 +25,7 @@ function PersonalInfo({ obj, imageURL }) {
         axios
             .get(`${baseApi}/allData/` + id)
             .then((response) => {
-                console.log("Gender", response.data.user_personal_info.gender);
+                console.log("Gender", response.data.user_education[0]);
                 setAllName(response.data.user_personal_info.full_name);
                 setAllGender(response.data.user_personal_info.gender);
                 setAllPasport(response.data.user_pasport.pasport_seria);
@@ -71,10 +71,7 @@ function PersonalInfo({ obj, imageURL }) {
                         <div className="form-group">
                             <div className="personalNation">{t("Education")}</div>
                             <div className="nationInfo">
-                                {education.education_name_ru ??
-                                education.education_name_en ??
-                                education.education_name_uz ??
-                                ""}
+                                {education.education_name}
                             </div>
                         </div>
                         <div className="form-group">

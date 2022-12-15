@@ -93,19 +93,13 @@ function OneEducation({ obj }) {
               <div className="form-group">
                 <div className="jobInfos">{t("institution")}</div>
                 <div className="jobText">
-                  {education.education_name_ru ??
-                  education.education_name_en ??
-                  education.education_name_uz ??
-                  ""}
+                  {education.education_name}
                 </div>
               </div>
               <div className="form-group">
                 <div className="jobInfos">{t("speciality")}</div>
                 <div className="jobText">
-                  {specializations.specialization_ru ??
-                  specializations.specialization_en ??
-                  specializations.specialization_uz ??
-                  ""}
+                  {specializations.specialization}
                 </div>
               </div>
             </div>
