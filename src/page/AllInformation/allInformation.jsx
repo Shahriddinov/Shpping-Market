@@ -81,7 +81,7 @@ export const data = {
 };
 
 const AllInformation = () => {
-  const { id } = useParams();
+  const id = localStorage.getItem("userId");
   const { t, i18n } = useTranslation();
   const [isClicked, setClicked] = useState(false);
   const [isBall, setBall] = useState(false);
