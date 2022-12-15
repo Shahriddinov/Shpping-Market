@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
 import "./PersonalInfo.scss";
 import axios from "axios";
@@ -94,7 +94,10 @@ function PersonalInfo({obj, imageURL}) {
                         </div>
                         <div className="form-group">
                             <div className="personalNation">{t("happy")}</div>
-                            <div className="nationInfo">{brithday}</div>
+                            <div className="nationInfo">
+                                {brithday && new Date(brithday).toLocaleDateString()}
+                                {/*{brithday}*/}
+                            </div>
                         </div>
                         <div className="form-group">
                             <div className="personalNation">{t("personal")}</div>

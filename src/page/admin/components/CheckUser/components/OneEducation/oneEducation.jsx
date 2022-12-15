@@ -93,22 +93,24 @@ function OneEducation({obj}) {
                         <div className="form-group">
                             <div className="jobInfos">{t("institution")}</div>
                             <div
-                                className="jobText">{education.education_name_ru ?? education.education_name_en ?? education.education_name_uz ?? ''}</div>
+                                className="jobText">{education.education_name ?? 'Malumot kiritilmagan'}</div>
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("speciality")}</div>
                             <div
-                                className="jobText">{specializations.specialization_ru ?? specializations.specialization_en ?? specializations.specialization_uz ?? ''}</div>
+                                className="jobText">{specializations.specialization ?? 'Malumot kiritilmagan'}</div>
                         </div>
                     </div>
                     <div className="jobSectionRight">
                         <div className="form-group">
                             <div className="jobInfos">{t("dateReceived")}</div>
-                            <div className="jobText">{startData}</div>
+                            <div className="jobText">
+                                {startData && new Date(startData).toLocaleDateString()}</div>
                         </div>
                         <div className="form-group">
                             <div className="jobInfos">{t("expirationDate")}</div>
-                            <div className="jobText">{endData}</div>
+                            <div className="jobText">
+                                {endData && new Date(endData).toLocaleDateString()}</div>
                         </div>
                     </div>
                 </div>
