@@ -136,5 +136,6 @@
   "CourseLang": "Course language",
   "password": "Password",
   "EduOrganize": "Educational institutions and organizations",
-  "DateOfQual": "Date of qualification"
+  "DateOfQual": "Date of qualification",
+  "logout": "Logout"
 }

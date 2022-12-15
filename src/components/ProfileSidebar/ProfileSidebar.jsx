@@ -66,7 +66,9 @@ function ProfileSidebar({ items, userName, userPic }) {
 
       <Menu
         onClick={({ key }) => {
-          if (key === "signout") {
+          console.log("Menu item Key", key);
+          if (key === "logout") {
+            console.log("Logout");
           } else {
             navigate(key);
           }
@@ -97,11 +99,6 @@ function ProfileSidebar({ items, userName, userPic }) {
             icon: <SdCardIcon />,
           },
           //   {
-          //     label: t("login"),
-          //     key: "/loginIn",
-          //     icon: <LoginIcon />,
-          //   },
-          //   {
           //     label: t("setting"),
           //     key: "/setting",
           //     icon: <SettingsIcon />,
@@ -115,6 +112,11 @@ function ProfileSidebar({ items, userName, userPic }) {
             label: t("statistics"),
             key: `/allInfo/${localStorage.getItem("userId")}`,
             icon: <SettingsIcon />,
+          },
+          {
+            label: t("logout"),
+            key: "/",
+            icon: <LoginIcon />,
           },
         ]}
       />

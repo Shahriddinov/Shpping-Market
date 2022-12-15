@@ -34,7 +34,6 @@
   "login": "Kirish",
   "setting": "Sozlamalar",
   "comeSystem": "Kirish",
-
   "userName": "F.I.SH",
   "jobBackground": "Ish haqida ma'lumot",
   "female": "Ayol",
@@ -131,5 +130,6 @@
   "CourseLang": "Kurs tili",
   "password": "Parol",
   "EduOrganize": "Ta'lim muassasalari va tashkilotlari",
-  "DateOfQual": "Malaka berilgan sana"
+  "DateOfQual": "Malaka berilgan sana",
+  "logout": "Chiqish"
 }

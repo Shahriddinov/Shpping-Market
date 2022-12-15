@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { baseApi } from "../../../../services/api";
 import { toast } from "react-toastify";
 
-function OneEducation({ obj }) {
+function OneEducation({ data }) {
   const [isClicked, setClicked] = useState(false);
   const { t } = useTranslation();
   const [nation, setNation] = useState("");

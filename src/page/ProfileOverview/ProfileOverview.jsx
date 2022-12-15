@@ -23,6 +23,11 @@ function ProfileOverview() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [status, setStatus] = useState(null);
+  const [education, setEducation] = useState([]);
+  const [personalInfo, setPersonalInfo] = useState(null);
+  const [passportInfo, setPassportInfo] = useState(null);
+  const [trainingInfo, setTrainingInfo] = useState(null);
+  const [workInfo, setWorkInfo] = useState(null);
 
   const handleChangeLng = (lng) => {
     i18n.changeLanguage(lng);
@@ -63,6 +68,22 @@ function ProfileOverview() {
 
   useEffect(() => {
     axios
+      .get(`https://sport.napaautomotive.uz/api/allData/${id}`)
+      .then((response) => {
+        const data = response.data?.datas[0];
+
+        console.log("Data", data);
+
+        setPersonalInfo(data?.personal_info);
+        setPassportInfo(data?.pasport);
+        setEducation(data?.education[0]);
+        setTrainingInfo(data?.training[0]);
+        setWorkInfo(data?.work[0]);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
       .get(`${baseApi}/checkUser/${id}`, {
         headers: {
           "Accept-Language": language,
@@ -84,8 +105,13 @@ function ProfileOverview() {
           <ProfileHeader handleChangeLng={handleChangeLng} />
           <ProfileNavbar title={t("profile")} />
           <div className="profile-overview__sections">
-            <PersonalInfo imageURL={userPic} obj={userInformations} />
-            <OneEducation obj={userInformations} />
+            <PersonalInfo
+              imageURL={userPic}
+              personalInfo={personalInfo}
+              passportInfo={passportInfo}
+              education={education}
+            />
+            <OneEducation data={education} />
             {/*<OneEducation obj={userInformations}/>*/}
             <JobAbout />
             {/*<JobAbout/>*/}
