@@ -263,7 +263,7 @@ function Works() {
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <Stack spacing={3}>
                                         <DesktopDatePicker
-                                            label={t("startJob")}
+                                            label={t("fenishJob")}
                                             inputFormat="MM/DD/YYYY"
                                             value={date_end}
                                             className="workEnd"

@@ -100,7 +100,6 @@ const Direction = () => {
     }
 
     function directionUserid(user_id) {
-        console.log('hello')
 
         setIdUsers(user_id)
         axios.get(`${baseApi}/user_in_direction/${user_id}`, {
@@ -109,9 +108,8 @@ const Direction = () => {
             }
         }).then((response) => {
             localStorage.setItem('checkId', user_id)
-
             setUsersId(response.data.user[0])
-            console.log(response.data.user[0])
+                console.log(response.data.user[0])
         }).catch((error) => {
 
         })
@@ -208,6 +206,7 @@ const Direction = () => {
                                                     {
                                                         teacher2.length > 0 ?
                                                             teacher2?.map((item, index) => {
+                                                                console.log('hello')
                                                                 return <div key={index.toString()} style={{margin: 0}}>
                                                                     {console.log(item)}
                                                                     <div className="teachCard"

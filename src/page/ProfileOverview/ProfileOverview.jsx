@@ -59,71 +59,71 @@ function ProfileOverview() {
   const language = localStorage.getItem("lng");
 
   const statusColor =
-    status === "failed" ? "rgba(254, 52, 110, 0.4)" : "#0FBE7B";
+      status === "failed" ? "rgba(254, 52, 110, 0.4)" : "#0FBE7B";
 
   useEffect(() => {
     axios
-      .get(`${baseApi}/checkUser/${id}`, {
-        headers: {
-          "Accept-Language": language,
-        },
-      })
-      .then((res) => {
-        // console.log("Response", res?.data?.check?.permission);
-        setStatus(res?.data?.check?.permission);
-      })
-      .catch((err) => console.log("Response Error", err));
+        .get(`${baseApi}/checkUser/${id}`, {
+          headers: {
+            "Accept-Language": language,
+          },
+        })
+        .then((res) => {
+          // console.log("Response", res?.data?.check?.permission);
+          setStatus(res?.data?.check?.permission);
+        })
+        .catch((err) => console.log("Response Error", err));
   }, []);
 
   return (
-    <>
-      <section id="Profile-overview" className="Profile-overview">
-        <h1 className="visually-hidden">Profile Overview Page</h1>
-        <ProfileSidebar items userName={t(userInformations.userName)} />
-        <section className="profile-overview__page">
-          <ProfileHeader handleChangeLng={handleChangeLng} />
-          <ProfileNavbar title={t("profile")} />
-          <div className="profile-overview__sections">
-            <PersonalInfo imageURL={userPic} obj={userInformations} />
-            <OneEducation obj={userInformations} />
-            {/*<OneEducation obj={userInformations}/>*/}
-            <JobAbout />
-            {/*<JobAbout/>*/}
-            <AdvancedTraining />
-            {/*<AdvancedTraining/>*/}
-            <div className="next-page">
-              <div className="next-btn">
-                {/*<button>Продолжить</button>*/}
-                <Stack spacing={2} direction="row">
-                  <div className="pencil">
-                    <Button
-                      className="pencilButton"
-                      href="/profile"
-                      variant="text"
-                    >
-                      <BorderColorIcon fontSize="small" />
-                      Редактировать
-                    </Button>
-                    <Button
-                      className="profileButton"
-                      href={`/direction/${localStorage.getItem("userId")}`}
-                      style={{ backgroundColor: statusColor }}
-                      variant="text"
-                    >
-                      {" "}
-                      <span className="icon">
+      <>
+        <section id="Profile-overview" className="Profile-overview">
+          <h1 className="visually-hidden">Profile Overview Page</h1>
+          <ProfileSidebar items userName={t(userInformations.userName)} />
+          <section className="profile-overview__page">
+            <ProfileHeader handleChangeLng={handleChangeLng} />
+            <ProfileNavbar title={t("profile")} />
+            <div className="profile-overview__sections">
+              <PersonalInfo imageURL={userPic} obj={userInformations} />
+              <OneEducation obj={userInformations} />
+              {/*<OneEducation obj={userInformations}/>*/}
+              <JobAbout />
+              {/*<JobAbout/>*/}
+              <AdvancedTraining />
+              {/*<AdvancedTraining/>*/}
+              <div className="next-page">
+                <div className="next-btn">
+                  {/*<button>Продолжить</button>*/}
+                  <Stack spacing={2} direction="row">
+                    <div className="pencil">
+                      <Button
+                          className="pencilButton"
+                          href="/profile"
+                          variant="text"
+                      >
+                        <BorderColorIcon fontSize="small" />
+                        Редактировать
+                      </Button>
+                      <Button
+                          className="profileButton"
+                          href={`/direction/${localStorage.getItem("userId")}`}
+                          style={{ backgroundColor: statusColor }}
+                          variant="text"
+                      >
+                        {" "}
+                        <span className="icon">
                         <CheckCircleOutlineIcon fontSize="small" />
                       </span>{" "}
-                      Соответствует
-                    </Button>
-                  </div>
-                </Stack>
+                        Соответствует
+                      </Button>
+                    </div>
+                  </Stack>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
         </section>
-      </section>
-    </>
+      </>
   );
 }
 
