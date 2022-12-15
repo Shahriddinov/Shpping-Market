@@ -48,7 +48,7 @@ function CheckPdf(props) {
             setUserPhoto(response.data.user.avatar)
             console.log(response.data.user[0].user_name)
             setUserName(response.data.user[0].user_name)
-            setScores(response.data.user[0].all_score)
+            setScores(response.data.user[0].score)
             setUserEmail(response.data.user[0].email)
             setUserPhone(response.data.user[0].phone)
 
@@ -109,6 +109,7 @@ function CheckPdf(props) {
                 "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
         }).then((response)=>{
+            console.log(response.data)
             if (response.data.status === 'ok'){
                 navigate(`/adminProfile/checkInfo/${id}`);
             }
@@ -121,7 +122,7 @@ function CheckPdf(props) {
 
 
     return (
-        <div className="checkPdf">
+            <div className="checkPdf">
             <div className="d-flex">
                 <ProfileSidebarAdmin items/>
                 <div className="eduPage">
@@ -183,7 +184,7 @@ function CheckPdf(props) {
 
                                         <div className="object">
                                             <Chip className="port" label={t("portfolio")}/>
-                                            <Chip className="rating" label={scores ? scores : 0}/>
+                                            <Chip className="rating" label={scores ?? 0}/>
                                         </div>
                                         <div className="object">
                                             <Chip className="port" label={t("testScores")}/>

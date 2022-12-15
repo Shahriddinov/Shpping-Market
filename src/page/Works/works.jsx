@@ -18,10 +18,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import {useState} from "react";
-import ControlPointIcon from "@mui/icons-material/ControlPoint";
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import en from 'react-phone-number-input/locale/en'
 import {DesktopDatePicker, LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import axios from "axios";
@@ -156,14 +153,21 @@ function Works() {
                             </div>
                             <div className="institution">
                                 <Box sx={{mt: 4, minWidth: "500px", mb: 4}}>
-                                    <FormControl fullWidth>
-                                        <PhoneInput
-                                            international
-                                            countryCallingCodeEditable={false}
-                                            defaultCountry="UZ"
-                                            value={work_phone}
-                                            onChange={(e) => setWork_phone(e)}/>
-                                    </FormControl>
+                                    {/*<FormControl fullWidth>*/}
+                                    <PhoneInput
+                                        international
+                                        labels={en}
+                                        placeholder="Ваш телефон"
+                                        value={work_phone}
+                                        onChange={(e) => setWork_phone(e)}
+                                    />
+                                        {/*<PhoneInput*/}
+                                        {/*    international*/}
+                                        {/*    labels={en}*/}
+                                        {/*    placeholder="Ваш телефон"*/}
+                                        {/*    value={work_phone}*/}
+                                        {/*    onChange={(e) => setWork_phone(e)}/>*/}
+                                    {/*</FormControl>*/}
                                 </Box>
                             </div>
                             <div className="institution">

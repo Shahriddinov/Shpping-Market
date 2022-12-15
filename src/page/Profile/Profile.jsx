@@ -25,6 +25,8 @@ import "react-phone-number-input/style.css";
 import { baseApi } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import en from 'react-phone-number-input/locale/en'
+
 function Profile() {
   const [full_name, setFull_name] = useState("");
   const [email, setEmail] = useState("");
@@ -205,7 +207,7 @@ function Profile() {
                     <DesktopDatePicker
                         className="mt-3"
                         value={birth_date}
-                        label="Date desktop"
+                        label={t("happy")}
                         inputFormat="MM/DD/YYYY"
                         onChange={setBirth_date}
                         renderInput={(params) => {
@@ -223,18 +225,10 @@ function Profile() {
                     noValidate
                     autoComplete="off"
                 >
-                  {/*<TextField*/}
-                  {/*    type="text"*/}
-                  {/*    id="outlined-basic"*/}
-                  {/*    label={t("phoneNumber")}*/}
-                  {/*    variant="outlined"*/}
-                  {/*    onChange={(e) => setPhone(e.target.value)}*/}
-                  {/*/>*/}
                   <PhoneInput
                       international
-                      // className="phone-number__input page1__input mt-2"
-                      countryCallingCodeEditable={false}
-                      defaultCountry="UZ"
+                      labels={en}
+                      placeholder="Ваш телефон"
                       value={phone}
                       onChange={(e) => setPhone(e)}
                   />

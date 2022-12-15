@@ -92,8 +92,8 @@ const Direction = () => {
                 "Accept-Language": localStorage.getItem("lng") || "uz"
             }
         }).then((response) => {
-            console.log(response.data.user)
             setTeacher(response.data.user)
+            // console.log(response.data.user[0].score)
         }).catch((error) => {
 
         })
@@ -109,7 +109,6 @@ const Direction = () => {
         }).then((response) => {
             localStorage.setItem('checkId', user_id)
             setUsersId(response.data.user[0])
-                console.log(response.data.user[0])
         }).catch((error) => {
 
         })
@@ -140,9 +139,8 @@ const Direction = () => {
         setTeacher2(data)
     }
 
-    console.log("Value", value)
 
-    console.log("dataValueState", dataValueState)
+    console.log("dataValueState", usersId.education_specialization?.specialization)
     return (
         <>
             <section id="direction" className="direction">
@@ -206,13 +204,12 @@ const Direction = () => {
                                                     {
                                                         teacher2.length > 0 ?
                                                             teacher2?.map((item, index) => {
-                                                                console.log('hello')
+                                                                console.log(item)
                                                                 return <div key={index.toString()} style={{margin: 0}}>
-                                                                    {console.log(item)}
                                                                     <div className="teachCard"
                                                                          onClick={() => {
                                                                              directionUserid(item.user_id)
-                                                                             setChecked(current => !current)
+                                                                             setChecked(current => current)
                                                                          }}>
                                                                         <div className="teacherImage">
                                                                             <img
@@ -235,7 +232,7 @@ const Direction = () => {
                                                                             }}>
                                                                                 <h5>Балл :</h5>
                                                                                 <div className="score">
-                                                                                    {item?.all_score ? item?.all_score : 0}
+                                                                                    {item?.score ?? 0}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -271,7 +268,7 @@ const Direction = () => {
                                                                             }}>
                                                                                 <h5>Балл :</h5>
                                                                                 <div className="score">
-                                                                                    {item?.all_score ? item?.all_score : 0}
+                                                                                    {item?.score ?? 0}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -325,28 +322,27 @@ const Direction = () => {
                                 <div className="info">
                                     Дата последней квалификации
                                 </div>
-                                <div className="textsa">{usersId?.training_date_end}</div>
+                                <div className="textsa">
+                                    {usersId?.training_date_end && new Date(usersId?.training_date_end).toLocaleDateString()}
+                                    {/*{usersId?.training_date_end}*/}
+                                </div>
 
                                 <div className="info">
                                     Образование
                                 </div>
-                                <div
-                                    className="textsa">{usersId?.education_specialization?.specialization_uz ?? usersId?.education_specialization?.specialization_ru ?? usersId?.education_specialization?.specialization_en}</div>
+                                <div className="textsa">{usersId.education_specialization?.specialization ?? "Malumot yuq"}</div>
+
                             </div>
 
                             <div className="RightUser">
                                 <div className="RightInfo">
                                     <div className="RightInfo">Специальность</div>
-
-
                                 </div>
-                                <div
-                                    className="RightTextsa" > {usersId?.education_specialization?.specialization_uz ?? usersId?.education_specialization?.specialization_ru ?? usersId?.education_specialization?.specialization_en}</div>
+                                <div className="RightTextsa" > {usersId.education_specialization?.education?.education_name ?? "Malumot yuq"}</div>
                                 <div className="RightInfos" style={{marginTop:"5%"}}>
                                     Название направления
                                 </div>
-                                <div
-                                    className="RightTextsa"> {usersId?.education_specialization?.specialization_uz ?? usersId?.education_specialization?.specialization_ru ?? usersId?.education_specialization?.specialization_en}</div>
+                                <div className="RightTextsa"> {usersId?.education_specialization?.specialization ?? "malumot yuq"}</div>
                                 <div className="d-flex gap-2" style={{marginTop:"5%"}}>
                                     <div className="scores">Женщина с ребенком</div>
                                     <div className="scores">Годен</div>
