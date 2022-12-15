@@ -155,7 +155,7 @@ const Direction = () => {
                                     directions?.map((item, index) => {
                                         return <div className="directItem" onClick={() => {
                                             directionsUser(item.id);
-                                            setCount(current => !current)
+                                            setCount(true)
                                         }}>
                                             <h5>{item?.title_ru ?? item?.title_en ?? item?.title_uz}</h5>
                                             <p>Педагоги: {getDirectionId[index]}</p>
@@ -209,7 +209,7 @@ const Direction = () => {
                                                                     <div className="teachCard"
                                                                          onClick={() => {
                                                                              directionUserid(item.user_id)
-                                                                             setChecked(current => current)
+                                                                             setChecked(true)
                                                                          }}>
                                                                         <div className="teacherImage">
                                                                             <img
@@ -245,7 +245,7 @@ const Direction = () => {
                                                                     <div className="teachCard"
                                                                          onClick={() => {
                                                                              directionUserid(item.user_id)
-                                                                             setChecked(current => !current)
+                                                                             setChecked(true)
                                                                          }}>
                                                                         <div className="teacherImage">
                                                                             <img
