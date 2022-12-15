@@ -1,6 +1,7 @@
 {
   "name": "sport",
   "version": "0.1.0",
+  "homepage": "https://sport.front.napaautomotive.uz/",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
