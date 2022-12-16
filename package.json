@@ -1,5 +1,6 @@
 {
   "name": "sport",
+  "homepage": "https://sport.napaautomotive.uz/api/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
