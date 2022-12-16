@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { SUCCESS } from "redux-saga-routines/dist/routineStages";
 
 function Avatar(props) {
-  const { id } = useParams();
+  const id = localStorage.getItem("userId");
   const { t, i18n } = useTranslation();
   const [photos, setPhotos] = useState("");
   const [photoError, setPhotoError] = useState("");

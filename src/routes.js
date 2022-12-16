@@ -61,7 +61,7 @@ export const privateRoutes = [
     element: <Education />,
   },
   {
-    path: "/allInfo/:id",
+    path: "/allInfo",
     element: <AllInfo />,
   },
   {
@@ -81,7 +81,7 @@ export const privateRoutes = [
     element: <Portfolio />,
   },
   {
-    path: "/profileOver/:id",
+    path: "/profileOver",
     element: <ProfileOverview />,
   },
   {
@@ -89,11 +89,11 @@ export const privateRoutes = [
     element: <Qualification />,
   },
   {
-    path: "/direction/:id",
+    path: "/direction",
     element: <Direction />,
   },
   {
-    path: "/allPdf/:id",
+    path: "/allPdf",
     element: <AllPdf />,
   },
   {

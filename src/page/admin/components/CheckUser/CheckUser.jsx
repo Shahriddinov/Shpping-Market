@@ -1,18 +1,11 @@
 import {useTranslation} from "react-i18next";
-// import userPic from "../../../../assets/images/userPicture.jpg";
 import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
 import "./checkuser.scss";
 import OneEducation from "./components/OneEducation/oneEducation";
-
-import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import BorderColorIcon from '@mui/icons-material/BorderColor';
 import React from "react";
 import AdvancedTraining from "./components/AdvancedTraining/advancedTraining";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-
-
-
 import {useNavigate} from "react-router";
 import JobAbout from "./components/JobAbout/jobAbout";
 import ProfileSidebar from "../../../../components/ProfileSidebar/ProfileSidebar";
@@ -23,7 +16,6 @@ import axios from "axios";
 import {baseApi} from "../../../../services/api";
 import {toast} from "react-toastify";
 import {useParams} from "react-router-dom";
-import ProfileSidebarAdmin from "../../../../components/admin/profileSidebarAdmin/profileSidebarAdmin";
 
 function CheckUser() {
     const {t, i18n} = useTranslation();
@@ -98,7 +90,7 @@ function CheckUser() {
         <>
             <section id="Profile-overview" className="Profile-overview">
                 <h1 className="visually-hidden">Profile Overview Page</h1>
-                <ProfileSidebarAdmin items />
+                <ProfileSidebar admin={true}/>
                 <section className="profile-overview__page">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar title={t("profile")}/>

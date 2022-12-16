@@ -7,7 +7,7 @@ import Avatar from "../Avatar/Avatar";
 import { baseApi } from "../../../../services/api";
 
 function PersonalInfo({ obj, imageURL }) {
-  const { id } = useParams();
+  const id = localStorage.getItem("userId");
   const [isClicked, setClicked] = useState(true);
   const { t } = useTranslation();
   const [allName, setAllName] = useState([]);

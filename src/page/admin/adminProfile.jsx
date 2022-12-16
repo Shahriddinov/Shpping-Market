@@ -19,7 +19,6 @@ import {DatePicker} from '@mui/x-date-pickers/DatePicker';
 import {baseApi} from "../../services/api";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import ProfileSidebarAdmin from "../../components/admin/profileSidebarAdmin/profileSidebarAdmin";
 
     const Filters =  [
         {label: 'Список стажеров, запланированных на обучение', val: 0},
@@ -144,7 +143,7 @@ const Direction = () => {
     return (
         <>
             <section id="direction" className="direction">
-                <ProfileSidebarAdmin items/>
+                <ProfileSidebar admin={true}/>
                 <div className="basePart">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar title={showDirect ? "profile" : "direction"}/>

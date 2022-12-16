@@ -33,8 +33,8 @@ function Qualification() {
     const [region_id, setRegion_id] = useState('');
     const [fillial_id, setFillial_id] = useState('');
     const [direction, setDirection] = useState('');
-    const [date_start, setDate_start] = React.useState(dayjs('2014-08-18T21:11:54'));
-    const [date_end, setDate_end] = React.useState(dayjs('2014-08-18T21:11:54'));
+    const [date_start, setDate_start] = React.useState(dayjs('2014-08-18'));
+    const [date_end, setDate_end] = React.useState(dayjs('2014-08-18'));
     const [text, setText] = useState('')
     const navigate = useNavigate();
 
@@ -154,10 +154,10 @@ function Qualification() {
                                 <Stack spacing={3}>
                                     <DesktopDatePicker
                                         className="schedule"
-                                        label={t("data_end")}
+                                        label={t("date")}
                                         inputFormat="MM/DD/YYYY"
-                                        value={date_start}
-                                        onChange={setDate_start}
+                                        value={date_end}
+                                        onChange={setDate_end}
                                         renderInput={(params) => {
                                             return <TextField {...params} />
                                         }}
@@ -173,10 +173,10 @@ function Qualification() {
                                 <Stack spacing={3}>
                                     <DesktopDatePicker
                                         className=" startDate mt-2 w-100"
-                                        label={t("date")}
+                                        label={t("data_end")}
                                         inputFormat="MM/DD/YYYY"
-                                        value={date_end}
-                                        onChange={setDate_end}
+                                        value={date_start}
+                                        onChange={setDate_start}
                                         renderInput={(params) => <TextField {...params} />}
                                     />
                                 </Stack>

@@ -80,6 +80,7 @@ function ProfileOverview() {
   }, []);
 
   const verificationUrl = status === "passed" ? `/direction/${id}` : "";
+
   return (
     <>
       <section id="Profile-overview" className="Profile-overview">

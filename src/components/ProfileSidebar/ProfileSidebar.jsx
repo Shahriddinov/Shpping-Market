@@ -20,7 +20,7 @@ import { baseApi } from "../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function ProfileSidebar({ items, userName, userPic }) {
+function ProfileSidebar({ items, userName, userPic, admin }) {
   const { t, i18n } = useTranslation();
   const { id } = useParams();
   const [allName, setAllName] = useState([]);
@@ -63,61 +63,82 @@ function ProfileSidebar({ items, userName, userPic }) {
         />
         <span className="profile__title">{allName}</span>
       </div>
-
-      <Menu
-        onClick={({ key }) => {
-          if (key === "signout") {
-          } else {
-            navigate(key);
-          }
-        }}
-        theme="dark"
-        style={{ marginTop: "20px" }}
-        defaultSelectedKeys={["1"]}
-        mode="inline"
-        items={[
-          {
-            label: t("profile"),
-            key: `/profileOver/${id}`,
-            icon: <AccountCircleIcon />,
-            // [
-            //     {label: t("directions"), key: "/directions"},
-            //         {label: t("statistics"), key: "/statistics"}
-            //
-            //     ]
-          },
-          {
-            label: t("gallery"),
-            key: `/`,
-            icon: <HomeIcon />,
-          },
-          {
-            label: t("portfolio"),
-            key: `/allPdf/${localStorage.getItem("userId")}`,
-            icon: <SdCardIcon />,
-          },
-          //   {
-          //     label: t("login"),
-          //     key: "/loginIn",
-          //     icon: <LoginIcon />,
-          //   },
-          //   {
-          //     label: t("setting"),
-          //     key: "/setting",
-          //     icon: <SettingsIcon />,
-          //   },
-          {
-            label: t("directions"),
-            key: `/direction/${localStorage.getItem("userId")}`,
-            icon: <ApartmentOutlined />,
-          },
-          {
-            label: t("statistics"),
-            key: `/allInfo/${localStorage.getItem("userId")}`,
-            icon: <SettingsIcon />,
-          },
-        ]}
-      />
+      {admin ? (
+        <Menu
+          onClick={({ key }) => {
+            if (key === "signout") {
+            } else {
+              navigate(key);
+            }
+          }}
+          theme="dark"
+          style={{ marginTop: "20px" }}
+          defaultSelectedKeys={["1"]}
+          mode="inline"
+          items={[
+            {
+              label: t("gallery"),
+              key: `/adminProfile`,
+              icon: <HomeIcon />,
+            },
+          ]}
+        />
+      ) : (
+        <Menu
+          onClick={({ key }) => {
+            if (key === "signout") {
+            } else {
+              navigate(key);
+            }
+          }}
+          theme="dark"
+          style={{ marginTop: "20px" }}
+          defaultSelectedKeys={["1"]}
+          mode="inline"
+          items={[
+            {
+              label: t("profile"),
+              key: `/profileOver/${id}`,
+              icon: <AccountCircleIcon />,
+              // [
+              //     {label: t("directions"), key: "/directions"},
+              //         {label: t("statistics"), key: "/statistics"}
+              //
+              //     ]
+            },
+            {
+              label: t("gallery"),
+              key: `/`,
+              icon: <HomeIcon />,
+            },
+            {
+              label: t("portfolio"),
+              key: `/allPdf/${localStorage.getItem("userId")}`,
+              icon: <SdCardIcon />,
+            },
+            //   {
+            //     label: t("login"),
+            //     key: "/loginIn",
+            //     icon: <LoginIcon />,
+            //   },
+            //   {
+            //     label: t("setting"),
+            //     key: "/setting",
+            //     icon: <SettingsIcon />,
+            //   },
+            {
+              label: t("directions"),
+              key: `/direction/${localStorage.getItem("userId")}`,
+              icon: <ApartmentOutlined />,
+            },
+            {
+              label: t("statistics"),
+              key: `/allInfo/${localStorage.getItem("userId")}`,
+              icon: <SettingsIcon />,
+            },
+          ]}
+        />
+      )}
     </Sider>
   );
 }

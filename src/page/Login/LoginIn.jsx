@@ -51,7 +51,7 @@ const LoginIn = () => {
           localStorage.setItem("pasportId", response.data.user.pasport_id);
           localStorage.setItem("isLoggedIn", true);
           setTimeout(() => {
-            navigate(`/profileOver/${response.data.user.id}`);
+            navigate("/profileOver");
           }, 500);
           toast.success(response.data.Message);
         }
