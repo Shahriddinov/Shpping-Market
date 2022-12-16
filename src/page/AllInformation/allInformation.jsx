@@ -22,7 +22,6 @@ import Button from "@mui/material/Button";
 import Footer from "../../components/Layout/Footer/Footer";
 import axios from "axios";
 import { baseApi } from "../../services/api";
-import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 ChartJS.register(

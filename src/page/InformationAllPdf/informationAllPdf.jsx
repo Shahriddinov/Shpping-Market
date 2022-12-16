@@ -6,13 +6,12 @@ import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
 import { useTranslation } from "react-i18next";
 import Imgs from "../../assets/images/avatar.png";
 
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SpeedIcon from "@mui/icons-material/Speed";
 import { Bar } from "react-chartjs-2";
 import Chip from "@mui/material/Chip";
 import Button from "@mui/material/Button";
-import UserPic from "../../assets/images/userPicture.jpg";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import PDF from "../../assets/images/pdfImg.svg";
 import Footer from "../../components/Layout/Footer/Footer";
@@ -23,7 +22,7 @@ import { toast } from "react-toastify";
 
 const InformationAllPdf = (props) => {
   const { t, i18n } = useTranslation();
-  const { id } = useParams();
+  const id = localStorage.getItem("userId");
 
   const [isClicked, setClicked] = useState(false);
   const [isBall, setBall] = useState(false);

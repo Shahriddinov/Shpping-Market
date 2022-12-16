@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Imgs from "../../../../assets/images/avatar.png";
-import { useParams } from "react-router-dom";
 import Camera from "../../../../assets/images/camera.svg";
 import "./avatar.scss";
-import Toast from "light-toast";
 import { useTranslation } from "react-i18next";
 import { baseApi } from "../../../../services/api";
 import { toast } from "react-toastify";
@@ -12,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { SUCCESS } from "redux-saga-routines/dist/routineStages";
 
 function Avatar(props) {
-  const { id } = useParams();
+  const id = localStorage.getItem("userId");
   const { t, i18n } = useTranslation();
   const [photos, setPhotos] = useState("");
   const [photoError, setPhotoError] = useState("");

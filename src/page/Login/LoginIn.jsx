@@ -8,7 +8,6 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
-import Toast from "light-toast";
 import { baseApi } from "../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -50,13 +49,12 @@ const LoginIn = () => {
         if (response.data.user.role_id >= 3) {
           localStorage.setItem("userId", response.data.user.id);
           localStorage.setItem("pasportId", response.data.user.pasport_id);
+          localStorage.setItem("isLoggedIn", true);
           setTimeout(() => {
-            navigate(`/profileOver/${response.data.user.id}`);
-            // console.log(id)
+            navigate("/profileOver");
           }, 500);
           toast.success(response.data.Message);
         }
-        console.log(response.data);
       })
       .catch((error) => {
         toast.error(error.response?.data?.message);

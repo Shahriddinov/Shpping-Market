@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./PersonalInfo.scss";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
-import { baseApi } from "../../../../services/api";
 
 function PersonalInfo({ obj, imageURL }) {
-  const { id } = useParams();
+  const id = localStorage.getItem("userId");
   const [isClicked, setClicked] = useState(true);
   const { t } = useTranslation();
   const [allName, setAllName] = useState([]);

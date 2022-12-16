@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./advancedTraining.scss";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import { baseApi } from "../../../../services/api";
 import { toast } from "react-toastify";
 
 const AdvancedTraining = () => {
-  const { id } = useParams();
+  const id = localStorage.getItem("userId");
   const [isClicked, setClicked] = useState(false);
   const { t } = useTranslation();
 
