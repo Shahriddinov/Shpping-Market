@@ -11,7 +11,6 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 import ApartmentOutlined from "@ant-design/icons/lib/icons/ApartmentOutlined";
-import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Imgs from "../../assets/images/avatar.png";
@@ -22,7 +21,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function ProfileSidebar({ items, userName, userPic, admin }) {
   const { t, i18n } = useTranslation();
-  const { id } = useParams();
+  const id = localStorage.getItem("userId");
   const [allName, setAllName] = useState([]);
   const [photos, setPhotos] = useState("");
   const navigate = useNavigate();
@@ -81,6 +80,14 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
               key: `/adminProfile`,
               icon: <HomeIcon />,
             },
+            {
+              label: t("logout"),
+              key: "/",
+              icon: <LoginIcon />,
+              onClick: () => {
+                localStorage.clear();
+              },
+            },
           ]}
         />
       ) : (
@@ -98,7 +105,7 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
           items={[
             {
               label: t("profile"),
-              key: `/profileOver/${id}`,
+              key: "/profileOver",
               icon: <AccountCircleIcon />,
               // [
               //     {label: t("directions"), key: "/directions"},
@@ -113,14 +120,10 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
             },
             {
               label: t("portfolio"),
-              key: `/allPdf/${localStorage.getItem("userId")}`,
+              key: "/allPdf",
               icon: <SdCardIcon />,
             },
-            //   {
-            //     label: t("login"),
-            //     key: "/loginIn",
-            //     icon: <LoginIcon />,
-            //   },
+
             //   {
             //     label: t("setting"),
             //     key: "/setting",
@@ -128,13 +131,21 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
             //   },
             {
               label: t("directions"),
-              key: `/direction/${localStorage.getItem("userId")}`,
+              key: "/direction",
               icon: <ApartmentOutlined />,
             },
             {
               label: t("statistics"),
-              key: `/allInfo/${localStorage.getItem("userId")}`,
+              key: "/allInfo",
               icon: <SettingsIcon />,
+            },
+            {
+              label: t("logout"),
+              key: "/",
+              icon: <LoginIcon />,
+              onClick: () => {
+                localStorage.clear();
+              },
             },
           ]}
         />

@@ -79,7 +79,7 @@ function ProfileOverview() {
       .catch((err) => console.log("Response Error", err));
   }, []);
 
-  const verificationUrl = status === "passed" ? `/direction/${id}` : "";
+  // const verificationUrl = status === "passed" ? '/direction' : "";
 
   return (
     <>
@@ -112,7 +112,7 @@ function ProfileOverview() {
                     </Button>
                     <Button
                       className="profileButton"
-                      href={verificationUrl}
+                      href="/direction"
                       style={{ backgroundColor: statusColor }}
                       variant="text"
                     >

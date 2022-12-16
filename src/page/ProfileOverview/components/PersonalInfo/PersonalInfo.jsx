@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./PersonalInfo.scss";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
-import { baseApi } from "../../../../services/api";
 
 function PersonalInfo({ obj, imageURL }) {
   const id = localStorage.getItem("userId");

@@ -106,7 +106,7 @@
   "workAbout": "Job details",
   "addWork": "Add a job",
   "addEduc": "Add education",
-  "filial" : "Educational institution",
+  "filial": "Educational institution",
   "jobAbout": "Numerical job information",
   "direction": "Direction",
   "rating": "Performance rating of the sports and educational institution during the leadership period:",
@@ -138,5 +138,6 @@
   "CourseLang": "Course language",
   "password": "Password",
   "EduOrganize": "Educational institutions and organizations",
-  "DateOfQual": "Date of qualification"
+  "DateOfQual": "Date of qualification",
+  "logout": "Logout"
 }

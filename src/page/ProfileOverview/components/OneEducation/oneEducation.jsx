@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./oneEducation.scss";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import { baseApi } from "../../../../services/api";
 import { toast } from "react-toastify";
 

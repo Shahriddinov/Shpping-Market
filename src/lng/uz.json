@@ -107,7 +107,7 @@
   "Subjects": "O'qituvchi tomonidan o'qitiladigan fanlar",
   "subjectPoints": "Mavzu nuqtalari",
   "network": "TDIU bilan tarmoq markazi",
-  "data_end" : "Kvalifikatsiyaning boshlanish sanasi",
+  "data_end": "Kvalifikatsiyaning boshlanish sanasi",
   "teachers": "O'qituvchilar:",
   "allDirections": "Barcha yo'nalishlar",
   "statistics": "Statistika",
@@ -132,5 +132,6 @@
   "CourseLang": "Kurs tili",
   "password": "Parol",
   "EduOrganize": "Ta'lim muassasalari va tashkilotlari",
-  "DateOfQual": "Malaka berilgan sana"
+  "DateOfQual": "Malaka berilgan sana",
+  "logout": "Chiqish"
 }

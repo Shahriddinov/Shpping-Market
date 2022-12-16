@@ -22,7 +22,7 @@ const Home = () => {
   const id = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
 
-  const linkUrl = id && token ? `/allPdf/${id}` : "/";
+  const linkUrl = id && token ? "/allPdf" : "/";
   return (
     <>
       <Layout>
