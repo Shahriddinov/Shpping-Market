@@ -123,7 +123,7 @@ function CheckPdf(props) {
     return (
             <div className="checkPdf">
             <div className="d-flex">
-                <ProfileSidebar items/>
+                <ProfileSidebar admin={true}/>
                 <div className="eduPage">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <nav className="profile__navbar">

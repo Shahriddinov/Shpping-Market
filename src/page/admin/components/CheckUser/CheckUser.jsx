@@ -90,7 +90,7 @@ function CheckUser() {
         <>
             <section id="Profile-overview" className="Profile-overview">
                 <h1 className="visually-hidden">Profile Overview Page</h1>
-                <ProfileSidebar items />
+                <ProfileSidebar admin={true}/>
                 <section className="profile-overview__page">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar title={t("profile")}/>

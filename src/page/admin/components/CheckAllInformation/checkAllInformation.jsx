@@ -154,7 +154,7 @@ const CheckAllInformation = () => {
     return (
         <div className="allInformation">
             <div className="d-flex">
-                <ProfileSidebar items/>
+                <ProfileSidebar admin={true}/>
                 <div className="eduPage">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar/>
