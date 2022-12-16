@@ -16,7 +16,6 @@ import PDF from "../../../../assets/images/pdfImg.svg";
 import Button from "@mui/material/Button";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Footer from "../../../../components/Layout/Footer/Footer";
-import ProfileSidebarAdmin from "../../../../components/admin/profileSidebarAdmin/profileSidebarAdmin";
 import CloseIcon from '@mui/icons-material/Close';
 import 'react-toastify/dist/ReactToastify.css';
 import {useNavigate} from "react-router";
@@ -124,7 +123,7 @@ function CheckPdf(props) {
     return (
             <div className="checkPdf">
             <div className="d-flex">
-                <ProfileSidebarAdmin items/>
+                <ProfileSidebar items/>
                 <div className="eduPage">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <nav className="profile__navbar">

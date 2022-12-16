@@ -37,7 +37,17 @@ const Passports = (key, value) => {
     const navigate = useNavigate();
     const {t, i18n} = useTranslation();
     const [id, setId] = useState('')
+    const [num, setNum] = React.useState();
+    const [numbers, setNumbers] = React.useState();
+    const [stre, setStre] = React.useState();
+    const initialError = {
+        frame: false,
+        eText: ''
+    };
 
+    const [ePinfl, setEPnfl] = useState(initialError);
+    const [ePassport, setEPassport] = useState(initialError);
+    const [ePassportNum, setEPassportNum] = useState(initialError);
     const initialUser = {
         id: '',
         pnfl: "",
@@ -84,34 +94,45 @@ const Passports = (key, value) => {
 
     /************ERRORS***************/
 
-    const initialError = {
-        frame: false,
-        eText: ''
-    };
 
-    const [ePinfl, setEPnfl] = useState(initialError);
-    const [ePassport, setEPassport] = useState(initialError);
-    const [ePassportNum, setEPassportNum] = useState(initialError);
 
     function isUpper(str) {
         return !/[a-z]/.test(str) && /[A-Z]/.test(str);
     }
 
     function errorPinfl(e) {
-        if (e.target.value.length !== 14) setEPnfl({frame: true, eText: "Incorrect PINFL"});
-        else setEPnfl(initialError);
+        if (e.target.value.length === 14) {
+            setEPnfl({frame: true, eText: "Incorrect PINFL"});
+            const regex = /^[0-9\b]+$/;
+            if (e.target.value === "" || regex.test(e.target.value)) {
+                setNum(e.target.value);
+            }
+
+        } else setEPnfl(initialError);
     }
 
     function errorPassport(e) {
-        if (e.target.value.length === 2 && isUpper(e.target.value))
+        if (e.target.value.length === 2 && isUpper(e.target.value)){
             setEPassport(initialError);
-        else
-            setEPassport({frame: true, eText: "Incorrect passport seria"});
+            const regex = /^[0-2\b]+$/;
+            if (e.target.value === "" || regex.test(e.target.value)) {
+                setNumbers(e.target.value);
+            }
+        }
+        // else
+            // setEPassport({frame: true, eText: "Incorrect passport seria"});
     }
 
     function errorPasspotNum(e) {
-        if (e.target.value.length !== 7)
+        if (e.target.value.length === 7){
             setEPassportNum({frame: true, eText: "Incorrect passport number"});
+            const regex = /^[0-9\b]+$/;
+            if (e.target.value === "" || regex.test(e.target.value)) {
+                setNumbers(e.target.value);
+            }
+        }
+
+
         else
             setEPassportNum(initialError);
     }
@@ -137,7 +158,7 @@ const Passports = (key, value) => {
                             {/*<label className="label">Введите ПИНФЛ*</label>*/}
                             <Box
                                 component="form"
-                                style={{width:"90%"}}
+                                style={{width: "90%"}}
                                 noValidate
                                 autoComplete="off"
                             >
@@ -149,6 +170,9 @@ const Passports = (key, value) => {
                                     label="Введите ПИНФЛ*"
                                     variant="outlined"
                                     type="number"
+                                    defaultValue={num}
+                                    value={num}
+                                    inputProps={{maxLength: 14}}
                                     placeholder="1234567891011121314"
                                     onChange={(e) => {
                                         getInputValues(e);
@@ -177,6 +201,9 @@ const Passports = (key, value) => {
                                         variant="outlined"
                                         placeholder="DF"
                                         type="text"
+                                        defaultValue={stre}
+                                        value={stre}
+                                        inputProps={{maxLength: 2, style: {textTransform: "uppercase"}}}
                                         name={'pasport_seria'}
                                         onChange={(e) => {
                                             getInputValues(e);
@@ -201,6 +228,9 @@ const Passports = (key, value) => {
                                         label="Введите номер паспорта*"
                                         variant="outlined"
                                         placeholder="12345689"
+                                        defaultValue={numbers}
+                                        value={numbers}
+                                        inputProps={{maxLength: 8}}
                                         type="number"
                                         onChange={(e) => {
                                             getInputValues(e);

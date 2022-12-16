@@ -25,7 +25,6 @@ import {baseApi} from "../../../../services/api";
 import {useParams} from "react-router-dom";
 import {toast} from "react-toastify";
 import CloseIcon from "@mui/icons-material/Close";
-import ProfileSidebarAdmin from "../../../../components/admin/profileSidebarAdmin/profileSidebarAdmin";
 
 ChartJS.register(
     CategoryScale,
@@ -155,7 +154,7 @@ const CheckAllInformation = () => {
     return (
         <div className="allInformation">
             <div className="d-flex">
-                <ProfileSidebarAdmin items/>
+                <ProfileSidebar items/>
                 <div className="eduPage">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar/>
