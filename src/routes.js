@@ -1,15 +1,11 @@
-import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Spinner } from "./components";
+import React, { lazy } from "react";
 import Profile from "./page/Profile/Profile";
-import ProtectedRoute from "./utils/ProtectedRoute";
 
 const Home = lazy(() => import("./page/Home/Home"));
 const Passports = lazy(() => import("./page/Login"));
 const LogOut = lazy(() => import("./page/Login/components/logOut"));
 const LoginIn = lazy(() => import("./page/Login/LoginIn"));
 const Register = lazy(() => import("./page/register/register"));
-const NotFound = lazy(() => import("./page/404"));
 const Education = lazy(() => import("./page/Education/eduction"));
 const Qualification = lazy(() => import("./page/Qualification/qualification"));
 const AllInfo = lazy(() => import("./page/AllInformation/allInformation"));
@@ -32,7 +28,7 @@ const CheckInfo = lazy(() =>
   import("./page/admin/components/CheckAllInformation/checkAllInformation")
 );
 
-const publicRoutes = [
+export const publicRoutes = [
   {
     path: "/passport",
     element: <Passports />,
@@ -55,7 +51,7 @@ const publicRoutes = [
   },
 ];
 
-const privateRoutes = [
+export const privateRoutes = [
   {
     path: "/profile",
     element: <Profile />,
@@ -113,30 +109,3 @@ const privateRoutes = [
     element: <CheckInfo />,
   },
 ];
-
-const RoutesContainer = () => {
-  return (
-    <Router>
-      <Suspense fallback={<Spinner position="full" />}>
-        <Routes>
-          {publicRoutes?.map((route, idx) => (
-            <Route
-              key={route.path + idx}
-              path={route.path}
-              element={route.element}
-            />
-          ))}
-          {privateRoutes?.map((route, idx) => (
-            <Route
-              key={route?.path + idx}
-              path={route.path}
-              element={<ProtectedRoute>{route?.element}</ProtectedRoute>}
-            />
-          ))}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </Router>
-  );
-};
-export default RoutesContainer;
