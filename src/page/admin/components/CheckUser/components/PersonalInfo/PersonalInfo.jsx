@@ -77,10 +77,7 @@ function PersonalInfo({ obj, imageURL }) {
             <div className="form-group">
               <div className="personalNation">{t("Education")}</div>
               <div className="nationInfo">
-                {education.specialization_uz ??
-                  education.specialization_en ??
-                  education.specialization_ru ??
-                  "Malumot kiritilmagan"}
+                {education.specialization}
               </div>
             </div>
             <div className="form-group">

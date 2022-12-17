@@ -195,10 +195,9 @@ const Register = () => {
 
 
                                             <div className="form-control">
-                                                <label className="cityLabel">Филиалы *</label>
+                                                <label className="cityLabel">{t('filial')}</label>
                                                 <select className="city" name="select"
                                                         onChange={(e) => setFillial_id(e.target.value)}>
-                                                    <option value="">{t('filial')}</option>
                                                     <option value="1">Toshkent</option>
                                                     <option value="2">Samarkhand</option>
                                                     <option value="3">Nukus</option>

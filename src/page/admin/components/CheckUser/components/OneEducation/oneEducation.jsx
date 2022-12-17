@@ -58,7 +58,6 @@ function OneEducation({ obj }) {
       .then((response) => {
         // console.log(response.data.user[0].education[0].region_id)
         setRegionOne(response.data.user[0].education[0].region_id);
-        console.log(response.data.user[0].education[0].region_id);
         setEducation(response.data.user[0].education[0]);
         setSpecialization(response.data.user[0].education[0]);
         setStartData(response.data.user[0].education[0].enter_date);
@@ -93,7 +92,7 @@ function OneEducation({ obj }) {
             <div className="form-group">
               <div className="jobInfos">{t("institution")}</div>
               <div className="jobText">
-                {education.education_name ?? "Malumot kiritilmagan"}
+                {education.education_name}
               </div>
             </div>
             <div className="form-group">

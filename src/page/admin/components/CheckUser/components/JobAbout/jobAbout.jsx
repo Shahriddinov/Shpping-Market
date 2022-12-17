@@ -43,7 +43,7 @@ const JobAbout = () => {
         setFaculty(response.data.user[0].work[0].faculty);
         setCafedra(response.data.user[0].work[0].cafedra);
         setLevel(response.data.user[0].work[0].position);
-        setWorkName(response.data.user[0].work[0].work_name);
+        setWorkName(response.data.user[0].work[0].work_name_uz ?? "Malumot yuq");
         setWorkEnd(response.data.user[0].work[0].date_end);
       });
   }, []);

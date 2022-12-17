@@ -113,7 +113,7 @@ function CheckPdf(props) {
     } else {
       checkM = {
         user_id: Number(id),
-        permission: "feild",
+        permission: "faild",
         message: "sen utaolmading",
       };
     }

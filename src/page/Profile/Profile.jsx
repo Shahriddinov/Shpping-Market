@@ -228,6 +228,7 @@ function Profile() {
                                 <PhoneInput
                                     international
                                     labels={en}
+                                    limitMaxLength={13}
                                     placeholder="Ваш телефон"
                                     value={phone}
                                     onChange={(e) => setPhone(e)}

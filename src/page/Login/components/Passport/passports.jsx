@@ -101,7 +101,7 @@ const Passports = (key, value) => {
     }
 
     function errorPinfl(e) {
-        if (e.target.value.length === 14) {
+        if (e.target.value.length !== 14) {
             setEPnfl({frame: true, eText: "Incorrect PINFL"});
             const regex = /^[0-9\b]+$/;
             if (e.target.value === "" || regex.test(e.target.value)) {
@@ -124,7 +124,7 @@ const Passports = (key, value) => {
     }
 
     function errorPasspotNum(e) {
-        if (e.target.value.length === 7){
+        if (e.target.value.length !== 8){
             setEPassportNum({frame: true, eText: "Incorrect passport number"});
             const regex = /^[0-9\b]+$/;
             if (e.target.value === "" || regex.test(e.target.value)) {
@@ -230,7 +230,7 @@ const Passports = (key, value) => {
                                         placeholder="12345689"
                                         defaultValue={numbers}
                                         value={numbers}
-                                        inputProps={{maxLength: 8}}
+                                        inputProps={{maxLength: 7}}
                                         type="number"
                                         onChange={(e) => {
                                             getInputValues(e);

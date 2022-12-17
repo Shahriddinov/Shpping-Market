@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./qualification.scss";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -36,6 +36,7 @@ function Qualification() {
     const [date_start, setDate_start] = React.useState(dayjs('2014-08-18'));
     const [date_end, setDate_end] = React.useState(dayjs('2014-08-18'));
     const [text, setText] = useState('')
+    const [trainingRegion, setTrainingRegion] = useState([]);
     const navigate = useNavigate();
 
 
@@ -74,6 +75,16 @@ function Qualification() {
             toast.error(error.response?.data?.message)
         })
     }
+    useEffect(()=>{
+        axios.get(`${baseApi}/region`,{
+            headers: {
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then(res=>{
+            setTrainingRegion(res.data.regions)
+            console.log(res.data.regions)
+        })
+    },[localStorage.getItem("lng")])
 
     return (
         <section className="qualification">
@@ -94,20 +105,11 @@ function Qualification() {
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
                                     label={t("region")}
-                                    onChange={(e) => setRegion_id(e.target.value)}
+                                    onChange={(e,v) => setRegion_id(v.props.children)}
                                 >
-                                    <MenuItem value={1}>Ташкент</MenuItem>
-                                    <MenuItem value={2}>Nukus</MenuItem>
-                                    <MenuItem value={3}>Samarkand</MenuItem>
-                                    <MenuItem value={4}>Fergana</MenuItem>
-                                    <MenuItem value={5}>Kashkadarya</MenuItem>
-                                    <MenuItem value={6}>Navoi</MenuItem>
-                                    <MenuItem value={7}>Namangan</MenuItem>
-                                    <MenuItem value={8}>Bukhara</MenuItem>
-                                    <MenuItem value={9}>Sirdarya</MenuItem>
-                                    <MenuItem value={10}>Surkhandarya</MenuItem>
-                                    <MenuItem value={11}>Jizzakh</MenuItem>
-                                    <MenuItem value={12}>Khorezm</MenuItem>
+                                    {trainingRegion?.map((item, index)=>{
+                                        return <MenuItem value={item?.id}>{item?.name_uz ?? item?.name_en ?? item?.name_ru ?? ''}</MenuItem>
+                                    })}
                                 </Select>
                             </FormControl>
 

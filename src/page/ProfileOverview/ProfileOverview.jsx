@@ -92,14 +92,10 @@ function ProfileOverview() {
           <div className="profile-overview__sections">
             <PersonalInfo imageURL={userPic} obj={userInformations} />
             <OneEducation obj={userInformations} />
-            {/*<OneEducation obj={userInformations}/>*/}
             <JobAbout />
-            {/*<JobAbout/>*/}
             <AdvancedTraining />
-            {/*<AdvancedTraining/>*/}
             <div className="next-page">
               <div className="next-btn">
-                {/*<button>Продолжить</button>*/}
                 <Stack spacing={2} direction="row">
                   <div className="pencil">
                     <Button
