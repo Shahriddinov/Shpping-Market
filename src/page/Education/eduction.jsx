@@ -86,7 +86,7 @@ const Education = () => {
             }
         }).then(res => {
             setNameEducations(res.data.educationName)
-            console.log(res.data.educationName)
+            console.log('Hello', res.data.educationName)
         })
     }
     useEffect(()=>{

@@ -77,8 +77,9 @@ const Direction = () => {
             }
         }).then((response) => {
             setDirections(response.data.direction)
+            // console.log('fetch user', response.data.direction)
+            setGetDirectionId(response.data.datas.user)
             console.log('fetch user', response.data)
-            setGetDirectionId(response.data.datas)
 
         }).catch((error) => {
 
@@ -139,7 +140,7 @@ const Direction = () => {
     }
 
 
-    console.log("dataValueState", usersId.education_specialization?.specialization)
+    // console.log("dataValueState", usersId.education_specialization?.specialization)
     return (
         <>
             <section id="direction" className="direction">
@@ -157,7 +158,14 @@ const Direction = () => {
                                             setCount(true)
                                         }}>
                                             <h5>{item?.title_ru ?? item?.title_en ?? item?.title_uz}</h5>
-                                            <p>Педагоги: {getDirectionId[index]}</p>
+                                            {/* {item.users.map((i, index)=>{
+                                                return <div> */}
+                                                     <p>Педагоги: {item.users}</p>
+                                                   { console.log('hello', item.users.id)}
+                                                {/* </div>
+                                            })} */}
+                                           
+                                            {/* {console.log(item.users.id)} */}
                                         </div>
                                     })
                                 }

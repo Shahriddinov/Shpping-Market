@@ -1,9 +1,14 @@
-// import axios from "axios";
-//
-//  export const API = axios.create({
-//     baseURL: API_ROOT
-// });
-// console.log(request)
-//
-
+import axios from "axios";
 export const baseApi = "https://sport.napaautomotive.uz/api"
+
+
+
+export const getCountries = async() => {
+    try {
+        const {data} = await axios.get(baseApi + 'allData');
+        return data.countries;
+        console.log('Data', data)
+    } catch (error) {
+        throw error;
+    }
+}
