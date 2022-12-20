@@ -32,14 +32,14 @@
     .filters {
       display: flex;
       justify-content: space-between;
-      .stepFilter{
+      .stepFilter {
         width: 45% !important;
       }
     }
 
     .destination {
       width: 100%;
-      background: #FFFFFF;
+      background: #ffffff;
       box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
       border-radius: 12px;
       padding: 20px 30px 26px 20px;
@@ -50,7 +50,7 @@
         font-weight: 600;
         font-size: 20px;
         line-height: 23px;
-        color: #2B63C0;
+        color: #2b63c0;
         margin-bottom: 24px;
       }
 
@@ -58,8 +58,8 @@
         width: 100%;
         margin-left: 10px;
         padding: 20px 20px 26px;
-        background: #FFFFFF;
-        border: 1px solid #2B63C0;
+        background: #ffffff;
+        border: 1px solid #2b63c0;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
         border-radius: 8px;
 
@@ -75,7 +75,7 @@
           font-weight: 400;
           font-size: 20px;
           line-height: 24px;
-          color: #2B63C0;
+          color: #2b63c0;
           margin: 0;
         }
       }
@@ -92,7 +92,7 @@
           margin-bottom: 2%;
           //margin: 0 5px 24px 10px;
           padding: 20px 20px 26px;
-          background: #FFFFFF;
+          background: #ffffff;
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
           border-radius: 8px;
           display: flex;
@@ -100,7 +100,7 @@
           justify-content: space-between;
 
           &:hover {
-            border: 1px solid #2B63C0;
+            border: 1px solid #2b63c0;
           }
 
           h5 {
@@ -114,10 +114,18 @@
             font-weight: 400;
             font-size: 20px;
             line-height: 24px;
-            color: #2B63C0;
+            color: #2b63c0;
             margin: 0;
           }
         }
+      }
+      .scores{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: greenyellow;
+        font-weight: 600;
+        font-size: 16px;
       }
     }
 
@@ -153,37 +161,35 @@
           font-size: 18px;
           font-weight: 600;
           line-height: 24px;
-          color: #2B63C0;
+          color: #2b63c0;
           margin-bottom: 24px;
         }
 
         .Cancel {
           width: 27px;
           height: 6px;
-          background: #2B63C0;
+          background: #2b63c0;
           border-radius: 5px;
           margin-right: 30px;
         }
       }
 
       .pdf-part {
-        background: #FFFFFF;
+        background: #ffffff;
         width: calc(100%);
 
         ::-webkit-scrollbar {
           width: 10px;
         }
-      ;
-
         ::-webkit-scrollbar-track {
           background: white;
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
         }
 
         ::-webkit-scrollbar-thumb {
-          background: #2B63C0;
+          background: #2b63c0;
           border-radius: 5px;
-          border: 3px solid #2B63C0;
+          border: 3px solid #2b63c0;
         }
 
         .pdf {
@@ -221,7 +227,7 @@
               padding: 17px;
               margin: 2px 17px 17px 2px;
               box-sizing: border-box;
-              background: #FFFFFF;
+              background: #ffffff;
               box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
               border-radius: 10px;
 
@@ -247,7 +253,7 @@
                   font-weight: 400;
                   font-size: 15px;
                   line-height: 24px;
-                  color: #2B63C0;
+                  color: #2b63c0;
                 }
               }
             }
@@ -263,8 +269,6 @@
       color: #333333;
       margin-bottom: 8px;
     }
-
-
   }
 
   .teachCards {
@@ -278,9 +282,8 @@
     margin: 2px 24px 24px 2px;
     display: flex;
 
-
     &:hover {
-      border: 1px solid #2B63C0;
+      border: 1px solid #2b63c0;
     }
 
     .leftUser,
@@ -308,7 +311,7 @@
         display: flex;
         align-items: center;
         margin-top: 10px;
-        background: #FFFFFF;
+        background: #ffffff;
         border: 0.5px solid rgba(173, 173, 173, 0.8);
         border-radius: 8px;
       }
@@ -317,7 +320,7 @@
         font-weight: 500;
         font-size: 15px;
         line-height: 18px;
-        color: #2B63C0;
+        color: #2b63c0;
         margin-top: 20px;
       }
 
@@ -330,7 +333,7 @@
       }
 
       .textarea {
-        background: #FFFFFF;
+        background: #ffffff;
         border: 0.5px solid rgba(173, 173, 173, 0.8);
         border-radius: 8px;
         width: 83%;
@@ -340,7 +343,7 @@
       }
 
       .textsa {
-        background: #FFFFFF;
+        background: #ffffff;
         border: 0.5px solid rgba(173, 173, 173, 0.8);
         border-radius: 8px;
         margin-top: 20px;
@@ -361,7 +364,7 @@
       }
 
       .RightTextsa {
-        background: #FFFFFF;
+        background: #ffffff;
         border: 0.5px solid rgba(173, 173, 173, 0.8);
         border-radius: 8px;
         margin-top: 10px;
@@ -387,8 +390,8 @@
         width: auto;
         padding: 15px;
         height: 48px;
-        background-color: #EAF0F9;
-        color: #2B63C0;
+        background-color: #eaf0f9;
+        color: #2b63c0;
         border-radius: 8px;
         font-size: 16px;
         font-weight: 500;

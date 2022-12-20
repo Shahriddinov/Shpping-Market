@@ -175,7 +175,7 @@ function Works() {
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
                                             label={t("region")}
-                                            onChange={(e, v) => setRegion_id(v.props.children)}
+                                            onChange={(e, v) => setRegion_id(e.target.value)}
                                         >
                                             {workRegion?.map((item, index)=>{
                                                 return <MenuItem value={item?.id}>{item?.name_uz ?? item?.name_en ?? item?.name_ru ?? ''}</MenuItem>
@@ -204,7 +204,7 @@ function Works() {
                                             freeSolo
                                             id="free-solo-2-demo"
                                             disableClearable
-                                            options={placeWork?.map((option) => option?.name_uz)}
+                                            options={placeWork?.map((option) => option?.name_uz ?? option?.name_en ?? option?.name_ru ?? "")}
                                             onChange={(event, value) => setSelectedWorkName(value)}
                                             renderInput={(params) => (
                                                 <TextField

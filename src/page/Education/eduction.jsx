@@ -123,7 +123,7 @@ const Education = () => {
                                             className="mb-4"
                                             label={t("region")}
                                             onChange={(e,v) => {
-                                                setRegion_id(v.props.children)
+                                                setRegion_id(e.target.value)
                                                 // console.log(v.props.children)
                                             }}
                                         >
