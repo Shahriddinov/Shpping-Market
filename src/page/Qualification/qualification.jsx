@@ -36,6 +36,7 @@ function Qualification() {
   const [date_end, setDate_end] = React.useState(dayjs("2014-08-18"));
   const [text, setText] = useState("");
   const [trainingRegion, setTrainingRegion] = useState([]);
+  const [getFillialTraining ,setGetFillialTraining] = useState([]);
   const navigate = useNavigate();
 
   const handleChangeLng = (lng) => {
@@ -62,7 +63,7 @@ function Qualification() {
         console.log(response.data);
         if (response.data.status === "ok") {
           setTimeout(() => {
-            navigate(`/profileOver/${localStorage.getItem("userId")}`);
+            navigate(`/profileOver`);
           }, 100);
           toast.success(response.data.Message);
         }
@@ -83,6 +84,16 @@ function Qualification() {
         console.log(res.data.regions);
       });
   }, [localStorage.getItem("lng")]);
+  useEffect(()=>{
+    axios.get(`${baseApi}/filial`, {
+      headers: {
+        "Accept-Language": localStorage.getItem("lng",) || "uz"
+      }
+    }).then((response)=>{
+      setGetFillialTraining(response.data.filial)
+      console.log(response.data.filial)
+    })
+  },[])
 
   return (
     <section className="qualification">
@@ -134,17 +145,30 @@ function Qualification() {
                     label={t("attended")}
                     onChange={(e) => setFillial_id(e.target.value)}
                   >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={1}>Toshkent</MenuItem>
-                    <MenuItem value={2}>Nukus</MenuItem>
-                    <MenuItem value={3}>Samarkhand</MenuItem>
-                    <MenuItem value={4}>Fargana</MenuItem>
+                    <option disabled selected>
+                      {t("choose")}
+                    </option>
+                    {getFillialTraining?.map((item, index) => {
+                      return (
+                          <MenuItem value={item?.id}>
+                            {item?.name_uz ??
+                            item?.name_en ??
+                            item?.name_ru ??
+                            ""}
+                          </MenuItem>
+                      );
+                    })}
+                    {/*<MenuItem value="">*/}
+                    {/*  <em>None</em>*/}
+                    {/*</MenuItem>*/}
+                    {/*<MenuItem value={1}>Toshkent</MenuItem>*/}
+                    {/*<MenuItem value={2}>Nukus</MenuItem>*/}
+                    {/*<MenuItem value={3}>Samarkhand</MenuItem>*/}
+                    {/*<MenuItem value={4}>Fargana</MenuItem>*/}
                   </Select>
                 </FormControl>
               </div>
-              <div className="form">
+              <div className="date">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <Stack spacing={3}>
                     <DesktopDatePicker
@@ -175,7 +199,7 @@ function Qualification() {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <Stack spacing={3}>
                     <DesktopDatePicker
-                      className="schedule"
+                      className="schedule w-100"
                       label={t("date")}
                       inputFormat="MM/DD/YYYY"
                       value={date_end}

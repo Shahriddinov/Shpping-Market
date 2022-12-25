@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./home.scss";
 import Home1 from "../../assets/images/home1.svg";
@@ -15,14 +15,32 @@ import Layout from "../../components/Layout/Layout";
 import Button from "@mui/material/Button";
 import ReactPlayer from "react-player";
 import CarouselComponent from "../../components/Carousel";
+import axios from "axios";
+import { baseApi } from "../../services/api";
 
 const Home = () => {
   const { t } = useTranslation();
 
   const id = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
+  const [homeVideo, setHomeVideo] = useState("");
+  const [homeImg, setHomeImg] = useState([]);
 
   const linkUrl = id && token ? "/allPdf" : "/";
+  // useEffect(() => {
+  //   getHomePage()
+  // }, []);
+
+  // async function getHomePage(){
+  //   axios.get(`${baseApi}/home-pages`).then((res) => {
+  //     setHomeImg(res.data.data)
+  //     res.data.data.map((item) => {
+  //       setHomeVideo(item.video);
+  //     });
+  //   });
+
+  // }
+
   return (
     <>
       <Layout>
@@ -46,7 +64,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <CarouselComponent />
+          <CarouselComponent item={homeImg} />
           <div className="homeTitle">{t("homeTitle")}</div>
 
           <div className="buttons">
@@ -105,12 +123,7 @@ const Home = () => {
               <div className="line"></div>
               <h2 className="m-0">{t("InstructionalVideo")}</h2>
             </div>
-            <ReactPlayer
-              width="100%"
-              height="500px"
-              controls
-              url="https://youtu.be/7deznzPAzsk"
-            />
+            <ReactPlayer width="100%" height="500px" controls url="https://youtu.be/7deznzPAzsk" />
           </div>
         </div>
         <MainProfile />

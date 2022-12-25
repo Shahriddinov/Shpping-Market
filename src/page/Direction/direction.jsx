@@ -75,7 +75,7 @@ const Direction = (props) => {
 
   function handleChange() {
     axios
-      .get("https://sport.napaautomotive.uz/api/direction ", {
+      .get(`${baseApi}/direction `, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
         },
@@ -88,7 +88,7 @@ const Direction = (props) => {
 
   async function handleChangeTwo(e) {
     axios
-      .get(`https://sport.napaautomotive.uz/api/directionCategory`, {
+      .get(`${baseApi}/directionCategory`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
         },
@@ -131,7 +131,7 @@ const Direction = (props) => {
                   console.log(item.id);
                   return (
                     <MenuItem key={index} value={item.id}>
-                      {item.title_ru ?? item.title_uz ?? item.title_en}
+                      {item.title}
                     </MenuItem>
                   );
                 })}

@@ -16,10 +16,11 @@ import PDF from "../../../../assets/images/pdfImg.svg";
 import Button from "@mui/material/Button";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Footer from "../../../../components/Layout/Footer/Footer";
+import * as types from "../../../../services/confirmTypes";
 import CloseIcon from "@mui/icons-material/Close";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router";
-
+import { Popconfirm, Space, Upload } from "antd";
 function CheckPdf(props) {
   const { t, i18n } = useTranslation();
   const id = localStorage.getItem("checkId");
@@ -33,6 +34,8 @@ function CheckPdf(props) {
   const [userPhone, setUserPhone] = useState("");
   const [scores, setScores] = useState("");
   const [mainPdf, setMainPdf] = useState([]);
+  const [confirmMsgAnswer, setConfirmMsgAnswer] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // const [message, setMessage] = useState('');
@@ -95,12 +98,13 @@ function CheckPdf(props) {
       })
       .then((response) => {
         setMainPdf(response.data.data);
+
         toast.success(response.data.Message);
       })
       .catch((error) => {
         toast.error(error.response?.data?.message);
       });
-  }, []);
+  }, [confirmMsgAnswer]);
 
   function CheckMessage(req) {
     let checkM = {};
@@ -135,6 +139,26 @@ function CheckPdf(props) {
         console.log(response);
       });
   }
+  function confirmTask(id) {
+    axios
+      .post(
+        `${baseApi}/evaluateCheck/${id}/update`,
+        {
+          score: "0",
+          admin_permission: types.FAILED,
+          messages: "xato",
+        },
+        {
+          headers: {
+            "Accept-Language": localStorage.getItem("lng") || "uz",
+          },
+        }
+      )
+      .then((res) => {
+        setConfirmMsgAnswer(res.data.checkUserEveluate.admin_permission + id);
+        setLoading(true);
+      });
+  }
 
   return (
     <div className="checkPdf">
@@ -146,7 +170,7 @@ function CheckPdf(props) {
             <div className="profile__container">
               <div className="profile__navbar-lef">
                 <Link
-                  to="/userInfo"
+                  to="/gallery"
                   style={{ display: "flex", alignItems: "center" }}
                 >
                   <ArrowBackIosIcon className="arrow-back" />
@@ -272,10 +296,38 @@ function CheckPdf(props) {
                         item.direction_name.category_en ??
                         item.direction_name.category_uz}
                     </div>
-                    <div className="imgPdf">
-                      {!item.pdf || (
-                        <img src={PDF} alt="" style={{ marginTop: "20%" }} />
-                      )}
+                    <div className="d-flex align-items-center justify-content-between">
+                      {/* <Popconfirm
+                        title="Tasdiqlanmasin"
+                        okText="Yes"
+                        cancelText="No"
+                      > */}
+                      <Button
+                        variant="contained"
+                        disabled={item.admin_permission === types.FAILED}
+                        onClick={() => confirmTask(item.id)}
+                        className={
+                          item.admin_permission === types.FAILED
+                            ? "bg-danger mt-5"
+                            : "mt-5"
+                        }
+                      >
+                        {item.admin_permission === types.FAILED
+                          ? "Tasdiqlanmadi"
+                          : item.admin_permission === types.PASSED
+                          ? "Tasdiqlandi"
+                          : "Tasdiqlash"}
+                      </Button>
+                      {/* </Popconfirm> */}
+                      <a
+                        target="_blank"
+                        href={`https://sport.napaautomotive.uz/storage/${item.pdf}`}
+                        className="imgPdf"
+                      >
+                        {!item.pdf || (
+                          <img src={PDF} alt="" style={{ marginTop: "20%" }} />
+                        )}
+                      </a>
                     </div>
                   </div>
                 </div>

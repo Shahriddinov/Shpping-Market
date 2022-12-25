@@ -1,29 +1,31 @@
+import React, { useEffect, useState } from "react";
 import { Carousel } from "antd";
-import React from "react";
 import HomeImgs from "../../assets/images/homeImg.JPG";
 import HomeImgsTwo from "../../assets/images/homeImg2.JPG";
 import HomeImgsThree from "../../assets/images/homeImg3.JPG";
+import axios from "axios";
+import { baseApi } from "../../services/api";
 const contentStyle = {
   height: "832px",
   textAlign: "center",
   background: "#364d79",
 };
+export default function CarouselComponent() {
+  const [homeImage, setHomeImage] = useState([]);
 
-const CarouselComponent = () => (
-  <Carousel autoplay>
-    <div style={contentStyle}>
-      <img src={HomeImgs} alt="logo" width={"100%"} />
-    </div>
-    <div style={contentStyle}>
-      <img src={HomeImgsTwo} alt="logo" width={"100%"} />
-    </div>
-    <div style={contentStyle}>
-      <img src={HomeImgsThree} alt="logo" width={"100%"} />
-    </div>
-    {/*<div style={contentStyle}>*/}
-    {/*    <img src="main.svg" alt="logo" width={'100%'}/>*/}
-    {/*</div>*/}
-  </Carousel>
-);
+  useEffect(() => {
+    axios.get(`${baseApi}/home-pages`).then((res) => {
+      setHomeImage(res.data.data)
+    });
+  }, []);
 
-export default CarouselComponent;
+  return (
+    <Carousel autoplay>
+      {
+        homeImage.map((el,i)=><div style={contentStyle} key={i}>
+        <img src={`https://sport.napaautomotive.uz/storage/${el.photo}`} alt="logo" width={"100%"} />
+      </div>)
+      }
+    </Carousel>
+  );
+}

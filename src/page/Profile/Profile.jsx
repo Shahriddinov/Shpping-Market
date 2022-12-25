@@ -63,15 +63,7 @@ function Profile() {
 
     /********Errors*******/
 
-    function getItem(label, key, icon, children) {
-        return {
-            key,
-            icon,
-            children,
-            label,
-        };
-    }
-
+    
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
         localStorage.setItem("lng", lng);
@@ -111,7 +103,7 @@ function Profile() {
     return (
         <section id="Profile" className="Profile">
             <h1 className="visually-hidden">Profile Page</h1>
-            <ProfileSidebar items userName={t("fio")}/>
+            <ProfileSidebar  userName={t("fio")} key={t("fio")}/>
             <section className="profile__page">
                 <ProfileHeader handleChangeLng={handleChangeLng} questionNeed={true}/>
                 <ProfileNavbar title={t("fullInfo")}/>
@@ -136,17 +128,7 @@ function Profile() {
                                 />
                             </Box>
                             <FormGroup className="page1__gender">
-                                <input
-                                    type="radio"
-                                    className="womenInput"
-                                    name="gender"
-                                    id="women"
-                                    value="women"
-                                    onChange={(e) => setGender(e.target.value)}
-                                />
-                                <label htmlFor="women" className="women">
-                                    {t("women")}
-                                </label>
+
                                 <input
                                     type="radio"
                                     className="womenInput"
@@ -157,6 +139,17 @@ function Profile() {
                                 />
                                 <label htmlFor="man" className="women">
                                     {t("man")}
+                                </label>
+                                <input
+                                    type="radio"
+                                    className="womenInput"
+                                    name="gender"
+                                    id="women"
+                                    value="women"
+                                    onChange={(e) => setGender(e.target.value)}
+                                />
+                                <label htmlFor="women" className="women">
+                                    {t("women")}
                                 </label>
                             </FormGroup>
 

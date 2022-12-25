@@ -187,7 +187,6 @@ const AllInformation = () => {
                 {console.log(mainInfo)}
                 {mainInfo?.map((item, index) => (
                   <div key={index.toString()} className="form-group">
-                    {console.log(item.direction_name)}
                     <div className="subjectName">
                       {item.direction_name.category_ru ??
                         item.direction_name.category_en ??
@@ -195,6 +194,8 @@ const AllInformation = () => {
                     </div>
                     <div className="subjectBall">
                       {item.direction_category_name}
+                      {console.log('hello', item.direction_name)}
+
                       <Chip className="chip" label={item.score} />
                     </div>
                   </div>

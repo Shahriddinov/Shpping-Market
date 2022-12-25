@@ -30,7 +30,7 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
     axios
       .get(`${baseApi}/allData/` + id)
       .then((response) => {
-        console.log(response.data.user_avatar.photo);
+        // console.log(response.data.user_avatar.photo);
         setPhotos(response.data.user_avatar.photo);
         setAllName(response.data.user_personal_info.full_name);
       })

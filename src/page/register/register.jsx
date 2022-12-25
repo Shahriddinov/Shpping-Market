@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Breadcrumb, Layout, Menu} from 'antd';
 import Logo from "../../assets/images/logo.svg"
 import "./register.scss"
@@ -24,6 +24,8 @@ import EnFlag from "../../assets/images/en.png";
 import {baseApi} from "../../services/api";
 import {toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
 
 const label = {inputProps: {'aria-label': 'Switch demo'}};
 const {Header, Content, Footer, Sider} = Layout;
@@ -43,10 +45,7 @@ const Register = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [fillial_id, setFillial_id] = useState([]);
-
-    // const handleRegions = (event) => {
-    //     setRegions(event.target.value);
-    // };
+    const [getFillial, setGetFillial] = useState([])
     const [collapsed, setCollapsed] = useState(false);
 
     const {t, i18n} = useTranslation();
@@ -102,6 +101,16 @@ const Register = () => {
             toast.error(error.response?.data?.message)
         })
     }
+    useEffect(()=>{
+        axios.get(`${baseApi}/filial`, {
+            headers: {
+                "Accept-Language": localStorage.getItem("lng",) || "uz"
+            }
+        }).then((response)=>{
+            setGetFillial(response.data.filial)
+            console.log(response.data.filial)
+        })
+    },[])
 
 
     return (
@@ -119,7 +128,7 @@ const Register = () => {
                         <span className="layoutText">JISMONIY TARBIYA VA SPORT BO`YICHA MUTAXASSIZLARNI QATTA TAYYORLASH VA MALAKASINI OSHIRISH INSTITUTI</span>
                     </div>
                     <div className="logo"/>
-                    <Menu theme="dark" style={{marginTop: "36%"}} defaultSelectedKeys={['1']} mode="inline"
+                    <Menu theme="dark" style={{marginTop: "36%"}}  defaultSelectedKeys={['1']} mode="inline"
                     />
                 </Sider>
                 <Layout className="site-layout">
@@ -196,12 +205,21 @@ const Register = () => {
 
                                             <div className="form-control">
                                                 <label className="cityLabel">{t('filial')}</label>
-                                                <select className="city" name="select"
+                                                <select className="city" name="select" defaultValue={'DEFAULT'} 
                                                         onChange={(e) => setFillial_id(e.target.value)}>
-                                                    <option value="1">Toshkent</option>
-                                                    <option value="2">Samarkhand</option>
-                                                    <option value="3">Nukus</option>
-                                                    <option value="4">Fargana</option>
+                                                    <option value="DEFAULT">
+                                                        {t("choose")}
+                                                    </option>
+                                                    {getFillial?.map((item, index) => {
+                                                        return (
+                                                            <option key={index} value={item?.id}>
+                                                                {item?.name_uz ??
+                                                                item?.name_en ??
+                                                                item?.name_ru ??
+                                                                ""}
+                                                            </option>
+                                                        );
+                                                    })}
                                                 </select>
 
 

@@ -79,7 +79,6 @@ function ProfileOverview() {
       .catch((err) => console.log("Response Error", err));
   }, []);
 
-  // const verificationUrl = status === "passed" ? '/direction' : "";
 
   return (
     <>

@@ -19,6 +19,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { baseApi } from "../../services/api";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import id from "faker/lib/locales/id_ID";
 
 const Filters = [
   { label: "Список стажеров, запланированных на обучение", val: 0 },
@@ -36,12 +37,16 @@ const Direction = () => {
   const [teacher, setTeacher] = useState([]);
   const [teacher2, setTeacher2] = useState([]);
   const [filterType, setFilterType] = useState(0);
+  const [serchByName, setSerchByName] = useState("");
+  const [checkUserList, setCheckUserList] = useState([]);
+
   const [directions, setDirections] = useState([]);
   const [getDirectionId, setGetDirectionId] = useState([]);
   const [usersId, setUsersId] = useState([]);
   const [count, setCount] = useState(false);
   const [checked, setChecked] = useState(false);
   const [idUsers, setIdUsers] = useState(0);
+  const [downloadExelId, setDownloadExelId] = useState("");
 
   const navigate = useNavigate();
   const [value, setValue] = React.useState(null);
@@ -81,8 +86,8 @@ const Direction = () => {
       });
   }, []);
 
-  async function directionsUser(id) {
-    // console.log(id)
+  function directionsUser(id) {
+    setDownloadExelId(id);
     axios
       .get(`${baseApi}/direction_with_user/${id}`, {
         headers: {
@@ -91,7 +96,8 @@ const Direction = () => {
       })
       .then((response) => {
         let map = Object.values(response.data.data);
-        setTeacher(map);
+        setTeacher2(map);
+        setCheckUserList(map);
         console.log(map);
       })
       .catch((error) => {});
@@ -146,7 +152,19 @@ const Direction = () => {
     setTeacher2(data);
   };
 
-  // console.log("dataValueState", usersId.education_specialization?.specialization)
+  function onChangeFilterUser(info) {
+    setSerchByName(info);
+    const search = checkUserList.filter((item) =>
+      item.user_name.toLowerCase().includes(info.toLowerCase())
+    );
+    setTeacher2((prev) => (prev = search));
+
+    console.log(search);
+  }
+
+  const downloadExcelUrl = `https://sport.napaautomotive.uz/api/oneUserInfo/${idUsers}/export`;
+  const downloadExcelAll = `https://sport.napaautomotive.uz/api/userInfo/${downloadExelId}/export`;
+
   return (
     <>
       <section id="direction" className="direction">
@@ -166,12 +184,30 @@ const Direction = () => {
                         setCount(true);
                       }}
                     >
-                      <h5>
-                        {item?.title_ru ?? item?.title_en ?? item?.title_uz}
-                      </h5>
+                      <h5>{item?.title}</h5>
                       <div className="scores">
-                        <p>Педагоги: {item.users.length} </p>
-                        <div>+ 12</div>
+                        <p>
+                          Педагоги:{" "}
+                          {
+                            item.users.filter(
+                              (el) =>
+                                el.check_user !== null &&
+                                el.portfolio_user !== null &&
+                                el.statistic_user !== null
+                            ).length
+                          }{" "}
+                        </p>
+                        <div>
+                          +
+                          {
+                            item.users.filter(
+                              (el) =>
+                                el.check_user === null ||
+                                el.portfolio_user === null ||
+                                el.statistic_user === null
+                            ).length
+                          }
+                        </div>
                       </div>
                     </div>
                   );
@@ -181,36 +217,48 @@ const Direction = () => {
 
             <div>
               {count && (
-                <div className="filters">
-                  <Autocomplete
-                    disablePortal
-                    id="combo-box-demo"
-                    options={Filters}
-                    className="stepFilter"
-                    onChange={(event, value) => setFilterType(value.val)}
-                    renderInput={(params) => (
-                      <TextField {...params} label="Filter" />
-                    )}
-                  />
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                      label="Filter Data"
-                      value={value}
+                <div>
+                  <div className="filters">
+                    <Autocomplete
+                      disablePortal
+                      id="combo-box-demo"
+                      options={Filters}
                       className="stepFilter"
-                      onChange={(newValue) => dataValue(newValue)}
+                      onChange={(event, value) => setFilterType(value.val)}
                       renderInput={(params) => (
-                        <TextField style={{ width: "500px" }} {...params} />
+                        <TextField {...params} label="Filter" />
                       )}
                     />
-                  </LocalizationProvider>
-                  <Button
-                    onClick={filterTecher}
-                    variant="contained"
-                    className="btn btn-primary"
-                  >
-                    Search
-                  </Button>
-                  {/*<button >ok</button>*/}
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DatePicker
+                        label="Filter Data"
+                        value={value}
+                        className="stepFilter"
+                        onChange={(newValue) => dataValue(newValue)}
+                        renderInput={(params) => (
+                          <TextField style={{ width: "500px" }} {...params} />
+                        )}
+                      />
+                    </LocalizationProvider>
+                    <Button
+                      onClick={filterTecher}
+                      variant="contained"
+                      className="btn btn-primary"
+                    >
+                      Search
+                    </Button>
+                  </div>
+                  <TextField
+                    type="text"
+                    id="outlined-basic"
+                    value={serchByName}
+                    label={t("userName")}
+                    onChange={(e) => onChangeFilterUser(e.target.value)}
+                    variant="outlined"
+                    className="w-100 mt-4"
+
+                  />
+                  {/* <input type="text" value={serchByName} className="form-control" onChange={e =>onChangeFilterUser(e.target.value)}/> */}
                 </div>
               )}
 
@@ -218,6 +266,7 @@ const Direction = () => {
                 <div className="listOfOrganize">
                   <div className="boxNav">
                     <h1>ТДИУ Университет всего педагогов</h1>
+
                     <div
                       className="Cancel"
                       onClick={() => setShowTeachers(false)}
@@ -227,115 +276,71 @@ const Direction = () => {
                     <div className="pdf-part">
                       <div className="pdf">
                         <div className="pdf-item">
-                          {teacher2?.length > 0
-                            ? teacher2?.map((item, index) => {
-                                console.log(item);
-                                return (
-                                  <div
-                                    key={index.toString()}
-                                    style={{ margin: 0 }}
-                                  >
+                          {teacher2?.map((item, index) => {
+                            return (
+                              <div key={index.toString()} style={{ margin: 0 }}>
+                                <div
+                                  className={
+                                    item.check_user !== null &&
+                                    item.portfolio_user !== null &&
+                                    item.statistic_user !== null
+                                      ? "teachCard "
+                                      : "teachCard newUsers"
+                                  }
+                                  onClick={() => {
+                                    directionUserid(item.user_id);
+                                    setChecked(true);
+                                  }}
+                                >
+                                  <div className="teacherImage">
+                                    <img
+                                      src={
+                                        item?.avatar
+                                          ? `https://sport.napaautomotive.uz/storage/${item?.avatar}`
+                                          : Imgs
+                                      }
+                                      alt="No img"
+                                    />
+                                  </div>
+                                  <div className="teacherInfo">
+                                    <h4>{item?.user_name}</h4>
+                                    <div className="persons">
+                                      <h4>Номер ID: </h4>
+                                      <h4>{item?.pasport_seria}</h4>
+                                      <h4> {item?.pasport_seria_code}</h4>
+                                    </div>
                                     <div
-                                      className="teachCard"
-                                      onClick={() => {
-                                        directionUserid(item.user_id);
-                                        setChecked(true);
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between",
                                       }}
                                     >
-                                      <div className="teacherImage">
-                                        <img
-                                          src={
-                                            item?.avatar
-                                              ? `https://sport.napaautomotive.uz/storage/${item?.avatar}`
-                                              : Imgs
-                                          }
-                                          alt="No img"
-                                        />
-                                      </div>
-                                      <div className="teacherInfo">
-                                        <h4>{item?.user_name}</h4>
-                                        <div className="persons">
-                                          <h4>Номер ID: </h4>
-                                          <h4>{item?.pasport_seria}</h4>
-                                          <h4> {item?.pasport_seria_code}</h4>
-                                        </div>
-                                        <div
-                                          style={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "space-between",
-                                          }}
-                                        >
-                                          <h5>Балл :</h5>
-                                          <div className="score">
-                                            {item?.score ?? 0}
-                                          </div>
-                                        </div>
+                                      <h5>Балл :</h5>
+                                      <div className="score">
+                                        {item?.score ?? 0}
                                       </div>
                                     </div>
                                   </div>
-                                );
-                              })
-                            : teacher?.map((item, index) => {
-                                return (
-                                  <div
-                                    key={index.toString()}
-                                    style={{ margin: 0, width: "45%" }}
-                                  >
-                                    <div
-                                      className="teachCard"
-                                      onClick={() => {
-                                        directionUserid(item.user_id);
-                                        setChecked(true);
-                                      }}
-                                    >
-                                      <div className="teacherImage">
-                                        <img
-                                          src={
-                                            item?.avatar
-                                              ? `https://sport.napaautomotive.uz/storage/${item?.avatar}`
-                                              : Imgs
-                                          }
-                                          alt="No img"
-                                        />
-                                      </div>
-                                      <div className="teacherInfo">
-                                        <h4>{item?.user_name}</h4>
-                                        <div className="persons">
-                                          <h4>Номер ID: </h4>
-                                          <h4>{item?.pasport_seria}</h4>
-                                          <h4> {item?.pasport_seria_code}</h4>
-                                        </div>
-                                        <div
-                                          style={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "space-between",
-                                          }}
-                                        >
-                                          <h5>Балл :</h5>
-                                          <div className="score">
-                                            {item?.score ?? 0}
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                );
-                              })}
+                                </div>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
                     <div className="DownloadFile">
-                      <div
+                      <a
+                        href={downloadExcelAll}
+                        download
+                        target="__blank"
                         className="downloadItem"
-                        // onClick={() => onButtonClick('xls')}
                       >
                         <span>
                           <DownloadIcon fontSize="small" />
                         </span>
                         Загрузить в Excel
-                      </div>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -389,8 +394,7 @@ const Direction = () => {
                   </div>
                   <div className="RightTextsa">
                     {" "}
-                    {usersId.education_specialization?.education
-                      ?.education_name ?? "Malumot yuq"}
+                    {usersId.education_specialization?.specialization ?? "Malumot yuq"}
                   </div>
                   <div className="RightInfos" style={{ marginTop: "5%" }}>
                     Название направления
@@ -428,7 +432,9 @@ const Direction = () => {
                     </Button>
                   </Stack>
                   <div className="DownloadFile">
-                    <div
+                    <a
+                      href={downloadExcelUrl}
+                      download
                       className="downloadItem"
                       // onClick={() => onButtonClick('xls')}
                     >
@@ -436,7 +442,7 @@ const Direction = () => {
                         <DownloadIcon fontSize="small" />
                       </span>
                       Загрузить в Excel
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
