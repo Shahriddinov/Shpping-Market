@@ -6,7 +6,7 @@ import HomeImgsThree from "../../assets/images/homeImg3.JPG";
 import axios from "axios";
 import { baseApi } from "../../services/api";
 const contentStyle = {
-  height: "832px",
+  height: "70px",
   textAlign: "center",
   background: "#364d79",
 };
@@ -20,7 +20,7 @@ export default function CarouselComponent() {
   }, []);
 
   return (
-    <Carousel autoplay>
+    <Carousel autoplay style={{height:"700px"}}>
       {
         homeImage.map((el,i)=><div style={contentStyle} key={i}>
         <img src={`https://sport.napaautomotive.uz/storage/${el.photo}`} alt="logo" width={"100%"} />

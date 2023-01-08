@@ -332,7 +332,7 @@ function Qualification() {
                 <span className="icon">
                   <CancelOutlinedIcon fontSize="small" />
                 </span>{" "}
-                Назад
+                {t("back")}
               </Button>
             </Stack>
           </div>
@@ -349,7 +349,7 @@ function Qualification() {
                 <span className="icon">
                   <SaveAsIcon fontSize="small" />
                 </span>{" "}
-                Сохранить
+                {t("save")}
               </Button>
             </Stack>
           </div>

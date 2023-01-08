@@ -19,7 +19,7 @@ import axios from "axios";
 import Toast from "light-toast";
 import { baseApi } from "../../services/api";
 import { toast } from "react-toastify";
-import * as types from "../../services/confirmTypes"
+import * as types from "../../services/confirmTypes";
 const InformationAllPdf = (props) => {
   const { t, i18n } = useTranslation();
   const id = localStorage.getItem("userId");
@@ -262,15 +262,26 @@ const InformationAllPdf = (props) => {
                     className="col-6  d-flex justify-content-between"
                     key={index.toString()}
                   >
-                    <div className={item.admin_permission === types.FAILED ? "pdfLeft w-100 errorM" : "pdfLeft w-100"}>
+                    <div
+                      className={
+                        item.admin_permission === types.FAILED
+                          ? "pdfLeft w-100 errorM"
+                          : "pdfLeft w-100"
+                      }
+                    >
                       <div className="pdfText">{fileName}</div>
                       <div className="d-flex align-items-center">
                         <p className="faileds">
-                          {item.admin_permission === types.FAILED 
-                           ? localStorage.getItem("lng") === "uz" ?  types.MESSAGE_UZ 
-                           : localStorage.getItem("lng") === "en" ?  types.MESSAGE_EN 
-                           : localStorage.getItem("lng") === "ru" ?  types.MESSAGE_RU 
-                           : '' : ""}</p>
+                          {item.admin_permission === types.FAILED
+                            ? localStorage.getItem("lng") === "uz"
+                              ? types.MESSAGE_UZ
+                              : localStorage.getItem("lng") === "en"
+                              ? types.MESSAGE_EN
+                              : localStorage.getItem("lng") === "ru"
+                              ? types.MESSAGE_RU
+                              : ""
+                            : ""}
+                        </p>
                       </div>
                       <div className="imgPdf">
                         {!item.pdf || (
@@ -293,7 +304,7 @@ const InformationAllPdf = (props) => {
             <span className="icon">
               <CheckCircleOutlineIcon fontSize="small" />
             </span>{" "}
-            Соответствует
+            {t("checking")}
           </Button>
         </div>
       </div>

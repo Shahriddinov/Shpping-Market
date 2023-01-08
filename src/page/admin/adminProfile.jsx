@@ -226,12 +226,12 @@ const Direction = () => {
                       className="stepFilter"
                       onChange={(event, value) => setFilterType(value.val)}
                       renderInput={(params) => (
-                        <TextField {...params} label="Filter" />
+                        <TextField {...params} label={t("filter")} />
                       )}
                     />
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DatePicker
-                        label="Filter Data"
+                        label={t("filterData")}
                         value={value}
                         className="stepFilter"
                         onChange={(newValue) => dataValue(newValue)}
@@ -245,7 +245,7 @@ const Direction = () => {
                       variant="contained"
                       className="btn btn-primary"
                     >
-                      Search
+                      {t("search")}
                     </Button>
                   </div>
                   <TextField
@@ -265,7 +265,7 @@ const Direction = () => {
               {count && (
                 <div className="listOfOrganize">
                   <div className="boxNav">
-                    <h1>ТДИУ Университет всего педагогов</h1>
+                    <h1>{t("totals")}</h1>
 
                     <div
                       className="Cancel"
@@ -305,7 +305,7 @@ const Direction = () => {
                                   <div className="teacherInfo">
                                     <h4>{item?.user_name}</h4>
                                     <div className="persons">
-                                      <h4>Номер ID: </h4>
+                                      <h4>{t("numberID")}: </h4>
                                       <h4>{item?.pasport_seria}</h4>
                                       <h4> {item?.pasport_seria_code}</h4>
                                     </div>
@@ -316,7 +316,7 @@ const Direction = () => {
                                         justifyContent: "space-between",
                                       }}
                                     >
-                                      <h5>Балл :</h5>
+                                      <h5>{t("mark")} :</h5>
                                       <div className="score">
                                         {item?.score ?? 0}
                                       </div>
@@ -339,7 +339,7 @@ const Direction = () => {
                         <span>
                           <DownloadIcon fontSize="small" />
                         </span>
-                        Загрузить в Excel
+                        {t("excelDownloud")}
                       </a>
                     </div>
                   </div>
@@ -362,26 +362,26 @@ const Direction = () => {
                       alt="No img"
                     />
                     <div className="w-100">
-                      <div>ФИО</div>
+                      <div>{t("userName")}</div>
                       <div className="userName">{usersId?.user_name}</div>
                     </div>
                   </div>
                   <div className="gender">{usersId?.gender}</div>
-                  <div className="info">Информация о квалификации</div>
+                  <div className="info">{t("QualInfo")}</div>
                   <div
                     className="textarea"
-                    placeholder="Информация о квалификации"
+                    placeholder={t("QualInfo")}
                   >
                     {usersId?.training_direction}
                   </div>
-                  <div className="info">Дата последней квалификации</div>
+                  <div className="info">{t("DateLastQual")}</div>
                   <div className="textsa">
                     {usersId?.training_date_end &&
                       new Date(usersId?.training_date_end).toLocaleDateString()}
                     {/*{usersId?.training_date_end}*/}
                   </div>
 
-                  <div className="info">Образование</div>
+                  <div className="info">{t("Education")}</div>
                   <div className="textsa">
                     {usersId.education_specialization?.specialization ??
                       "Malumot yuq"}
@@ -390,14 +390,14 @@ const Direction = () => {
 
                 <div className="RightUser">
                   <div className="RightInfo">
-                    <div className="RightInfo">Специальность</div>
+                    <div className="RightInfo">{t("speciality")}</div>
                   </div>
                   <div className="RightTextsa">
                     {" "}
                     {usersId.education_specialization?.specialization ?? "Malumot yuq"}
                   </div>
                   <div className="RightInfos" style={{ marginTop: "5%" }}>
-                    Название направления
+                   {t("dirName")}
                   </div>
                   <div className="RightTextsa">
                     {" "}
@@ -428,7 +428,7 @@ const Direction = () => {
                       <span style={{ marginRight: 15 }}>
                         <CheckCircleOutlineIcon fontSize="small" />
                       </span>{" "}
-                      Перейти в профиль
+                      {t("goProfile")}
                     </Button>
                   </Stack>
                   <div className="DownloadFile">
@@ -441,7 +441,7 @@ const Direction = () => {
                       <span>
                         <DownloadIcon fontSize="small" />
                       </span>
-                      Загрузить в Excel
+                      {t("excelDownloud")}
                     </a>
                   </div>
                 </div>

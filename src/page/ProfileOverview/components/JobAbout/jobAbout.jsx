@@ -76,7 +76,7 @@ const JobAbout = () => {
         className="background-job__title-wrapper"
         onClick={() => setClicked(!isClicked)}
       >
-        <h2 className="background-job__title">{t("jobAbout")}</h2>
+        <h2 className="background-job__title">{t("jobAbout1")}</h2>
         <span className="background-job__button"></span>
       </div>
       <div

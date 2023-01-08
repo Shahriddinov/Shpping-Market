@@ -313,7 +313,7 @@ function CheckPdf(props) {
                         }
                       >
                         {item.admin_permission === types.FAILED
-                          ? "Tasdiqlanmadi"
+                          ? t("confirmed")
                           : item.admin_permission === types.PASSED
                           ? "Tasdiqlandi"
                           : "Tasdiqlash"}
@@ -334,7 +334,7 @@ function CheckPdf(props) {
               ))}
             </div>
           </div>
-          <div className="stops">Информация соответствует требованиям?</div>
+          <div className="stops">{t("requirements")}?</div>
           <div className="d-flex align-items-center justify-content-center">
             <Button
               onClick={() => CheckMessage(false)}
@@ -346,7 +346,7 @@ function CheckPdf(props) {
               <span className="icon">
                 <CloseIcon fontSize="small" />
               </span>{" "}
-              Нет
+              {t("no")}
             </Button>
             <Button
               onClick={() => CheckMessage(true)}
@@ -358,7 +358,7 @@ function CheckPdf(props) {
               <span className="icon">
                 <CheckCircleOutlineIcon fontSize="small" />
               </span>{" "}
-              Да
+              {t("yes")}
             </Button>
           </div>
         </div>

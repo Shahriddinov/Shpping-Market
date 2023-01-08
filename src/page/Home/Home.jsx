@@ -126,9 +126,9 @@ const Home = () => {
             <ReactPlayer width="100%" height="500px" controls url="https://youtu.be/7deznzPAzsk" />
           </div>
         </div>
-        <MainProfile />
+        {/* <MainProfile /> */}
 
-        <div className="container">
+        {/* <div className="container">
           <div className="champions">
             <div className="champions-text">
               <div className="line"></div>
@@ -197,7 +197,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </Layout>
     </>
   );

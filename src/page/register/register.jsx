@@ -141,7 +141,7 @@ const Register = () => {
                         <div className="container">
                             <div className="leftses">
                                 {/*<div className="name">ФИО</div>*/}
-                                <div className="jobTitle">{t("jobTitle")}</div>
+                                {/* <div className="jobTitle">{t("jobTitle")}</div> */}
                             </div>
                             <div className="right">
                                 <button className="flagButton" onClick={() => handleChangeLng("uz")}>
@@ -224,7 +224,7 @@ const Register = () => {
 
 
                                                 <TextField
-                                                    label="Логин *"
+                                                    label={t("login")}
                                                     name="Логин"
                                                     type="text"
                                                     className="city"
@@ -232,7 +232,7 @@ const Register = () => {
                                                 />
 
                                                 <TextField
-                                                    label="Пароль *"
+                                                    label={t("parol")}
                                                     name="password"
                                                     type="password"
                                                     className="city"
@@ -250,7 +250,7 @@ const Register = () => {
                                                 <Button type="reset" className="button" href="/passport"
                                                         variant="contained"> <span
                                                     className="icones"><CancelOutlinedIcon
-                                                    fontSize="small"/></span> Назад</Button>
+                                                    fontSize="small"/></span> {t("back")}</Button>
                                             </Stack>
                                             <Stack spacing={2} direction="row">
                                                 {/*href="/profile"*/}
@@ -258,7 +258,7 @@ const Register = () => {
                                                         style={{backgroundColor: "#0FBE7B"}}
                                                         variant="contained"> <span
                                                     className="icones"><CheckCircleOutlineOutlinedIcon
-                                                    fontSize="small"/></span> Продолжить</Button>
+                                                    fontSize="small"/></span>{t("countinue")}</Button>
                                             </Stack>
                                         </div>
                                     </Form>

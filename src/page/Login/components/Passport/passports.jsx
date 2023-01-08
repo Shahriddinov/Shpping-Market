@@ -101,7 +101,8 @@ const Passports = (key, value) => {
     }
 
     function errorPinfl(e) {
-        if (e.target.value.length !== 14) {
+        
+        if (e.target.maxLength.length <= e.target.maxLength) {
             setEPnfl({frame: true, eText: "Incorrect PINFL"});
             const regex = /^[0-9\b]+$/;
             if (e.target.value === "" || regex.test(e.target.value)) {
@@ -119,8 +120,8 @@ const Passports = (key, value) => {
                 setNumbers(e.target.value);
             }
         }
-        // else
-            // setEPassport({frame: true, eText: "Incorrect passport seria"});
+        else
+            setEPassport({frame: true, eText: "Incorrect passport seria"});
     }
 
     function errorPasspotNum(e) {
@@ -150,7 +151,7 @@ const Passports = (key, value) => {
                 <div className="container">
                     <div className="col-md-10 offset-1">
                         <img src={Logo} alt="" className="loginLogo"/>
-                        <div className="loginTitle">Добро пожаловать</div>
+                        <div className="loginTitle">{t("home")}</div>
                         <h4 style={{color: 'red'}}>{text}</h4>
                         {/*<h4>{JSON.stringify(state.user)}</h4>*/}
                         <div className="form-group mt-5"
@@ -167,7 +168,7 @@ const Passports = (key, value) => {
                                     helperText={ePinfl.eText}
                                     className="numberPhone mt-5"
                                     id="outlined-basic"
-                                    label="Введите ПИНФЛ*"
+                                    label={t("enter")}
                                     variant="outlined"
                                     type="number"
                                     defaultValue={num}
@@ -197,7 +198,7 @@ const Passports = (key, value) => {
                                         helperText={ePassport.eText}
                                         className="line"
                                         id="outlined-basic"
-                                        label="Введите Серию паспорта*"
+                                        label={t("series")}
                                         variant="outlined"
                                         placeholder="DF"
                                         type="text"
@@ -225,7 +226,7 @@ const Passports = (key, value) => {
                                         helperText={ePassportNum.eText}
                                         className="line"
                                         id="outlined-basic"
-                                        label="Введите номер паспорта*"
+                                        label={t("seriesNumber")}
                                         variant="outlined"
                                         placeholder="12345689"
                                         defaultValue={numbers}
@@ -241,7 +242,7 @@ const Passports = (key, value) => {
                                 </Box>
                             </div>
                         </div>
-                        <Button onClick={addUser} variant="outlined" className="sends"> Продолжить</Button>
+                        <Button onClick={addUser} variant="outlined" className="sends"> {t("countinue")}</Button>
 
                     </div>
                 </div>

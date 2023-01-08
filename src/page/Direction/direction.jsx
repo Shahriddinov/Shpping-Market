@@ -156,7 +156,7 @@ const Direction = (props) => {
                   <span className="icones">
                     <CancelOutlinedIcon fontSize="small" />
                   </span>
-                  Назад
+                 {t("back")}
                 </Button>
               </Stack>
               <Stack spacing={2} direction="row">
@@ -170,7 +170,7 @@ const Direction = (props) => {
                   <span className="icones">
                     <SaveIcon fontSize="small" />
                   </span>
-                  Сохранить
+                  {t("save")}
                 </Button>
               </Stack>
             </div>

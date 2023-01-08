@@ -11,8 +11,11 @@ import axios from "axios";
 import { baseApi } from "../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "react-i18next";
 
 const LoginIn = () => {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
   const [login, setLogin] = useState("");
   const [error, setError] = useState("");
@@ -71,7 +74,7 @@ const LoginIn = () => {
         <div className="container">
           <div className="col-md-10 offset-1">
             <img src={Logo} alt="" className="loginLogo" />
-            <div className="loginTitle">Добро пожаловать</div>
+            <div className="loginTitle">{t("home")}</div>
             <h3 style={{ color: "red" }}>{error}</h3>
             <div className="form-group">
               <Box
@@ -84,7 +87,7 @@ const LoginIn = () => {
                   className="InputName"
                   type="text"
                   id="outlined-basic"
-                  label="Логин"
+                  label={t("login")}
                   variant="outlined"
                   onChange={(e) => setLogin(e.target.value)}
                   placeholder="QWde1234134"
@@ -103,7 +106,7 @@ const LoginIn = () => {
                 <TextField
                   className="InputName"
                   id="outlined-basic"
-                  label="Пароль"
+                  label={t("parol")}
                   variant="outlined"
                   placeholder="sqw13rwef"
                   onChange={(e) => setPassword(e.target.value)}
@@ -112,11 +115,11 @@ const LoginIn = () => {
             </div>
 
             <Button onClick={loginUp} variant="outlined" className="save">
-              Продолжить
+             {t("countinue")}
             </Button>
             <div className="Reset">
-              <Link to="/passport">Register</Link>
-              <Link to="/logOut">Forgot Password</Link>
+              <Link to="/passport">{t("register")}</Link>
+              <Link to="/logOut">{t("forgot")}?</Link>
             </div>
           </div>
         </div>

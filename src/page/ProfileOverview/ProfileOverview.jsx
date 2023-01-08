@@ -103,7 +103,7 @@ function ProfileOverview() {
                       variant="text"
                     >
                       <BorderColorIcon fontSize="small" />
-                      Редактировать
+                     {t("edit")}
                     </Button>
                     <Button
                       className="profileButton"
@@ -115,7 +115,7 @@ function ProfileOverview() {
                       <span className="icon">
                         <CheckCircleOutlineIcon fontSize="small" />
                       </span>{" "}
-                      Соответствует
+                      {t("checking")}
                     </Button>
                   </div>
                 </Stack>

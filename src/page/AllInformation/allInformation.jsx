@@ -214,7 +214,7 @@ const AllInformation = () => {
             <span className="icon">
               <CheckCircleOutlineIcon fontSize="small" />
             </span>{" "}
-            Соответствует
+            {t("checking")}
           </Button>
         </div>
       </div>

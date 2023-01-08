@@ -111,7 +111,7 @@ const Education = () => {
                 <div className="formBox">
                     <Slayder val={1}/>
                     <div className="infoEdu">
-                        <h3 className="title">{t("aboutEducation")}</h3>
+                        <h3 className="title mt-3">{t("aboutEducation")}</h3>
                         <div className="side-by-side">
                             <div className="leftSide w-50">
                                 <Box sx={{mt: 1, minWidth: "500px"}}>
@@ -304,12 +304,12 @@ const Education = () => {
                 <div className="NextPrev">
                     <Stack spacing={2} direction="row">
                         <Button className="button" href="/profile" variant="contained"> <span
-                            className="icones"><CancelOutlinedIcon fontSize="small"/></span> Назад</Button>
+                            className="icones"><CancelOutlinedIcon fontSize="small"/></span> {t("back")}</Button>
                     </Stack>
                     <Stack spacing={2} direction="row">
                         <Button className="button" onClick={educations} style={{backgroundColor: "#0FBE7B"}}
                                 variant="contained"> <span className="icones"><CheckCircleOutlineOutlinedIcon
-                            fontSize="small"/></span> Продолжить</Button>
+                            fontSize="small"/></span> {t("countinue")}</Button>
                     </Stack>
                 </div>
             </div>

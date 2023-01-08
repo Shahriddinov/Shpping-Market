@@ -212,7 +212,7 @@ const CheckAllInformation = () => {
               </div>
             </div>
           </div>
-          <div className="stops">Информация соответствует требованиям?</div>
+          <div className="stops">{t("requirements")}?</div>
           <div className="d-flex align-items-center justify-content-center">
             <Button
               onClick={() => CheckMessage(false)}
@@ -224,7 +224,7 @@ const CheckAllInformation = () => {
               <span className="icon">
                 <CloseIcon fontSize="small" />
               </span>{" "}
-              Нет
+              {t("no")}
             </Button>
             <Button
               onClick={() => CheckMessage(true)}
@@ -236,7 +236,7 @@ const CheckAllInformation = () => {
               <span className="icon">
                 <CheckCircleOutlineIcon fontSize="small" />
               </span>{" "}
-              Да
+            {t("yes")}
             </Button>
           </div>
         </div>

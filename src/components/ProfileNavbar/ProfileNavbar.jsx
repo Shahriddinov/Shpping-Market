@@ -17,7 +17,7 @@ function ProfileNavbar() {
             onClick={() => navigate(-1)}
           >
             <ArrowBackIosIcon className="arrow-back" />
-            <h2 className="profile__navbar-left--title">{t("title")}</h2>
+            <h2 className="profile__navbar-left--title">{t("register")}</h2>
           </div>
         </div>
         <div className="profile__navbar-right">

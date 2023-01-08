@@ -101,7 +101,7 @@ function CheckUser() {
             {/*<JobAbout/>*/}
             <AdvancedTraining />
             {/*<AdvancedTraining/>*/}
-            <div className="stops">Информация соответствует требованиям?</div>
+            <div className="stops">{t("requirements")}?</div>
             <div className="d-flex align-items-center justify-content-center">
               <Button
                 onClick={() => CheckMessage(false)}
@@ -113,7 +113,7 @@ function CheckUser() {
                 <span className="icon">
                   <CloseIcon fontSize="small" />
                 </span>{" "}
-                Нет
+                {t("no")}
               </Button>
               <Button
                 onClick={() => CheckMessage(true)}
@@ -125,7 +125,7 @@ function CheckUser() {
                 <span className="icon">
                   <CheckCircleOutlineIcon fontSize="small" />
                 </span>{" "}
-                Да
+                {t("yes")}
               </Button>
             </div>
           </div>

@@ -73,7 +73,7 @@ function OneEducation({ obj }) {
         className="background-job__title-wrapper"
         onClick={() => setClicked(!isClicked)}
       >
-        <h2 className="background-job__title">{t("oneEducationInfo")} </h2>
+        <h2 className="background-job__title">{t("oneEducationInfo1")} </h2>
         <span className="background-job__button"></span>
       </div>
       <div

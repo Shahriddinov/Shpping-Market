@@ -30,82 +30,63 @@ const CheckInfo = lazy(() =>
 
 export const publicRoutes = [
   {
-    path: "/passport",
-    element: <Passports />,
+    path: "/passport", element: <Passports />,
   },
   {
-    path: "/loginIn",
-    element: <LoginIn />,
+    path: "/loginIn", element: <LoginIn />,
   },
   {
-    path: "/logOut",
-    element: <LogOut />,
+    path: "/logOut", element: <LogOut />,
   },
   {
-    path: "/register",
-    element: <Register />,
+    path: "/register", element: <Register />,
   },
   {
-    path: "/",
-    element: <Home />,
+    path: "/", element: <Home />,
   },
 ];
 
 export const privateRoutes = [
   {
-    path: "/profile",
-    element: <Profile />,
+    path: "/profile", element: <Profile />,
   },
   {
-    path: "/education",
-    element: <Education />,
+    path: "/education", element: <Education />,
   },
   {
-    path: "/allInfo",
-    element: <AllInfo />,
+    path: "/allInfo", element: <AllInfo />,
   },
   {
-    path: "/adminProfile",
-    element: <AdminProfile />,
+    path: "/adminProfile", element: <AdminProfile />,
   },
   {
-    path: "/work",
-    element: <Work />,
+    path: "/work", element: <Work />,
   },
   {
-    path: "/certificates",
-    element: <Certificates />,
+    path: "/certificates", element: <Certificates />,
   },
   {
-    path: "/portfolio",
-    element: <Portfolio />,
+    path: "/portfolio", element: <Portfolio />,
   },
   {
-    path: "/profileOver",
-    element: <ProfileOverview />,
+    path: "/profileOver", element: <ProfileOverview />,
   },
   {
-    path: "/qualification",
-    element: <Qualification />,
+    path: "/qualification", element: <Qualification />,
   },
   {
-    path: "/direction",
-    element: <Direction />,
+    path: "/direction", element: <Direction />,
   },
   {
-    path: "/allPdf",
-    element: <AllPdf />,
+    path: "/allPdf", element: <AllPdf />,
   },
   {
-    path: "/adminProfile/checkPdf/:id",
-    element: <CheckPdf />,
+    path: "/adminProfile/checkPdf/:id", element: <CheckPdf />,
   },
   {
-    path: "/adminProfile/checkUser/:id",
-    element: <CheckUser />,
+    path: "/adminProfile/checkUser/:id", element: <CheckUser />,
   },
   {
-    path: "/adminProfile/checkInfo/:id",
-    element: <CheckInfo />,
+    path: "/adminProfile/checkInfo/:id", element: <CheckInfo />,
   },
 ];
