@@ -63,11 +63,14 @@
     //padding:0  10%;
     text-align: center;
     color: #FFFFFF;
+    z-index: 999;
+
   }
   .buttons{
 
     display: flex;
     position: absolute;
+    z-index: 999;
     top: 70%;
     right: 25%;
     .homeButton{
@@ -83,11 +86,12 @@
       line-height: 150%;
       color: #fff;
       margin: 0 10px;
+      &:hover{
+        background-color: #FFFFFF;
+        color: black;
+      }
     }
-    .active{
-      //display: none;
-
-    }
+    
   }
   .ant-carousel .slick-dots li button{
     width: 20px;

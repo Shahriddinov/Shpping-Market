@@ -73,7 +73,6 @@ function ProfileOverview() {
         },
       })
       .then((res) => {
-        console.log("Response", res?.data?.checkUser);
         setStatus(res?.data?.checkUser?.[0]?.permission);
       })
       .catch((err) => console.log("Response Error", err));

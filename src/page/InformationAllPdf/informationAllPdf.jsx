@@ -61,7 +61,7 @@ const InformationAllPdf = (props) => {
     localStorage.setItem("lng", lng);
   };
 
-  const language = localStorage.getItem("lng");
+  
 
   const statusColor =
     verified === "failed"
@@ -190,7 +190,7 @@ const InformationAllPdf = (props) => {
                         className="userPhoto"
                         src={
                           userPhoto
-                            ? `https://sport.napaautomotive.uz/storage/${userPhoto}`
+                            ? `${baseApi}/storage/${userPhoto}`
                             : Imgs
                         }
                         alt="userAvatar"
@@ -252,11 +252,8 @@ const InformationAllPdf = (props) => {
             <div className="advancedTrain row">
               {mainPdf?.map((item, index) => {
                 const fileName =
-                  language === "uz"
-                    ? item.direction_name.category_uz
-                    : language === "ru"
-                    ? item.direction_name.category_ru
-                    : item.direction_name.category_en;
+                
+                     item.direction_name.category_uz ? item.direction_name.category_ru : item.direction_name.category_en;
                 return (
                   <div
                     className="col-6  d-flex justify-content-between"
@@ -304,7 +301,7 @@ const InformationAllPdf = (props) => {
             <span className="icon">
               <CheckCircleOutlineIcon fontSize="small" />
             </span>{" "}
-            {t("checking")}
+            {t("checked")}
           </Button>
         </div>
       </div>

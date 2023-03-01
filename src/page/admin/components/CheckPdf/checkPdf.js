@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "./checkPdf.scss";
 import axios from "axios";
-import { baseApi } from "../../../../services/api";
+import {baseApi, baseApiImg} from "../../../../services/api";
 import Toast from "light-toast";
 import { toast } from "react-toastify";
 import ProfileSidebar from "../../../../components/ProfileSidebar/ProfileSidebar";
@@ -225,7 +225,7 @@ function CheckPdf(props) {
                         className="userPhoto"
                         src={
                           userPhoto
-                            ? `https://sport.napaautomotive.uz/storage/${userPhoto}`
+                            ? `${baseApi}/storage/${userPhoto}`
                             : Imgs
                         }
                         alt="userAvatar"
@@ -315,13 +315,13 @@ function CheckPdf(props) {
                         {item.admin_permission === types.FAILED
                           ? t("confirmed")
                           : item.admin_permission === types.PASSED
-                          ? "Tasdiqlandi"
-                          : "Tasdiqlash"}
+                          ? "Rad etildi"
+                          : "Rad etildi"}
                       </Button>
                       {/* </Popconfirm> */}
                       <a
                         target="_blank"
-                        href={`https://sport.napaautomotive.uz/storage/${item.pdf}`}
+                        href={`${baseApiImg}/${item.pdf}`}
                         className="imgPdf"
                       >
                         {!item.pdf || (

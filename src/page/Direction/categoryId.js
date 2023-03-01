@@ -149,6 +149,7 @@ function CategoryId({ item, IdCategory }) {
                         )
                     )}
                 </form>
+                
 
                 <div className="d-flex align-items-center">
                     <label htmlFor="fileUpload" className={"position-relative"}>

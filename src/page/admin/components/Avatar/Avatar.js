@@ -73,7 +73,7 @@ function Avatar(props) {
         onClick={deleteImg}
         src={
           photoAddress
-            ? `https://sport.napaautomotive.uz/storage/${photoAddress}`
+            ? `${baseApi}/${photoAddress}`
             : Imgs
         }
         alt="avatar"

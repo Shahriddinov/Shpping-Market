@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import "./PersonalInfo.scss";
 import axios from "axios";
 import Avatar from "../Avatar/Avatar";
+import { baseApi } from "../../../../services/api";
 
 function PersonalInfo({ obj, imageURL }) {
   const id = localStorage.getItem("userId");
@@ -21,7 +22,7 @@ function PersonalInfo({ obj, imageURL }) {
   const [phone, setPhone] = useState("");
   useEffect(() => {
     axios
-      .get("https://sport.napaautomotive.uz/api/allData/" + id)
+      .get(`${baseApi}/allData/` + id)
       .then((response) => {
         setAllName(response.data.user_personal_info.full_name);
         setAllGender(response.data.user_personal_info.gender);

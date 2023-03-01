@@ -4,7 +4,7 @@ import Imgs from "../../../../assets/images/avatar.png";
 import Camera from "../../../../assets/images/camera.svg";
 import "./avatar.scss";
 import { useTranslation } from "react-i18next";
-import { baseApi } from "../../../../services/api";
+import { baseApi, baseApiImg } from "../../../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SUCCESS } from "redux-saga-routines/dist/routineStages";
@@ -73,7 +73,7 @@ function Avatar(props) {
         onClick={deleteImg}
         src={
           photoAddress
-            ? `https://sport.napaautomotive.uz/storage/${photoAddress}`
+            ? `${baseApiImg}/${photoAddress}`
             : Imgs
         }
         alt="avatar"

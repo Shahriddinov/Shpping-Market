@@ -1,0 +1,13 @@
+.lgBlur{
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12));
+    border-radius: 10px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

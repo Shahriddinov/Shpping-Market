@@ -16,7 +16,7 @@ import { useNavigate } from "react-router";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { baseApi } from "../../services/api";
+import { baseApi, baseApiImg } from "../../services/api";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import id from "faker/lib/locales/id_ID";
@@ -68,10 +68,12 @@ const Direction = () => {
     i18n.changeLanguage(lng);
     localStorage.setItem("lng", lng);
   };
+  const filliad_id = localStorage.getItem('fillialId')
+  console.log(filliad_id);
 
   useEffect(() => {
     axios
-      .get(`${baseApi}/direction`, {
+      .get(`${baseApi}/direction/${filliad_id}`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
         },
@@ -89,12 +91,13 @@ const Direction = () => {
   function directionsUser(id) {
     setDownloadExelId(id);
     axios
-      .get(`${baseApi}/direction_with_user/${id}`, {
+      .get(`${baseApi}/direction_with_user/${id}/${filliad_id}`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
         },
       })
       .then((response) => {
+        console.log(response.data);
         let map = Object.values(response.data.data);
         setTeacher2(map);
         setCheckUserList(map);
@@ -162,8 +165,8 @@ const Direction = () => {
     console.log(search);
   }
 
-  const downloadExcelUrl = `https://sport.napaautomotive.uz/api/oneUserInfo/${idUsers}/export`;
-  const downloadExcelAll = `https://sport.napaautomotive.uz/api/userInfo/${downloadExelId}/export`;
+  const downloadExcelUrl = `${baseApiImg}/oneUserInfo/${idUsers}/export`;
+  const downloadExcelAll = `${baseApiImg}/userInfo/${downloadExelId}/export`;
 
   return (
     <>
@@ -296,7 +299,7 @@ const Direction = () => {
                                     <img
                                       src={
                                         item?.avatar
-                                          ? `https://sport.napaautomotive.uz/storage/${item?.avatar}`
+                                          ? `${baseApiImg}/${item?.avatar}`
                                           : Imgs
                                       }
                                       alt="No img"
@@ -318,7 +321,7 @@ const Direction = () => {
                                     >
                                       <h5>{t("mark")} :</h5>
                                       <div className="score">
-                                        {item?.score ?? 0}
+                                        {item?.all_score ?? 0}
                                       </div>
                                     </div>
                                   </div>
@@ -356,7 +359,7 @@ const Direction = () => {
                       className="userImg"
                       src={
                         usersId.avatar
-                          ? `https://sport.napaautomotive.uz/storage/${usersId.avatar}`
+                          ? `${baseApiImg}/${usersId.avatar}`
                           : Imgs
                       }
                       alt="No img"

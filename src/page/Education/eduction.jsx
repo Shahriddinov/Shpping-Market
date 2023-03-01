@@ -84,7 +84,7 @@ const Education = () => {
             headers: {
                 "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
-        }).then(res => {
+        }).then(res => {    
             setNameEducations(res.data.educationName)
             console.log('Hello', res.data.educationName)
         })

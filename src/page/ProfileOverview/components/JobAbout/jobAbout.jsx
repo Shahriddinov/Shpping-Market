@@ -27,7 +27,7 @@ const JobAbout = () => {
   };
   useEffect(() => {
     axios
-      .get("https://sport.napaautomotive.uz/api/allData/" + id, {
+      .get(`${baseApi}/allData/` + id, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
         },

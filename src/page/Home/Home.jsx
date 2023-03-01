@@ -27,26 +27,13 @@ const Home = () => {
   const [homeImg, setHomeImg] = useState([]);
 
   const linkUrl = id && token ? "/allPdf" : "/";
-  // useEffect(() => {
-  //   getHomePage()
-  // }, []);
-
-  // async function getHomePage(){
-  //   axios.get(`${baseApi}/home-pages`).then((res) => {
-  //     setHomeImg(res.data.data)
-  //     res.data.data.map((item) => {
-  //       setHomeVideo(item.video);
-  //     });
-  //   });
-
-  // }
-
+ 
   return (
     <>
       <Layout>
         <div className="home">
           <div className="back-navbar">
-            <div className="home-navbar">
+            <div className="home-navbar"> 
               <div className="link-item">
                 <a href="/">{t("DistanceLearning")}</a>
               </div>

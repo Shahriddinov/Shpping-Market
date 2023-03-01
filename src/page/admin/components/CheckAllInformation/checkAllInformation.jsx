@@ -84,6 +84,7 @@ const CheckAllInformation = () => {
   const id = localStorage.getItem("checkId");
   const { t, i18n } = useTranslation();
   const [isClicked, setClicked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isBall, setBall] = useState(false);
   const [categoryName, setCategoryName] = useState("");
   const [categoryScore, setCategoryScore] = useState("");
@@ -97,12 +98,17 @@ const CheckAllInformation = () => {
       label,
     };
   }
+  const toggleIsLoading = () => {
+    // 👇️ passed function to setState
+
+  };
 
   const handleChangeLng = (lng) => {
     i18n.changeLanguage(lng);
     localStorage.setItem("lng", lng);
   };
   function CheckMessage(req) {
+    setIsLoading(current => !current);
     let checkM = {};
     if (req) {
       checkM = {
@@ -216,8 +222,20 @@ const CheckAllInformation = () => {
           <div className="d-flex align-items-center justify-content-center">
             <Button
               onClick={() => CheckMessage(false)}
-              className="profileButton"
-              style={{ backgroundColor: "#2B63C0" }}
+              className={isLoading &&  "profileButton none"}
+              style={{ backgroundColor: "#2B63C0",
+                borderRadius: "10px",
+                fontWeight: "500",
+                fontSize: "16px",
+                lineHeight: "150%",
+                border: "none !important",
+                color: "white",
+                float: "right",
+                marginRight: "20px",
+                marginTop: "30px",
+                marginBottom: "30px",
+                padding: "10px 35px",
+              }}
               variant="text"
             >
               {" "}
@@ -228,8 +246,20 @@ const CheckAllInformation = () => {
             </Button>
             <Button
               onClick={() => CheckMessage(true)}
-              className="profileButton"
-              style={{ backgroundColor: "#0FBE7B" }}
+              className={isLoading &&  "profileButton none"}
+              style={{ backgroundColor: "#0FBE7B",
+                borderRadius: "10px",
+                fontWeight: "500",
+                fontSize: "16px",
+                lineHeight: "150%",
+                border: "none !important",
+                color: "white",
+                float: "right",
+                marginRight: "20px",
+                marginTop: "30px",
+                marginBottom: "30px",
+                padding: "10px 35px",
+              }}
               variant="text"
             >
               {" "}

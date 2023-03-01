@@ -56,7 +56,7 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
           classname="userImg"
           pictureURL={
             photos
-              ? `https://sport.napaautomotive.uz/storage/${photos}`
+              ? `${baseApi}/storage/${photos}`
               : userPic
           }
         />

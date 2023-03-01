@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LoginImg from "../../assets/images/loginImg.svg";
 import Logo from "../../assets/images/logo.svg";
 import "./loginUp.scss";
@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
-import { baseApi } from "../../services/api";
+import { baseApi, baseApiImg } from "../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTranslation } from "react-i18next";
@@ -20,6 +20,8 @@ const LoginIn = () => {
   const [login, setLogin] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
+  const [logImg, setLogImg] = useState('');
+
 
   function loginUp() {
     let allCome = {
@@ -43,6 +45,8 @@ const LoginIn = () => {
           toast.success(response.data.Message);
         }
         if (response.data.user.role_id >= 2) {
+          localStorage.setItem("fillialId", response.data.user.fillial_id);
+          console.log('hi', response.data.user.fillial_id);
           setTimeout(() => {
             navigate("/adminProfile");
             // console.log(id)
@@ -57,18 +61,32 @@ const LoginIn = () => {
             navigate("/profileOver");
           }, 500);
           toast.success(response.data.Message);
+
         }
       })
       .catch((error) => {
         toast.error(error.response?.data?.message);
+
+
       });
   }
+
+  useEffect(() => {
+    axios.get(`${baseApi}/images`,{
+      headers: {
+        "Accept-Language": localStorage.getItem("lng") || "uz",
+      },
+    } ).then(res=>{
+      setLogImg(res.data.images[0].images)
+      console.log(res.data);
+    })
+  },[]);
 
   return (
     <div className="loginUp">
       <div className="left">
         <div className="lgBlur"></div>
-        <img className="loginImg" src={LoginImg} alt="" />
+        <img className="loginImg" src={`${baseApiImg}/${logImg}`} alt="" />
       </div>
       <div className="right">
         <div className="container">

@@ -5,7 +5,7 @@ import Camera from "../../../../../../assets/images/camera.svg";
 import "./avatar.scss";
 import Toast from "light-toast";
 import { useTranslation } from "react-i18next";
-import { baseApi } from "../../../../../../services/api";
+import { baseApi, baseApiImg } from "../../../../../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SUCCESS } from "redux-saga-routines/dist/routineStages";
@@ -51,7 +51,7 @@ function Avatar(props) {
 
   function deleteImg() {
     axios
-      .delete(`${baseApi}/avatar/${imgId}/delete`, {
+      .delete(`${baseApiImg}/avatar/${imgId}/delete`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
         },
@@ -72,7 +72,7 @@ function Avatar(props) {
         className="defaultImg"
         onClick={deleteImg}
         src={
-          photos ? `https://sport.napaautomotive.uz/storage/${photos}` : Imgs
+          photos ? `${baseApiImg}/${photos}` : Imgs
         }
         alt="avatar"
       />
