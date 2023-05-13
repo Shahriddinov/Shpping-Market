@@ -174,5 +174,12 @@
   "requirements":"The information meets the requirements",
   "no": "No",
   "yes" :"Yes",
-  "confirmed":"Not confirmed"
+  "confirmed":"Not confirmed",
+  "filterOne" : "List of interns scheduled for training",
+  "filterTwo" : "List of those assigned to repeat courses",
+  "filterThree" : "List of non-repeaters",
+  "filterFour" : "List of people participating in repeat courses",
+  "filterFive": "List of failed repeat courses",
+  "student" : "Teachers"
+
 }

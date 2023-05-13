@@ -16,9 +16,10 @@ export default function CarouselComponent() {
   const [homeImage, setHomeImage] = useState([]);
 
   useEffect(() => {
-    axios.get(`${baseApi}/home-pages`).then((res) => {
+    axios.get("http://back.sportedu.uz/api/home-pages").then((res) => {
       setHomeImage(res.data.data)
-      console.log(res.data.data)
+
+      console.log(res.data)
     });
   }, []);
 
@@ -28,7 +29,9 @@ export default function CarouselComponent() {
         homeImage.map((el,i)=><div style={contentStyle} key={i}>
         <div className="lgBlur"></div>
 
-        <img src={`${baseApiImg}/${el.photo}`}  className="ImgCouusel" alt="logo" width={"100%"} />
+        <div style={{width:"100%", height:"650px"}}>
+          <img src={`${baseApiImg}/${el.photo}`}  className="ImgCouusel" alt="logo" width={"100%"} height={"650px"} />
+        </div>
       </div>)
       }
     </Carousel>

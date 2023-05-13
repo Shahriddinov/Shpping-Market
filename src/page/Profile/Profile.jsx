@@ -32,9 +32,7 @@ function Profile() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState("");
-  const [birth_date, setBirth_date] = React.useState(
-    dayjs("2014-08-18T21:11:54")
-  );
+  const [birth_date, setBirth_date] = React.useState(null);
   const [nationality, setNationality] = useState("");
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
@@ -86,7 +84,6 @@ function Profile() {
         },
       })
       .then((response) => {
-        console.log(response.data);
         if (response.data.status === "ok") {
           setTimeout(() => {
             navigate("/education");
@@ -199,7 +196,7 @@ function Profile() {
                     className="mt-3"
                     value={birth_date}
                     label={t("happy")}
-                    inputFormat="MM/DD/YYYY"
+                    inputFormat="DD/MM/YYYY"
                     onChange={setBirth_date}
                     renderInput={(params) => {
                       return <TextField {...params} />;

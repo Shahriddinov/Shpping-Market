@@ -31,8 +31,8 @@ const Education = () => {
     const {t, i18n} = useTranslation();
     const [count, setCount] = useState('');
     const [region_id, setRegion_id] = useState('');
-    const [enter_date, setEnter_date] = React.useState(dayjs('2014-08-18'));
-    const [end_date, setEnd_date] = React.useState(dayjs('2014-08-18'));
+    const [enter_date, setEnter_date] = React.useState(null);
+    const [end_date, setEnd_date] = React.useState(null);
     const [education_name, setEducation_name] = useState('');
     const [specialization, setSpecialization] = useState('');
     const [nameEducations, setNameEducations] = useState([]);
@@ -181,7 +181,7 @@ const Education = () => {
                                         <DesktopDatePicker
                                             className="mt-2 mb-4"
                                             label={t("dateReceived")}
-                                            inputFormat="MM/DD/YYYY"
+                                            inputFormat="DD/MM/YYYY"
                                             value={enter_date}
                                             onChange={setEnter_date}
                                             renderInput={(params) => {
@@ -195,7 +195,7 @@ const Education = () => {
                                         <DesktopDatePicker
                                             className="mt-3 mb-4"
                                             label={t("expirationDate")}
-                                            inputFormat="MM/DD/YYYY"
+                                            inputFormat="DD/MM/YYYY"
                                             value={end_date}
                                             onChange={setEnd_date}
                                             renderInput={(params) => {

@@ -65,6 +65,9 @@ function ProfileOverview() {
       ? "#0FBE7B"
       : "#aaa";
 
+  // const check =
+  //     status === "failed" ? 't{checking}' ? 't{checked}' : status === "passed" ? 't{checked}' : 't{checking}'
+
   useEffect(() => {
     axios
       .get(`${baseApi}/checkUserById/${id}`, {
@@ -114,7 +117,7 @@ function ProfileOverview() {
                       <span className="icon">
                         <CheckCircleOutlineIcon fontSize="small" />
                       </span>{" "}
-                      {t("checking")}
+                      {status === "failed" ?  t("checking") : status === "passed" ?  t("checked") : t("checking") }
                     </Button>
                   </div>
                 </Stack>

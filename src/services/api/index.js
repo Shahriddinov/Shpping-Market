@@ -1,6 +1,6 @@
 import axios from "axios";
-export const baseApi = "https://sport.napaautomotive.uz/api"
-export const baseApiImg = "https://sport.napaautomotive.uz/storage"
+export const baseApi = "http://back.sportedu.uz/api"
+export const baseApiImg = "http://back.sportedu.uz/storage"
 
 
 // export const getCountries = async() => {

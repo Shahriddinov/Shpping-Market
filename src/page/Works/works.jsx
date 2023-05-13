@@ -46,8 +46,8 @@ function Works() {
   const [position, setPosition] = useState("");
   const [work_name, setWork_name] = useState("");
   const [work_phone, setWork_phone] = useState("");
-  const [date_start, setDate_start] = React.useState(dayjs("2014-08-18"));
-  const [date_end, setDate_end] = React.useState(dayjs("2014-08-18"));
+  const [date_start, setDate_start] = React.useState(null);
+  const [date_end, setDate_end] = React.useState(null);
   const [placeWork, setPlaceWork] = useState([]);
   const navigate = useNavigate();
   const [selectedWorkName, setSelectedWorkName] = useState("");

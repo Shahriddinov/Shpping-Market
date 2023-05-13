@@ -32,8 +32,8 @@ function Qualification() {
     const [region_id, setRegion_id] = useState("");
     const [fillial_id, setFillial_id] = useState("");
     const [direction, setDirection] = useState("");
-    const [date_start, setDate_start] = React.useState(dayjs("2014-08-18"));
-    const [date_end, setDate_end] = React.useState(dayjs("2014-08-18"));
+    const [date_start, setDate_start] = React.useState(null);
+    const [date_end, setDate_end] = React.useState(null);
     const [text, setText] = useState("");
     const [trainingRegion, setTrainingRegion] = useState([]);
     const [getFillialTraining ,setGetFillialTraining] = useState([]);
@@ -174,7 +174,7 @@ function Qualification() {
                                         <DesktopDatePicker
                                             className=" w-100"
                                             label={t("data_end")}
-                                            inputFormat="MM/DD/YYYY"
+                                            inputFormat="DD/MM/YYYY"
                                             value={date_start}
                                             onChange={setDate_start}
                                             renderInput={(params) => <TextField {...params} />}
@@ -201,7 +201,7 @@ function Qualification() {
                                         <DesktopDatePicker
                                             className="schedule w-100"
                                             label={t("date")}
-                                            inputFormat="MM/DD/YYYY"
+                                            inputFormat="DD/MM/YYYY"
                                             value={date_end}
                                             onChange={setDate_end}
                                             renderInput={(params) => {

@@ -25,7 +25,11 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
   const [allName, setAllName] = useState([]);
   const [photos, setPhotos] = useState("");
   const navigate = useNavigate();
+    const handleClose= ()=>{
+        window.history.back();
+        localStorage.clear();
 
+    }
   useEffect(() => {
     axios
       .get(`${baseApi}/allData/` + id)
@@ -38,6 +42,9 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
         // toast.error(error.response?.data?.message)
       });
   }, []);
+
+
+
 
   return (
     <Sider
@@ -139,14 +146,13 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
               key: "/allInfo",
               icon: <SettingsIcon />,
             },
-            {
-              label: t("logout"),
-              key: "/",
-              icon: <LoginIcon />,
-              onClick: () => {
-                localStorage.clear();
-              },
-            },
+            // {
+            //   label: t("logout"),
+            //   icon: <LoginIcon />,
+            //   onClick: () => {
+            //       handleClose()
+            //   },
+            // },
           ]}
         />
       )}

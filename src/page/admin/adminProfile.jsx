@@ -21,16 +21,17 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import id from "faker/lib/locales/id_ID";
 
-const Filters = [
-  { label: "Список стажеров, запланированных на обучение", val: 0 },
-  { label: "Список назначенных на повторные курсы", val: 1 },
-  { label: "Список не обучавшихся на повторных курсах", val: 2 },
-  { label: "Список людей, участвующих в повторных курсах", val: 3 },
-  { label: "Список не прошедших повторные курсы", val: 4 },
-];
 
 const Direction = () => {
   const { t, i18n } = useTranslation();
+  const Filters = [
+    { label: t("filterOne"), val: 0 },
+    { label: t("filterTwo"), val: 1 },
+    { label: t("filterThree"), val: 2 },
+    { label: t("filterFour"), val: 3 },
+    { label: t("filterFive"), val: 4 },
+  ];
+
 
   const [showDirect, setShowDirect] = useState(false);
   const [showTeachers, setShowTeachers] = useState(false);
@@ -165,8 +166,8 @@ const Direction = () => {
     console.log(search);
   }
 
-  const downloadExcelUrl = `${baseApiImg}/oneUserInfo/${idUsers}/export`;
-  const downloadExcelAll = `${baseApiImg}/userInfo/${downloadExelId}/export`;
+  const downloadExcelUrl = `${baseApi}/oneUserInfo/${idUsers}/export`;
+  const downloadExcelAll = `${baseApi}/userInfo/${downloadExelId}/export`;
 
   return (
     <>
@@ -190,7 +191,7 @@ const Direction = () => {
                       <h5>{item?.title}</h5>
                       <div className="scores">
                         <p>
-                          Педагоги:{" "}
+                          {t("student")}:{" "}
                           {
                             item.users.filter(
                               (el) =>

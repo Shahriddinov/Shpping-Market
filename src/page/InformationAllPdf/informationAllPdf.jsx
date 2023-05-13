@@ -105,7 +105,7 @@ const InformationAllPdf = (props) => {
       .catch((error) => {
         toast.error(error.response?.data?.message);
       });
-  }, []);
+  }, [setVerified]);
 
   useEffect(() => {
     axios
@@ -115,14 +115,13 @@ const InformationAllPdf = (props) => {
         },
       })
       .then((response) => {
-        console.log(response.data.data);
         setMainPdf(response.data.data);
         toast.success(response.data.Message);
       })
       .catch((error) => {
         toast.error(error.response?.data?.message);
       });
-  }, []);
+  }, [ setMainPdf]);
 
   return (
     <div className="informationAllPdf">
@@ -271,11 +270,11 @@ const InformationAllPdf = (props) => {
                         <p className="faileds">
                           {item.admin_permission === types.FAILED
                             ? localStorage.getItem("lng") === "uz"
-                              ? types.MESSAGE_UZ
+                              ? "Noto`g`ri yuklangan ma`lumotlar tufayli ball hisoblanmadi."
                               : localStorage.getItem("lng") === "en"
-                              ? types.MESSAGE_EN
+                              ? "Due to incorrectly loaded data, the score was not calculated."
                               : localStorage.getItem("lng") === "ru"
-                              ? types.MESSAGE_RU
+                              ? "Оценка не засчитывалась из-за неправильно загруженных данных."
                               : ""
                             : ""}
                         </p>

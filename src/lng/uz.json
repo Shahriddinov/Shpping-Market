@@ -77,7 +77,7 @@
   "emails": "Elektron pochta",
 
   "oneEducationInfo1": "Ta'lim haqida ma'lumot",
-  "portfolio": "Kasbiy faoliyat natijalari (Partfolio)",
+  "portfolio": "Kasbiy faoliyat natijalari",
   "testScores": "Test ballari",
   "totalScore": "Umumiy ballar",
   "ContactInfo": "Bog'lanish uchun ma'lumot",
@@ -163,5 +163,11 @@
   "requirements":"Ma`lumot talablarga javob beradimi",
   "no" :"Yo'q",
   "yes":"Ha",
-  "confirmed":"Tasdiqlanmadi"
+  "confirmed":"Tasdiqlanmadi",
+  "filterOne" : "Treningga rejalashtirilgan stajyorlar ro'yxati",
+  "filterTwo" : "Takroriy kurslarga tayinlanganlar ro'yxati",
+  "filterThree" : "Takroriy kurslarda o'qimaganlar ro'yxati",
+  "filterFour" : "Takroriy kurslarda qatnashadigan odamlar ro'yxati",
+  "filterFive": "Qayta kurslardan o'tmaganlar ro'yxati",
+  "student": "O'qituvchilar"
 }

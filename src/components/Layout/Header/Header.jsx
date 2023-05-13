@@ -5,6 +5,7 @@ import "../../../assets/header.scss"
 import UzFlag from "../../../assets/images/Uz.png"
 import RuFlag from "../../../assets/images/ruFlag.png"
 import EnFlag from "../../../assets/images/en.png"
+import {Link} from "react-router-dom";
 const Header = () => {
 
     const {t, i18n} = useTranslation();
@@ -18,7 +19,9 @@ const Header = () => {
         <div className="navbar">
             <div className="container">
                 <div className="left">
+                    <Link to="/">
                     <img src={Logo} className="logo" alt=""/>
+                    </Link>
                     <div className="logoText">
                         JISMONIY TARBIYA VA SPORT BO`YICHA MUTAXASSIZLARNI QATTA TAYYORLASH VA MALAKASINI OSHIRISH
                         INSTITUTI

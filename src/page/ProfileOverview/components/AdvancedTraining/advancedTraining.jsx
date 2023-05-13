@@ -12,7 +12,7 @@ const AdvancedTraining = () => {
 
   const [nation, setNation] = useState("");
   const [regionsTwo, setRegionsTwo] = useState([]);
-  const [GetAdopted, setGetAdopted] = useState("");
+  const [GetAdopted, setGetAdopted] = useState(0);
   const [adopteds, setAdopteds] = useState("");
   const [direction, setDirection] = useState("");
   const [trainingStart, setSetTrainingStart] = useState("");
@@ -30,6 +30,7 @@ const AdvancedTraining = () => {
         },
       })
       .then((response) => {
+        console.log(response);
         setRegionsTwo(response.data.user_training[0].region_id);
         setGetAdopted(response.data.user_training[0].fillial_id);
         setDirection(response.data.user_training[0].direction);
@@ -39,6 +40,7 @@ const AdvancedTraining = () => {
   }, []);
   useEffect(() => {
     getAdopt();
+    getFillial()
   }, [regionsTwo, GetAdopted]);
 
   function getAdopt() {
@@ -53,6 +55,28 @@ const AdvancedTraining = () => {
           if (item.id === regionsTwo) {
             return setRegionName(item.name_ru ?? item.name_en ?? item.name_uz);
           }
+          // if (item.id === GetAdopted) {
+          //   return setAdopteds(item.name_ru ?? item.name_en ?? item.name_uz);
+          // }
+        });
+      })
+      .catch((error) => {
+        toast.error(error.response?.data?.message);
+      });
+  }
+
+  function getFillial() {
+    axios
+      .get(`${baseApi}/filial`, {
+        headers: {
+          "Accept-Language": localStorage.getItem("lng") || "uz",
+        },
+      })
+      .then((response) => {
+        return response?.data?.filial?.map((item) => {
+          // if (item.id === regionsTwo) {
+          //   return setRegionName(item.name_ru ?? item.name_en ?? item.name_uz);
+          // }
           if (item.id === GetAdopted) {
             return setAdopteds(item.name_ru ?? item.name_en ?? item.name_uz);
           }
@@ -62,6 +86,7 @@ const AdvancedTraining = () => {
         toast.error(error.response?.data?.message);
       });
   }
+
 
   return (
     <div className="advancedTraining">

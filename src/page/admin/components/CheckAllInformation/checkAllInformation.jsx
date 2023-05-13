@@ -123,7 +123,7 @@ const CheckAllInformation = () => {
         message: "sen utaolmading",
       };
     }
-    console.log(typeof Number(id));
+   
     axios
       .post(`${baseApi}/statisticUser`, checkM, {
         headers: {
@@ -132,8 +132,7 @@ const CheckAllInformation = () => {
       })
       .then((response) => {
         toast.success(response.data.message);
-
-        console.log(response);
+        window.location.href= "/adminProfile"
       });
   }
 
@@ -221,6 +220,7 @@ const CheckAllInformation = () => {
           <div className="stops">{t("requirements")}?</div>
           <div className="d-flex align-items-center justify-content-center">
             <Button
+
               onClick={() => CheckMessage(false)}
               className={isLoading &&  "profileButton none"}
               style={{ backgroundColor: "#2B63C0",

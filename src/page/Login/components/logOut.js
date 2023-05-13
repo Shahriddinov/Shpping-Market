@@ -19,12 +19,13 @@ const LogOut = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
-  const [pnfl, setPnfl] = useState("");
+  const [pnfl, setPnfl] = useState(0);
   const [password_confirmation, setPassword_confirmation] = useState("");
   const [error, setError] = useState("");
   const [logImg, setLogImg] = useState('');
+  const [reloud, setReloud] = useState(false)
 
-  function loginUp() {
+  async function loginUp() {
     const create = {
       password,
       password_confirmation,
@@ -37,18 +38,19 @@ const LogOut = () => {
         },
       })
       .then((response) => {
-        console.log(pnfl);
         if (response.data.success === true) {
+          window.location.href = '/loginIn'
           setTimeout(() => {
-            navigate("/login");
-            // console.log(id)
+           
+            // window.location.reload()
+            setReloud(true);
           }, 500);
         }
-        console.log(response.data);
         setError(response.data.message);
       })
       .catch((error) => {});
   }
+
 
   useEffect(() => {
     axios.get(`${baseApi}/images`,{
@@ -59,7 +61,7 @@ const LogOut = () => {
       setLogImg(res.data.images[0].images)
       console.log(res.data);
     })
-  },[]);
+  },[reloud]);
 
   return (
     <div className="loginUp">
