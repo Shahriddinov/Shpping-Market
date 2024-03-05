@@ -37,9 +37,9 @@ const Home = () => {
               <div className="link-item">
                 <a href="/">{t("DistanceLearning")}</a>
               </div>
-              <div className="link-item">
-                <a href={linkUrl}>{t("portfolio")}</a>
-              </div>
+              {/*<div className="link-item">*/}
+              {/*  <a href={linkUrl}>{t("portfolio")}</a>*/}
+              {/*</div>*/}
               <div className="link-item">
                 <a href="/">{t("OnlineLibrary")}</a>
               </div>
@@ -79,14 +79,14 @@ const Home = () => {
                   <p className="m-0">Войти</p>
                 </button>
               </div>
-              <div className="homeCard">
-                <img src={Home2} alt="" />
-                <h4>{t("portfolio")}</h4>
-                <button className="home-btn">
-                  <CheckCircleOutlineIcon />
-                  <p className="m-0">Войти</p>
-                </button>
-              </div>
+              {/*<div className="homeCard">*/}
+              {/*  <img src={Home2} alt="" />*/}
+              {/*  <h4>{t("portfolio")}</h4>*/}
+              {/*  <button className="home-btn">*/}
+              {/*    <CheckCircleOutlineIcon />*/}
+              {/*    <p className="m-0">Войти</p>*/}
+              {/*  </button>*/}
+              {/*</div>*/}
               <div className="homeCard">
                 <img src={Home3} alt="" />
                 <h4>{t("OnlineLibrary")}</h4>

@@ -87,11 +87,11 @@ const Register = () => {
                 "Accept-Language": localStorage.getItem("lng",) || "uz"
             }
         }).then((response) => {
-            console.log(response.data)
+
             toast.success(response.data.message);
             localStorage.setItem('userId', response.data.user.id)
             localStorage.setItem("token", response.data.authorisation.token)
-            console.log(response.data.authorisation.token)
+
             if ((response.data.status === 'ok')) {
                 setTimeout(() => {
                     navigate("/profile");

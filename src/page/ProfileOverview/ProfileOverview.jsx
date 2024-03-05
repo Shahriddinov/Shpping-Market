@@ -23,6 +23,7 @@ function ProfileOverview() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [status, setStatus] = useState(null);
+  const useToken = localStorage.getItem('token');
 
   const handleChangeLng = (lng) => {
     i18n.changeLanguage(lng);
@@ -73,6 +74,7 @@ function ProfileOverview() {
       .get(`${baseApi}/checkUserById/${id}`, {
         headers: {
           "Accept-Language": language,
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((res) => {

@@ -14,6 +14,7 @@ function CategoryId({ item, IdCategory }) {
     const [directionCategoryId, setDirectionCategoryId] = useState("");
     const [scores, setScores] = useState("");
     const [directionFileId, setDirectionFileID] = useState(null);
+    const useToken = localStorage.getItem('token');
 
     function pdfAll(v) {
         const formData = new FormData();
@@ -28,6 +29,7 @@ function CategoryId({ item, IdCategory }) {
             .post(`${baseApi}/check`, formData, {
                 headers: {
                     "Accept-Language": localStorage.getItem("lng") || "uz",
+                    Authorization : `Bearer ${useToken}`
                 },
             })
             .then((response) => {
@@ -38,7 +40,7 @@ function CategoryId({ item, IdCategory }) {
                 toast.success(response.data.check.admin_permission);
             })
             .catch((error) => {
-                console.log(error);
+
                 toast.error(error.response?.data?.message);
             });
     }
@@ -48,15 +50,16 @@ function CategoryId({ item, IdCategory }) {
             .delete(`${baseApi}/check/${directionFileId}/delete`, {
                 headers: {
                     "Accept-Language": localStorage.getItem("lng") || "uz",
+                    Authorization : `Bearer ${useToken}`
                 },
             })
             .then((response) => {
-                console.log(response);
+
                 setCheck(false);
                 setDirectionFileID(null);
             })
             .catch((error) => {
-                console.log(error);
+
                 toast.error(error.response?.data?.message);
                 setDirectionFileID(null);
             });

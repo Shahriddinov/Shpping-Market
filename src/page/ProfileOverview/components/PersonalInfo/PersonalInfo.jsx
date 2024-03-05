@@ -20,9 +20,15 @@ function PersonalInfo({ obj, imageURL }) {
   const [brithday, setBrithday] = useState("");
   const [pnfl, setPnfl] = useState("");
   const [phone, setPhone] = useState("");
+  const useToken = localStorage.getItem('token');
+
   useEffect(() => {
     axios
-      .get(`${baseApi}/allData/` + id)
+      .get(`${baseApi}/allData/` + id, {
+        headers: {
+          "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization: `Bearer ${useToken}`
+        }})
       .then((response) => {
         setAllName(response.data.user_personal_info.full_name);
         setAllGender(response.data.user_personal_info.gender);

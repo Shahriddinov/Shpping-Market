@@ -54,6 +54,7 @@ function Works() {
   const [jobLess, setJobLess] = useState(false);
   const [jobContinue, setContinue] = useState(false);
   const [workRegion, setWorkRegion] = useState([]);
+  const useToken = localStorage.getItem('token');
 
   const handleChangeLng = (lng) => {
     i18n.changeLanguage(lng);
@@ -113,12 +114,14 @@ function Works() {
         {
           headers: {
             "Accept-Language": localStorage.getItem("lng") || "uz",
+            Authorization : `Bearer ${useToken}`
+
           },
         }
         // console.log(work)
       )
       .then((response) => {
-        console.log("res", response);
+
         if (response.data.status === "ok") {
           setTimeout(() => {
             navigate("/qualification");
@@ -136,6 +139,8 @@ function Works() {
       .get(`${baseApi}/workplace`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
+
         },
       })
       .then((res) => {
@@ -149,11 +154,11 @@ function Works() {
       .get(`${baseApi}/region`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((res) => {
         setWorkRegion(res.data.regions);
-        console.log(res.data.regions);
       });
   }, [localStorage.getItem("lng")]);
 
@@ -274,7 +279,7 @@ function Works() {
                   <Stack spacing={3}>
                     <DesktopDatePicker
                       label={t("startJob")}
-                      inputFormat="MM/DD/YYYY"
+                      inputFormat="DD/MM/YYYY"
                       value={date_start}
                       onChange={setDate_start}
                       className="mb-3"
@@ -368,7 +373,7 @@ function Works() {
                   <Stack spacing={3}>
                     <DesktopDatePicker
                       label={t("fenishJob")}
-                      inputFormat="MM/DD/YYYY"
+                      inputFormat="DD/MM/YYYY"
                       value={date_end}
                       className="workEnd"
                       onChange={setDate_end}

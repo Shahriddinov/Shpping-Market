@@ -17,6 +17,8 @@ function OneEducation({ obj }) {
   const [specializations, setSpecialization] = useState("");
   const [startData, setStartData] = useState("");
   const [endData, setEndData] = useState("");
+  const useToken = localStorage.getItem('token');
+
   const handleNation = (event) => {
     setNation(event.target.value);
   };
@@ -33,6 +35,7 @@ function OneEducation({ obj }) {
       .get(`${baseApi}/region`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {
@@ -54,6 +57,7 @@ function OneEducation({ obj }) {
       .get(`${baseApi}/allData/` + id, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {
@@ -66,7 +70,7 @@ function OneEducation({ obj }) {
       });
   }
 
-  console.log(regionOne);
+
 
   return (
     <div className="background-job">

@@ -41,7 +41,7 @@ function Profile() {
     frame: false,
     eText: "",
   };
-
+  const useToken = localStorage.getItem('token');
   const [eEmail, setEEmail] = useState(initialError);
   const [eNumber, setENumber] = useState(initialError);
 
@@ -81,6 +81,7 @@ function Profile() {
       .post(`${baseApi}/personal`, info, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {

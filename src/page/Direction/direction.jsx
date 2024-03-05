@@ -44,6 +44,7 @@ const Direction = (props) => {
   const [IdCategory, setIdCategory] = useState("");
   const [check, setCheck] = useState("");
   const [allScore, setAllScore] = useState(0);
+  const useToken = localStorage.getItem('token');
 
   const notify = () => toast("Wow so easy!");
 
@@ -78,11 +79,12 @@ const Direction = (props) => {
       .get(`${baseApi}/direction `, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {
         setDirection(response.data.direction);
-        console.log("hello", response.data.direction.id);
+
       });
   }
 
@@ -91,6 +93,7 @@ const Direction = (props) => {
       .get(`${baseApi}/directionCategory`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {
@@ -98,14 +101,14 @@ const Direction = (props) => {
           if (Number(v.direction_id) === e) return v;
         });
         setDirectionCategory(d);
-        console.log("hello", d);
+
       });
     setIdCategory(e);
   }
 
   const dataOne = (e) => {
     handleChangeTwo(e);
-    console.log(e);
+
   };
 
   return (
@@ -128,7 +131,7 @@ const Direction = (props) => {
                 onChange={(e) => dataOne(e.target.value)}
               >
                 {direction?.map((item, index) => {
-                  console.log(item.id);
+
                   return (
                     <MenuItem key={index} value={item.id}>
                       {item.title}

@@ -21,6 +21,7 @@ const JobAbout = () => {
   const [workName, setWorkName] = useState("");
   const [workEnd, setWorkEnd] = useState("");
   const [nation, setNation] = useState("");
+  const useToken = localStorage.getItem('token');
 
   const handleNation = (event) => {
     setNation(event.target.value);
@@ -30,6 +31,7 @@ const JobAbout = () => {
       .get(`${baseApi}/allData/` + id, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {
@@ -55,6 +57,7 @@ const JobAbout = () => {
       .get(`${baseApi}/region`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {

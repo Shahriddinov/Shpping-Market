@@ -86,6 +86,7 @@ const AllInformation = () => {
   const [isBall, setBall] = useState(false);
   const [mainInfo, setMainInfo] = useState([]);
   const [verified, setVerified] = useState([]);
+  const useToken = localStorage.getItem('token');
 
   function getItem(label, key, icon, children) {
     return {
@@ -113,10 +114,11 @@ const AllInformation = () => {
       .get(`${baseApi}/evaluate/` + id, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {
-        console.log(response.data.data);
+
         setMainInfo(response.data.data);
         toast.success(response.data.Message);
       })
@@ -130,6 +132,7 @@ const AllInformation = () => {
       .get(`${baseApi}/statisticUserById/${id}`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`,
           user_id: id,
         },
       })
@@ -184,7 +187,7 @@ const AllInformation = () => {
                     : `background-job__drop-down`
                 }
               >
-                {console.log(mainInfo)}
+
                 {mainInfo?.map((item, index) => (
                   <div key={index.toString()} className="form-group">
                     <div className="subjectName">
@@ -194,7 +197,7 @@ const AllInformation = () => {
                     </div>
                     <div className="subjectBall">
                       {item.direction_category_name}
-                      {console.log('hello', item.direction_name)}
+
 
                       <Chip className="chip" label={item.score} />
                     </div>

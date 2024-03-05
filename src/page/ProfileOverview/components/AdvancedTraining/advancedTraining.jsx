@@ -18,6 +18,8 @@ const AdvancedTraining = () => {
   const [trainingStart, setSetTrainingStart] = useState("");
   const [trainingEnd, setSetTrainingEnd] = useState("");
   const [regionName, setRegionName] = useState("");
+  const useToken = localStorage.getItem('token');
+
   const handleNation = (event) => {
     setNation(event.target.value);
   };
@@ -27,10 +29,11 @@ const AdvancedTraining = () => {
       .get(`${baseApi}/allData/` + id, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {
-        console.log(response);
+
         setRegionsTwo(response.data.user_training[0].region_id);
         setGetAdopted(response.data.user_training[0].fillial_id);
         setDirection(response.data.user_training[0].direction);
@@ -48,6 +51,7 @@ const AdvancedTraining = () => {
       .get(`${baseApi}/region`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {
@@ -70,6 +74,7 @@ const AdvancedTraining = () => {
       .get(`${baseApi}/filial`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+          Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {

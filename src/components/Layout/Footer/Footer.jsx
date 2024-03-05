@@ -51,24 +51,24 @@ const Footer = () => {
                                 ko‘chasi,27 uy
                             </div>
                         </div>
-                        <div className="footerInfo">
-                            <div className="infoTitle">{t("companyInfo")}</div>
-                            <Link to="/profileOver">
-                                <div className="infoText">{t("profile")}</div>
-                            </Link>
-                            <Link to="/">
-                            <div className="infoText">{t("gallery")}</div>
-                            </Link>
-                            <Link to="/allPdf">
-                            <div className="infoText">{t("portfolio")}</div>
-                            </Link>
-                            <Link to="/loginIn">
-                            <div className="infoText">{t("login")}</div>
-                            </Link>
-                            <Link to="/">
-                            <div className="infoText">{t("setting")}</div>
-                            </Link>
-                        </div>
+                        {/*<div className="footerInfo">*/}
+                        {/*    <div className="infoTitle">{t("companyInfo")}</div>*/}
+                        {/*    <Link to="/profileOver">*/}
+                        {/*        <div className="infoText">{t("profile")}</div>*/}
+                        {/*    </Link>*/}
+                        {/*    <Link to="/">*/}
+                        {/*    <div className="infoText">{t("gallery")}</div>*/}
+                        {/*    </Link>*/}
+                        {/*    <Link to="/allPdf">*/}
+                        {/*    <div className="infoText">{t("portfolio")}</div>*/}
+                        {/*    </Link>*/}
+                        {/*    <Link to="/loginIn">*/}
+                        {/*    <div className="infoText">{t("login")}</div>*/}
+                        {/*    </Link>*/}
+                        {/*    <Link to="/">*/}
+                        {/*    <div className="infoText">{t("setting")}</div>*/}
+                        {/*    </Link>*/}
+                        {/*</div>*/}
                         <div className="footerApp">
                             <img src={FooterImg} alt=""/>
                         </div>

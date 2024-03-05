@@ -15,7 +15,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Imgs from "../../assets/images/avatar.png";
 import Toast from "light-toast";
-import { baseApi } from "../../services/api";
+import {baseApi, baseApiImg} from "../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -24,7 +24,9 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
   const id = localStorage.getItem("userId");
   const [allName, setAllName] = useState([]);
   const [photos, setPhotos] = useState("");
-  const navigate = useNavigate();
+    const useToken = localStorage.getItem('token');
+
+    const navigate = useNavigate();
     const handleClose= ()=>{
         window.history.back();
         localStorage.clear();
@@ -32,7 +34,11 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
     }
   useEffect(() => {
     axios
-      .get(`${baseApi}/allData/` + id)
+      .get(`${baseApi}/allData/` + id, {
+          headers: {
+              "Accept-Language": localStorage.getItem("lng") || "uz",
+              Authorization : `Bearer ${useToken}`
+          }})
       .then((response) => {
         // console.log(response.data.user_avatar.photo);
         setPhotos(response.data.user_avatar.photo);
@@ -63,7 +69,7 @@ function ProfileSidebar({ items, userName, userPic, admin }) {
           classname="userImg"
           pictureURL={
             photos
-              ? `${baseApi}/storage/${photos}`
+              ? `${baseApiImg}/${photos}`
               : userPic
           }
         />

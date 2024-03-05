@@ -38,6 +38,7 @@ function Qualification() {
     const [trainingRegion, setTrainingRegion] = useState([]);
     const [getFillialTraining ,setGetFillialTraining] = useState([]);
     const navigate = useNavigate();
+    const useToken = localStorage.getItem('token');
 
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
@@ -57,10 +58,11 @@ function Qualification() {
             .post(`${baseApi}/training`, train, {
                 headers: {
                     "Accept-Language": localStorage.getItem("lng") || "uz",
+                    Authorization : `Bearer ${useToken}`
                 },
             })
             .then((response) => {
-                console.log(response.data);
+
                 if (response.data.status === "ok") {
                     setTimeout(() => {
                         navigate(`/profileOver`);
@@ -77,21 +79,25 @@ function Qualification() {
             .get(`${baseApi}/region`, {
                 headers: {
                     "Accept-Language": localStorage.getItem("lng") || "uz",
+                    Authorization : `Bearer ${useToken}`
+
                 },
             })
             .then((res) => {
                 setTrainingRegion(res.data.regions);
-                console.log(res.data.regions);
+
             });
     }, [localStorage.getItem("lng")]);
     useEffect(()=>{
         axios.get(`${baseApi}/filial`, {
             headers: {
-                "Accept-Language": localStorage.getItem("lng",) || "uz"
+                "Accept-Language": localStorage.getItem("lng",) || "uz",
+                Authorization : `Bearer ${useToken}`
+
             }
         }).then((response)=>{
             setGetFillialTraining(response.data.filial)
-            console.log(response.data.filial)
+
         })
     },[])
 

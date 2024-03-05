@@ -16,6 +16,7 @@ function Avatar(props) {
   const [photoError, setPhotoError] = useState("");
   const [imgId, setImgId] = useState("");
   const [photoAddress, setPhotoAddress] = useState();
+    const useToken = localStorage.getItem('token');
 
   const imgUpload = (v) => {
     let formData = new FormData();
@@ -37,7 +38,11 @@ function Avatar(props) {
 
   useEffect(() => {
     axios
-      .get(`${baseApi}/allData/` + id)
+      .get(`${baseApi}/allData/` + id, {
+          headers: {
+              "Accept-Language": localStorage.getItem("lng") || "uz",
+              Authorization : `Bearer ${useToken}`
+          }})
       .then((response) => {
         setImgId(response.data.user_avatar.id);
         setPhotoAddress(response.data.user_avatar.photo);
@@ -52,6 +57,7 @@ function Avatar(props) {
       .delete(`${baseApi}/avatar/${imgId}/delete`, {
         headers: {
           "Accept-Language": localStorage.getItem("lng") || "uz",
+            Authorization : `Bearer ${useToken}`
         },
       })
       .then((response) => {

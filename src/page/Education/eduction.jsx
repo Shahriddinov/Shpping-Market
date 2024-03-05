@@ -38,6 +38,7 @@ const Education = () => {
     const [nameEducations, setNameEducations] = useState([]);
     const [selectedEducationName, setSelectedEducationName] = useState('')
     const [regionse, setRegionse] = useState([])
+    const useToken = localStorage.getItem('token');
 
     const navigate = useNavigate();
 
@@ -58,7 +59,8 @@ const Education = () => {
         }
         axios.post(`${baseApi}/education`, education, {
             headers: {
-                "Accept-Language": localStorage.getItem("lng",) || "uz"
+                "Accept-Language": localStorage.getItem("lng",) || "uz",
+                Authorization : `Bearer ${useToken}`
             }
         }).then((response) => {
             console.log(response.data);
@@ -82,7 +84,8 @@ const Education = () => {
     function university() {
         axios.get(`${baseApi}/educationname`, {
             headers: {
-                "Accept-Language": localStorage.getItem("lng",) || "uz"
+                "Accept-Language": localStorage.getItem("lng",) || "uz",
+                Authorization : `Bearer ${useToken}`
             }
         }).then(res => {    
             setNameEducations(res.data.educationName)
@@ -92,7 +95,8 @@ const Education = () => {
     useEffect(()=>{
         axios.get(`${baseApi}/region`,{
             headers: {
-                "Accept-Language": localStorage.getItem("lng",) || "uz"
+                "Accept-Language": localStorage.getItem("lng",) || "uz",
+                Authorization : `Bearer ${useToken}`
             }
         }).then(res=>{
             setRegionse(res.data.regions)

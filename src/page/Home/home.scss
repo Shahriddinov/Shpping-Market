@@ -127,9 +127,11 @@
     }
   }
   .row{
-    gap: 30px;
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
     .homeCard{
-      width: 23%;
+      width: 25%;
       text-align: center;
       padding-bottom: 30px;
       background: #FFFFFF;
@@ -143,18 +145,22 @@
       &:nth-child(1){
         padding-top:54px;
         img{
+          height: 220px;
           margin-bottom: 26px;
         }
       }
       &:nth-child(2){
         padding-top:40px;
         img{
+          height: 250px;
           margin-bottom: 11px;
         }
       }
       &:nth-child(3){
         padding-top: 16px;
         img{
+          height: 250px;
+
           margin-bottom: 18px;
         }
       }
