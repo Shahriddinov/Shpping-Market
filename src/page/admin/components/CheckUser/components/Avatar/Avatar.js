@@ -31,7 +31,7 @@ function Avatar(props) {
         // }
       })
       .catch((error) => {
-        toast.error(error.response?.data?.message);
+        // toast.error(error.response?.data?.message);
       });
   };
 
@@ -44,10 +44,10 @@ function Avatar(props) {
         setPhotos(response.data.user_avatar.photo);
       })
       .catch((error) => {
-        toast.error(error.response?.data?.message);
+        // toast.error(error.response?.data?.message);
       });
   }, []);
-  console.log(photos);
+  // console.log(photos);
 
   function deleteImg() {
     axios
@@ -60,7 +60,7 @@ function Avatar(props) {
         toast.success(SUCCESS);
       })
       .catch((error) => {
-        toast.error(error.response?.data?.message);
+        // toast.error(error.response?.data?.message);
       });
   }
 

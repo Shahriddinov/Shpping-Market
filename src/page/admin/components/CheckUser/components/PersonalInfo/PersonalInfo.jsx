@@ -28,20 +28,17 @@ function PersonalInfo({ obj, imageURL }) {
         },
       })
       .then((response) => {
-        console.log("user", response.data);
         setAllName(response.data.user[0].user_name);
         setAllGender(response.data.user[0].gender);
         setAllPasport(response.data.user[0].pasport_seria);
         setAllPasport_seria(response.data.user[0].pasport_seria_code);
         setEducation(response.data.user[0].education_specialization);
-        console.log(response.data.user[0].education_specialization);
         setEmail(response.data.user[0].email);
         setNational(response.data.user[0].nationality);
         setBrithday(response.data.user[0].birth_date);
         setPnfl(response.data.user[0].pnfl);
         setPhone(response.data.user[0].phone);
         setEducations(response.data.user[0].education[0]);
-        console.log(response.data.user[0].education[0]);
       });
   }, []);
 

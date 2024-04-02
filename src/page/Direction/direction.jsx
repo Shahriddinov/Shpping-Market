@@ -126,18 +126,21 @@ const Direction = (props) => {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
+                // slotProps={{ listbox: { style:{width:"50%"} } }}
                 // value={direction}
                 label={t("allDirections")}
                 onChange={(e) => dataOne(e.target.value)}
               >
-                {direction?.map((item, index) => {
 
-                  return (
-                    <MenuItem key={index} value={item.id}>
-                      {item.title}
-                    </MenuItem>
-                  );
-                })}
+
+                 {direction?.map((item, index) => {
+
+                   return (
+                       <MenuItem  key={index} value={item.id}>
+                         {item.title}
+                       </MenuItem>
+                   );
+                 })}
               </Select>
             </FormControl>
           </Box>

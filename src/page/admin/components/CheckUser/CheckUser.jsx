@@ -66,9 +66,7 @@ function CheckUser() {
           navigate(`/adminProfile/checkPdf/${id}`);
         }
 
-        toast.success(response.data.message);
 
-        console.log(response);
       });
   }
   const userInformations = {

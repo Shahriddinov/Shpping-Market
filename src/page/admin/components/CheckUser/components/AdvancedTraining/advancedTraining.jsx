@@ -35,7 +35,7 @@ const AdvancedTraining = () => {
         setDirection(response.data.user[0].training[0].direction);
         setSetTrainingStart(response.data.user[0].training[0].date_start);
         setSetTrainingEnd(response.data.user[0].training[0].date_end);
-        console.log(response.data.user[0].training[0].fillial_id);
+        // console.log(response.data.user[0].training[0].fillial_id);
       });
   }, []);
   useEffect(() => {
@@ -59,7 +59,6 @@ const AdvancedTraining = () => {
         });
       })
       .catch((error) => {
-        toast.error(error.response?.data?.message);
       });
   }
   function getFillial() {
@@ -80,7 +79,6 @@ const AdvancedTraining = () => {
         });
       })
       .catch((error) => {
-        toast.error(error.response?.data?.message);
       });
   }
 

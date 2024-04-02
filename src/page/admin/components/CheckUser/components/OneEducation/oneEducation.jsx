@@ -44,7 +44,7 @@ function OneEducation({ obj }) {
         });
       })
       .catch((error) => {
-        toast.error(error.response?.data?.message);
+        // toast.error(error.response?.data?.message);
       });
   }
 
@@ -65,7 +65,7 @@ function OneEducation({ obj }) {
       });
   }
 
-  console.log(regionOne);
+  // console.log(regionOne);
 
   return (
     <div className="background-job">
